@@ -3,4 +3,25 @@
     <string name="Near_to_you">"NEAR TO YOU "</string>
     <string name="text">"we help you find your opportunity and  "</string>
     <string name="text2">save your time.</string>
+    <string name="login">Login</string>
+    <string name="mail">E-mail</string>
+    <string name="pass">Password</string>
+    <string name="textviewweb">Use other methods</string>
+    <string name="signup">Don\'t have an account ?</string>
+    <string name="textviewlog">Already</string>
+    <string name="textviewlog2">have an</string>
+    <string name="textviewlog3">account ?</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signupforg">Sign up</string>
+    <string name="forgpass">Forgot your password?</string>
+    <string name="donthave">Don\'t have an account?</string>
+    <string name="button1">Patient</string>
+    <string name="button2">Donor</string>
+    <string name="textview1">Do you want to be a donor ?</string>
+    <string name="textview2">Or</string>
+    <string name="textview3">Are you looking for a donor.</string>
+    <string name="sub">Submit</string>
+    <string name="textview">Please enter your data :</string>
+    <string name="welcome">"Welcome . . "</string>
 </resources>
