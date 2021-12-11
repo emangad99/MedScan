@@ -3,26 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_button_home.xml" value="0.2703125" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_button_home2.xml" value="0.2703125" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custominput.xml" value="0.2703125" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_details_patient.xml" value="0.264" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_home.xml" value="0.264" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_success_reset_pass.xml" value="0.21516754850088182" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp-land/activity_register.xml" value="0.16331994645247658" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp-land/activity_success_reset_pass.xml" value="0.2" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_register.xml" value="0.1598360655737705" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_success_reset_pass.xml" value="0.2" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_details_patient.xml" value="0.4" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_home.xml" value="0.2" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_success_reset_pass.xml" value="0.21195652173913043" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_test.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_details_patient.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_forget_password.xml" value="0.21516754850088182" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_home.xml" value="0.21516754850088182" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_success_reset_pass.xml" value="0.21516754850088182" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_welcome.xml" value="0.45185185185185184" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-night/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw320dp-land/activity_main.xml" value="0.21516754850088182" />
@@ -30,13 +17,50 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw320dp/activity_welcome.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw480dp-land/activity_welcome.xml" value="0.16331994645247658" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw480dp/activity_welcome.xml" value="0.2" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp-land/activity_forget_password.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp-land/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp-land/activity_success_reset_pass.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_forget_password.xml" value="0.6" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_success_reset_pass.xml" value="0.37014563106796117" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_details_patient.xml" value="0.264" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_forget_password.xml" value="0.264" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_welcome.xml" value="0.4" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_success_reset_pass.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable/backgroung.xml" value="0.2703125" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable/custom_icon.xml" value="0.2703125" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable/custom_input.xml" value="0.2703125" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-land/activity_forget_password.xml" value="0.21516754850088182" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-land/activity_main.xml" value="1.074013157894737" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-land/activity_register.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-land/activity_success_reset_pass.xml" value="0.21516754850088182" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-land/activity_welcome.xml" value="0.8800000000000001" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw320dp-land/activity_main.xml" value="0.21516754850088182" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw320dp-land/activity_welcome.xml" value="0.1424162257495591" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw320dp/activity_welcome.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw480dp-land/activity_welcome.xml" value="0.10809906291834002" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw480dp/activity_welcome.xml" value="0.126171875" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw600dp-land/activity_forget_password.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw600dp-land/activity_register.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw600dp-land/activity_success_reset_pass.xml" value="0.4" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw600dp/activity_forget_password.xml" value="0.2" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw600dp/activity_register.xml" value="0.4" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-sw600dp/activity_success_reset_pass.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-w600dp-land/activity_forget_password.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout-w600dp/activity_register.xml" value="0.21516754850088182" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_forget_password.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_login.xml" value="0.16822916666666668" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_main.xml" value="0.16822916666666668" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_success_reset_pass.xml" value="0.264" />
+        <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
       </map>
     </option>
   </component>

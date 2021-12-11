@@ -7,64 +7,47 @@
     tools:context=".DetailsPatientActivity">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress7"
+        android:id="@+id/txt_name"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/custominput"
+        android:ems="10"
+        android:hint=" Name"
+        android:inputType="textEmailAddress"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textEmailAddress"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress8"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/custominput"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:ems="10"
-        android:hint="Blood Type"
-        android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress9" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress9"
+        android:id="@+id/txt_blood_type"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/custominput"
         android:ems="10"
+        android:hint=" Blood Type"
+        android:inputType="textEmailAddress"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:hint="Phone"
-        android:inputType="textEmailAddress"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress10" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_phone" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress10"
+        android:id="@+id/txt_phone"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/custominput"
         android:ems="10"
-        android:hint="Address"
+        android:hint=" Phone"
         android:inputType="textEmailAddress"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -72,32 +55,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_address" />
 
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="394dp"
-        android:layout_height="308dp"
-        android:layout_marginEnd="-80dp"
+    <EditText
+        android:id="@+id/txt_address"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custominput"
+        android:ems="10"
+        android:hint=" Address"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/and" />
-
-    <ImageView
-        android:id="@+id/imageView24"
-        android:layout_width="297dp"
-        android:layout_height="202dp"
-        android:layout_marginStart="-90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/unknown" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="245dp"
-        android:layout_height="210dp"
+        android:layout_width="290dp"
+        android:layout_height="326dp"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,42 +87,43 @@
         app:srcCompat="@drawable/details" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_submit"
         android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/custom_button"
         android:text="@string/sub"
         android:textColor="@color/color3"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_blood_type" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="313dp"
         android:layout_height="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="316dp"
         android:text="@string/textview"
         android:textColor="@color/color2"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="212dp"
         android:layout_height="26dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="152dp"
         android:text="Hi Patient .."
         android:textColor="@color/color2"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintHorizontal_bias="0.613"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView25" />
 
