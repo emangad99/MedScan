@@ -67,6 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
                     txtEmail.setError("Email is required");
                     return;
                 }
+                if (password.isEmpty()) {
+                    txtLastName.setError("Last Password is required");
+                    txtLastName.requestFocus();
+                }
                 if (!password.matches(pw)) {
                     txtPass.setError("Password must contain at least 8 and must contain Upper case, Lower case,Numbers and signs ");
                     txtPass.requestFocus();
