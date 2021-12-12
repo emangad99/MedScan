@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                     txtEmail.requestFocus();
                 }
                 if (!password.matches(pw)) {
-                    txtPass.setError("Password must contain at least 8 and must contain Upper case, Lower case,Numbers and signs");
+                    txtPass.setError("Password must contain at least 8 and must contain Upper case, Lower case,Numbers and signs ");
                     txtPass.requestFocus();
                 }
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
