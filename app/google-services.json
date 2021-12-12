@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "413215403479",
+    "project_id": "medscan-36621",
+    "storage_bucket": "medscan-36621.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413215403479:android:71119c230bd727f0daef92",
+        "android_client_info": {
+          "package_name": "com.example.medscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413215403479-gd8r22j56a9d4hu86j2di17e5458fpjs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrdZs8kVagqCWzuoxSc4T3_bYhdJghyZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413215403479-gd8r22j56a9d4hu86j2di17e5458fpjs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
