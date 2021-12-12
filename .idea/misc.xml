@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_register.xml" value="0.16" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_details_patient.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_forget_password.xml" value="0.21516754850088182" />

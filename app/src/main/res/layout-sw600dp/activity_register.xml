@@ -8,7 +8,7 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/PersonName"
+        android:id="@+id/txt_fname"
         android:layout_width="219dp"
         android:layout_height="60dp"
         android:layout_marginStart="108dp"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fname" />
 
     <Button
         android:id="@+id/btn_signup"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <EditText
-        android:id="@+id/LastName"
+        android:id="@+id/txt_lname"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginStart="5dp"
@@ -88,7 +88,7 @@
         android:paddingEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toEndOf="@+id/PersonName"
+        app:layout_constraintStart_toEndOf="@+id/txt_fname"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

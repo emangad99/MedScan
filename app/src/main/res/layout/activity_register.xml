@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/PersonName"
+        android:id="@+id/txt_fname"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="4dp"
@@ -48,7 +48,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#ACACAC"
-        app:layout_constraintEnd_toStartOf="@+id/LastName"
+        app:layout_constraintEnd_toStartOf="@+id/txt_lname"
         app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fname" />
 
     <TextView
         android:id="@+id/textView9"
@@ -166,7 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_signup" />
 
     <EditText
-        android:id="@+id/LastName"
+        android:id="@+id/txt_lname"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="5dp"
