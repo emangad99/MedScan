@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,10 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnFacebook = findViewById(R.id.Facebook);
         btnGoogle = findViewById(R.id.Google);
         btnTwitter = findViewById(R.id.Twitter);
-        if (fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-            finish();
-        }
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String firstname = txtFirstName.getText().toString();
                 String lastname = txtLastName.getText().toString();
-                String email = txtEmail.getText().toString();
-                String password = txtPass.getText().toString();
+                String email = txtEmail.getText().toString().trim();
+                String password = txtPass.getText().toString().trim();
 
                 if (firstname.isEmpty()) {
                     txtFirstName.setError("First Name is required");
@@ -65,9 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
                     txtLastName.setError("Last Name is required");
                     txtLastName.requestFocus();
                 }
-                if (email.isEmpty()) {
+                if (TextUtils.isEmpty(email)) {
                     txtEmail.setError("Email is required");
-                    txtEmail.requestFocus();
+                    return;
                 }
                 if (!password.matches(pw)) {
                     txtPass.setError("Password must contain at least 8 and must contain Upper case, Lower case,Numbers and signs ");
