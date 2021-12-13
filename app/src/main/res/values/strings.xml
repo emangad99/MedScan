@@ -24,4 +24,5 @@
     <string name="sub">Submit</string>
     <string name="textview">Please enter your data </string>
     <string name="welcome">"Welcome . . "</string>
+    <string name="MedScan">MEDSCAN</string>
 </resources>
