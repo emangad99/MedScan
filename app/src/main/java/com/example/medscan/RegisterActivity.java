@@ -68,11 +68,11 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
                 if (password.isEmpty()) {
-                    txtLastName.setError("Last Password is required");
-                    txtLastName.requestFocus();
+                    txtPass.setError("Password is required");
+                    txtPass.requestFocus();
                 }
                 if (!password.matches(pw)) {
-                    txtPass.setError("Password must contain at least 8 and must contain Upper case, Lower case,Numbers and signs ");
+                    txtPass.setError("Password must contain at least 8 (Upper case, Lower case,Numbers and signs)");
                     txtPass.requestFocus();
                 }
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
