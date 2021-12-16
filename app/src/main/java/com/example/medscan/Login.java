@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ public class Login extends AppCompatActivity {
     Button login;
     FirebaseAuth fAuth;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
+
+    ImageView btn_google;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,17 @@ public class Login extends AppCompatActivity {
         mEmail = findViewById(R.id.txt_email);
         mPassword = findViewById(R.id.txt_password);
         fAuth= FirebaseAuth.getInstance();
+        btn_google=findViewById(R.id.google);
+
+        btn_google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentgoogle = new Intent(Login.this,GoogleAuth.class);
+                intentgoogle.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intentgoogle);
+
+            }
+        });
 
 
 

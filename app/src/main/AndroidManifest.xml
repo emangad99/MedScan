@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedScan">
         <activity
+            android:name=".GoogleAuth"
+            android:exported="true" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
@@ -34,13 +37,13 @@
             android:exported="true" />
         <activity
             android:name=".ForgetPassword"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DetailsPatientActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
