@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                         String mail = resetMail.getText().toString();
                         fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
-                            public void onSuccess(Void unused) {
+                            public void onSuccess(Void avoid) {
                                 Toast.makeText(Login.this,"Reset Link To Your Email",Toast.LENGTH_SHORT).show();
 
                             }
