@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextView signin;
     Button signup;
 
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -42,6 +42,15 @@ public class RegisterActivity extends AppCompatActivity {
         btnFacebook = findViewById(R.id.Facebook);
         btnGoogle = findViewById(R.id.Google);
         btnTwitter = findViewById(R.id.Twitter);
+
+        btnGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentgoogle = new Intent(RegisterActivity.this,GoogleAuth.class);
+                intentgoogle.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intentgoogle);
+            }
+        });
 
 
         signup.setOnClickListener(new View.OnClickListener() {
