@@ -25,4 +25,7 @@
     <string name="textview">Please enter your data </string>
     <string name="welcome">"Welcome . . "</string>
     <string name="MedScan">MEDSCAN</string>
+
+    <string name="facebook_app_id">310036114465229</string>
+    <string name="fb_login_protocol_scheme">fb310036114465229</string>
 </resources>

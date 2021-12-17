@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
     FirebaseAuth fAuth;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
 
-    ImageView btn_google;
+    ImageView btn_google,btn_facebook;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,17 @@ public class Login extends AppCompatActivity {
         mPassword = findViewById(R.id.txt_password);
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
+        btn_facebook=findViewById(R.id.facebook);
+
+        btn_facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentfacebook = new Intent(Login.this,FacebookAuth.class);
+                intentfacebook.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intentfacebook);
+
+            }
+        });
 
         btn_google.setOnClickListener(new View.OnClickListener() {
             @Override

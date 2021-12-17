@@ -51,6 +51,15 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intentgoogle);
             }
         });
+        btnFacebook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intentfacebook = new Intent(RegisterActivity.this,FacebookAuth.class);
+                    intentfacebook.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intentfacebook);
+
+                }
+        });
 
 
         signup.setOnClickListener(new View.OnClickListener() {
