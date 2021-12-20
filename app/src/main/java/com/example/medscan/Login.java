@@ -27,8 +27,6 @@ public class Login extends AppCompatActivity {
     TextView forgotPassword,signup;
     Button login;
     FirebaseAuth fAuth;
-    String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
-
     ImageView btn_google,btn_facebook;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,14 +130,7 @@ public class Login extends AppCompatActivity {
                     mPassword.setError("Password is required");
                     return;
                 }
-                if (password.isEmpty()) {
-                    mPassword.setError("Last Password is required");
-                    mPassword.requestFocus();
-                }
-                if (!password.matches(pw)) {
-                    mPassword.setError("Password must contain at least 8 and must contain Upper case, Lower case,Numbers and signs ");
-                    mPassword.requestFocus();
-                }
+
                 fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
