@@ -10,8 +10,11 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_icon.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custom_input.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/custominput.xml" value="0.2703125" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/feedback.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/ic_email.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/ic_lock.xml" value="0.2703125" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/linear_feedback.xml" value="0.2703125" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/rate.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_details_patient.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_forget_password.xml" value="0.21516754850088182" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-land/activity_home.xml" value="0.21516754850088182" />
@@ -32,6 +35,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout-sw600dp/activity_success_reset_pass.xml" value="0.37014563106796117" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_details_patient.xml" value="0.264" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_feedback.xml" value="0.25" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_forget_password.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_google_auth.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />

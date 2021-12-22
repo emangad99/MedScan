@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedScan">
         <activity
+            android:name=".Feedback"
+            android:exported="true" />
+        <activity
             android:name=".FacebookAuth"
             android:exported="true" />
         <activity

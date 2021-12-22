@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity {
     Button login;
     FirebaseAuth fAuth;
     ImageView btn_google,btn_facebook;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class Login extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
+
+
 
         btn_facebook.setOnClickListener(new View.OnClickListener() {
             @Override

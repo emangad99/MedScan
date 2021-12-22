@@ -27,7 +27,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/custom_button"
         android:text="@string/login"
-        android:textColor="@color/color3"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -42,7 +42,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/useother"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/facebook" />
 
@@ -56,12 +56,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/twitter"
         app:layout_constraintStart_toEndOf="@+id/facebook"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/useother"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/google" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/useother"
         android:layout_width="231dp"
         android:layout_height="31dp"
         android:layout_marginTop="8dp"
@@ -204,7 +204,7 @@
         android:layout_marginEnd="68dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/useother"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/icontwitter" />
 
