@@ -19,10 +19,11 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            app:srcCompat="@drawable/icon2"
-            android:background="@drawable/linear_feedback"
+            
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/logophoto"
+
             />
 
         <TextView
@@ -32,6 +33,7 @@
             android:textColor="@color/color2"
             android:textSize="18sp"
             android:textStyle="bold"
+
             ></TextView>
 
         <TextView

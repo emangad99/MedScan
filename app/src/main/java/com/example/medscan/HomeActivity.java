@@ -32,12 +32,14 @@ NavigationView navigationView;
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         navigationView=findViewById(R.id.navigationview);
+        navigationView.setItemIconTintList(null);
         drawerLayout =findViewById(R.id.drawerlayout);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
