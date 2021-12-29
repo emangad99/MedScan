@@ -63,6 +63,10 @@ NavigationView navigationView;
                         startActivity(new Intent(HomeActivity.this,MainActivity.class));
                         break;
 
+                    case R.id.feedback:
+                        startActivity(new Intent(HomeActivity.this,Feedback.class));
+                        break;
+
 
                 }
                 return false;
