@@ -33,6 +33,10 @@ CallbackManager callbackManager;
         super.onCreate(savedInstanceState);
 
         callbackManager = CallbackManager.Factory.create();
+        mAuth= FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+
+
 
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
         LoginManager.getInstance().registerCallback(callbackManager,

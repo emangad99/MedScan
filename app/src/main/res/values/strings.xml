@@ -26,6 +26,9 @@
     <string name="welcome">"Welcome . . "</string>
     <string name="MedScan">MEDSCAN</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">close navigation drawer</string>
+
     <string name="facebook_app_id">310036114465229</string>
     <string name="fb_login_protocol_scheme">fb310036114465229</string>
     <string name="text1_feedback">Your opinion matters to us !</string>
