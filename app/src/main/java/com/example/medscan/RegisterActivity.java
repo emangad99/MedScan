@@ -119,9 +119,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 String userId =rUser.getUid();
                                 databaseReference=FirebaseDatabase.getInstance().getReference("Users").child(userId);
                                 HashMap<String,String> hashMap = new HashMap<>();
-                                hashMap.put("firstName",firstname);
-                                hashMap.put("lastname",lastname);
-                                hashMap.put("email",email);
+                                hashMap.put("First Name",firstname);
+                                hashMap.put("Last Name",lastname);
+                                hashMap.put("Email",email);
+                                hashMap.put("Password",password);
+
                                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
