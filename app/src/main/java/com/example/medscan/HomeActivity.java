@@ -16,7 +16,7 @@ import com.google.android.material.navigation.NavigationView;
 import org.jetbrains.annotations.NotNull;
 
 public class HomeActivity extends AppCompatActivity {
-Button patient;
+Button patient, donor;
 
 DrawerLayout drawerLayout;
 ActionBarDrawerToggle toggle;
@@ -80,12 +80,23 @@ NavigationView navigationView;
 
 
         patient=findViewById(R.id.btn_patient);
+        donor=findViewById(R.id.btn_donor);
 
         patient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent patient=new Intent(HomeActivity.this,DetailsPatientActivity.class);
                 startActivity(patient);
+            }
+        });
+
+        donor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent donor=new Intent(HomeActivity.this,DetailsDonor.class);
+                startActivity(donor);
+
             }
         });
     }

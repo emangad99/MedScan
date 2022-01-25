@@ -44,7 +44,7 @@
                 app:srcCompat="@drawable/icon2" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btn_donor"
                 android:layout_width="229dp"
                 android:layout_height="54dp"
                 android:layout_marginTop="176dp"
@@ -92,7 +92,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.473"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_donor" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -105,7 +105,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_donor" />
 
             <Button
                 android:id="@+id/btn_patient"
