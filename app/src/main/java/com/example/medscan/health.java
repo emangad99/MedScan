@@ -3,6 +3,7 @@ package com.example.medscan;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -22,6 +23,8 @@ private slideAdapter slideAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health);
+
+
          next = (Button) findViewById(R.id.nxtbtn);
          prev=(Button) findViewById(R.id.prevbtn);
         mSliderviewpager=findViewById(R.id.slideViewPager);

@@ -3,6 +3,7 @@ package com.example.medscan;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +16,6 @@ Button submit;
         setContentView(R.layout.activity_details_patient);
 
         submit=findViewById(R.id.btn_submit);
-
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
