@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class doctors extends AppCompatActivity {
 
     private RelativeLayout mlayout ,mlayout2 ,mlayout3 ,mlayout4 ,mlayout5;
@@ -23,6 +25,8 @@ public class doctors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
+
+        final FloatingActionButton button = findViewById(R.id.fab);
 
         mlayout=(RelativeLayout) findViewById(R.id.relative1);
         mlayout2=(RelativeLayout) findViewById(R.id.relative2);
@@ -142,6 +146,15 @@ public class doctors extends AppCompatActivity {
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(doctors.this , pairs);
                 startActivity(shared5, options.toBundle());
+
+            }
+        });
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(doctors.this,hospital.class));
 
             }
         });

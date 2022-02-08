@@ -7,6 +7,20 @@
     android:background="@color/color1"
     tools:context=".doctors">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/color2"
+        android:src="@drawable/build_icon"
+        app:tint="@color/white"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
     <TextView
         android:id="@+id/textView30"
         android:layout_width="204dp"
@@ -19,7 +33,7 @@
         android:layout_marginEnd="102dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="The best doctors "
+        android:text="Best doctors "
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />

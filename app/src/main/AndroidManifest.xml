@@ -12,21 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedScan">
         <activity
-            android:name=".shared_doc5"
+            android:name=".hospital"
             android:exported="true"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".shared_doc5"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".shared_doc4"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".shared_doc3"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".shared_doc2"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".shared_doc1"
             android:exported="true"
