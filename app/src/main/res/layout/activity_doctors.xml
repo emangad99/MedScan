@@ -7,6 +7,23 @@
     android:background="@color/color1"
     tools:context=".doctors">
 
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="204dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="102dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="The best doctors "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <RelativeLayout
         android:id="@+id/relative1"
         android:layout_width="match_parent"
@@ -29,36 +46,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="134dp"
             android:layout_toEndOf="@+id/doctor1"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:text="Ahmed"
+            android:text="Dr. Nermin Diab"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             android:transitionName="nametransaction" />
-    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="204dp"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="102dp"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="The best doctors "
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/des1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_doc1"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/doctor1"
+            android:text="Kidney and diabetes consultant
+Nephrologist specialized in Adult ..."
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:transitionName="desctransaction" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relative2"
@@ -76,6 +88,37 @@
             android:layout_marginEnd="0dp"
             android:transitionName="imagetransaction2"
             app:srcCompat="@drawable/doc2" />
+
+        <TextView
+            android:id="@+id/nam_doc2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Dr. Maged Habib "
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:transitionName="nametransaction2" />
+
+        <TextView
+            android:id="@+id/des2"
+            android:layout_width="233dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/nam_doc2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/doctor2"
+            android:text="Consultant of Nephrology, Diabetes, Internal Medicine, Immunology ..."
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:transitionName="desctransaction2" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -94,6 +137,33 @@
             android:layout_marginStart="0dp"
             android:transitionName="imagetransaction3"
             app:srcCompat="@drawable/doc3" />
+
+        <TextView
+            android:id="@+id/nam_doc3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/doctor3"
+            android:text="Dr. Samar El-Sayed"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:transitionName="nametransaction3" />
+
+        <TextView
+            android:id="@+id/des3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nam_doc3"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/doctor3"
+            android:text="Internist specialized in Adult Cardiology, Pediatric Cardiology, Adult Gastroenterology and ...."
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:transitionName="desctransaction3" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -112,6 +182,35 @@
             android:layout_marginEnd="0dp"
             android:transitionName="imagetransaction4"
             app:srcCompat="@drawable/doc4" />
+
+        <TextView
+            android:id="@+id/nam_doc4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:text="Dr. Hussain Farouk"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:transitionName="nametransaction4" />
+
+        <TextView
+            android:id="@+id/des4"
+            android:layout_width="259dp"
+            android:layout_height="63dp"
+            android:layout_below="@+id/nam_doc4"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="6dp"
+            android:layout_toStartOf="@+id/doctor4"
+            android:text="Kidney disease, renal insufficiency, nephrolithiasis and immunology, dialysis ..."
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:transitionName="desctransaction4" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -130,5 +229,32 @@
             android:layout_marginStart="0dp"
             android:transitionName="imagetransaction5"
             app:srcCompat="@drawable/doc5" />
+
+        <TextView
+            android:id="@+id/nam_doc5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/doctor5"
+            android:text="Dr. Rania Al-Shall"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:transitionName="nametransaction5" />
+
+        <TextView
+            android:id="@+id/des5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nam_doc5"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/doctor5"
+            android:text="Consultant of nephrology and kidney transplantation and consultant ..."
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:transitionName="desctransaction5" />
     </RelativeLayout>
 </RelativeLayout>

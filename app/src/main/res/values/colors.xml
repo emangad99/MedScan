@@ -13,5 +13,6 @@
     <color name="color4">#FF7364</color>
     <color name="transpatent">#cccccc</color>
     <color name="colorActive">#d4d4d4</color>
+    <color name="gray">#908F8F</color>
 
 </resources>
