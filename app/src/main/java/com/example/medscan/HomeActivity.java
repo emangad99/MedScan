@@ -72,6 +72,11 @@ NavigationView navigationView;
                         startActivity(new Intent(HomeActivity.this,Feedback.class));
                         break;
 
+                    case R.id.recommend:
+                        startActivity(new Intent(HomeActivity.this,doctors.class));
+                        break;
+
+
 
                 }
                 return false;
