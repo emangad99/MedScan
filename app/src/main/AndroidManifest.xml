@@ -12,17 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedScan">
         <activity
+            android:name=".health"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".DetailsDonor"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Feedback"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".FacebookAuth"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GoogleAuth"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,22 +48,28 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SuccessResetPass"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Welcome"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ForgetPassword"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HomeActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".DetailsPatientActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
