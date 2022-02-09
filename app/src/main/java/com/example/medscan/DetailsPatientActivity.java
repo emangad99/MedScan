@@ -18,7 +18,7 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
     //variable
 
-    EditText txtname ,txtblood_type ,txtphone,txtaddress;
+    EditText txtblood_type ,txtphone,txtaddress;
     Button btnsubmit;
     TextView textView16 ,textView23;
 
@@ -30,7 +30,6 @@ public class DetailsPatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_patient);
 
-        txtname=findViewById(R.id.txt_name);
         txtblood_type=findViewById(R.id.txt_blood_type);
         txtaddress=findViewById(R.id.txt_address);
         txtphone=findViewById(R.id.txt_phone);
@@ -45,14 +44,14 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
                //Get  all the values
 
-               String name = txtname.getText().toString();
+
                String address = txtaddress.getText().toString();
                String phone = txtphone.getText().toString();
                String bloodtype = txtblood_type.getText().toString();
 
                //hashmap
                HashMap<String,String> usermap=new HashMap<>();
-               usermap.put("txtname",name);
+
                usermap.put("txtaddress",address);
                usermap.put("txtphone",phone);
                usermap.put("txtblood_type",bloodtype);
