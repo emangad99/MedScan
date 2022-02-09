@@ -69,12 +69,13 @@ NavigationView navigationView;
                         break;
 
                     case R.id.feedback:
-                        startActivity(new Intent(HomeActivity.this,Feedback.class));
-                        break;
-
-                    case R.id.recommend:
                         startActivity(new Intent(HomeActivity.this,doctors.class));
                         break;
+
+
+
+                    
+
 
 
 
@@ -130,6 +131,8 @@ NavigationView navigationView;
                         startActivity(new Intent(HomeActivity.this,Feedback.class));
                         break;
 
+                    case R.id.recommend:
+                        startActivity(new Intent(HomeActivity.this,doctors.class));
 
                 }
                 return false;
