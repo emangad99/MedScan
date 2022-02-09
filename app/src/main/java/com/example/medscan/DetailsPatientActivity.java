@@ -1,15 +1,14 @@
 package com.example.medscan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
@@ -18,12 +17,9 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
     //variable
 
-    EditText txtblood_type ,txtphone,txtaddress;
-    Button btnsubmit;
+    private EditText txtblood_type ,txtphone,txtaddress;
+    private  Button btnsubmit;
     TextView textView16 ,textView23;
-
-    FirebaseDatabase db=FirebaseDatabase.getInstance();
-    DatabaseReference reference=db.getReference().child("patient");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,31 +33,22 @@ public class DetailsPatientActivity extends AppCompatActivity {
         textView16=findViewById(R.id.textView16);
         textView23=findViewById(R.id.textView23);
 
-       btnsubmit.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+       btnsubmit.setOnClickListener(view -> {
+
+           Intent intentdata = new Intent(DetailsPatientActivity.this,health.class);
+           startActivity(intentdata);
+        //hashmap
+           HashMap<String,Object> usermap=new HashMap<String, Object>();
+
+           usermap.put("txtaddress", txtaddress.getText().toString());
+           usermap.put("txtphone",txtphone.getText().toString());
+           usermap.put("txtblood_type",txtblood_type.getText().toString());
+           FirebaseDatabase.getInstance().getReference().child("patient").push().setValue("usermap");
 
 
-               //Get  all the values
+           Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
 
-               String address = txtaddress.getText().toString();
-               String phone = txtphone.getText().toString();
-               String bloodtype = txtblood_type.getText().toString();
-
-               //hashmap
-               HashMap<String,String> usermap=new HashMap<>();
-
-               usermap.put("txtaddress",address);
-               usermap.put("txtphone",phone);
-               usermap.put("txtblood_type",bloodtype);
-
-
-               reference.push().setValue(usermap);
-               Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
-
-                                            
-                                        }
                                     }
 
        );
