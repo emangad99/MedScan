@@ -5,20 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color1"
+    android:id="@+id/root_layout"
     tools:context=".doctors">
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:backgroundTint="@color/color2"
-        android:src="@drawable/build_icon"
-        app:tint="@color/white"
-        tools:ignore="SpeakableTextPresentCheck" />
 
 
     <TextView
@@ -270,5 +258,23 @@ Nephrologist specialized in Adult ..."
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:transitionName="desctransaction5" />
+
     </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="644dp"
+        android:backgroundTint="@color/color2"
+        android:src="@drawable/build_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </RelativeLayout>

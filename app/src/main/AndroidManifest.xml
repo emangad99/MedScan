@@ -14,7 +14,9 @@
         <activity
             android:name=".hospital"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".shared_doc5"
             android:exported="true"
