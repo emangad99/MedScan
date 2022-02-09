@@ -55,10 +55,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".FacebookAuth"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GoogleAuth"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
