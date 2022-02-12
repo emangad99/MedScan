@@ -18,9 +18,8 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
     //variable
 
-     EditText txtblood_type ,txtphone,txtaddress;
+     EditText txtblood_type ,txtphone,txtaddress,full_name;
       Button btnsubmit;
-    TextView textView16 ,textView23;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
@@ -39,8 +38,7 @@ public class DetailsPatientActivity extends AppCompatActivity {
         txtaddress=findViewById(R.id.txt_address);
         txtphone=findViewById(R.id.txt_phone);
         btnsubmit=findViewById(R.id.btn_submit);
-        textView16=findViewById(R.id.textView16);
-        textView23=findViewById(R.id.textView23);
+        full_name=findViewById(R.id.txt_name);
 
        btnsubmit.setOnClickListener(view -> {
 
@@ -56,9 +54,12 @@ public class DetailsPatientActivity extends AppCompatActivity {
            String  address = txtaddress.getText().toString();
            String  phone= txtphone.getText().toString();
            String  blood_type = txtblood_type.getText().toString();
+           String  Full_name = full_name.getText().toString();
+
            userHelper.setAddress(address);
            userHelper.setPhone(phone);
            userHelper.setBlood_type(blood_type);
+           userHelper.setFull_name(Full_name);
            databaseReference.child(blood_type).setValue(userHelper);
 
         //   firebaseDatabase.getInstance().getReference("Users").child("patient").setValue(usermap);

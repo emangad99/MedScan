@@ -17,9 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class DetailsDonor extends AppCompatActivity {
-    EditText blood_type ,phone,address,medical_history;
+    EditText blood_type ,phone,address,medical_history,full_name;
     Button submit;
-    TextView textView1,textView4;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
@@ -39,8 +38,7 @@ public class DetailsDonor extends AppCompatActivity {
         blood_type=findViewById(R.id.txt_blood_type);
         medical_history=findViewById(R.id.txt_blood_type2);
         submit=findViewById(R.id.btn_submit);
-        textView1=findViewById(R.id.textView16);
-        textView4=findViewById(R.id.textView23);
+        full_name=findViewById(R.id.txt_name);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,9 +57,12 @@ public class DetailsDonor extends AppCompatActivity {
                 String  Address =address.getText().toString();
                 String  Phone= phone.getText().toString();
                 String  Blood_type = blood_type.getText().toString();
+                String  Full_name = full_name.getText().toString();
+
                 userHelper.setAddress(Address);
                 userHelper.setPhone(Phone);
                 userHelper.setBlood_type(Blood_type);
+                userHelper.setFull_name(Full_name);
                 databaseReference.child(Blood_type).setValue(userHelper);
 
 

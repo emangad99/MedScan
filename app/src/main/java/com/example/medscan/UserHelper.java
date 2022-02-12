@@ -2,7 +2,7 @@ package com.example.medscan;
 
 public class UserHelper {
 
-    String address,phone,blood_type,medical_history;
+    String address,phone,blood_type,medical_history,full_name;
 
 
 
@@ -39,5 +39,13 @@ public class UserHelper {
 
     public void setMedical_history(String medical_history) {
         this.medical_history = medical_history;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 }
