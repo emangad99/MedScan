@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText txtFirstName ,txtLastName , txtEmail ,txtPass;
+    EditText txtFirstName ,txtLastName , txtEmail ,txtPass, txtpassconfirm;
     ImageView btnGoogle,btnFacebook,btnTwitter;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
     FirebaseAuth fAuth;
@@ -54,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         txtLastName = findViewById(R.id.txt_lname);
         txtEmail = findViewById(R.id.Email);
         txtPass = findViewById(R.id.Password);
+        txtpassconfirm=findViewById(R.id.confirm_Password);
         fAuth = FirebaseAuth.getInstance();
         btnFacebook = findViewById(R.id.Facebook);
         btnGoogle = findViewById(R.id.Google);
@@ -87,6 +88,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String lastname = txtLastName.getText().toString();
                 String email = txtEmail.getText().toString().trim();
                 String password = txtPass.getText().toString().trim();
+                String confirm_password = txtpassconfirm.getText().toString().trim();
+
 
                 if (firstname.isEmpty()) {
                     txtFirstName.setError("First Name is required");
@@ -103,6 +106,16 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(password)) {
                     txtPass.setError("Password is required");
+                    return;
+                }
+                if (confirm_password.isEmpty()){
+                    txtpassconfirm.setError("confirm password is empty");
+                    txtpassconfirm.requestFocus();
+                    return;
+                }
+                if(! password.equals(confirm_password)){
+                    txtpassconfirm.setError("Confirm the password does not match the password");
+                    txtpassconfirm.requestFocus();
                     return;
                 }
                 if (!password.matches(pw)) {
