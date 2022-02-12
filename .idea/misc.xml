@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_details_donor.xml" value="0.17889492753623187" />
-        <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_shared_doc1.xml" value="0.17889492753623187" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/card.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/circle.xml" value="0.2703125" />
@@ -67,6 +65,7 @@
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout-land/activity_details_patient.xml" value="0.2" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout/activity_details_donor.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout/activity_details_patient.xml" value="0.2" />
+        <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout/activity_doctors.xml" value="0.128125" />
         <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable/backgroung.xml" value="0.2703125" />
         <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
