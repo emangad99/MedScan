@@ -35,22 +35,41 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
        btnsubmit.setOnClickListener(view -> {
 
-           Intent intentdata = new Intent(DetailsPatientActivity.this,health.class);
-           startActivity(intentdata);
-        //hashmap
-           HashMap<String,Object> usermap=new HashMap<String, Object>();
+                   String address = txtaddress.getText().toString();
+                   String phone = txtphone.getText().toString();
+                   String bloodType = txtblood_type.getText().toString();
 
-           usermap.put("txtaddress", txtaddress.getText().toString());
-           usermap.put("txtphone",txtphone.getText().toString());
-           usermap.put("txtblood_type",txtblood_type.getText().toString());
-           FirebaseDatabase.getInstance().getReference().child("patient").push().setValue("usermap");
+                   if (address.isEmpty()) {
+                       txtaddress.setError("Please enter your Address");
+                       txtaddress.requestFocus();
+
+                   }
+                   if (phone.isEmpty()) {
+                       txtphone.setError("Please enter your Phone number");
+                       txtphone.requestFocus();
+                   }
+                   if (bloodType.isEmpty()) {
+                       txtblood_type.setError("Please enter your Blood Type");
+                       txtblood_type.requestFocus();
+
+                   } else {
+                       Intent intentdata = new Intent(DetailsPatientActivity.this, health.class);
+                       startActivity(intentdata);
+
+                       //hashmap
+                       HashMap<String, Object> usermap = new HashMap<String, Object>();
+
+                       usermap.put("txtaddress", txtaddress.getText().toString());
+                       usermap.put("txtphone", txtphone.getText().toString());
+                       usermap.put("txtblood_type", txtblood_type.getText().toString());
+                       FirebaseDatabase.getInstance().getReference().child("patient").push().setValue("usermap");
 
 
-           Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
 
-                                    }
-
+                   }
+               }
        );
 
     }

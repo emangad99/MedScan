@@ -36,22 +36,49 @@ public class DetailsDonor extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentdonor = new Intent(DetailsDonor.this,health.class);
-                startActivity(intentdonor);
 
-                //hashmap
-                HashMap<String,Object> usermap=new HashMap<String, Object>();
+                String address1 = address.getText().toString();
+                String phone1 = phone.getText().toString();
+                String bloodType1 = blood_type.getText().toString();
+                String medicalHistory = medical_history.getText().toString();
 
-                usermap.put("Address", address.getText().toString());
-                usermap.put("Phone",phone.getText().toString());
-                usermap.put("Blood_Type",blood_type.getText().toString());
-                usermap.put("Medical_History",medical_history.getText().toString());
-                FirebaseDatabase.getInstance().getReference().child("Donor").push().setValue("usermap");
+                if (address1.isEmpty()) {
+                    address.setError("Please enter your Address");
+                    address.requestFocus();
+
+                }
+                if (phone1.isEmpty()) {
+                    phone.setError("Please enter your Phone number");
+                    phone.requestFocus();
+                }
+                if (bloodType1.isEmpty()) {
+                    blood_type.setError("Please enter your Blood Type");
+                    blood_type.requestFocus();
+
+                }
+                if (medicalHistory.isEmpty()) {
+                    medical_history.setError("Please enter your Medical History ");
+                    medical_history.requestFocus();
+
+                }
+                else {
+
+                    Intent intentdonor = new Intent(DetailsDonor.this, health.class);
+                    startActivity(intentdonor);
+
+                    //hashmap
+                    HashMap<String, Object> usermap = new HashMap<String, Object>();
+
+                    usermap.put("Address", address.getText().toString());
+                    usermap.put("Phone", phone.getText().toString());
+                    usermap.put("Blood_Type", blood_type.getText().toString());
+                    usermap.put("Medical_History", medical_history.getText().toString());
+                    FirebaseDatabase.getInstance().getReference().child("Donor").push().setValue("usermap");
 
 
-                Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
-
+                }
             }
         });
     }
