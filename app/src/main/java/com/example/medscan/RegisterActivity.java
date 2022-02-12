@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView btnGoogle,btnFacebook,btnTwitter;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
     FirebaseAuth fAuth;
-    TextView signin;
+    TextView signin , mtogglepass , mtoggleconfirm;
     Button signup;
 
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://medscan-36621-default-rtdb.firebaseio.com/");
@@ -59,6 +61,94 @@ public class RegisterActivity extends AppCompatActivity {
         btnFacebook = findViewById(R.id.Facebook);
         btnGoogle = findViewById(R.id.Google);
         btnTwitter = findViewById(R.id.Twitter);
+        mtogglepass=findViewById(R.id.togglepassword1);
+        mtoggleconfirm=findViewById(R.id.togglepassword2);
+
+        mtogglepass.setVisibility(View.GONE);
+        txtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        mtoggleconfirm.setVisibility(View.GONE);
+        txtpassconfirm.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+        txtPass.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(txtPass.getText().length()>0){
+                    mtogglepass.setVisibility(View.VISIBLE);
+                }
+                else{
+                    mtogglepass.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txtpassconfirm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(txtpassconfirm.getText().length()>0){
+                    mtoggleconfirm.setVisibility(View.VISIBLE);
+                }
+                else{
+                    mtoggleconfirm.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mtogglepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mtogglepass.getText() == "Show")
+                {
+                    mtogglepass.setText("Hide");
+                    txtPass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    txtPass.setSelection(txtPass.length());
+                }
+                else {
+                    mtogglepass.setText("Show");
+                    txtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    txtPass.setSelection(txtPass.length());
+                }
+            }
+        });
+
+        mtoggleconfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mtoggleconfirm.getText() == "Show")
+                {
+                    mtoggleconfirm.setText("Hide");
+                    txtpassconfirm.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    txtpassconfirm.setSelection(txtpassconfirm.length());
+                }
+                else {
+                    mtoggleconfirm.setText("Show");
+                    txtpassconfirm.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    txtpassconfirm.setSelection(txtpassconfirm.length());
+                }
+            }
+        });
+
+
 
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override

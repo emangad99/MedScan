@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
     EditText mEmail , mPassword;
-    TextView forgotPassword,signup;
+    TextView forgotPassword,signup , mtoggletextview;
     Button login;
     FirebaseAuth fAuth;
     ImageView btn_google,btn_facebook;
@@ -40,6 +43,50 @@ public class Login extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
+        mtoggletextview=findViewById(R.id.togglepassword);
+
+        mtoggletextview.setVisibility(View.GONE);
+        mPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+        mPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(mPassword.getText().length()>0){
+                    mtoggletextview.setVisibility(View.VISIBLE);
+                }
+                else{
+                    mtoggletextview.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        mtoggletextview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mtoggletextview.getText() == "Show")
+                {
+                    mtoggletextview.setText("Hide");
+                    mPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    mPassword.setSelection(mPassword.length());
+                }
+                else
+                {
+                    mtoggletextview.setText("Show");
+                    mPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    mPassword.setSelection(mPassword.length());
+                }
+            }
+        });
 
         btn_facebook.setOnClickListener(new View.OnClickListener() {
             @Override

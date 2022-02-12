@@ -11,7 +11,7 @@
         android:layout_width="304dp"
         android:layout_height="308dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-15dp"
         android:contentDescription="TODO"
         android:scrollbarTrackHorizontal="@drawable/bb"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +41,7 @@
         android:backgroundTintMode="add"
         android:ems="10"
         android:hint="first name"
+        android:textSize="14sp"
         android:inputType="textPersonName"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
@@ -75,7 +76,10 @@
         android:background="@drawable/custom_input"
         android:backgroundTintMode="add"
         android:ems="10"
-        android:hint="   Email"
+        android:hint="Email"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textSize="14sp"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textColorHint="#ACACAC"
@@ -125,16 +129,17 @@
         android:background="@drawable/custom_input"
         android:backgroundTintMode="add"
         android:ems="10"
-        android:hint="   password"
+        android:hint="password"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textSize="14sp"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email"
-        app:passwordToggleEnabled="true"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
 
     <EditText
         android:id="@+id/confirm_Password"
@@ -144,7 +149,10 @@
         android:background="@drawable/custom_input"
         android:backgroundTintMode="add"
         android:ems="10"
-        android:hint="   Confirm password"
+        android:hint="Confirm password"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textSize="14sp"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="#ACACAC"
@@ -195,6 +203,7 @@
         android:inputType="textPersonName"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textSize="14sp"
         android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         app:layout_constraintBottom_toTopOf="@+id/Email"
@@ -243,6 +252,32 @@
         app:layout_constraintStart_toEndOf="@+id/Google"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:srcCompat="@drawable/icontwitter" />
+
+    <TextView
+        android:id="@+id/togglepassword1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="Show"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Password"
+        app:layout_constraintEnd_toEndOf="@+id/Password"
+        app:layout_constraintTop_toTopOf="@+id/Password" />
+
+    <TextView
+        android:id="@+id/togglepassword2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="Show"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/confirm_Password"
+        app:layout_constraintEnd_toEndOf="@+id/confirm_Password"
+        app:layout_constraintTop_toTopOf="@+id/confirm_Password" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

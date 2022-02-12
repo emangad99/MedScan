@@ -182,13 +182,13 @@
         android:inputType="textPassword"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_email"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
     <TextView
         android:id="@+id/textView8"
@@ -214,6 +214,19 @@
         app:layout_constraintTop_toBottomOf="@+id/useother"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/icontwitter" />
+
+    <TextView
+        android:id="@+id/togglepassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="Show"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_password"
+        app:layout_constraintEnd_toEndOf="@+id/txt_password"
+        app:layout_constraintTop_toTopOf="@+id/txt_password" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
