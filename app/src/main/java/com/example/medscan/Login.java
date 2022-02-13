@@ -11,6 +11,9 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,10 +30,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
     EditText mEmail , mPassword;
-    TextView forgotPassword,signup , mtoggletextview;
+    TextView forgotPassword,signup ;
     Button login;
     FirebaseAuth fAuth;
     ImageView btn_google,btn_facebook;
+    boolean passvisible;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,50 +48,32 @@ public class Login extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
-        mtoggletextview=findViewById(R.id.togglepassword);
 
-        mtoggletextview.setVisibility(View.GONE);
-        mPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
-        mPassword.addTextChangedListener(new TextWatcher() {
+        mPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(mPassword.getText().length()>0){
-                    mtoggletextview.setVisibility(View.VISIBLE);
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= mPassword.getRight()-mPassword.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = mPassword.getSelectionEnd();
+                        if(passvisible) {
+                            mPassword.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            mPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            mPassword.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            mPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        mPassword.setSelection(selection);
+                        return true;
+                    }
                 }
-                else{
-                    mtoggletextview.setVisibility(View.GONE);
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+                return false;
             }
         });
-        mtoggletextview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mtoggletextview.getText() == "Show")
-                {
-                    mtoggletextview.setText("Hide");
-                    mPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    mPassword.setSelection(mPassword.length());
-                }
-                else
-                {
-                    mtoggletextview.setText("Show");
-                    mPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    mPassword.setSelection(mPassword.length());
-                }
-            }
-        });
+
 
         btn_facebook.setOnClickListener(new View.OnClickListener() {
             @Override

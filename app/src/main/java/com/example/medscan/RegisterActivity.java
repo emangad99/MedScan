@@ -12,6 +12,9 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,11 +41,10 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView btnGoogle,btnFacebook,btnTwitter;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
     FirebaseAuth fAuth;
-    TextView signin , mtogglepass , mtoggleconfirm;
+    TextView signin ;
     Button signup;
-
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://medscan-36621-default-rtdb.firebaseio.com/");
-
+    boolean passvisible;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,94 +63,56 @@ public class RegisterActivity extends AppCompatActivity {
         btnFacebook = findViewById(R.id.Facebook);
         btnGoogle = findViewById(R.id.Google);
         btnTwitter = findViewById(R.id.Twitter);
-        mtogglepass=findViewById(R.id.togglepassword1);
-        mtoggleconfirm=findViewById(R.id.togglepassword2);
 
-        mtogglepass.setVisibility(View.GONE);
-        txtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        mtoggleconfirm.setVisibility(View.GONE);
-        txtpassconfirm.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
-        txtPass.addTextChangedListener(new TextWatcher() {
+        txtPass.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(txtPass.getText().length()>0){
-                    mtogglepass.setVisibility(View.VISIBLE);
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= txtPass.getRight()-txtPass.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = txtPass.getSelectionEnd();
+                        if(passvisible) {
+                            txtPass.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            txtPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            txtPass.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            txtPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        txtPass.setSelection(selection);
+                        return true;
                 }
-                else{
-                    mtogglepass.setVisibility(View.GONE);
                 }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        txtpassconfirm.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(txtpassconfirm.getText().length()>0){
-                    mtoggleconfirm.setVisibility(View.VISIBLE);
-                }
-                else{
-                    mtoggleconfirm.setVisibility(View.GONE);
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+                return false;
             }
         });
 
-        mtogglepass.setOnClickListener(new View.OnClickListener() {
+        txtpassconfirm.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if(mtogglepass.getText() == "Show")
-                {
-                    mtogglepass.setText("Hide");
-                    txtPass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    txtPass.setSelection(txtPass.length());
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= txtpassconfirm.getRight()-txtpassconfirm.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = txtpassconfirm.getSelectionEnd();
+                        if(passvisible) {
+                            txtpassconfirm.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            txtpassconfirm.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            txtpassconfirm.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            txtpassconfirm.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        txtpassconfirm.setSelection(selection);
+                        return true;
+                        }
                 }
-                else {
-                    mtogglepass.setText("Show");
-                    txtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    txtPass.setSelection(txtPass.length());
-                }
+                return false;
             }
         });
-
-        mtoggleconfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mtoggleconfirm.getText() == "Show")
-                {
-                    mtoggleconfirm.setText("Hide");
-                    txtpassconfirm.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    txtpassconfirm.setSelection(txtpassconfirm.length());
-                }
-                else {
-                    mtoggleconfirm.setText("Show");
-                    txtpassconfirm.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    txtpassconfirm.setSelection(txtpassconfirm.length());
-                }
-            }
-        });
-
-
 
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intentgoogle);
             }
         });
+        
         btnFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
