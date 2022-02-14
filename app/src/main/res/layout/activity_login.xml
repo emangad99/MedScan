@@ -27,6 +27,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/custom_button"
         android:text="@string/login"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +81,7 @@
         android:id="@+id/textView10"
         android:layout_width="199dp"
         android:layout_height="57dp"
+        android:layout_marginStart="-15dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="28dp"
         android:text="@string/textviewlog"
@@ -97,6 +99,7 @@
         android:id="@+id/textView11"
         android:layout_width="218dp"
         android:layout_height="50dp"
+        android:layout_marginStart="-15dp"
         android:layout_marginEnd="16dp"
         android:text="@string/textviewlog2"
         android:textAlignment="center"
@@ -111,6 +114,7 @@
         android:id="@+id/textView12"
         android:layout_width="217dp"
         android:layout_height="62dp"
+        android:layout_marginStart="-15dp"
         android:layout_marginBottom="44dp"
         android:text="@string/textviewlog3"
         android:textAlignment="center"
@@ -124,9 +128,8 @@
 
     <TextView
         android:id="@+id/txt_sign_up"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="28dp"
-        android:layout_marginStart="180dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
         android:text="@string/signupforg"
@@ -134,8 +137,8 @@
         android:textColor="#FF4F5A"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/btn_login3" />
 
     <TextView
@@ -198,7 +201,7 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"

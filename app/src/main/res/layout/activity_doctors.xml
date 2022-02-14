@@ -81,7 +81,7 @@
             android:text="Kidney and diabetes consultant
 Nephrologist specialized in Adult ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction" />
     </RelativeLayout>
 
@@ -132,7 +132,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toStartOf="@+id/doctor2"
             android:text="Consultant of Nephrology, Diabetes, Internal Medicine, Immunology ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction2" />
     </RelativeLayout>
 
@@ -179,7 +179,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toEndOf="@+id/doctor3"
             android:text="Internist specialized in Adult Cardiology, Pediatric Cardiology, Adult Gastroenterology and ...."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction3" />
     </RelativeLayout>
 
@@ -228,7 +228,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toStartOf="@+id/doctor4"
             android:text="Kidney disease, renal insufficiency, nephrolithiasis and immunology, dialysis ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction4" />
     </RelativeLayout>
 
@@ -275,7 +275,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toEndOf="@+id/doctor5"
             android:text="Consultant of nephrology and kidney transplantation and consultant ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction5" />
 
     </RelativeLayout>
@@ -303,6 +303,7 @@ Nephrologist specialized in Adult ..."
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/linear_feedback">
 
     </RelativeLayout>
