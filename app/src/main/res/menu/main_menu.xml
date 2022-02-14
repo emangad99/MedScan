@@ -5,10 +5,6 @@
             android:title="Edit profile"
             android:icon="@drawable/edit_profile"/>
 
-        <item android:id="@+id/credit_card"
-            android:title="Credit Card"
-            android:icon="@drawable/credit"/>
-
         <item android:id="@+id/recommend"
             android:title="Recommend"
             android:icon="@drawable/recommend"/>
@@ -35,6 +31,10 @@
                 <item android:id="@+id/nav_logout"
                     android:title="Logout"
                     android:icon="@drawable/logout" />
+
+                <item android:id="@+id/nav_rate"
+                    android:title="Rate Us"
+                    android:icon="@drawable/star" />
             </menu>
         </item>
     </group>
