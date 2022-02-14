@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color1">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color1"
@@ -31,7 +38,11 @@
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/textView30"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -79,7 +90,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative1"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -129,6 +142,8 @@ Nephrologist specialized in Adult ..."
         android:layout_height="122dp"
         android:layout_below="@+id/relative2"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -173,7 +188,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative3"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -220,7 +237,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative4"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -277,4 +296,16 @@ Nephrologist specialized in Adult ..."
         app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:layout_below="@+id/relative5"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/linear_feedback">
+
+    </RelativeLayout>
+
 </RelativeLayout>
+    </ScrollView>
