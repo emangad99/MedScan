@@ -6,19 +6,22 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        tools:replace="android:supportsRtl"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:theme="@style/Theme.MedScan">
+        android:theme="@style/Theme.MedScan"
+        tools:replace="android:supportsRtl">
+        <activity
+            android:name=".shared_doc6"
+            android:exported="true" />
         <activity
             android:name=".hospital"
             android:exported="true"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Transparent"
-            android:launchMode="singleTask"/>
+            android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".shared_doc5"
             android:exported="true"
@@ -58,15 +61,15 @@
         <activity
             android:name=".FacebookAuth"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GoogleAuth"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -80,27 +83,27 @@
         <activity
             android:name=".Login"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SuccessResetPass"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Welcome"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ForgetPassword"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DetailsPatientActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
