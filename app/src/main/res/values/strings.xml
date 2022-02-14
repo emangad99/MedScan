@@ -33,7 +33,7 @@
     <string name="fb_login_protocol_scheme">fb310036114465229</string>
     <string name="text1_feedback">Your opinion matters to us !</string>
     <string name="text2_feedback">We work super hard to serve you better and</string>
-    <string name="text3_feedback">"would love to know how would you rate "</string>
-    <string name="text4_feedback">our app ?</string>
+    <string name="text3_feedback">would love to know your feedback </string>
+    <string name="text4_feedback">on our app ?</string>
     <string name="submit">Submit</string>
 </resources>
