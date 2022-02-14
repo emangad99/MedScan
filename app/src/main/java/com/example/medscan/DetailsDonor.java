@@ -43,8 +43,6 @@ public class DetailsDonor extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentdonor = new Intent(DetailsDonor.this,health.class);
-                startActivity(intentdonor);
 
                 //hashmap
               //  HashMap<String,Object> usermap=new HashMap<String, Object>();
@@ -58,19 +56,45 @@ public class DetailsDonor extends AppCompatActivity {
                 String  Phone= phone.getText().toString();
                 String  Blood_type = blood_type.getText().toString();
                 String  Full_name = full_name.getText().toString();
+                String  medicalHistory = medical_history.getText().toString();
 
-                userHelper.setAddress(Address);
-                userHelper.setPhone(Phone);
-                userHelper.setBlood_type(Blood_type);
-                userHelper.setFull_name(Full_name);
-                databaseReference.child(Blood_type).setValue(userHelper);
+                if (Address.isEmpty()) {
+                    address.setError("Please enter your Address");
+                    address.requestFocus();
+
+                }
+                if (Phone.isEmpty()) {
+                    phone.setError("Please enter your Phone number");
+                    phone.requestFocus();
+                }
+                if (Blood_type.isEmpty()) {
+                    blood_type.setError("Please enter your Blood Type");
+                    blood_type.requestFocus();
+
+                }
+                if (Full_name.isEmpty()) {
+                    full_name.setError("Please enter Full Name");
+                    full_name.requestFocus();
+
+                }
+                if (medicalHistory.isEmpty()) {
+                    medical_history.setError("If you have ever had any diseases,write them down please..If not, Write Nothing. ");
+                    medical_history.requestFocus();
+
+                }
+                else {
+                    userHelper.setAddress(Address);
+                    userHelper.setPhone(Phone);
+                    userHelper.setBlood_type(Blood_type);
+                    userHelper.setFull_name(Full_name);
+                    databaseReference.child(Blood_type).setValue(userHelper);
+
+                    Intent intentdonor = new Intent(DetailsDonor.this,health.class);
+                    startActivity(intentdonor);
 
 
-
-
-
-                Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
