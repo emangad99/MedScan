@@ -15,7 +15,8 @@
         tools:replace="android:supportsRtl">
         <activity
             android:name=".shared_doc6"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".hospital"
             android:exported="true"
