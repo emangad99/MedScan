@@ -44,7 +44,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/nam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="Sheikh Zayed Specialized Hospital"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/loc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Central Axis, Sheikh Zayed"
+            android:textColor="@color/gray"
+            android:textSize="12dp"
+            />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:srcCompat="@drawable/star2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4.5"
+        android:textColor="@color/black"
+        android:textSize="14dp"/>
+
+</LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card2"
@@ -62,7 +105,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/nam2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="Ghoneim Center at Mansoura University"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mansoura University"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:textSize="12dp"
+                />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/star2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.5"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card3"
@@ -80,7 +166,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card1" />
+        app:layout_constraintTop_toBottomOf="@+id/card1" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/nam3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="Arab Contractors Medical Centre"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="El-Nasr Rd, Al Abageyah, Nasr City, Cairo Governorate"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:textSize="12dp"
+                />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/star2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.1"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card4"
@@ -98,7 +227,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card2" />
+        app:layout_constraintTop_toBottomOf="@+id/card2" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/nam4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="Elite Medical Hospital"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sidi Beshr Bahri, Montaza 2, Alexandria Governorate"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:textSize="12dp"
+                />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/star2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.8"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card5"
@@ -116,7 +288,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card3" />
+        app:layout_constraintTop_toBottomOf="@+id/card3" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/nam5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="As-Salam International Hospital Maadi Branch"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loc5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cairo - Al Wosta, Athar an Nabi, Old Cairo, Cairo Governorate"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:textSize="12dp"
+                />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/star2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.3"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card6"
@@ -134,5 +349,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card4" />
+        app:layout_constraintTop_toBottomOf="@+id/card4" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/nam6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="Nile Hospital"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loc6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="El-Nasr, Hurghada, Red Sea Governorate"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:textSize="12dp"
+                />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/star2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.2"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
