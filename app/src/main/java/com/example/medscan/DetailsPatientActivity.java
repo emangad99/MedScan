@@ -16,15 +16,11 @@ import java.util.HashMap;
 
 public class DetailsPatientActivity extends AppCompatActivity {
 
-    //variable
-
-     EditText txtblood_type ,txtphone,txtaddress,full_name;
-      Button btnsubmit;
+    EditText txtblood_type ,txtphone,txtaddress,full_name;
+    Button btnsubmit;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +38,6 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
        btnsubmit.setOnClickListener(view -> {
 
-
-        //hashmap
-          // HashMap<String,Object> usermap=new HashMap<String, Object>();
-
-          // usermap.put("txtaddress",txtaddress.getText().toString() );
-           //usermap.put("txtphone",txtphone.getText().toString());
-           //usermap.put("txtblood_type",txtblood_type.getText().toString());
 
            String  address = txtaddress.getText().toString();
            String  phone= txtphone.getText().toString();
@@ -86,8 +75,6 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
                Intent intentdata = new Intent(DetailsPatientActivity.this, health.class);
                startActivity(intentdata);
-
-               //   firebaseDatabase.getInstance().getReference("Users").child("patient").setValue(usermap);
 
 
                Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();

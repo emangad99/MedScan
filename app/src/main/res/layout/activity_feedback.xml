@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/rate" />
+            app:srcCompat="@drawable/rate3" />
 
         <TextView
             android:id="@+id/textView7"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/text2_feedback"
-            android:textColor="@color/black"
+            android:textColor = "?android:textColorPrimary"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/text3_feedback"
-            android:textColor="@color/black"
+            android:textColor = "?android:textColorPrimary"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/text4_feedback"
-            android:textColor="@color/black"
+            android:textColor = "?android:textColorPrimary"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

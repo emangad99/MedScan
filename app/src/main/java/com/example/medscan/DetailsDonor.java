@@ -17,21 +17,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class DetailsDonor extends AppCompatActivity {
+
     EditText blood_type ,phone,address,medical_history,full_name;
     Button submit;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_donor);
         firebaseDatabase=FirebaseDatabase.getInstance();
-       databaseReference=firebaseDatabase.getReference("Donors");
-       userHelper = new UserHelper();
+        databaseReference=firebaseDatabase.getReference("Donors");
+        userHelper = new UserHelper();
 
         address=findViewById(R.id.txt_address);
         phone=findViewById(R.id.txt_phone);
@@ -43,14 +42,6 @@ public class DetailsDonor extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //hashmap
-              //  HashMap<String,Object> usermap=new HashMap<String, Object>();
-
-                //usermap.put("Address", address.getText().toString());
-                //usermap.put("Phone",phone.getText().toString());
-                //usermap.put("Blood_Type",blood_type.getText().toString());
-                //usermap.put("Medical_History",medical_history.getText().toString());
 
                 String  Address =address.getText().toString();
                 String  Phone= phone.getText().toString();
