@@ -58,12 +58,14 @@ public class DetailsDonor extends AppCompatActivity {
                 String  Phone= phone.getText().toString();
                 String  Blood_type = blood_type.getText().toString();
                 String  Full_name = full_name.getText().toString();
+                String Medical_history = medical_history.getText().toString();
 
                 userHelper.setAddress(Address);
                 userHelper.setPhone(Phone);
                 userHelper.setBlood_type(Blood_type);
                 userHelper.setFull_name(Full_name);
-                databaseReference.child(Blood_type).setValue(userHelper);
+                userHelper.setMedical_history(Medical_history);
+                databaseReference.child("D").push().setValue(userHelper);
 
 
 
