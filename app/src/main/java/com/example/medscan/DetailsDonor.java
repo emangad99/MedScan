@@ -43,8 +43,6 @@ public class DetailsDonor extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentdonor = new Intent(DetailsDonor.this,health.class);
-                startActivity(intentdonor);
 
                 //hashmap
               //  HashMap<String,Object> usermap=new HashMap<String, Object>();
@@ -60,20 +58,47 @@ public class DetailsDonor extends AppCompatActivity {
                 String  Full_name = full_name.getText().toString();
                 String Medical_history = medical_history.getText().toString();
 
-                userHelper.setAddress(Address);
-                userHelper.setPhone(Phone);
-                userHelper.setBlood_type(Blood_type);
-                userHelper.setFull_name(Full_name);
-                userHelper.setMedical_history(Medical_history);
-                databaseReference.child("D").push().setValue(userHelper);
+                if (Full_name.isEmpty()) {
+                    full_name.setError("Please enter Full Name");
+                    full_name.requestFocus();
+                    return;
+                }
+                if (Address.isEmpty()) {
+                    address.setError("Please enter your Address");
+                    address.requestFocus();
+                    return;
+                }
+                if (Phone.isEmpty()) {
+                    phone.setError("Please enter your Phone number");
+                    phone.requestFocus();
+                    return;
+                }
+                if (Blood_type.isEmpty()) {
+                    blood_type.setError("Please enter your Blood Type");
+                    blood_type.requestFocus();
+                    return;
+                }
+                if (Medical_history.isEmpty()) {
+                    medical_history.setError("Please enter your Blood Type");
+                    medical_history.requestFocus();
+                    return;
+                }
+                else {
+
+                    userHelper.setAddress(Address);
+                    userHelper.setPhone(Phone);
+                    userHelper.setBlood_type(Blood_type);
+                    userHelper.setFull_name(Full_name);
+                    userHelper.setMedical_history(Medical_history);
+                    databaseReference.child("D").push().setValue(userHelper);
+
+                    Intent intentdonor = new Intent(DetailsDonor.this,health.class);
+                    startActivity(intentdonor);
 
 
+                    Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
-
-
-                Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
-
-
+                }
             }
         });
     }

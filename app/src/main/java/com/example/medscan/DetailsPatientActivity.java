@@ -55,22 +55,27 @@ public class DetailsPatientActivity extends AppCompatActivity {
            String  blood_type = txtblood_type.getText().toString();
            String  Full_name = full_name.getText().toString();
 
+           if (Full_name.isEmpty()) {
+               full_name.setError("Please enter Full Name");
+               full_name.requestFocus();
+               return;
+           }
            if (address.isEmpty()) {
                txtaddress.setError("Please enter your Address");
                txtaddress.requestFocus();
+               return;
            }
            if (phone.isEmpty()) {
                txtphone.setError("Please enter your Phone number");
                txtphone.requestFocus();
+               return;
            }
            if (blood_type.isEmpty()) {
                txtblood_type.setError("Please enter your Blood Type");
                txtblood_type.requestFocus();
+               return;
            }
-           if (Full_name.isEmpty()) {
-               full_name.setError("Please enter Full Name");
-               full_name.requestFocus();
-           }
+
            else {
 
                userHelper.setAddress(address);
