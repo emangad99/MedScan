@@ -82,7 +82,7 @@ public class DetailsPatientActivity extends AppCompatActivity {
                userHelper.setPhone(phone);
                userHelper.setBlood_type(blood_type);
                userHelper.setFull_name(Full_name);
-               databaseReference.child(blood_type).setValue(userHelper);
+               databaseReference.push().setValue(userHelper);
 
                Intent intentdata = new Intent(DetailsPatientActivity.this, health.class);
                startActivity(intentdata);

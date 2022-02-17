@@ -90,7 +90,7 @@ public class DetailsDonor extends AppCompatActivity {
                     userHelper.setBlood_type(Blood_type);
                     userHelper.setFull_name(Full_name);
                     userHelper.setMedical_history(Medical_history);
-                    databaseReference.child("D").push().setValue(userHelper);
+                    databaseReference.push().setValue(userHelper);
 
                     Intent intentdonor = new Intent(DetailsDonor.this,health.class);
                     startActivity(intentdonor);
