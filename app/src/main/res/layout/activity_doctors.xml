@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color1">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color1"
@@ -31,7 +38,11 @@
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/textView30"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -70,7 +81,7 @@
             android:text="Kidney and diabetes consultant
 Nephrologist specialized in Adult ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction" />
     </RelativeLayout>
 
@@ -79,7 +90,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative1"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -119,7 +132,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toStartOf="@+id/doctor2"
             android:text="Consultant of Nephrology, Diabetes, Internal Medicine, Immunology ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction2" />
     </RelativeLayout>
 
@@ -128,7 +141,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative2"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -164,7 +179,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toEndOf="@+id/doctor3"
             android:text="Internist specialized in Adult Cardiology, Pediatric Cardiology, Adult Gastroenterology and ...."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction3" />
     </RelativeLayout>
 
@@ -173,7 +188,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative3"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -211,7 +228,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toStartOf="@+id/doctor4"
             android:text="Kidney disease, renal insufficiency, nephrolithiasis and immunology, dialysis ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction4" />
     </RelativeLayout>
 
@@ -220,7 +237,9 @@ Nephrologist specialized in Adult ..."
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:layout_below="@+id/relative4"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/linear_feedback">
 
         <ImageView
@@ -256,7 +275,7 @@ Nephrologist specialized in Adult ..."
             android:layout_toEndOf="@+id/doctor5"
             android:text="Consultant of nephrology and kidney transplantation and consultant ..."
             android:textColor="@color/gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:transitionName="desctransaction5" />
 
     </RelativeLayout>
@@ -267,7 +286,7 @@ Nephrologist specialized in Adult ..."
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="644dp"
         android:backgroundTint="@color/color2"
@@ -277,4 +296,55 @@ Nephrologist specialized in Adult ..."
         app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <RelativeLayout
+        android:id="@+id/relative6"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:layout_below="@+id/relative5"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/linear_feedback">
+
+        <ImageView
+            android:id="@+id/doctor6"
+            android:layout_width="128dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:transitionName="imagetransaction6"
+            app:srcCompat="@drawable/doc6" />
+
+        <TextView
+            android:id="@+id/nam_doc6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:text="Dr. Mohamed Deif"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:transitionName="nametransaction6" />
+
+        <TextView
+            android:id="@+id/des6"
+            android:layout_width="259dp"
+            android:layout_height="63dp"
+            android:layout_below="@+id/nam_doc6"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="6dp"
+            android:layout_toStartOf="@+id/doctor6"
+            android:text="Consultant of Nephrology, Cardiology and Internal Medicine ..."
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            android:transitionName="desctransaction6" />
+    </RelativeLayout>
+
 </RelativeLayout>
+    </ScrollView>

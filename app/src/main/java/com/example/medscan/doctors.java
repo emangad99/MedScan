@@ -15,10 +15,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class doctors extends AppCompatActivity {
 
-    private RelativeLayout mlayout ,mlayout2 ,mlayout3 ,mlayout4 ,mlayout5;
-    private ImageView doc1 , doc2 , doc3 , doc4 , doc5;
-    private TextView namdoc1, namdoc2 ,namdoc3 , namdoc4 ,namdoc5;
-    private TextView desc1, desc2 ,desc3 , desc4 ,desc5;
+    private RelativeLayout mlayout ,mlayout2 ,mlayout3 ,mlayout4 ,mlayout5 , mlayout6;
+    private ImageView doc1 , doc2 , doc3 , doc4 , doc5 , doc6;
+    private TextView namdoc1, namdoc2 ,namdoc3 , namdoc4 ,namdoc5 , namdoc6;
+    private TextView desc1, desc2 ,desc3 , desc4 ,desc5 , desc6;
 
 
     @Override
@@ -33,6 +33,8 @@ public class doctors extends AppCompatActivity {
         mlayout3=(RelativeLayout)findViewById(R.id.relative3);
         mlayout4=(RelativeLayout)findViewById(R.id.relative4);
         mlayout5=(RelativeLayout)findViewById(R.id.relative5);
+        mlayout6=(RelativeLayout)findViewById(R.id.relative6);
+
 
         doc1=(ImageView) findViewById(R.id.doctor1);
         namdoc1=(TextView) findViewById(R.id.name_doc1);
@@ -53,6 +55,10 @@ public class doctors extends AppCompatActivity {
         doc5=(ImageView)findViewById(R.id.doctor5);
         namdoc5=(TextView) findViewById(R.id.nam_doc5);
         desc5=(TextView) findViewById(R.id.des5);
+
+        doc6=(ImageView)findViewById(R.id.doctor6);
+        namdoc6=(TextView) findViewById(R.id.nam_doc6);
+        desc6=(TextView) findViewById(R.id.des6);
 
 
 
@@ -146,6 +152,25 @@ public class doctors extends AppCompatActivity {
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(doctors.this , pairs);
                 startActivity(shared5, options.toBundle());
+
+            }
+        });
+
+        mlayout6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared6 = new Intent(doctors.this,shared_doc6.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc6,"imagetransaction6");
+                pairs[1]= new android.util.Pair(namdoc6,"nametransaction6");
+                pairs[2]= new android.util.Pair(desc6,"desctransaction6");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(doctors.this , pairs);
+                startActivity(shared6, options.toBundle());
 
             }
         });

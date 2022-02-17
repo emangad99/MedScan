@@ -9,7 +9,12 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,11 +41,10 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView btnGoogle,btnFacebook,btnTwitter;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
     FirebaseAuth fAuth;
-    TextView signin;
+    TextView signin ;
     Button signup;
-
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://medscan-36621-default-rtdb.firebaseio.com/");
-
+    boolean passvisible;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,56 @@ public class RegisterActivity extends AppCompatActivity {
         btnGoogle = findViewById(R.id.Google);
         btnTwitter = findViewById(R.id.Twitter);
 
+        txtPass.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= txtPass.getRight()-txtPass.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = txtPass.getSelectionEnd();
+                        if(passvisible) {
+                            txtPass.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            txtPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            txtPass.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            txtPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        txtPass.setSelection(selection);
+                        return true;
+                }
+                }
+                return false;
+            }
+        });
+
+        txtpassconfirm.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= txtpassconfirm.getRight()-txtpassconfirm.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = txtpassconfirm.getSelectionEnd();
+                        if(passvisible) {
+                            txtpassconfirm.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            txtpassconfirm.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            txtpassconfirm.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            txtpassconfirm.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        txtpassconfirm.setSelection(selection);
+                        return true;
+                        }
+                }
+                return false;
+            }
+        });
+
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intentgoogle);
             }
         });
+        
         btnFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

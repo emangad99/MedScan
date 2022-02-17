@@ -42,8 +42,7 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
        btnsubmit.setOnClickListener(view -> {
 
-           Intent intentdata = new Intent(DetailsPatientActivity.this,health.class);
-           startActivity(intentdata);
+
         //hashmap
           // HashMap<String,Object> usermap=new HashMap<String, Object>();
 
@@ -56,19 +55,40 @@ public class DetailsPatientActivity extends AppCompatActivity {
            String  blood_type = txtblood_type.getText().toString();
            String  Full_name = full_name.getText().toString();
 
-           userHelper.setAddress(address);
-           userHelper.setPhone(phone);
-           userHelper.setBlood_type(blood_type);
-           userHelper.setFull_name(Full_name);
-           databaseReference.child(blood_type).setValue(userHelper);
+           if (address.isEmpty()) {
+               txtaddress.setError("Please enter your Address");
+               txtaddress.requestFocus();
+           }
+           if (phone.isEmpty()) {
+               txtphone.setError("Please enter your Phone number");
+               txtphone.requestFocus();
+           }
+           if (blood_type.isEmpty()) {
+               txtblood_type.setError("Please enter your Blood Type");
+               txtblood_type.requestFocus();
+           }
+           if (Full_name.isEmpty()) {
+               full_name.setError("Please enter Full Name");
+               full_name.requestFocus();
+           }
+           else {
 
-        //   firebaseDatabase.getInstance().getReference("Users").child("patient").setValue(usermap);
+               userHelper.setAddress(address);
+               userHelper.setPhone(phone);
+               userHelper.setBlood_type(blood_type);
+               userHelper.setFull_name(Full_name);
+               databaseReference.child(blood_type).setValue(userHelper);
+
+               Intent intentdata = new Intent(DetailsPatientActivity.this, health.class);
+               startActivity(intentdata);
+
+               //   firebaseDatabase.getInstance().getReference("Users").child("patient").setValue(usermap);
 
 
-           Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
+               Toast.makeText(DetailsPatientActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
-
-                                    }
+           }
+       }
 
        );
 

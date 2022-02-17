@@ -7,7 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,10 +30,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
     EditText mEmail , mPassword;
-    TextView forgotPassword,signup;
+    TextView forgotPassword,signup ;
     Button login;
     FirebaseAuth fAuth;
     ImageView btn_google,btn_facebook;
+    boolean passvisible;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,32 @@ public class Login extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
+
+        mPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= mPassword.getRight()-mPassword.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = mPassword.getSelectionEnd();
+                        if(passvisible) {
+                            mPassword.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            mPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            mPassword.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            mPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        mPassword.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
 
         btn_facebook.setOnClickListener(new View.OnClickListener() {
             @Override

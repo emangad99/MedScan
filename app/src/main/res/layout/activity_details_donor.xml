@@ -121,6 +121,7 @@
         android:layout_marginTop="100dp"
         android:background="@drawable/custom_button"
         android:text="@string/sub"
+        android:textAllCaps="false"
         android:textColor="@color/color3"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

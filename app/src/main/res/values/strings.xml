@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MedScan</string>
+    <string name="app_name" translatable="false">MedScan</string>
     <string name="Near_to_you">"NEAR TO YOU "</string>
     <string name="text">"we help you find your opportunity and  "</string>
     <string name="text2">save your time.</string>
@@ -20,11 +20,12 @@
     <string name="button2">Donor</string>
     <string name="textview1">Do you want to be a donor ?</string>
     <string name="textview2">Or</string>
-    <string name="textview3">Are you looking for a donor.</string>
+    <string name="textview3">Are you looking for a donor ?</string>
     <string name="sub">Submit</string>
     <string name="textview">Please enter your data </string>
     <string name="welcome">"Welcome . . "</string>
     <string name="MedScan">MEDSCAN</string>
+    <string name="feedback">Write here if you have any comments..</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">close navigation drawer</string>
@@ -33,7 +34,7 @@
     <string name="fb_login_protocol_scheme">fb310036114465229</string>
     <string name="text1_feedback">Your opinion matters to us !</string>
     <string name="text2_feedback">We work super hard to serve you better and</string>
-    <string name="text3_feedback">"would love to know how would you rate "</string>
-    <string name="text4_feedback">our app ?</string>
+    <string name="text3_feedback">would love to know your feedback </string>
+    <string name="text4_feedback">on our app ?</string>
     <string name="submit">Submit</string>
 </resources>
