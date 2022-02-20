@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
     TextView forgotPassword,signup ;
     Button login;
     FirebaseAuth fAuth;
-    ImageView btn_google,btn_facebook;
+    ImageView btn_google,btn_facebook, btn_twitter;
     boolean passvisible;
 
     @Override
@@ -48,6 +48,7 @@ public class Login extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
+        btn_twitter=findViewById(R.id.twitter);
 
         mPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -91,6 +92,17 @@ public class Login extends AppCompatActivity {
                 Intent intentgoogle = new Intent(Login.this,GoogleAuth.class);
                 intentgoogle.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intentgoogle);
+
+            }
+        });
+
+        btn_twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intenttwitter = new Intent(Login.this,TwitterAuth.class);
+                intenttwitter.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intenttwitter);
+
 
             }
         });
