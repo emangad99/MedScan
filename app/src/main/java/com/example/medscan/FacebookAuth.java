@@ -27,18 +27,16 @@ import java.util.Arrays;
 public class FacebookAuth extends Login {
 CallbackManager callbackManager;
     FirebaseAuth mAuth;
-    FirebaseUser mUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         callbackManager = CallbackManager.Factory.create();
         mAuth= FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
 
 
-
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email"));
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
