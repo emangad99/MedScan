@@ -207,11 +207,22 @@ public class RegisterActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-                                            Intent intent = new Intent(RegisterActivity.this,HomeActivity.class);
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
-                                            startActivity(intent);
-                                            Toast.makeText(RegisterActivity.this, "User created Successfully", Toast.LENGTH_SHORT).show();
+                                            fAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                       //Intent intent = new Intent(RegisterActivity.this,HomeActivity.class);
+                                                       //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+                                                        //startActivity(intent);
+                                                        Toast.makeText(RegisterActivity.this, "User created Successfully..Please check you email for Verification ", Toast.LENGTH_SHORT).show();
+                                                    }else{
+                                                        Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
+
+                                                    }
+
+                                                }
+                                            });
                                         }else {
                                             Toast.makeText(RegisterActivity.this, Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_SHORT).show();
 
