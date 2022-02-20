@@ -94,8 +94,11 @@ public class GoogleAuth extends Login {
     }
 
     private void updateUI(FirebaseUser user) {
+
         Intent intent = new Intent(GoogleAuth.this,HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        Toast.makeText(GoogleAuth.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
     }
 }

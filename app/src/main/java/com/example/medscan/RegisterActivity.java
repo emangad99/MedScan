@@ -133,6 +133,15 @@ public class RegisterActivity extends AppCompatActivity {
                 }
         });
 
+        btnTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intenttwitter = new Intent(RegisterActivity.this,TwitterAuth.class);
+                intenttwitter.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intenttwitter);
+            }
+        });
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
