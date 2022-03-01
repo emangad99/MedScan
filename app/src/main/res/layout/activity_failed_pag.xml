@@ -50,8 +50,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="248dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="408dp"
         android:text="Successful rays !"
         android:textAlignment="center"
@@ -65,9 +65,9 @@
 
     <TextView
         android:id="@+id/textView34"
-        android:layout_width="248dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="488dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
         android:text="you must go to the doctor"
         android:textAlignment="center"
         android:textColor="#FF4F5A"
@@ -76,13 +76,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
         android:id="@+id/textView35"
-        android:layout_width="248dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="448dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
         android:text="your data isn't recorded !"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -91,6 +91,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
