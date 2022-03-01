@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bback"
+    tools:context=".shared_doc6">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="288dp"
+        android:layout_height="378dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="42dp"
+        android:transitionName="imagetransaction6"
+        app:srcCompat="@drawable/pic6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="93dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Dr. Mohamed Deif"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="nametransaction6" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="241dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="-195dp"
+        android:layout_toStartOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5"
+        android:text="Consultant of Nephrology, Cardiology and Internal Medicine . Nephrologist specialized in adult diabetes and endocrinology, general internal medicine, adult kidneys and adult urology"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        android:transitionName="desctransaction6" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/call_icon" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/location_icon" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView7"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/money_icon" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView7"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/imageView8"
+        android:text="200 EGP"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="23dp"
+
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="17dp"
+        android:layout_toEndOf="@+id/imageView7"
+        android:text="Raml Station: Faculty of Medicine"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView5"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="01025830191"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+</RelativeLayout>

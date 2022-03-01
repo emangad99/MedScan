@@ -6,9 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,23 +27,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
     EditText mEmail , mPassword;
-    TextView forgotPassword,signup;
+    TextView forgotPassword,signup ;
     Button login;
     FirebaseAuth fAuth;
-    ImageView btn_google,btn_facebook;
-    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://medscan-36621-default-rtdb.firebaseio.com/");
-    public  String PREFS_NAME = "prefs";
-    public String PREFS_USERNAME = " prefsUserName";
-    public String PREFS_PASSWORD = "prefsPassword";
-
+    ImageView btn_google,btn_facebook, btn_twitter;
+    boolean passvisible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +48,32 @@ public class Login extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
-        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        btn_twitter=findViewById(R.id.twitter);
 
-        String userName = pref.getString(PREFS_USERNAME,"");
-        String password = pref.getString(PREFS_PASSWORD,"");
-
+        mPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right = 2 ;
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    if(event.getRawX()>= mPassword.getRight()-mPassword.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = mPassword.getSelectionEnd();
+                        if(passvisible) {
+                            mPassword.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_off_icon,0);
+                            mPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passvisible=false;
+                        }
+                        else {
+                            mPassword.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.visibility_icon,0);
+                            mPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passvisible=true;
+                        }
+                        mPassword.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
 
         btn_facebook.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +92,17 @@ public class Login extends AppCompatActivity {
                 Intent intentgoogle = new Intent(Login.this,GoogleAuth.class);
                 intentgoogle.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intentgoogle);
+
+            }
+        });
+
+        btn_twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intenttwitter = new Intent(Login.this,TwitterAuth.class);
+                intenttwitter.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intenttwitter);
+
 
             }
         });
@@ -149,23 +177,25 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
-                else {
-                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Intent intent = new Intent(Login.this,HomeActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
-                                startActivity(intent);
-                                Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                                finish();
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            if( fAuth.getCurrentUser().isEmailVerified()){
+                                Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
 
-                            } else {
-                                Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(Login.this,"Please verify your email address" ,Toast.LENGTH_SHORT).show();
+
                             }
+
+                        }else {
+                            Toast.makeText(Login.this,"Error" +task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
+
 
             }
         });

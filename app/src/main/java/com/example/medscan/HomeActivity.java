@@ -6,10 +6,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,6 +29,8 @@ NavigationView navigationView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -69,15 +73,25 @@ NavigationView navigationView;
                         startActivity(new Intent(HomeActivity.this,Feedback.class));
                         break;
 
+                    case R.id.recommend:
+                        startActivity(new Intent(HomeActivity.this,doctors.class));
+                        break;
+
+                    case R.id.about_us:
+                        startActivity(new Intent(HomeActivity.this,Instruction.class));
+                        break;
+
+                    case R.id.edit_profile:
+                        startActivity(new Intent(HomeActivity.this,PatientEdit.class));
+                        break;
+
+
+
 
                 }
                 return false;
             }
         });
-
-
-
-
 
         patient=findViewById(R.id.btn_patient);
         donor=findViewById(R.id.btn_donor);
@@ -102,12 +116,7 @@ NavigationView navigationView;
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nav_logout:
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onBackPressed() {
 
     }
 }

@@ -10,20 +10,19 @@
         android:id="@+id/txt_name"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
         android:background="@drawable/custominput"
         android:ems="10"
-        android:hint=" Name"
+        android:hint=" Full name"
         android:inputType="text"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
         android:id="@+id/txt_blood_type"
@@ -36,13 +35,13 @@
         android:inputType="text"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_phone"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_phone" />
 
     <EditText
         android:id="@+id/txt_phone"
@@ -55,14 +54,13 @@
         android:inputType="phone"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_address"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/txt_address" />
 
     <EditText
         android:id="@+id/txt_address"
@@ -75,13 +73,13 @@
         android:inputType="text"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_name"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <ImageView
         android:id="@+id/imageView25"
