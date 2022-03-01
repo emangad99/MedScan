@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView28"
-        android:layout_width="367dp"
-        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginEnd="19dp"
         android:fontFamily="sans-serif"
@@ -17,39 +17,42 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/color2"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="0.282" />
 
     <TextView
         android:id="@+id/textView20"
-        android:layout_width="321dp"
-        android:layout_height="51dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
         android:fontFamily="sans-serif"
         android:text="we have recorded your data"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="624dp"
+        android:layout_width="410dp"
         android:layout_height="409dp"
         android:layout_marginTop="336dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.699"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/wait" />
 
     <TextView
@@ -60,7 +63,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Waiting .."
         android:textColor="@color/color2"
-        android:textSize="48sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,18 +71,30 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="378dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="36dp"
         android:fontFamily="sans-serif"
-        android:text="we will look for a suitable donor  for you "
+        android:text="We will look for a suitable donor for you "
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/advice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=" For some advice"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        app:layout_constraintVertical_bias="0.884" />
 </androidx.constraintlayout.widget.ConstraintLayout>

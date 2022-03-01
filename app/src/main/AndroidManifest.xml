@@ -106,6 +106,27 @@
             android:exported="true"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".PatientEdit"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".WaitingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".TwitterAuth"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".RayUploaded"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Instruction"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

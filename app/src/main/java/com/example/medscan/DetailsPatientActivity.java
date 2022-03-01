@@ -73,7 +73,7 @@ public class DetailsPatientActivity extends AppCompatActivity {
                userHelper.setFull_name(Full_name);
                databaseReference.push().setValue(userHelper);
 
-               Intent intentdata = new Intent(DetailsPatientActivity.this, health.class);
+               Intent intentdata = new Intent(DetailsPatientActivity.this, WaitingActivity.class);
                startActivity(intentdata);
 
 

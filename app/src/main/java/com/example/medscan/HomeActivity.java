@@ -74,8 +74,15 @@ NavigationView navigationView;
 
                     case R.id.recommend:
                         startActivity(new Intent(HomeActivity.this,doctors.class));
+                        break;
 
-                    case R.id.nav_rate:
+                    case R.id.about_us:
+                        startActivity(new Intent(HomeActivity.this,Instruction.class));
+                        break;
+
+                    case R.id.edit_profile:
+                        startActivity(new Intent(HomeActivity.this,PatientEdit.class));
+                        break;
 
 
 

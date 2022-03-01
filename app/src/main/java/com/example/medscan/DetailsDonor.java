@@ -83,7 +83,7 @@ public class DetailsDonor extends AppCompatActivity {
                     userHelper.setMedical_history(Medical_history);
                     databaseReference.push().setValue(userHelper);
 
-                    Intent intentdonor = new Intent(DetailsDonor.this,health.class);
+                    Intent intentdonor = new Intent(DetailsDonor.this,RayUploaded.class);
                     startActivity(intentdonor);
 
 
