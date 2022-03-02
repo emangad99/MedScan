@@ -70,7 +70,7 @@ public class DetailsDonor extends AppCompatActivity {
                     return;
                 }
                 if (Medical_history.isEmpty()) {
-                    medical_history.setError("Please enter your Blood Type");
+                    medical_history.setError("If you have ever had any diseases , please write them down. if no , write none ");
                     medical_history.requestFocus();
                     return;
                 }
