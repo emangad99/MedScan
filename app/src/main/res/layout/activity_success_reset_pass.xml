@@ -68,14 +68,14 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="207dp"
+        android:layout_width="205dp"
         android:layout_height="48dp"
         android:layout_marginTop="68dp"
         android:background="@drawable/custom_button"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/color3"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="@+id/view4"

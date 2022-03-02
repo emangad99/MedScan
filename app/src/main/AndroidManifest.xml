@@ -14,9 +14,16 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".shared_doc6"
+            android:name=".successful"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity android:name=".failed"
             android:exported="true"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".shared_doc6"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".hospital"
             android:exported="true"
@@ -105,27 +112,26 @@
             android:name=".DetailsPatientActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".PatientEdit"
+        <activity
+            android:name=".PatientEdit"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".WaitingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WaitingActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".TwitterAuth"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TwitterAuth"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".RayUploaded"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RayUploaded"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".Instruction"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Instruction"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

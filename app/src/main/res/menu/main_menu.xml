@@ -33,7 +33,7 @@
                     android:icon="@drawable/logout" />
 
                 <item android:id="@+id/nav_rate"
-                    android:title="Rate Us"
+                    android:title="Rate us"
                     android:icon="@drawable/star" />
             </menu>
         </item>
