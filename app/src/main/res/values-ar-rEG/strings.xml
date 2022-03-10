@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button1">مريض</string>
+    <string name="button2">"دكتور "</string>
+    <string name="textview1" translatable="false">هل انت دكتور وتريد ان تشارك معنا ؟</string>
+    <string name="textview3">تبحث عن نصائح طبية ؟</string>
+    <string name="Near_to_you">"قريبون منك "</string>
+    <string name="text">"نحن نساعدك لتحصل علي فرصه افضل "</string>
+    <string name="text2">"وتحافظ علي وقتك "</string>
+    <string name="get_started">"ابدأ "</string>
+    <string name="reg1">انضم</string>
+    <string name="reg2">إلينا</string>
+    <string name="sign_in">دخول</string>
+    <string name="txt">هل لديك بالفعل حساب ؟</string>
+    <string name="btn_signup">تسجيل</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password2">كلمه المرور</string>
+    <string name="confirm_password">تأكيد كلمه المرور</string>
+    <string name="first">الاسم الأول</string>
+    <string name="last">الاسم الأخير</string>
+    <string name="current_pass">كلمه المرور الحالية</string>
+    <string name="new_pass">كلمه المرور الجديدة</string>
+    <string name="confirm_pass">تأكيد كلمه المرور الجديدة</string>
+    <string name="btn_login">دخول</string>
+    <string name="btn_reset_password">إعادة تعيين كلمة السر</string>
+    <string name="txt_reset">"إعادة تعيين كلمة السر الخاصة بك "</string>
+    <string name="reset">"إعادة تعيين كلمة السر الخاصة بك "</string>
+    <string name="login">"دخول "</string>
+    <string name="mail">البريد الإلكتروني</string>
+    <string name="pass">كلمه المرور</string>
+    <string name="textviewweb">استخدام طرق اخري</string>
+    <string name="signup">ليس لديك حساب</string>
+    <string name="textviewlog">"بالفعل "</string>
+    <string name="textviewlog2">لديك</string>
+    <string name="textviewlog3">حساب ؟</string>
+    <string name="password">كلمة المرور</string>
+    <string name="email2">البريد الإلكتروني</string>
+    <string name="signupforg">"تسجيل "</string>
+    <string name="forgpass">هل نسيت كلمه المرور ؟</string>
+    <string name="donthave">ليس لديك حساب</string>
+    <string name="text_password">يمكنك الأن إستخدام كلمة السر الجديدة</string>
+    <string name="thanks">"شكرا لك ! رأيك يهمنا .. نتمني ان نكون قد ساعدناك "</string>
+    <string name="text1_feedback">رأيك يهمنا ..!</string>
+    <string name="next">التالي</string>
+    <string name="back">السابق</string>
+    <string name="feedback" translatable="false">"اكتب هنا اذا كان لديك بعض التعليقات .. "</string>
+    <string name="profile">الصفحه الشخصية</string>
+    <string name="recommend">"اقتراحات "</string>
+    <string name="about_us">"معلومات عنا "</string>
+    <string name="other">اخري</string>
+    <string name="share">شارك</string>
+    <string name="logout">"تسجيل خروج "</string>
+    <string name="rate_us">"قيمنا "</string>
+    <string name="feedback_menu">رأيك يهمنا</string>
+    <string name="textview2">أم</string>
+    <string name="sub">إرسال</string>
+    <string name="submit">إرسال</string>
+    <string name="successful" translatable="false">تم تعيين كلمة المرور بنجاح</string>
+    <string name="hi_doctor">"اهلا دكتور .. "</string>
+    <string name="textview">"من فضلك اكمل بياناتك "</string>
+    <string name="medical">تخصصك الطبي</string>
+    <string name="address">عنوان العيادة</string>
+    <string name="phone">رقم التليفون</string>
+    <string name="time">وقتك المتاح</string>
+    <string name="inf">معلومات اخري</string>
+    <string name="thank_doctor">شكرا لك لمساعدتنا ! نتمني منك ان تقدم نصائح جيدة للمرضي ..</string>
+    <string name="doctors">أطباء</string>
+    <string name="give">"نقدم لك أفضل الأطباء والمستشفيات    .. "</string>
+    <string name="give2">في المجالات التالية</string>
+</resources>
