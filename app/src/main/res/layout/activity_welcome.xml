@@ -114,34 +114,6 @@
             app:layout_constraintTop_toTopOf="@+id/txt3"
             app:strokeColor="@color/color2" />
 
-        <RelativeLayout
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/custom_input"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/lan_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/transpatent"
-                android:gravity="center"
-                android:text="English"
-                android:textColor="#455A64" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/drop"
-                android:layout_marginRight="10dp"
-                />
-
-        </RelativeLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
