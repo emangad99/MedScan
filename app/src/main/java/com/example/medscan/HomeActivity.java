@@ -74,7 +74,7 @@ NavigationView navigationView;
                         break;
 
                     case R.id.recommend:
-                        startActivity(new Intent(HomeActivity.this,doctors.class));
+                        startActivity(new Intent(HomeActivity.this,best_doctors.class));
                         break;
 
                     case R.id.about_us:
@@ -99,7 +99,7 @@ NavigationView navigationView;
         patient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent patient=new Intent(HomeActivity.this,DetailsPatientActivity.class);
+                Intent patient=new Intent(HomeActivity.this,choose_field.class);
                 startActivity(patient);
             }
         });

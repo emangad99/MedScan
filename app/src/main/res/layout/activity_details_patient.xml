@@ -7,7 +7,7 @@
     tools:context=".DetailsPatientActivity">
 
     <EditText
-        android:id="@+id/txt_name"
+        android:id="@+id/txt_meical"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:background="@drawable/custominput"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
-        android:id="@+id/txt_blood_type"
+        android:id="@+id/txt_time"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_meical" />
 
     <ImageView
         android:id="@+id/imageView25"
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_blood_type" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_time" />
 
     <TextView
         android:id="@+id/textView16"

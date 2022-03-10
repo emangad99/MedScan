@@ -2,27 +2,28 @@ package com.example.medscan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-
 public class DetailsDonor extends AppCompatActivity {
 
-    EditText blood_type ,phone,address,medical_history,full_name;
+    EditText  medical,phone,address,time,other;
     Button submit;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
+    Dialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,16 @@ public class DetailsDonor extends AppCompatActivity {
 
         address=findViewById(R.id.txt_address);
         phone=findViewById(R.id.txt_phone);
-        blood_type=findViewById(R.id.txt_blood_type);
-        medical_history=findViewById(R.id.txt_blood_type2);
+        time=findViewById(R.id.txt_time);
+        other=findViewById(R.id.txt_other);
         submit=findViewById(R.id.btn_submit);
-        full_name=findViewById(R.id.txt_name);
+        medical=findViewById(R.id.txt_meical);
+        dialog=new Dialog(this);
+
+
+
+
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,17 +52,17 @@ public class DetailsDonor extends AppCompatActivity {
 
                 String  Address =address.getText().toString();
                 String  Phone= phone.getText().toString();
-                String  Blood_type = blood_type.getText().toString();
-                String  Full_name = full_name.getText().toString();
-                String Medical_history = medical_history.getText().toString();
+                String  Time = time.getText().toString();
+                String  Medical = medical.getText().toString();
+                String Other = other.getText().toString();
 
-                if (Full_name.isEmpty()) {
-                    full_name.setError("Please enter Full Name");
-                    full_name.requestFocus();
+                if (Medical.isEmpty()) {
+                    medical.setError("Please enter your medical specialty");
+                    medical.requestFocus();
                     return;
                 }
                 if (Address.isEmpty()) {
-                    address.setError("Please enter your Address");
+                    address.setError("Please enter your clinic address");
                     address.requestFocus();
                     return;
                 }
@@ -69,27 +76,26 @@ public class DetailsDonor extends AppCompatActivity {
                     phone.requestFocus();
                     return;
                 }
-                if (Blood_type.isEmpty()) {
-                    blood_type.setError("Please enter your Blood Type");
-                    blood_type.requestFocus();
+                if (Time.isEmpty()) {
+                    time.setError("Please enter your available time");
+                    time.requestFocus();
                     return;
                 }
-                if (Medical_history.isEmpty()) {
-                    medical_history.setError("If you have ever had any diseases ,please write them down. if not , write none ");
-                    medical_history.requestFocus();
+                if (Other.isEmpty()) {
+                    other.setError("If you have any other information ,please write it here..If not,Write Nothing");
+                    other.requestFocus();
                     return;
                 }
                 else {
 
                     userHelper.setAddress(Address);
                     userHelper.setPhone(Phone);
-                    userHelper.setBlood_type(Blood_type);
-                    userHelper.setFull_name(Full_name);
-                    userHelper.setMedical_history(Medical_history);
+                    userHelper.setBlood_type(Medical);
+                    userHelper.setFull_name(Time);
+                    userHelper.setMedical_history(Other);
                     databaseReference.push().setValue(userHelper);
 
-                    Intent intentdonor = new Intent(DetailsDonor.this,RayUploaded.class);
-                    startActivity(intentdonor);
+                    openDialog();
 
 
                     Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
@@ -97,6 +103,20 @@ public class DetailsDonor extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void openDialog() {
+        dialog.setContentView(R.layout.dialog_doctor);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button btn_ok = dialog.findViewById(R.id.ok);
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsDonor.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        dialog.show();
     }
 
 

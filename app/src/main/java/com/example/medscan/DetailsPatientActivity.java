@@ -4,15 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class DetailsPatientActivity extends AppCompatActivity {
 
@@ -30,11 +27,11 @@ public class DetailsPatientActivity extends AppCompatActivity {
         databaseReference=firebaseDatabase.getReference("Patients");
         userHelper = new UserHelper();
 
-        txtblood_type=findViewById(R.id.txt_blood_type);
+        txtblood_type=findViewById(R.id.txt_time);
         txtaddress=findViewById(R.id.txt_address);
         txtphone=findViewById(R.id.txt_phone);
         btnsubmit=findViewById(R.id.btn_submit);
-        full_name=findViewById(R.id.txt_name);
+        full_name=findViewById(R.id.txt_meical);
 
        btnsubmit.setOnClickListener(view -> {
 

@@ -12,30 +12,71 @@
     <string name="textviewlog2">have an</string>
     <string name="textviewlog3">account ?</string>
     <string name="password">Password</string>
-    <string name="email">Email</string>
+    <string name="email2">Email</string>
     <string name="signupforg">Sign up</string>
     <string name="forgpass">Forgot your password?</string>
     <string name="donthave">Don\'t have an account?</string>
     <string name="button1">Patient</string>
-    <string name="button2">Donor</string>
-    <string name="textview1">Do you want to be a donor ?</string>
+    <string name="button2">Doctor</string>
+    <string name="textview1">Do you want to be a doctor ?</string>
     <string name="textview2">Or</string>
-    <string name="textview3">Are you looking for a donor ?</string>
+    <string name="textview3">Are you looking for a medical tips ?</string>
     <string name="sub">Submit</string>
     <string name="textview">Please enter your data </string>
-    <string name="welcome">"Welcome . . "</string>
-    <string name="MedScan">MEDSCAN</string>
+    <string name="welcome" translatable="false">"Welcome . . "</string>
+    <string name="MedScan" translatable="false">MEDSCAN</string>
     <string name="feedback">Write here if you have any comments..</string>
+    <string name="profile">Edit profile</string>
+    <string name="recommend">Recommend</string>
+    <string name="about_us">About us</string>
+    <string name="feedback_menu">Feedback</string>
+    <string name="other">Others</string>
+    <string name="share">Share</string>
+    <string name="logout">Logout</string>
+    <string name="rate_us">Rate us</string>
+    <string name="doctors">Doctors</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">close navigation drawer</string>
 
-    <string name="facebook_app_id">310036114465229</string>
-    <string name="fb_login_protocol_scheme">fb310036114465229</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">close navigation drawer</string>
+
+    <string name="facebook_app_id" translatable="false">310036114465229</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb310036114465229</string>
     <string name="text1_feedback">Your opinion matters to us !</string>
-    <string name="text2_feedback">We work super hard to serve you better and</string>
-    <string name="text3_feedback">would love to know your feedback </string>
-    <string name="text4_feedback">on our app ?</string>
+    <string name="text2_feedback" translatable="false">We work super hard to serve you better and</string>
+    <string name="text3_feedback" translatable="false">would love to know your feedback </string>
+    <string name="text4_feedback" translatable="false">on our app ?</string>
     <string name="submit">Submit</string>
     <string name="thanks">Thanks !\nYour opinion matters..\nWe hope we helped you.</string>
+    <string name="reset">Reset your password</string>
+    <string name="successful">Successful password reset !</string>
+    <string name="text_password">You can now use your new password to login to our account .</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="txt_reset">Reset your Password</string>
+    <string name="current_pass">Current password</string>
+    <string name="new_pass">New password</string>
+    <string name="confirm_pass">Confirm new password</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="first">first name</string>
+    <string name="last">last name</string>
+    <string name="email">Email</string>
+    <string name="password2">password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="txt">Already have an account ?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="reg1">Join</string>
+    <string name="reg2">Us</string>
+    <string name="get_started">Get Started</string>
+    <string name="hi_doctor">Hi Doctor ..</string>
+    <string name="medical">Medical specialty</string>
+    <string name="address">Clinic address</string>
+    <string name="phone">Phone</string>
+    <string name="time">Your available time</string>
+    <string name="inf">Other information</string>
+    <string name="thank_doctor">Thank you for helping us !\nWe hope you will give\ngood advice to patients..</string>
+    <string name="give">We give you the best doctors\nand hospitals </string>
+    <string name="give2">in the following fields ..</string>
 </resources>
