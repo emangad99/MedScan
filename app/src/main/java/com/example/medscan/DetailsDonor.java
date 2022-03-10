@@ -64,6 +64,11 @@ public class DetailsDonor extends AppCompatActivity {
                     phone.requestFocus();
                     return;
                 }
+                if (Phone.length()!=11) {
+                    phone.setError("Please enter a valid number");
+                    phone.requestFocus();
+                    return;
+                }
                 if (Blood_type.isEmpty()) {
                     blood_type.setError("Please enter your Blood Type");
                     blood_type.requestFocus();

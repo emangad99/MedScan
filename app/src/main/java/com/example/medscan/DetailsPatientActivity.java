@@ -59,6 +59,11 @@ public class DetailsPatientActivity extends AppCompatActivity {
                txtphone.requestFocus();
                return;
            }
+           if (phone.length()!=11) {
+               txtphone.setError("Please enter a valid number");
+               txtphone.requestFocus();
+               return;
+           }
            if (blood_type.isEmpty()) {
                txtblood_type.setError("Please enter your Blood Type");
                txtblood_type.requestFocus();
