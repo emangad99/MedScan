@@ -64,7 +64,7 @@ public class DetailsDonor extends AppCompatActivity {
                 if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Teeth") && ! Medical.equals("Lungs")
                         && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("teeth") && ! Medical.equals("lungs"))
                 {
-                    medical.setError("Please enter (Kidney or Teeth or Lungs or eyes )");
+                    medical.setError("Please enter (Kidney or Lungs or eyes )");
                     medical.requestFocus();
                     return;
                 }

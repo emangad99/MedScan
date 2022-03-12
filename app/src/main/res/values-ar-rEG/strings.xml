@@ -16,8 +16,7 @@
     <string name="email">البريد الإلكتروني</string>
     <string name="password2">كلمه المرور</string>
     <string name="confirm_password">تأكيد كلمه المرور</string>
-    <string name="first">الاسم الأول</string>
-    <string name="last">الاسم الأخير</string>
+    <string name="first">الاسم</string>
     <string name="current_pass">كلمه المرور الحالية</string>
     <string name="new_pass">كلمه المرور الجديدة</string>
     <string name="confirm_pass">تأكيد كلمه المرور الجديدة</string>

@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText txtFirstName ,txtLastName , txtEmail ,txtPass, txtpassconfirm;
+    EditText txtFirstName , txtEmail ,txtPass, txtpassconfirm;
     ImageView btnGoogle,btnFacebook,btnTwitter;
     String pw = "^.*(?=.{8,})(?=.*\\d)(?=.*[a-zA-Z])|(?=.{8,})(?=.*\\d)(?=.*[!@#$%^&])|(?=.{8,})(?=.*[a-zA-Z])(?=.*[!@#$%^&]).*$";
     FirebaseAuth fAuth;
@@ -55,7 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
         signin=findViewById(R.id.Sign_in);
         signup=findViewById(R.id.btn_signup);
         txtFirstName=findViewById(R.id.txt_fname);
-        txtLastName = findViewById(R.id.txt_lname);
         txtEmail = findViewById(R.id.Email);
         txtPass = findViewById(R.id.Password);
         txtpassconfirm=findViewById(R.id.confirm_Password);
@@ -149,7 +148,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 String firstname = txtFirstName.getText().toString();
-                String lastname = txtLastName.getText().toString();
                 String email = txtEmail.getText().toString().trim();
                 String password = txtPass.getText().toString().trim();
                 String confirm_password = txtpassconfirm.getText().toString().trim();
@@ -160,10 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
                     txtFirstName.requestFocus();
 
                 }
-                if (lastname.isEmpty()) {
-                    txtLastName.setError("Last Name is required");
-                    txtLastName.requestFocus();
-                }
+
                 if (TextUtils.isEmpty(email)) {
                     txtEmail.setError("Email is required");
                     return;
@@ -199,7 +194,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 databaseReference=FirebaseDatabase.getInstance().getReference("Users").child(userId);
                                 HashMap<String,String> hashMap = new HashMap<>();
                                 hashMap.put("First Name",firstname);
-                                hashMap.put("Last Name",lastname);
                                 hashMap.put("Email",email);
                                 hashMap.put("Password",password);
 

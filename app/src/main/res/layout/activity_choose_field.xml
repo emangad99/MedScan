@@ -65,41 +65,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_teeth"
-            android:layout_width="330dp"
-            android:layout_height="440dp"
-            android:padding="15dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="10dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teeth"
-                    android:textSize="24dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <ImageView
-                    android:layout_width="320dp"
-                    android:layout_height="320dp"
-                    android:src="@drawable/teeth"/>
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
             android:id="@+id/card_kidney"
             android:layout_width="330dp"
             android:layout_height="440dp"
@@ -170,6 +135,46 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_teeth"
+            android:layout_width="330dp"
+            android:layout_height="440dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:padding="15dp"
+            android:visibility="invisible"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Teeth"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:src="@drawable/teeth" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
 
 
