@@ -90,10 +90,12 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:gravity="center"/>
+
                 <ImageView
                     android:layout_width="420dp"
                     android:layout_height="420dp"
-                    android:src="@drawable/kidneys"/>
+                    android:src="@drawable/kidneys"
+                    tools:ignore="ImageContrastCheck" />
 
 
             </LinearLayout>

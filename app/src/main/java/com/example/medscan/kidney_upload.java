@@ -11,10 +11,8 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,10 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.IOException;
-
-public class RayUploaded extends AppCompatActivity {
-
+public class kidney_upload extends AppCompatActivity {
     ImageView btn_choose , image;
     Button upload ;
     private Uri imageuri;
@@ -40,7 +35,7 @@ public class RayUploaded extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ray_uploaded);
+        setContentView(R.layout.activity_kidney_upload);
 
         btn_choose = findViewById(R.id.choose);
         image=findViewById(R.id.image_ray);
@@ -51,14 +46,14 @@ public class RayUploaded extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(ContextCompat.checkSelfPermission(RayUploaded.this,
+                if(ContextCompat.checkSelfPermission(kidney_upload.this,
                         Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
                 {
                     Intent gallery = new Intent();
                     gallery.setAction(Intent.ACTION_GET_CONTENT);
                     gallery.setType("image/*");
                     startActivityForResult(Intent.createChooser(gallery,"title"),SELECT_IMAGE_CODE);
-                    
+
                 }
                 else
                 {
@@ -103,7 +98,7 @@ public class RayUploaded extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+                            ActivityCompat.requestPermissions(kidney_upload.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
 
                         }
                     })

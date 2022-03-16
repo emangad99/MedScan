@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class choose_field extends AppCompatActivity {
-    CardView lungs , teeth , kidney , eyes ;
+    CardView lungs , Skin , kidney , eyes ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class choose_field extends AppCompatActivity {
         setContentView(R.layout.activity_choose_field);
 
         lungs=findViewById(R.id.card_lung);
-        teeth=findViewById(R.id.card_skin);
+        Skin=findViewById(R.id.card_skin);
         kidney=findViewById(R.id.card_kidney);
         eyes=findViewById(R.id.card_eyes);
 
@@ -27,5 +27,24 @@ public class choose_field extends AppCompatActivity {
                 startActivity(lungs);
             }
         });
+
+        kidney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent kidney = new Intent(choose_field.this,kidney_upload.class);
+                startActivity(kidney);
+
+            }
+        });
+
+        eyes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent eyes = new Intent(choose_field.this,eyes_image.class);
+                startActivity(eyes);
+
+            }
+        });
+
     }
 }
