@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundGravity="bottom">
+    android:foregroundGravity="bottom"
+    tools:context=".header">
 
     <LinearLayout
         android:id="@+id/linearLayout3"

@@ -4,6 +4,7 @@
     package="com.example.medscan">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,9 +15,15 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
+            android:name=".eyes_image"
+            android:exported="true" />
+        <activity
+            android:name=".kidney_upload"
+            android:exported="true" />
+        <activity
             android:name=".header"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".best_doctors"
             android:exported="true"
