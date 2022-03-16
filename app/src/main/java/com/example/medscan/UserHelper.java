@@ -2,12 +2,31 @@ package com.example.medscan;
 
 public class UserHelper {
 
-    String address,phone,blood_type,medical_history,full_name,feedback;
+    String address,phone,time,medical,full_name,feedback,other;
 
+    public String getTime() {
+        return time;
+    }
 
+    public void setTime(String time) {
+        this.time = time;
+    }
 
+    public String getMedical() {
+        return medical;
+    }
 
+    public void setMedical(String medical) {
+        this.medical = medical;
+    }
 
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
 
     public String getAddress() {
         return address;
@@ -25,21 +44,7 @@ public class UserHelper {
         this.phone = phone;
     }
 
-    public String getBlood_type() {
-        return blood_type;
-    }
 
-    public void setBlood_type(String blood_type) {
-        this.blood_type = blood_type;
-    }
-
-    public String getMedical_history() {
-        return medical_history;
-    }
-
-    public void setMedical_history(String medical_history) {
-        this.medical_history = medical_history;
-    }
 
     public String getFull_name() {
         return full_name;

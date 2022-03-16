@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailsPatientActivity extends AppCompatActivity {
 
-    EditText txtblood_type ,txtphone,txtaddress,full_name;
+    EditText txttime ,txtphone,txtaddress,txtmedical;
     Button btnsubmit;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -27,23 +27,23 @@ public class DetailsPatientActivity extends AppCompatActivity {
         databaseReference=firebaseDatabase.getReference("Patients");
         userHelper = new UserHelper();
 
-        txtblood_type=findViewById(R.id.txt_time);
+        txttime=findViewById(R.id.txt_time);
         txtaddress=findViewById(R.id.txt_address);
         txtphone=findViewById(R.id.txt_phone);
         btnsubmit=findViewById(R.id.btn_submit);
-        full_name=findViewById(R.id.txt_meical);
+        txtmedical=findViewById(R.id.txt_meical);
 
        btnsubmit.setOnClickListener(view -> {
 
 
            String  address = txtaddress.getText().toString();
            String  phone= txtphone.getText().toString();
-           String  blood_type = txtblood_type.getText().toString();
-           String  Full_name = full_name.getText().toString();
+           String  time= txttime.getText().toString();
+           String  medical= txtmedical.getText().toString();
 
-           if (Full_name.isEmpty()) {
-               full_name.setError("Please enter Full Name");
-               full_name.requestFocus();
+           if (time.isEmpty()) {
+               txttime.setError("Please enter Full Name");
+               txttime.requestFocus();
                return;
            }
            if (address.isEmpty()) {
@@ -61,9 +61,9 @@ public class DetailsPatientActivity extends AppCompatActivity {
                txtphone.requestFocus();
                return;
            }
-           if (blood_type.isEmpty()) {
-               txtblood_type.setError("Please enter your Blood Type");
-               txtblood_type.requestFocus();
+           if (medical.isEmpty()) {
+               txtmedical.setError("Please enter your Blood Type");
+               txtmedical.requestFocus();
                return;
            }
 
@@ -71,8 +71,8 @@ public class DetailsPatientActivity extends AppCompatActivity {
 
                userHelper.setAddress(address);
                userHelper.setPhone(phone);
-               userHelper.setBlood_type(blood_type);
-               userHelper.setFull_name(Full_name);
+               userHelper.setTime(time);
+               userHelper.setMedical(medical);
                databaseReference.push().setValue(userHelper);
 
                Intent intentdata = new Intent(DetailsPatientActivity.this, WaitingActivity.class);
