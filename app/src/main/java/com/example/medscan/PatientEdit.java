@@ -2,7 +2,6 @@ package com.example.medscan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,33 +19,23 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PatientEdit extends AppCompatActivity {
     TextView passwordt;
-    private TextView fullname;
-    private TextView emailedittext;
-    private EditText phone;
+     TextView fullname;
+     TextView emailedittext;
+     EditText phone;
     EditText medical;
     EditText clinic;
     EditText time;
     EditText other;
     ImageView profileimage;
     Button update;
-    private FirebaseDatabase database;
-    private DatabaseReference muserRuf;
-    private String email,password;
-    private static  final  String USERS ="Users";
+     FirebaseDatabase database;
+     DatabaseReference muserRuf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_edit);
-
-        Intent intent = getIntent();
-         email = intent.getStringExtra("Email");
-
-         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-         DatabaseReference UserRef = rootRef.child(USERS);
-
-         Log.v("EMAILADD", UserRef.orderByChild("Email").equalTo(email).toString());
-
 
 
         passwordt = findViewById(R.id.txt_reset);
@@ -60,20 +49,18 @@ public class PatientEdit extends AppCompatActivity {
         update = findViewById(R.id.button3);
 
         database = FirebaseDatabase.getInstance();
-        muserRuf = database.getReference(USERS);
+        muserRuf = database.getReference().child("Users");
 
 
         muserRuf.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot ds : snapshot.getChildren()){
+                String firstname=snapshot.child("First Name").getValue(String.class);
+                String email= snapshot.child("Email").getValue(String.class);
 
-                    if(ds.child("Email").getValue().equals(email)){
-                        fullname.setText(ds.child("First Name").getValue(String.class));
-                        phone.setText(ds.child("phone").getValue(String.class));
-                        emailedittext.setText(email);
-                    }
-                }
+                fullname.setText(firstname);
+                emailedittext.setText(email);
+
             }
 
             @Override
