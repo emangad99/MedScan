@@ -14,13 +14,17 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".best_doctors"
+            android:name=".header"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".best_doctors"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".choose_field"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".successful"
             android:exported="true"

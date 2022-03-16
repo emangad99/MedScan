@@ -7,18 +7,22 @@
     android:background="@color/color3"
     tools:context=".PatientEdit">
 
-
-    <ImageView
-        android:id="@+id/imageView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/logophoto"
+        app:civ_border_color="@color/color2"
+        app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView32"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logophoto" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 
     <ImageView
         android:id="@+id/imageView32"
@@ -28,7 +32,7 @@
         android:layout_marginTop="120dp"
         android:background="@drawable/custom_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView31"
+        app:layout_constraintTop_toTopOf="@+id/profile_pic"
         app:srcCompat="@drawable/camera" />
 
     <ImageView
@@ -45,7 +49,7 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/input"
         android:backgroundTintMode="add"
         android:ems="10"
@@ -59,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView31"
+        app:layout_constraintTop_toBottomOf="@+id/profile_pic"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText

@@ -8,13 +8,13 @@
 
 
     <EditText
-        android:id="@+id/txt_time"
+        android:id="@+id/txt_meical"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/custominput"
         android:ems="10"
-        android:hint="@string/time"
+        android:hint="@string/medical"
         android:inputType="text"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -24,15 +24,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_phone"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/sub"
+        android:textAllCaps="false"
+        android:textColor="@color/color3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_other" />
+
+    <EditText
+        android:id="@+id/txt_address"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/custominput"
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="text"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="#ACACAC"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_meical" />
 
     <EditText
         android:id="@+id/txt_other"
         android:layout_width="280dp"
         android:layout_height="70dp"
         android:layout_marginTop="9dp"
-        android:layout_marginBottom="17dp"
         android:background="@drawable/custominput"
         android:ems="10"
         android:hint="@string/inf"
@@ -42,7 +74,6 @@
         android:textColor="@color/black"
         android:textColorHint="#ACACAC"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,32 +99,13 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_address" />
 
     <EditText
-        android:id="@+id/txt_address"
+        android:id="@+id/txt_time"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="9dp"
         android:background="@drawable/custominput"
         android:ems="10"
-        android:hint="@string/address"
-        android:inputType="text"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#ACACAC"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_meical" />
-
-    <EditText
-        android:id="@+id/txt_meical"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="9dp"
-        android:background="@drawable/custominput"
-        android:ems="10"
-        android:hint="@string/medical"
+        android:hint="@string/time"
         android:inputType="text"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -103,39 +115,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <ImageView
-        android:id="@+id/imageView25"
-        android:layout_width="290dp"
-        android:layout_height="326dp"
-        android:layout_marginStart="110dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hi" />
-
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/custom_button"
-        android:text="@string/sub"
-        android:textAllCaps="false"
-        android:textColor="@color/color3"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_time" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_phone"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="272dp"
         android:text="@string/textview"
         android:textColor="@color/color2"
         android:textSize="18sp"
@@ -144,6 +131,18 @@
         app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="290dp"
+        android:layout_height="326dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="-30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hi" />
 
     <TextView
         android:id="@+id/textView23"

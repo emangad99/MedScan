@@ -17,7 +17,7 @@ CardView eyes,lungs,kidneys,teeth;
         eyes=findViewById(R.id.doctor_eyes);
         lungs=findViewById(R.id.doctor_lungs);
         kidneys=findViewById(R.id.doctor_kidney);
-        teeth=findViewById(R.id.doctor_teeth);
+        teeth=findViewById(R.id.doctor_skin);
 
 
         kidneys.setOnClickListener(new View.OnClickListener() {

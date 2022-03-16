@@ -13,7 +13,6 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="-15dp"
         android:contentDescription="TODO"
-        android:scrollbarTrackHorizontal="@drawable/bb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/txt_forgot_password"
@@ -110,10 +109,10 @@
 
     <ImageView
         android:id="@+id/Facebook"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="40dp"
         android:backgroundTintMode="add"
@@ -216,9 +215,9 @@
 
     <ImageView
         android:id="@+id/Google"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="7dp"
         android:layout_marginBottom="40dp"
         android:backgroundTintMode="add"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -229,10 +228,10 @@
 
     <ImageView
         android:id="@+id/Twitter"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="40dp"
         android:backgroundTintMode="add"

@@ -30,8 +30,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_lung"
-            android:layout_width="330dp"
-            android:layout_height="440dp"
+            android:layout_width="310dp"
+            android:layout_height="400dp"
             android:padding="15dp"
             android:layout_gravity="center"
             app:cardBackgroundColor="@color/white"
@@ -49,14 +49,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lungs"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="40dp"
                     android:textSize="24dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:gravity="center"/>
                 <ImageView
                     android:layout_width="400dp"
-                    android:layout_height="400dp"
+                    android:layout_height="390dp"
                     android:src="@drawable/lung"/>
 
 
@@ -66,8 +66,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_kidney"
-            android:layout_width="330dp"
-            android:layout_height="440dp"
+            android:layout_width="310dp"
+            android:layout_height="400dp"
             android:padding="15dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kidneys"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="70dp"
                     android:textSize="24dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -102,8 +102,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_eyes"
-            android:layout_width="330dp"
-            android:layout_height="440dp"
+            android:layout_width="310dp"
+            android:layout_height="400dp"
             android:padding="15dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
@@ -121,7 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Eyes"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="70dp"
                     android:textSize="24dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -137,14 +137,13 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_teeth"
-            android:layout_width="330dp"
-            android:layout_height="440dp"
+            android:id="@+id/card_skin"
+            android:layout_width="310dp"
+            android:layout_height="400dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:padding="15dp"
-            android:visibility="invisible"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp">
@@ -160,15 +159,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Teeth"
+                    android:text="Skin"
+                    android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:textSize="24dp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_width="320dp"
-                    android:layout_height="320dp"
-                    android:src="@drawable/teeth" />
+                    android:layout_width="350dp"
+                    android:layout_height="360dp"
+                    android:src="@drawable/skin" />
 
 
             </LinearLayout>
