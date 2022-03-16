@@ -20,8 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PatientEdit extends AppCompatActivity {
     TextView passwordt;
-    private EditText fullname;
-    private EditText emailedittext;
+    private TextView fullname;
+    private TextView emailedittext;
     private EditText phone;
     EditText medical;
     EditText clinic;
@@ -40,12 +40,12 @@ public class PatientEdit extends AppCompatActivity {
         setContentView(R.layout.activity_patient_edit);
 
         Intent intent = getIntent();
-         email = intent.getStringExtra("email");
+         email = intent.getStringExtra("Email");
 
          DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
          DatabaseReference UserRef = rootRef.child(USERS);
 
-         Log.v("EMAILADD", UserRef.orderByChild("email").equalTo(email).toString());
+         Log.v("EMAILADD", UserRef.orderByChild("Email").equalTo(email).toString());
 
 
 
