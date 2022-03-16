@@ -16,7 +16,7 @@
     <ImageView
         android:layout_width="85dp"
         android:layout_height="69dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="15dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
-        android:paddingTop="30dp"
+        android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:text="@string/give"
         android:layout_gravity="center"
@@ -194,7 +194,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/doctor_teeth"
+            android:id="@+id/doctor_skin"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_gravity="center"
@@ -203,7 +203,6 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
             android:padding="15dp"
-            android:visibility="invisible"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp">
@@ -220,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Teeth"
+                    android:text="Skin"
                     android:textColor="@color/black"
                     android:textSize="24dp"
                     android:textStyle="bold" />
@@ -228,7 +227,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/teeth_icon" />
+                    android:src="@drawable/skin_icon" />
 
 
             </LinearLayout>

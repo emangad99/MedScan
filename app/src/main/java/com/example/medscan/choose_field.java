@@ -16,7 +16,7 @@ public class choose_field extends AppCompatActivity {
         setContentView(R.layout.activity_choose_field);
 
         lungs=findViewById(R.id.card_lung);
-        teeth=findViewById(R.id.card_teeth);
+        teeth=findViewById(R.id.card_skin);
         kidney=findViewById(R.id.card_kidney);
         eyes=findViewById(R.id.card_eyes);
 
