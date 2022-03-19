@@ -58,23 +58,6 @@ public class PatientEdit extends AppCompatActivity {
         muserRuf = database.getReference().child("Users").child(userId);
 
 
-        muserRuf.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for(DataSnapshot ds : snapshot.getChildren()) {
-                    fullnametxtview.setText(ds.child("First Name").getValue(String.class));
-                    fullnametxtview.setText(ds.child("Email").getValue(String.class));
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
 
 
@@ -93,7 +76,29 @@ public class PatientEdit extends AppCompatActivity {
 
 
 
+update.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        muserRuf.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    fullnametxtview.setText(ds.child("First Name").getValue(String.class));
+                    fullnametxtview.setText(ds.child("Email").getValue(String.class));
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+});
 
 
 
