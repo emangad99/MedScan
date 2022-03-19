@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,8 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PatientEdit extends AppCompatActivity {
     TextView passwordt;
-     TextView fullname;
-     TextView emailedittext;
+     TextView fullnametxtview;
+     TextView emailtxtview;
      EditText phone;
     EditText medical;
     EditText clinic;
@@ -39,8 +41,8 @@ public class PatientEdit extends AppCompatActivity {
 
 
         passwordt = findViewById(R.id.txt_reset);
-        fullname = findViewById(R.id.editTextTextPersonName2);
-        emailedittext = findViewById(R.id.editTextTextEmailAddress);
+        fullnametxtview = findViewById(R.id.editTextTextPersonName2);
+        emailtxtview = findViewById(R.id.editTextTextEmailAddress);
         phone = findViewById(R.id.editTextPhone);
         medical = findViewById(R.id.editTextTextPersonName);
         clinic = findViewById(R.id.editTextTextPersonName3);
@@ -49,18 +51,23 @@ public class PatientEdit extends AppCompatActivity {
         update = findViewById(R.id.button3);
 
         database = FirebaseDatabase.getInstance();
-        muserRuf = database.getReference().child("Users");
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser rUser = firebaseAuth.getCurrentUser();
+        assert rUser != null;
+        String userId =rUser.getUid();
+        muserRuf = database.getReference().child("Users").child(userId);
 
 
         muserRuf.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String firstname=snapshot.child("First Name").getValue(String.class);
-                String email= snapshot.child("Email").getValue(String.class);
 
-                fullname.setText(firstname);
-                emailedittext.setText(email);
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    fullnametxtview.setText(ds.child("First Name").getValue(String.class));
+                    fullnametxtview.setText(ds.child("Email").getValue(String.class));
 
+
+                }
             }
 
             @Override
