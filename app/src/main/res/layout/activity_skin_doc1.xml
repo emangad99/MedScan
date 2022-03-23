@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bback"
-    tools:context=".shared_doc1">
+    tools:context=".skin_doc1">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -17,7 +17,7 @@
         android:layout_marginTop="59dp"
         android:layout_marginEnd="201dp"
         android:transitionName="imagetransaction"
-        app:srcCompat="@drawable/pic1" />
+        app:srcCompat="@drawable/skin_pic1" />
 
     <TextView
         android:id="@+id/textView6"
@@ -123,4 +123,6 @@ Street 15, District One - Fifth Settlement, Medical Park 1
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
+
+
 </RelativeLayout>

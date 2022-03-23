@@ -11,10 +11,8 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,14 +23,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.IOException;
-
 public class RayUploaded extends AppCompatActivity {
 
     ImageView btn_choose , image;
     Button upload ;
     private Uri imageuri;
-    int SELECT_IMAGE_CODE=2;
+    int SELECT_PHOTO=2;
     private int STORAGE_PERMISSION_CODE = 1 ;
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image");
@@ -55,10 +51,11 @@ public class RayUploaded extends AppCompatActivity {
                         Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
                 {
                     Intent gallery = new Intent();
-                    gallery.setAction(Intent.ACTION_GET_CONTENT);
+                    gallery.setAction(Intent.ACTION_PICK);
                     gallery.setType("image/*");
-                    startActivityForResult(Intent.createChooser(gallery,"title"),SELECT_IMAGE_CODE);
-                    
+                    startActivityForResult(gallery,SELECT_PHOTO);
+
+
                 }
                 else
                 {

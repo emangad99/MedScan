@@ -88,7 +88,26 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/slide_layout.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_choose_field.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_doctors.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_hospitals.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_forget_password.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_home.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc1.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc2.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc3.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc4.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc5.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc6.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doctors.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_hospitals.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_patient_edit.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_shared_doc1.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_doc1.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_doc2.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_doctors.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_hospitals.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_image.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout-land/activity_details_patient.xml" value="0.2" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout/activity_details_donor.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout/activity_details_patient.xml" value="0.2" />
@@ -124,6 +143,13 @@
         <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details_patient.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_failed.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_health.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_waiting.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
