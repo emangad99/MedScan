@@ -27,7 +27,7 @@ public class kidney_upload extends AppCompatActivity {
     ImageView btn_choose , image;
     Button upload ;
     private Uri imageuri;
-    int SELECT_IMAGE_CODE=2;
+    int SELECT_PHOTO=2;
     private int STORAGE_PERMISSION_CODE = 1 ;
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image");
@@ -50,9 +50,9 @@ public class kidney_upload extends AppCompatActivity {
                         Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
                 {
                     Intent gallery = new Intent();
-                    gallery.setAction(Intent.ACTION_GET_CONTENT);
+                    gallery.setAction(Intent.ACTION_PICK);
                     gallery.setType("image/*");
-                    startActivityForResult(Intent.createChooser(gallery,"title"),SELECT_IMAGE_CODE);
+                    startActivityForResult(gallery,SELECT_PHOTO);
 
                 }
                 else
