@@ -81,6 +81,7 @@ public class eyes_image extends AppCompatActivity {
         });
 
         btn_camera.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
 
