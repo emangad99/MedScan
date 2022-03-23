@@ -46,8 +46,7 @@
         android:layout_marginEnd="-185dp"
         android:layout_toStartOf="@+id/imageView5"
         android:text="
-Lecturer and Consultant of Chest, Respiratory and Allergy DiseasesDoctor of Chest and Respiratory Diseases Specialized in Autoimmune Diseases, Adult Allergy and Immunology
-"
+Lecturer and Consultant of Chest, Respiratory and Allergy DiseasesDoctor of Chest and Respiratory Diseases Specialized in Autoimmune Diseases, Adult Allergy and Immunology."
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction2" />
