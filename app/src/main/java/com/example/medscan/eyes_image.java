@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,14 +18,18 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 public class eyes_image extends AppCompatActivity {
@@ -76,6 +81,12 @@ public class eyes_image extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ( (imageuri != null)){
+                    uplaodToFirebase(imageuri);
+
+                }else{
+                    Toast.makeText(eyes_image.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -177,8 +188,51 @@ public class eyes_image extends AppCompatActivity {
         }
 
     }
+    private  void  uplaodToFirebase(Uri uri){
+        StorageReference fileRef =  reference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
+        fileRef.putFile((uri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
 
+                        Model4 model = new Model4(uri.toString());
+                        String modelId = root.push().getKey();
+                        root.child(modelId).setValue(model);
+                        Toast.makeText(eyes_image.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
 
+                    }
+                });
 
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(eyes_image.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+    }
+    private  String getFileExtention(Uri mUri){
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return  mime.getExtensionFromMimeType(cr.getType(mUri));
+    }
+}
+class  Model3{
+    private String imageUri;
+    public Model3(){
+
+    }
+    public  Model3(String imageUri){
+        this.imageUri = imageUri;
+    }
+    public  String getImageUri(){
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
+    }
 }
