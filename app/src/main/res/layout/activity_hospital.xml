@@ -51,6 +51,10 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_gravity="center">
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:src="@drawable/hos1"/>
 
     <TextView
         android:id="@+id/nam1"
@@ -59,7 +63,7 @@
         android:layout_gravity="center|top"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:paddingTop="10dp"
+        android:paddingTop="2dp"
         android:text="Sheikh Zayed Specialized Hospital"
         android:textColor="@color/black"
         android:textSize="16dp"
