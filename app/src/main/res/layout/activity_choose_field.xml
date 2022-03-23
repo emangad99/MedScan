@@ -171,7 +171,7 @@
                     <ImageView
                         android:layout_width="350dp"
                         android:layout_height="360dp"
-                        android:src="@drawable/skin" />
+                        android:src="@drawable/skin_icon" />
 
 
                 </LinearLayout>

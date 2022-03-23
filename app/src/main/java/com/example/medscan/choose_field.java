@@ -47,5 +47,14 @@ public class choose_field extends AppCompatActivity {
             }
         });
 
+        Skin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent skin = new Intent(choose_field.this,skin_upload.class);
+                startActivity(skin);
+
+            }
+        });
+
     }
 }
