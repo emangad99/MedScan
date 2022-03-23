@@ -49,9 +49,10 @@ public class ForgetPassword extends AppCompatActivity {
                     confirmPass.requestFocus();
                     return;
                 }
-                if (!confirmpass.matches(pw)) {
-                    confirmPass.setError("This must contain at least 8 (Upper case, Lower case,Numbers and signs)");
-                    confirmPass.requestFocus();
+                if(! newpass.equals(confirmpass)){
+                    newPass.setError("Confirm the password does not match the password");
+                    newPass.requestFocus();
+                    return;
                 }
                 if (!newpass.matches(pw)) {
                     newPass.setError("This must contain at least 8 (Upper case, Lower case,Numbers and signs)");
