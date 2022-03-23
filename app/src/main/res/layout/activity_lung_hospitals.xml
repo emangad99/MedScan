@@ -316,7 +316,7 @@
             android:layout_gravity="center">
             <ImageView
                 android:layout_width="150dp"
-                android:layout_height="80dp"
+                android:layout_height="90dp"
                 android:src="@drawable/hosp6"/>
 
             <TextView

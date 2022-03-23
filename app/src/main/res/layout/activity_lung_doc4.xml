@@ -102,8 +102,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="23dp"
 
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="19dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="Nasr City, the ground floor of Building 20, Tayaran Street (near Rabaa Mosque)
 "

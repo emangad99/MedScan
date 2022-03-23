@@ -104,8 +104,8 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_alignParentEnd="true"
         android:layout_marginStart="23dp"
 
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="Nasr City: Abbas El Akkad Street"
         android:textColor="@color/black"
