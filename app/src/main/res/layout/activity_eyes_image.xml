@@ -61,14 +61,15 @@
 
     <ImageView
         android:id="@+id/choose"
-        android:layout_width="216dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_upload_rays"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24"
-        app:srcCompat="@drawable/upload_2" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_photo" />
 
     <Button
         android:id="@+id/btn_upload_rays"
@@ -85,5 +86,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/choose"
+        app:layout_constraintEnd_toStartOf="@+id/choose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/choose"
+        app:srcCompat="@drawable/ic_camera" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
