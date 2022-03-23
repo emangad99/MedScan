@@ -25,9 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.theartofdev.edmodo.cropper.CropImage;
 
-public class eyes_image extends AppCompatActivity {
+public class skin_upload extends AppCompatActivity {
 
     int SELECT_PHOTO=2;
     private int STORAGE_PERMISSION_CODE = 1 ;
@@ -36,13 +35,13 @@ public class eyes_image extends AppCompatActivity {
     private Uri imageuri;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST = 1888;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_eyes");
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_skin");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eyes_image);
+        setContentView(R.layout.activity_skin_upload);
 
         btn_choose = findViewById(R.id.choose);
         image=findViewById(R.id.image_ray);
@@ -54,7 +53,7 @@ public class eyes_image extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                if(ContextCompat.checkSelfPermission(eyes_image.this,
+                if(ContextCompat.checkSelfPermission(skin_upload.this,
                         Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
                 {
                     Intent gallery = new Intent();
@@ -126,7 +125,7 @@ public class eyes_image extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(eyes_image.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+                            ActivityCompat.requestPermissions(skin_upload.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
 
                         }
                     })
@@ -176,9 +175,6 @@ public class eyes_image extends AppCompatActivity {
             }
         }
 
+
     }
-
-
-
-
 }
