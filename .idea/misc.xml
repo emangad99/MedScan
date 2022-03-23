@@ -90,7 +90,8 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_best_doctors.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_choose_field.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_doctors.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_doctors.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_doctors.xml" value="0.2" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_hospitals.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_image.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_forget_password.xml" value="0.13768115942028986" />
@@ -104,6 +105,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doctors.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_hospitals.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_patient_edit.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_ray_uploaded.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_shared_doc1.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_doc1.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_skin_doc2.xml" value="0.13768115942028986" />
