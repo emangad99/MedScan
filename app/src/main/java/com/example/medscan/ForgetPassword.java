@@ -46,8 +46,11 @@ public class ForgetPassword extends AppCompatActivity {
         newPass.setEnabled(false);
         confirmPass.setEnabled(false);
         reset.setEnabled(false);
+        auth.setBackgroundTintList(ContextCompat.getColorStateList(
+                ForgetPassword.this,R.color.color2
+        ));
         reset.setBackgroundTintList(ContextCompat.getColorStateList(
-                ForgetPassword.this,R.color.gray
+                ForgetPassword.this,R.color.color1
         ));
 
         authProfile = FirebaseAuth.getInstance();
@@ -138,7 +141,14 @@ public class ForgetPassword extends AppCompatActivity {
                                 newPass.setEnabled(true);
                                 confirmPass.setEnabled(true);
                                 auth.setEnabled(false);
+                                auth.setBackgroundTintList(ContextCompat.getColorStateList(
+                                        ForgetPassword.this,R.color.color1
+                                ));
+
                                 reset.setEnabled(true);
+                                reset.setBackgroundTintList(ContextCompat.getColorStateList(
+                                        ForgetPassword.this,R.color.color2
+                                ));
 
 
                                 Toast.makeText(ForgetPassword.this, "Password has been verified." + " Change your password now", Toast.LENGTH_SHORT).show();
