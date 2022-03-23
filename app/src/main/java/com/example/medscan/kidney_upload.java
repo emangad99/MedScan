@@ -30,7 +30,7 @@ public class kidney_upload extends AppCompatActivity {
     int SELECT_PHOTO=2;
     private int STORAGE_PERMISSION_CODE = 1 ;
 
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image");
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_kidney");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

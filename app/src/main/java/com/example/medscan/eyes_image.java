@@ -36,7 +36,7 @@ public class eyes_image extends AppCompatActivity {
     private Uri imageuri;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST = 1888;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image");
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_eyes");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
 
     @Override
