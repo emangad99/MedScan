@@ -15,6 +15,7 @@ public class choose_field extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_field);
 
+
         lungs=findViewById(R.id.card_lung);
         Skin=findViewById(R.id.card_skin);
         kidney=findViewById(R.id.card_kidney);
