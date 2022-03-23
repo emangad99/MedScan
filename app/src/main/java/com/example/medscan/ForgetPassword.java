@@ -50,7 +50,7 @@ public class ForgetPassword extends AppCompatActivity {
                 ForgetPassword.this,R.color.color2
         ));
         reset.setBackgroundTintList(ContextCompat.getColorStateList(
-                ForgetPassword.this,R.color.color1
+                ForgetPassword.this,R.color.gray
         ));
 
         authProfile = FirebaseAuth.getInstance();
@@ -142,7 +142,7 @@ public class ForgetPassword extends AppCompatActivity {
                                 confirmPass.setEnabled(true);
                                 auth.setEnabled(false);
                                 auth.setBackgroundTintList(ContextCompat.getColorStateList(
-                                        ForgetPassword.this,R.color.color1
+                                        ForgetPassword.this,R.color.gray
                                 ));
 
                                 reset.setEnabled(true);
