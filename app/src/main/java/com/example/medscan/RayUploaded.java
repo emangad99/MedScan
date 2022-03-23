@@ -8,6 +8,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,14 +18,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
@@ -65,16 +72,18 @@ public class RayUploaded extends AppCompatActivity {
                     requesrtstoragepermission();
 
                 }
-
-
-
-
             }
         });
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ( (imageuri != null)){
+                    uplaodToFirebase(imageuri);
+
+                }else{
+                    Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -138,5 +147,52 @@ public class RayUploaded extends AppCompatActivity {
 
         }
 
+    }
+    private  void  uplaodToFirebase(Uri uri){
+        StorageReference fileRef =  reference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
+        fileRef.putFile((uri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Model model = new Model(uri.toString());
+                        String modelId = root.push().getKey();
+                        root.child(modelId).setValue(model);
+                        Toast.makeText(RayUploaded.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RayUploaded.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    private  String getFileExtention(Uri mUri){
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return  mime.getExtensionFromMimeType(cr.getType(mUri));
+    }
+}
+class  Model{
+    private String imageUri;
+    public Model(){
+
+    }
+    public  Model(String imageUri){
+        this.imageUri = imageUri;
+    }
+    public  String getImageUri(){
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 }

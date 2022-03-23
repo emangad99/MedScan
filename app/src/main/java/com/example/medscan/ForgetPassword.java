@@ -35,12 +35,12 @@ public class ForgetPassword extends AppCompatActivity {
                     return;
                 }
                 if (newpass.isEmpty()) {
-                    newPass.setError("please fill the field ! ");
+                    newPass.setError("please fill this field ! ");
                     newPass.requestFocus();
                     return;
                 }
                 if (confirmpass.isEmpty()) {
-                    confirmPass.setError("please fill the field ! ");
+                    confirmPass.setError("please fill this field ! ");
                     confirmPass.requestFocus();
                     return;
                 }
