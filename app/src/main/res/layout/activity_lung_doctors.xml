@@ -129,7 +129,7 @@
                 android:layout_marginTop="20dp"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:text="Dr. Omnia Shaheen"
+                android:text="Dr. Fatima Zahra"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
