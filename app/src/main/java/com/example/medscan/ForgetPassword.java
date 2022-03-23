@@ -2,7 +2,9 @@ package com.example.medscan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -44,6 +46,9 @@ public class ForgetPassword extends AppCompatActivity {
         newPass.setEnabled(false);
         confirmPass.setEnabled(false);
         reset.setEnabled(false);
+        reset.setBackgroundTintList(ContextCompat.getColorStateList(
+                ForgetPassword.this,R.color.gray
+        ));
 
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser =authProfile.getCurrentUser();
