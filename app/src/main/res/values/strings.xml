@@ -39,7 +39,6 @@
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">close navigation drawer</string>
-
     <string name="facebook_app_id" translatable="false">310036114465229</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb310036114465229</string>
     <string name="text1_feedback">Your opinion matters to us !</string>
@@ -78,4 +77,14 @@
     <string name="thank_doctor">Thank you for helping us !\nWe hope you will give\ngood advice to patients..</string>
     <string name="give">We give you the best doctors\nand hospitals </string>
     <string name="give2">in the following fields ..</string>
+    <string name="best_doctors">"Best doctors "</string>
+    <string name="kid_doc1">Dr. Nermin Diab</string>
+    <string name="kid_doc2">"Dr. Maged Habib "</string>
+    <string name="kid_doc3">Dr. Samar El-Sayed</string>
+    <string name="kid_doc4">Dr. Hussain Farouk</string>
+    <string name="kid_doc5">Dr. Rania Al-Shall</string>
+    <string name="kid_doc6">Dr. Mohamed Deif</string>
+    <string name="best_hospitals">"Best hospitals "</string>
+    <string name="ok">Ok</string>
+    <string name="authentication">Authentication</string>
 </resources>

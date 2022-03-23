@@ -66,4 +66,13 @@
     <string name="doctors">أطباء</string>
     <string name="give">"نقدم لك أفضل الأطباء والمستشفيات    .. "</string>
     <string name="give2">في المجالات التالية</string>
+    <string name="best_doctors">أفضل الأطباء</string>
+    <string name="kid_doc1">دكتور : نرمين دياب</string>
+    <string name="kid_doc2">دكتور : ماجد حبيب</string>
+    <string name="kid_doc3">دكتور : سمـر السيد</string>
+    <string name="kid_doc4">دكتور : حسن فاروق</string>
+    <string name="kid_doc5">"دكتور : رانيا الشـال "</string>
+    <string name="kid_doc6">دكتور : محمد ضيف</string>
+    <string name="best_hospitals">أفضل المستشفيات</string>
+    <string name="ok">حسنا</string>
 </resources>
