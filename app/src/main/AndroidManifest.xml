@@ -20,10 +20,6 @@
             android:name=".skin_upload"
             android:exported="true" />
         <activity
-            android:name=".skin_image"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".skin_hospitals"
             android:exported="true"
             android:launchMode="singleTask"

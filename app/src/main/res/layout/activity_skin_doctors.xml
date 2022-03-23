@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color1">
+    android:background="@color/color6">
     <RelativeLayout
         android:id="@+id/root_layout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color1"
+        android:background="@color/color6"
         tools:context=".skin_doctors">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
