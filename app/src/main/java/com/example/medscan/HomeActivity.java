@@ -26,6 +26,7 @@ Toolbar toolbar;
 NavigationView navigationView;
 private long backpressedtime;
 private Toast backtoast;
+SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ private Toast backtoast;
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        sessionManager=new SessionManager(getApplicationContext());
 
         navigationView=findViewById(R.id.navigationview);
         navigationView.setItemIconTintList(null);
@@ -68,6 +70,9 @@ private Toast backtoast;
                         break;
 
                     case R.id.nav_logout:
+
+                        sessionManager.setLogin(false);
+                        sessionManager.setUsername("");
                         startActivity(new Intent(HomeActivity.this,MainActivity.class));
                         break;
 

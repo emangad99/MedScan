@@ -1,7 +1,9 @@
 package com.example.medscan;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -32,6 +34,7 @@ public class Login extends AppCompatActivity {
     FirebaseAuth fAuth;
     ImageView btn_google,btn_facebook, btn_twitter;
     boolean passvisible;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,8 @@ public class Login extends AppCompatActivity {
         btn_google=findViewById(R.id.google);
         btn_facebook=findViewById(R.id.facebook);
         btn_twitter=findViewById(R.id.twitter);
+
+        sessionManager=new SessionManager(getApplicationContext());
 
         mPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -181,6 +186,9 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             if( fAuth.getCurrentUser().isEmailVerified()){
+                                sessionManager.setLogin(true);
+                                sessionManager.setUsername(email);
+
                                 Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),HomeActivity.class));
 
@@ -196,7 +204,14 @@ public class Login extends AppCompatActivity {
                 });
 
 
+
             }
         });
+        if(sessionManager.getLogin())
+        {
+            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+        }
+
+
     }
 }
