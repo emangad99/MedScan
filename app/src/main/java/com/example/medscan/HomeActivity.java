@@ -24,6 +24,8 @@ DrawerLayout drawerLayout;
 ActionBarDrawerToggle toggle;
 Toolbar toolbar;
 NavigationView navigationView;
+private long backpressedtime;
+private Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +119,17 @@ NavigationView navigationView;
 
     @Override
     public void onBackPressed() {
+        if(backpressedtime + 2000 >System.currentTimeMillis())
+        {
+            finishAffinity();
+            super.onBackPressed();
+            return;
+
+        }else{
+            backtoast= Toast.makeText(getBaseContext(), "Press back again to exit ", Toast.LENGTH_SHORT);
+            backtoast.show();
+        }
+        backpressedtime =System.currentTimeMillis();
 
     }
 }

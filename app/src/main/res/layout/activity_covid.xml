@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E7F5FE"
-    tools:context=".failed">
+    tools:context=".covid">
 
     <Button
-        android:id="@+id/btn_done"
+        android:id="@+id/btn_done3"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="280dp"
         android:layout_height="48dp"
@@ -41,15 +41,16 @@
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="390dp"
-        android:layout_height="420dp"
+        android:layout_height="350dp"
         android:layout_marginTop="30dp"
+        android:paddingTop="70dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/illness" />
+        app:srcCompat="@drawable/corona" />
 
     <TextView
         android:id="@+id/textView6"
@@ -72,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="You have Pneumonia"
+        android:text="You are infected with covid-19"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -95,5 +96,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

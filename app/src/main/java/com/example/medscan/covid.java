@@ -9,19 +9,21 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class successful extends AppCompatActivity {
-Button done;
+public class covid extends AppCompatActivity {
+    Button done;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_successful);
+        setContentView(R.layout.activity_covid);
 
-        done=findViewById(R.id.btn_done2);
+        done=findViewById(R.id.btn_done3);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home=new Intent(successful.this,HomeActivity.class);
+                Intent home=new Intent(covid.this,HomeActivity.class);
                 startActivity(home);
 
             }

@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Welcome extends AppCompatActivity {
 Button btn_start;
+TextView txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,17 @@ Button btn_start;
             public void onClick(View v) {
                 Intent i=new Intent(Welcome.this,Login.class);
                 startActivity(i);
+
+            }
+        });
+
+        txt=findViewById(R.id.txt1);
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Welcome.this,successful.class);
+                startActivity(i);
+
 
             }
         });

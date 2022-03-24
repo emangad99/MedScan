@@ -17,8 +17,12 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".skin_upload"
+            android:name=".covid"
             android:exported="true" />
+        <activity
+            android:name=".skin_upload"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".skin_hospitals"
             android:exported="true"
@@ -233,9 +237,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>
