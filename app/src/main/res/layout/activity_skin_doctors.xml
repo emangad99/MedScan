@@ -151,5 +151,212 @@ Nephrologist specialized in Adult ..."
                 android:transitionName="desctransaction2" />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/skin_relative3"
+            android:layout_width="match_parent"
+            android:layout_height="122dp"
+            android:layout_below="@+id/skin_relative2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/linear_feedback">
+
+            <ImageView
+
+
+                android:id="@+id/skin_doc3"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:transitionName="imagetransaction3"
+                app:srcCompat="@drawable/skin_doc3" />
+
+            <TextView
+                android:id="@+id/skin_name_doc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/skin_doc3"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Dr. Nermin Diab"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:transitionName="nametransaction3" />
+
+            <TextView
+                android:id="@+id/skin_des3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/skin_name_doc3"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_toEndOf="@+id/skin_doc3"
+                android:text="Kidney and diabetes consultant
+Nephrologist specialized in Adult ..."
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:transitionName="desctransaction3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/skin_relative4"
+            android:layout_width="match_parent"
+            android:layout_height="122dp"
+            android:layout_below="@+id/skin_relative3"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/linear_feedback">
+
+            <ImageView
+                android:id="@+id/skin_doc4"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                android:transitionName="imagetransaction4"
+                app:srcCompat="@drawable/skin_doc4" />
+
+            <TextView
+                android:id="@+id/skin_name_doc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="20dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Dr. Maged Habib "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:transitionName="nametransaction4" />
+
+            <TextView
+                android:id="@+id/skin_des4"
+                android:layout_width="233dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/skin_name_doc4"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/skin_doc4"
+                android:text="Consultant of Nephrology, Diabetes, Internal Medicine, Immunology ..."
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:transitionName="desctransaction4" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/skin_relative5"
+            android:layout_width="match_parent"
+            android:layout_height="122dp"
+            android:layout_below="@+id/skin_relative4"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/linear_feedback">
+
+            <ImageView
+
+
+                android:id="@+id/skin_doc5"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:transitionName="imagetransaction5"
+                app:srcCompat="@drawable/skin_doc5" />
+
+            <TextView
+                android:id="@+id/skin_name_doc5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/skin_doc5"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Dr. Nermin Diab"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:transitionName="nametransaction5" />
+
+            <TextView
+                android:id="@+id/skin_des5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/skin_name_doc5"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_toEndOf="@+id/skin_doc5"
+                android:text="Kidney and diabetes consultant
+Nephrologist specialized in Adult ..."
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:transitionName="desctransaction5" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/skin_relative6"
+            android:layout_width="match_parent"
+            android:layout_height="122dp"
+            android:layout_below="@+id/skin_relative5"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/linear_feedback">
+
+            <ImageView
+                android:id="@+id/skin_doc6"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                android:transitionName="imagetransaction6"
+                app:srcCompat="@drawable/skin_doc6" />
+
+            <TextView
+                android:id="@+id/skin_name_doc6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="20dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Dr. Maged Habib "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:transitionName="nametransaction6" />
+
+            <TextView
+                android:id="@+id/skin_des6"
+                android:layout_width="233dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/skin_name_doc6"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/skin_doc6"
+                android:text="Consultant of Nephrology, Diabetes, Internal Medicine, Immunology ..."
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:transitionName="desctransaction6" />
+        </RelativeLayout>
+
+
     </RelativeLayout>
 </ScrollView>
