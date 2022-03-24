@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.Activity;
@@ -17,6 +18,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -32,6 +36,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class eyes_image extends AppCompatActivity {
 
     int SELECT_PHOTO=2;
@@ -39,6 +48,7 @@ public class eyes_image extends AppCompatActivity {
     ImageView btn_choose , image , btn_camera;
     Button upload ;
     private Uri imageuri;
+    String currentPhotoPath;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST = 1888;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_eyes");
@@ -102,8 +112,7 @@ public class eyes_image extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                    dispatchTakePictureIntent();
                 }
 
             }
@@ -121,8 +130,17 @@ public class eyes_image extends AppCompatActivity {
         }
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            image.setImageBitmap(photo);
+            File f = new File (currentPhotoPath);
+            image.setImageURI(Uri.fromFile(f));
+            Log.d("tag","ABsolute Url of Image is "+ Uri.fromFile(f));
+
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            imageuri = Uri.fromFile(f);
+            mediaScanIntent.setData(imageuri);
+            this.sendBroadcast(mediaScanIntent);
+
+
+
         }
 
     }
@@ -158,6 +176,49 @@ public class eyes_image extends AppCompatActivity {
 
     }
 
+
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        //File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir =Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,
+                        "com.example.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, CAMERA_REQUEST);
+            }
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -188,6 +249,7 @@ public class eyes_image extends AppCompatActivity {
         }
 
     }
+
     private  void  uplaodToFirebase(Uri uri){
         StorageReference fileRef =  reference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
         fileRef.putFile((uri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -230,9 +292,13 @@ class  Model3{
     }
     public  String getImageUri(){
         return imageUri;
+
     }
 
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
     }
+
 }
+
+
