@@ -52,6 +52,12 @@
             android:gravity="center"
             android:layout_gravity="center">
 
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="75dp"
+                android:src="@drawable/eyes_hosp1"/>
+
+
             <TextView
                 android:id="@+id/nam1"
                 android:layout_width="wrap_content"
@@ -59,8 +65,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Sheikh Zayed Specialized Hospital"
+                android:paddingTop="2dp"
+                android:text="@string/Eye_city"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -69,10 +75,10 @@
                 android:id="@+id/loc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Central Axis, Sheikh Zayed"
+                android:gravity="center"
+                android:text="Compound: Behind the Air Hospital - El-Ayoun City"
                 android:textColor="@color/gray"
-                android:textSize="12dp"
-                />
+                android:textSize="12dp" />
 
             <ImageView
                 android:layout_width="25dp"
@@ -81,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="5.0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -113,6 +119,12 @@
             android:gravity="center"
             android:layout_gravity="center">
 
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="75dp"
+                android:src="@drawable/eyes_hosp2"/>
+
+
             <TextView
                 android:id="@+id/nam2"
                 android:layout_width="wrap_content"
@@ -120,8 +132,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Ghoneim Center at Mansoura University"
+                android:paddingTop="2dp"
+                android:text="I-vision eye hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -130,7 +142,7 @@
                 android:id="@+id/loc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mansoura University"
+                android:text="25 Ahmed Tayseer, Al Golf, Nasr City, Cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -143,7 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="4.2"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -174,6 +186,11 @@
             android:gravity="center"
             android:layout_gravity="center">
 
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="85dp"
+                android:src="@drawable/eyes_hosp3"/>
+
             <TextView
                 android:id="@+id/nam3"
                 android:layout_width="wrap_content"
@@ -181,8 +198,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Arab Contractors Medical Centre"
+                android:paddingTop="2dp"
+                android:text="El Rowad Hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -191,7 +208,7 @@
                 android:id="@+id/loc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Nasr Rd, Al Abageyah, Nasr City, Cairo Governorate"
+                android:text=" El Mahalla El Kubra, Gharbia"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -204,7 +221,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.1"
+                android:text="4.0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -234,7 +251,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
-
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="65dp"
+                android:src="@drawable/eyes_hosp4"/>
             <TextView
                 android:id="@+id/nam4"
                 android:layout_width="wrap_content"
@@ -242,8 +262,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Elite Medical Hospital"
+                android:paddingTop="2dp"
+                android:text="Ophthalmology Hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -252,7 +272,7 @@
                 android:id="@+id/loc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sidi Beshr Bahri, Montaza 2, Alexandria Governorate"
+                android:text="El-Quds Lane, Qism Damanhour, El Beheira "
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -295,6 +315,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="75dp"
+                android:src="@drawable/eyes_hosp5"/>
 
             <TextView
                 android:id="@+id/nam5"
@@ -303,8 +327,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="As-Salam International Hospital Maadi Branch"
+                android:paddingTop="2dp"
+                android:text="Magrabi Eye Hospital "
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -313,7 +337,7 @@
                 android:id="@+id/loc5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cairo - Al Wosta, Athar an Nabi, Old Cairo, Cairo Governorate"
+                android:text="Al Sayeda Nafisa, El Khalifa, Cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -326,7 +350,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.3"
+                android:text="3.6"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -356,6 +380,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="75dp"
+                android:src="@drawable/eyes_hosp6"/>
 
             <TextView
                 android:id="@+id/nam6"
@@ -364,8 +392,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Nile Hospital"
+                android:paddingTop="2dp"
+                android:text="Cataract Hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -374,7 +402,7 @@
                 android:id="@+id/loc6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Nasr, Hurghada, Red Sea Governorate"
+                android:text="42 Abdel Salam Aref Street, Fleming, Saba Pasha, Raml."
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -387,7 +415,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2"
+                android:text="3.1"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
