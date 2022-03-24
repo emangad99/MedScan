@@ -52,6 +52,12 @@
             android:gravity="center"
             android:layout_gravity="center">
 
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:src="@drawable/skin_hosp1"/>
+
+
             <TextView
                 android:id="@+id/nam1"
                 android:layout_width="wrap_content"
@@ -59,8 +65,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Sheikh Zayed Specialized Hospital"
+                android:paddingTop="2dp"
+                android:text="Dermatology clinic in Bakus"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -69,7 +75,8 @@
                 android:id="@+id/loc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Central Axis, Sheikh Zayed"
+                android:text="El Raml , Alexandria Governorate"
+                android:gravity="center"
                 android:textColor="@color/gray"
                 android:textSize="12dp"
                 />
@@ -81,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="4.7"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -113,6 +120,11 @@
             android:gravity="center"
             android:layout_gravity="center">
 
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:src="@drawable/skin_hosp2"/>
+
             <TextView
                 android:id="@+id/nam2"
                 android:layout_width="wrap_content"
@@ -120,8 +132,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Ghoneim Center at Mansoura University"
+                android:paddingTop="2dp"
+                android:text="Abbasia Clinic"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -130,7 +142,7 @@
                 android:id="@+id/loc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mansoura University"
+                android:text="Fakhry Abd El-Nour, Al Abbaseyah Al Qebleyah, El Weili, Cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -143,7 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="4.4"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -173,7 +185,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
-
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="75dp"
+                android:src="@drawable/skin_hosp3"/>
             <TextView
                 android:id="@+id/nam3"
                 android:layout_width="wrap_content"
@@ -181,8 +196,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Arab Contractors Medical Centre"
+                android:paddingTop="2dp"
+                android:text="Vascuderm Clinic"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -191,7 +206,7 @@
                 android:id="@+id/loc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Nasr Rd, Al Abageyah, Nasr City, Cairo Governorate"
+                android:text="Ezbet Saad, Sidi Gaber, Alexandria"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -204,7 +219,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.1"
+                android:text="4.3"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -234,7 +249,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
-
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:src="@drawable/skin_hosp4"/>
             <TextView
                 android:id="@+id/nam4"
                 android:layout_width="wrap_content"
@@ -242,8 +260,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Elite Medical Hospital"
+                android:paddingTop="2dp"
+                android:text="Salahuddin Dermatology Hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -252,7 +270,7 @@
                 android:id="@+id/loc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sidi Beshr Bahri, Montaza 2, Alexandria Governorate"
+                android:text="4 Kayetbai, street, Almazah, Heliopolis, Cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -265,7 +283,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.8"
+                android:text="4.0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -295,7 +313,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
-
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:src="@drawable/skin_hosp5"/>
             <TextView
                 android:id="@+id/nam5"
                 android:layout_width="wrap_content"
@@ -303,8 +324,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="As-Salam International Hospital Maadi Branch"
+                android:paddingTop="2dp"
+                android:text="Dalia Derma Clinic"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -313,7 +334,7 @@
                 android:id="@+id/loc5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cairo - Al Wosta, Athar an Nabi, Old Cairo, Cairo Governorate"
+                android:text=" Abou Quer, Sidi Gabir, Sidi Gaber, Alexandria"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -326,7 +347,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.3"
+                android:text="3.7"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -356,7 +377,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_gravity="center">
-
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="75dp"
+                android:src="@drawable/skin_hosp6"/>
             <TextView
                 android:id="@+id/nam6"
                 android:layout_width="wrap_content"
@@ -364,8 +388,8 @@
                 android:layout_gravity="center|top"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="Nile Hospital"
+                android:paddingTop="2dp"
+                android:text="Dermatology Hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -374,7 +398,7 @@
                 android:id="@+id/loc6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Nasr, Hurghada, Red Sea Governorate"
+                android:text="Qism Damietta, Damietta Desert, Damietta "
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -387,7 +411,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2"
+                android:text="3.6"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
