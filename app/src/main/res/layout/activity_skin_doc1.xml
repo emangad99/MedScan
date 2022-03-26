@@ -17,7 +17,7 @@
         android:layout_marginTop="59dp"
         android:layout_marginEnd="201dp"
         android:transitionName="imagetransaction"
-        app:srcCompat="@drawable/skin_pic1" />
+        app:srcCompat="@drawable/eyes_pic1" />
 
     <TextView
         android:id="@+id/textView6"

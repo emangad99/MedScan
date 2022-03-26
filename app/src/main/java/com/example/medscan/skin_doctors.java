@@ -77,6 +77,7 @@ public class skin_doctors extends AppCompatActivity {
                 startActivity(shared, options.toBundle());
             }
         });
+
         mlayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,9 +105,9 @@ public class skin_doctors extends AppCompatActivity {
 
 
                 android.util.Pair[] pairs = new android.util.Pair[3];
-                pairs[0]= new android.util.Pair(doc2,"imagetransaction3");
-                pairs[1]= new android.util.Pair(namdoc2,"nametransaction3");
-                pairs[2]= new android.util.Pair(desc2,"desctransaction3");
+                pairs[0]= new android.util.Pair(doc3,"imagetransaction3");
+                pairs[1]= new android.util.Pair(namdoc3,"nametransaction3");
+                pairs[2]= new android.util.Pair(desc3,"desctransaction3");
 
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
@@ -123,9 +124,9 @@ public class skin_doctors extends AppCompatActivity {
 
 
                 android.util.Pair[] pairs = new android.util.Pair[3];
-                pairs[0]= new android.util.Pair(doc2,"imagetransaction4");
-                pairs[1]= new android.util.Pair(namdoc2,"nametransaction4");
-                pairs[2]= new android.util.Pair(desc2,"desctransaction4");
+                pairs[0]= new android.util.Pair(doc4,"imagetransaction4");
+                pairs[1]= new android.util.Pair(namdoc4,"nametransaction4");
+                pairs[2]= new android.util.Pair(desc4,"desctransaction4");
 
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
@@ -142,9 +143,9 @@ public class skin_doctors extends AppCompatActivity {
 
 
                 android.util.Pair[] pairs = new android.util.Pair[3];
-                pairs[0]= new android.util.Pair(doc2,"imagetransaction5");
-                pairs[1]= new android.util.Pair(namdoc2,"nametransaction5");
-                pairs[2]= new android.util.Pair(desc2,"desctransaction5");
+                pairs[0]= new android.util.Pair(doc5,"imagetransaction5");
+                pairs[1]= new android.util.Pair(namdoc5,"nametransaction5");
+                pairs[2]= new android.util.Pair(desc5,"desctransaction5");
 
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
@@ -161,9 +162,9 @@ public class skin_doctors extends AppCompatActivity {
 
 
                 android.util.Pair[] pairs = new android.util.Pair[3];
-                pairs[0]= new android.util.Pair(doc2,"imagetransaction6");
-                pairs[1]= new android.util.Pair(namdoc2,"nametransaction6");
-                pairs[2]= new android.util.Pair(desc2,"desctransaction6");
+                pairs[0]= new android.util.Pair(doc6,"imagetransaction6");
+                pairs[1]= new android.util.Pair(namdoc6,"nametransaction6");
+                pairs[2]= new android.util.Pair(desc6,"desctransaction6");
 
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);

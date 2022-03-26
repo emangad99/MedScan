@@ -2,6 +2,7 @@ package com.example.medscan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,10 @@ public class eyes_doctors extends AppCompatActivity {
 
         mlayout=(RelativeLayout) findViewById(R.id.eyes_relative1);
         mlayout2=(RelativeLayout) findViewById(R.id.eyes_relative2);
+        mlayout3=(RelativeLayout) findViewById(R.id.eyes_relative3);
+        mlayout4=(RelativeLayout) findViewById(R.id.eyes_relative4);
+        mlayout5=(RelativeLayout) findViewById(R.id.eyes_relative5);
+        mlayout6=(RelativeLayout) findViewById(R.id.eyes_relative6);
 
         doc1=(ImageView) findViewById(R.id.eyes_doctor1);
         namdoc1=(TextView) findViewById(R.id.eyes_name_doc1);
@@ -37,6 +42,136 @@ public class eyes_doctors extends AppCompatActivity {
         doc2=(ImageView)findViewById(R.id.eyes_doctor2);
         namdoc2=(TextView) findViewById(R.id.eyes_name_doc2);
         desc2=(TextView) findViewById(R.id.eyes_des2);
+
+        doc3=(ImageView)findViewById(R.id.eyes_doctor3);
+        namdoc3=(TextView) findViewById(R.id.eyes_name_doc3);
+        desc3=(TextView) findViewById(R.id.eyes_des3);
+
+        doc4=(ImageView)findViewById(R.id.eyes_doctor4);
+        namdoc4=(TextView) findViewById(R.id.eyes_name_doc4);
+        desc4=(TextView) findViewById(R.id.eyes_des4);
+
+        doc5=(ImageView)findViewById(R.id.eyes_doctor5);
+        namdoc5=(TextView) findViewById(R.id.eyes_name_doc5);
+        desc5=(TextView) findViewById(R.id.eyes_des5);
+
+        doc6=(ImageView)findViewById(R.id.eyes_doctor6);
+        namdoc6=(TextView) findViewById(R.id.eyes_name_doc6);
+        desc6=(TextView) findViewById(R.id.eyes_des6);
+
+        mlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared = new Intent(eyes_doctors.this,eyes_doc1.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc1,"imagetransaction");
+                pairs[1]= new android.util.Pair(namdoc1,"nametransaction");
+                pairs[2]= new android.util.Pair(desc1,"desctransaction");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(eyes_doctors.this , pairs);
+                startActivity(shared, options.toBundle());
+            }
+        });
+
+        mlayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(eyes_doctors.this,eyes_doc2.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc2,"imagetransaction2");
+                pairs[1]= new android.util.Pair(namdoc2,"nametransaction2");
+                pairs[2]= new android.util.Pair(desc2,"desctransaction2");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(eyes_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(eyes_doctors.this,eyes_doc3.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc3,"imagetransaction3");
+                pairs[1]= new android.util.Pair(namdoc3,"nametransaction3");
+                pairs[2]= new android.util.Pair(desc3,"desctransaction3");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(eyes_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(eyes_doctors.this,eyes_doc4.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc4,"imagetransaction4");
+                pairs[1]= new android.util.Pair(namdoc4,"nametransaction4");
+                pairs[2]= new android.util.Pair(desc4,"desctransaction4");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(eyes_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(eyes_doctors.this,eyes_doc5.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc5,"imagetransaction5");
+                pairs[1]= new android.util.Pair(namdoc5,"nametransaction5");
+                pairs[2]= new android.util.Pair(desc5,"desctransaction5");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(eyes_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(eyes_doctors.this,eyes_doc6.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc6,"imagetransaction6");
+                pairs[1]= new android.util.Pair(namdoc6,"nametransaction6");
+                pairs[2]= new android.util.Pair(desc6,"desctransaction6");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(eyes_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
