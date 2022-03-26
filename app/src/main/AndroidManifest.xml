@@ -17,6 +17,18 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
+            android:name=".skin_doc6"
+            android:exported="true" />
+        <activity
+            android:name=".skin_doc5"
+            android:exported="true" />
+        <activity
+            android:name=".skin_doc4"
+            android:exported="true" />
+        <activity
+            android:name=".skin_doc3"
+            android:exported="true" />
+        <activity
             android:name=".covid"
             android:exported="true" />
         <activity

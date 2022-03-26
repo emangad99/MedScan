@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/skinback"
+    tools:context=".skin_doc3">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="347dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="201dp"
+        android:transitionName="imagetransaction3"
+        app:srcCompat="@drawable/skin_pic3" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView5"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-200dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginBottom="270dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Dr. Nermin Diab"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="nametransaction3" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_marginStart="-200dp"
+        android:layout_marginTop="-250dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:text="Kidney and diabetes consultant
+Nephrologist specialized in Adult Diabetes, Adult Endocrinology and Adult Nephrology."
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        android:transitionName="desctransaction3" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/call_icon" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/location_icon" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView7"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/money_icon" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView7"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/imageView8"
+        android:text="150 EGP"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="23dp"
+
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/imageView7"
+        android:text="New Cairo (Settlement) Edrak Clinics,
+Street 15, District One - Fifth Settlement, Medical Park 1
+ - in front of the Courts Complex - next to 7 Stars Mall"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView5"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="01201111344"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+
+</RelativeLayout>

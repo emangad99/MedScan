@@ -31,6 +31,10 @@ public class skin_doctors extends AppCompatActivity {
 
         mlayout=(RelativeLayout) findViewById(R.id.skin_relative1);
         mlayout2=(RelativeLayout) findViewById(R.id.skin_relative2);
+        mlayout3=(RelativeLayout) findViewById(R.id.skin_relative3);
+        mlayout4=(RelativeLayout) findViewById(R.id.skin_relative4);
+        mlayout5=(RelativeLayout) findViewById(R.id.skin_relative5);
+        mlayout6=(RelativeLayout) findViewById(R.id.skin_relative6);
 
         doc1=(ImageView) findViewById(R.id.skin_doc1);
         namdoc1=(TextView) findViewById(R.id.skin_name_doc1);
@@ -39,6 +43,22 @@ public class skin_doctors extends AppCompatActivity {
         doc2=(ImageView)findViewById(R.id.skin_doc2);
         namdoc2=(TextView) findViewById(R.id.skin_name_doc2);
         desc2=(TextView) findViewById(R.id.skin_des2);
+
+        doc3=(ImageView)findViewById(R.id.skin_doc3);
+        namdoc3=(TextView) findViewById(R.id.skin_name_doc3);
+        desc3=(TextView) findViewById(R.id.skin_des3);
+
+        doc4=(ImageView)findViewById(R.id.skin_doc4);
+        namdoc4=(TextView) findViewById(R.id.skin_name_doc4);
+        desc4=(TextView) findViewById(R.id.skin_des4);
+
+        doc5=(ImageView)findViewById(R.id.skin_doc5);
+        namdoc5=(TextView) findViewById(R.id.skin_name_doc5);
+        desc5=(TextView) findViewById(R.id.skin_des5);
+
+        doc6=(ImageView)findViewById(R.id.skin_doc6);
+        namdoc6=(TextView) findViewById(R.id.skin_name_doc6);
+        desc6=(TextView) findViewById(R.id.skin_des6);
 
         mlayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +88,82 @@ public class skin_doctors extends AppCompatActivity {
                 pairs[0]= new android.util.Pair(doc2,"imagetransaction2");
                 pairs[1]= new android.util.Pair(namdoc2,"nametransaction2");
                 pairs[2]= new android.util.Pair(desc2,"desctransaction2");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(skin_doctors.this,skin_doc3.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc2,"imagetransaction3");
+                pairs[1]= new android.util.Pair(namdoc2,"nametransaction3");
+                pairs[2]= new android.util.Pair(desc2,"desctransaction3");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(skin_doctors.this,skin_doc4.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc2,"imagetransaction4");
+                pairs[1]= new android.util.Pair(namdoc2,"nametransaction4");
+                pairs[2]= new android.util.Pair(desc2,"desctransaction4");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(skin_doctors.this,skin_doc5.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc2,"imagetransaction5");
+                pairs[1]= new android.util.Pair(namdoc2,"nametransaction5");
+                pairs[2]= new android.util.Pair(desc2,"desctransaction5");
+
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
+                startActivity(shared2, options.toBundle());
+
+            }
+        });
+
+        mlayout6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shared2 = new Intent(skin_doctors.this,skin_doc6.class);
+
+
+
+                android.util.Pair[] pairs = new android.util.Pair[3];
+                pairs[0]= new android.util.Pair(doc2,"imagetransaction6");
+                pairs[1]= new android.util.Pair(namdoc2,"nametransaction6");
+                pairs[2]= new android.util.Pair(desc2,"desctransaction6");
 
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(skin_doctors.this , pairs);
