@@ -116,7 +116,7 @@ Nephrologist specialized in Adult ..."
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="0dp"
                 android:transitionName="imagetransaction2"
-                app:srcCompat="@drawable/lung_doc2" />
+                app:srcCompat="@drawable/eyes_doc2" />
 
             <TextView
                 android:id="@+id/eyes_name_doc2"
@@ -171,7 +171,7 @@ Nephrologist specialized in Adult ..."
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="0dp"
                 android:transitionName="imagetransaction3"
-                app:srcCompat="@drawable/lung_doc1" />
+                app:srcCompat="@drawable/eyes_doc3" />
 
             <TextView
                 android:id="@+id/eyes_name_doc3"
@@ -221,7 +221,7 @@ Nephrologist specialized in Adult ..."
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="0dp"
                 android:transitionName="imagetransaction4"
-                app:srcCompat="@drawable/lung_doc2" />
+                app:srcCompat="@drawable/eyes_doc4" />
 
             <TextView
                 android:id="@+id/eyes_name_doc4"
@@ -276,7 +276,7 @@ Nephrologist specialized in Adult ..."
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="0dp"
                 android:transitionName="imagetransaction5"
-                app:srcCompat="@drawable/lung_doc1" />
+                app:srcCompat="@drawable/eyes_doc6" />
 
             <TextView
                 android:id="@+id/eyes_name_doc5"

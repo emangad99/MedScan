@@ -14,8 +14,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.annotations.NotNull;
 
-import org.jetbrains.annotations.NotNull;
 
 public class HomeActivity extends AppCompatActivity {
 Button patient, donor;
@@ -131,7 +131,7 @@ SessionManager sessionManager;
             return;
 
         }else{
-            backtoast= Toast.makeText(getBaseContext(), "Press back again to exit ", Toast.LENGTH_SHORT);
+            backtoast= Toast.makeText(getBaseContext(), "double click to exit ", Toast.LENGTH_SHORT);
             backtoast.show();
         }
         backpressedtime =System.currentTimeMillis();
