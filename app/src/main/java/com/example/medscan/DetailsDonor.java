@@ -61,10 +61,10 @@ public class DetailsDonor extends AppCompatActivity {
                     medical.requestFocus();
                     return;
                 }
-                if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Teeth") && ! Medical.equals("Lungs")
-                        && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("teeth") && ! Medical.equals("lungs"))
+                if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
+                        && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs"))
                 {
-                    medical.setError("Please enter (Kidney or Lungs or eyes )");
+                    medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
                     medical.requestFocus();
                     return;
                 }
@@ -119,7 +119,7 @@ public class DetailsDonor extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsDonor.this, HomeActivity.class);
+                Intent intent = new Intent(DetailsDonor.this, menu_doctors.class);
                 startActivity(intent);
             }
         });
