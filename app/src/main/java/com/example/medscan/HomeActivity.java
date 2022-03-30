@@ -93,7 +93,6 @@ SessionManager sessionManager;
                         break;
 
                     case R.id.doctors:
-                        startActivity(new Intent(HomeActivity.this,language.class));
                         break;
 
 
