@@ -92,6 +92,9 @@ SessionManager sessionManager;
                         startActivity(new Intent(HomeActivity.this,PatientEdit.class));
                         break;
 
+                    case R.id.doctors:
+                        startActivity(new Intent(HomeActivity.this,language.class));
+                        break;
 
 
 

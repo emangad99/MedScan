@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PatientEdit extends AppCompatActivity {
     TextView password;
-    TextView fullname;
+    EditText fullname;
     //  TextView emailedittext;
     // EditText phone;
     // EditText medical;
@@ -57,10 +57,10 @@ public class PatientEdit extends AppCompatActivity {
         muserRuf.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String firstname=snapshot.child("First Name").getValue(String.class);
+                //String firstname=snapshot.child("First Name").getValue(String.class);
                 //   String email= snapshot.child("Email").getValue(String.class);
 
-                fullname.setText(firstname);
+                //fullname.setText(firstname);
                 //  emailedittext.setText(email);
 
             }

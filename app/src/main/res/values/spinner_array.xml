@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languageSpinnerItems">
+        <item>@string/english</item>
+        <item>@string/arabic</item>
+    </string-array>
+</resources>

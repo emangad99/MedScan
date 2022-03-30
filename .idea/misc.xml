@@ -90,7 +90,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/drawable/custom_button.xml" value="0.2537037037037037" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_best_doctors.xml" value="0.13768115942028986" />
-        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_choose_field.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_choose_field.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_covid.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_doctors.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_eyes_doc1.xml" value="0.23867753623188406" />
@@ -108,6 +108,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_home.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_hospital.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_instruction.xml" value="0.23731884057971014" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_language.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_login.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc1.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc2.xml" value="0.13768115942028986" />
@@ -117,6 +118,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doc6.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_doctors.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_lung_hospitals.xml" value="0.2" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_main2.xml" value="0.22192028985507245" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_patient_edit.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_ray_uploaded.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_register.xml" value="0.2463768115942029" />
@@ -138,6 +140,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/activity_welcome.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/dialog_doctor.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/layout/layout_dialog.xml" value="0.23731884057971014" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/xml/file_paths.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout-land/activity_details_patient.xml" value="0.2" />
         <entry key="..\:/Users/henar/AndroidStudioProjects/MedScan1/app/src/main/res/layout/activity_details_donor.xml" value="0.1598731884057971" />

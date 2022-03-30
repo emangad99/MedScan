@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
+            android:name=".language"
+            android:exported="true" />
+        <activity
             android:name=".eyes_doc6"
             android:exported="true" />
         <activity
