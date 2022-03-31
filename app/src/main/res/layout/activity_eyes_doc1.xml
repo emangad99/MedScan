@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Ahmed Ezzat"
+        android:text="Dr. Amr said"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,8 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Consultant of internal chest diseases and allergies - Ain Shams University.
-Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest and Respiratory, Adult Chest and Respiratory and General Internal Medicine"
+        android:text="Lecturer of ophthalmology and surgery, Faculty of Medicine, Alexandria University….. Consultant of cataract, corneal, LASIK, and lens implant surgeries…. Member of the European Society for Vision Correction and Cataracts"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction" />
@@ -91,7 +90,7 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="300 EGP"
+        android:text="150 EGP"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -107,7 +106,7 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Nasr City: Abbas El Akkad Street"
+        android:text="5th Sayed Fahmy Street Above Baraka Bank, Smouha"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -119,7 +118,7 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01227767861"
+        android:text="01226154154"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

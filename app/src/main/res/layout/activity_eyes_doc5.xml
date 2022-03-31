@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr.Haitham Sami"
+        android:text="Dr. Amr Rady"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Chest Diseases Consultant. Chest and Respiratory Doctor specialized in Adult Chest and Respiratory."
+        android:text="Instructor of ophthalmology and laser, ophthalmologist specialized in LASIK, vision correction, cataracts, pediatric ophthalmology, retinal and vitreous surgery."
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction5" />
@@ -90,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="500 EGP"
+        android:text="200 EGP"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -103,11 +103,10 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="23dp"
 
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="29dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="8 El Fardous Buildings - Taqa Street - Behind Al Ahly Club - Nasr City / 39 Cleopatra Street - Salah El Din Square - Heliopolis - Cairo, Nasr City
-"
+        android:text="Cairo: El Shorouk City - City Center 1 - El Atebaa Tower"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -119,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01023177777"
+        android:text="01006098955"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
