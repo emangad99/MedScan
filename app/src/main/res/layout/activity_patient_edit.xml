@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/rectangle_28" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/fullnameedit"
         android:layout_width="335dp"
         android:layout_height="48dp"
         android:layout_marginTop="55dp"
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/fullnameedit"
         tools:ignore="TouchTargetSizeCheck" />
 
 

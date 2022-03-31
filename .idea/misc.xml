@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_patient_edit.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/build_icon.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/call_icon.xml" value="0.24615384615384617" />
@@ -177,12 +178,6 @@
         <entry key="..\:/level4/gradutioin project/app/MedScan-master2/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
       </map>
     </option>
-  </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details_patient.xml" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_health.xml" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_waiting.xml" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
