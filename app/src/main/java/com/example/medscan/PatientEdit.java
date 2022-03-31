@@ -32,11 +32,11 @@ public class PatientEdit extends AppCompatActivity {
      //EditText other;
     ImageView profileimage;
     Button update;
-    FirebaseDatabase database;
+   /* FirebaseDatabase database;
     DatabaseReference muserRuf;
     FirebaseAuth fAuth;
     FirebaseUser rUser;
-
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class PatientEdit extends AppCompatActivity {
         //  other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
 
-        database = FirebaseDatabase.getInstance();
+       /* database = FirebaseDatabase.getInstance();
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         FirebaseUser rUser = fAuth.getCurrentUser();
         assert rUser != null;
@@ -79,7 +79,7 @@ public class PatientEdit extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
 
