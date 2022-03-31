@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr.. Emad Eddin"
+        android:text="Dr. Amr Hussein"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,8 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Professor of Pulmonary Medicine and Allergy, Faculty of Medicine, Alexandria University
-Consultant bronchoscopy and thoracic intensive care."
+        android:text="Consultant of ophthalmology and LASIK at the International Medical CenterDoctor of ophthalmology specialized in LASIK, vision correction and cataracts, adult ophthalmology and pediatric ophthalmology."
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction3" />
@@ -91,7 +90,7 @@ Consultant bronchoscopy and thoracic intensive care."
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="250 EGP"
+        android:text="400 EGP"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -104,11 +103,10 @@ Consultant bronchoscopy and thoracic intensive care."
         android:layout_alignParentEnd="true"
         android:layout_marginStart="23dp"
 
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="8 College of Medicine Street, Doctors Tower, Raml Station
-Raml Station - Alexandria"
+        android:text="139 El Tahrir, Ad Doqi A, Dokki, Giza Governorate"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -120,7 +118,7 @@ Raml Station - Alexandria"
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="4855593"
+        android:text="02 37605285"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
