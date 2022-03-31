@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,13 +27,15 @@ public class PatientEdit extends AppCompatActivity {
     //  TextView emailedittext;
     // EditText phone;
     // EditText medical;
-    //  EditText clinic;
-    //  EditText time;
-    // EditText other;
+     // EditText clinic;
+      //EditText time;
+     //EditText other;
     ImageView profileimage;
     Button update;
     FirebaseDatabase database;
     DatabaseReference muserRuf;
+    FirebaseAuth fAuth;
+    FirebaseUser rUser;
 
 
     @Override
@@ -51,22 +55,28 @@ public class PatientEdit extends AppCompatActivity {
         update = findViewById(R.id.button3);
 
         database = FirebaseDatabase.getInstance();
-        muserRuf = database.getReference().child("Users");
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        FirebaseUser rUser = fAuth.getCurrentUser();
+        assert rUser != null;
+        String userId =rUser.getUid();
+        muserRuf = database.getReference().child("Users").child(userId).child("First Name");
 
 
         muserRuf.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //String firstname=snapshot.child("First Name").getValue(String.class);
+                String  firstname=snapshot.getValue(String.class);
+                System.out.println(firstname);
                 //   String email= snapshot.child("Email").getValue(String.class);
 
-                //fullname.setText(firstname);
+                fullname.setText(firstname);
                 //  emailedittext.setText(email);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
 
             }
         });

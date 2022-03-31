@@ -40,7 +40,7 @@ public class menu_doctors extends AppCompatActivity {
         assert rUser != null;
         String userId =rUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Donors");
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("Full Name");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("First Name");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
