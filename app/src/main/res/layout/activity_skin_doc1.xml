@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Nermin Diab"
+        android:text="Dr.Ghada AbdelHadi"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -42,11 +42,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView6"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="-200dp"
         android:layout_marginTop="-250dp"
+        android:layout_marginEnd="15dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Kidney and diabetes consultant
-Nephrologist specialized in Adult Diabetes, Adult Endocrinology and Adult Nephrology."
+        android:text="PhD and consultant of dermatology, dermatology and laser therapy at Benha University and Children's Specialized Hospital
+."
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction" />
@@ -89,7 +91,7 @@ Nephrologist specialized in Adult Diabetes, Adult Endocrinology and Adult Nephro
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="150 EGP"
+        android:text="100 EGP"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -102,12 +104,11 @@ Nephrologist specialized in Adult Diabetes, Adult Endocrinology and Adult Nephro
         android:layout_alignParentEnd="true"
         android:layout_marginStart="23dp"
 
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="New Cairo (Settlement) Edrak Clinics,
-Street 15, District One - Fifth Settlement, Medical Park 1
- - in front of the Courts Complex - next to 7 Stars Mall"
+        android:text="4 Farid Nada Street - in front of the emergency - Banha
+"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -119,7 +120,7 @@ Street 15, District One - Fifth Settlement, Medical Park 1
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01201111344"
+        android:text="01210077689"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

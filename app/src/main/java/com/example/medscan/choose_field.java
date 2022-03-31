@@ -32,7 +32,7 @@ public class choose_field extends AppCompatActivity {
         kidney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent kidney = new Intent(choose_field.this,kidney_upload.class);
+                Intent kidney = new Intent(choose_field.this,kidney_report.class);
                 startActivity(kidney);
 
             }

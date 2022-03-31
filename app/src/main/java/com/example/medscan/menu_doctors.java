@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,7 +41,7 @@ public class menu_doctors extends AppCompatActivity {
         assert rUser != null;
         String userId =rUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Donors");
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("First Name");
+        //databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("First Name");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,5 +67,9 @@ public class menu_doctors extends AppCompatActivity {
 
             }
         });
+    }
+    public void onBackPressed() {
+        Intent donor=new Intent(menu_doctors.this,HomeActivity.class);
+        startActivity(donor);
     }
 }
