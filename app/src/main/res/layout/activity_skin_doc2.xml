@@ -29,7 +29,7 @@
         android:layout_marginTop="93dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Maged Habib "
+        android:text="Dr. Maher Mahmoud "
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -43,11 +43,9 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="-185dp"
+        android:layout_marginEnd="-165dp"
         android:layout_toStartOf="@+id/imageView5"
-        android:text="Consultant of Nephrology, Diabetes,
-         Internal Medicine, Immunology and Thyroid Diseases
-         (Nephrologist specialized in adult diabetes and endocrinology, general internal medicine and adult nephrology)
+        android:text="Consultant of dermatology and cosmetology and consultant of genitourinary diseases and andrology and infertility Consultant of plastic surgery and laser therapy
 "
         android:textColor="@color/gray"
         android:textSize="16sp"
@@ -91,7 +89,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="300 EGP"
+        android:text="500 EGP"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -107,7 +105,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Street 105, Cairo, Maadi
+        android:text="Fifth Settlement - North Ninety Street - behind the Air Hospital - Clinic 14 - CMC Cairo
 "
         android:textColor="@color/black"
         android:textStyle="normal" />
@@ -120,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="02 25262688"
+        android:text="01114654440"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
