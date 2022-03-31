@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +23,9 @@ public class menu_doctors extends AppCompatActivity {
     DatabaseReference databaseReference;
     MyAdapter myAdapter;
     ArrayList<UserHelper> list;
+    FirebaseAuth fAuth;
+    FirebaseDatabase Database;
+    FirebaseUser rUser;
 
 
     @Override
@@ -29,7 +34,13 @@ public class menu_doctors extends AppCompatActivity {
         setContentView(R.layout.activity_menu_doctors);
 
         recyclerView=findViewById(R.id.recyclerView);
+        Database = FirebaseDatabase.getInstance();
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        FirebaseUser rUser = fAuth.getCurrentUser();
+        assert rUser != null;
+        String userId =rUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Donors");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("Full Name");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
