@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".kidney_report">
+
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="13dp"
+            android:text="@string/textview"
+            android:textColor="@color/color2"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/patient_age"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/patient_age"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/age"
+            android:inputType="number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/patient_Albumin"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/albumin"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_age" />
+
+        <LinearLayout
+            android:id="@+id/linear_patient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_Albumin">
+
+            <Spinner
+                android:id="@+id/spinner_redblood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/red_blood" />
+
+            <Spinner
+                android:id="@+id/spinner_cell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/cell" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/patient_blood"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/blood_glucose_rendom"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_patient" />
+
+        <EditText
+            android:id="@+id/patient_serum"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/serum_creatinine"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_blood" />
+
+        <EditText
+            android:id="@+id/patient_white_blood"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/white_blood_cell_count"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_serum" />
+
+        <LinearLayout
+            android:id="@+id/linear_patient2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_white_blood">
+
+            <Spinner
+                android:id="@+id/spinner_diabetes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/diabetes" />
+
+            <Spinner
+                android:id="@+id/spinner_pedal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/pedal" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/patient_pressure"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/blood_pressure"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_patient2" />
+
+        <EditText
+            android:id="@+id/patient_sugar"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/sugar"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_pressure" />
+
+        <LinearLayout
+            android:id="@+id/linear_patient3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_sugar">
+
+            <Spinner
+                android:id="@+id/spinner_pus_cell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/pus_cell" />
+
+            <Spinner
+                android:id="@+id/spinner_bacteria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/bacteria" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/patient_urea"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/blood_urea"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_patient3" />
+
+        <EditText
+            android:id="@+id/patient_potassium"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/potassium"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_urea" />
+
+        <LinearLayout
+            android:id="@+id/linear_patient4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/patient_potassium">
+
+            <Spinner
+                android:id="@+id/spinner_hyper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/hyper" />
+
+            <Spinner
+                android:id="@+id/spinner_coronary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:entries="@array/coronary" />
+
+        </LinearLayout>
+
+
+        <Spinner
+            android:id="@+id/spinner_anaemia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:entries="@array/anaemia"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_patient4" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/custom_button"
+            android:text="@string/sub"
+            android:textAllCaps="false"
+            android:textColor="@color/color3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_anaemia" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
