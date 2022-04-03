@@ -25,7 +25,7 @@ public class DetailsDonor extends AppCompatActivity {
     DatabaseReference databaseReference;
     UserHelper userHelper;
     Dialog dialog;
-    FirebaseAuth fAuth;
+
 
 
     @Override
