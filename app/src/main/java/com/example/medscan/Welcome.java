@@ -32,7 +32,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this,kidney_report.class);
+                Intent i=new Intent(Welcome.this,successful.class);
                 startActivity(i);
 
 

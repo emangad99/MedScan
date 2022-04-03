@@ -20,7 +20,7 @@ Button done;
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home=new Intent(failed.this,HomeActivity.class);
+                Intent home=new Intent(failed.this,failed_advice.class);
                 startActivity(home);
             }
         });

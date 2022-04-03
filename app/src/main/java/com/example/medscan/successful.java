@@ -21,7 +21,7 @@ Button done;
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home=new Intent(successful.this,HomeActivity.class);
+                Intent home=new Intent(successful.this,successful_advice.class);
                 startActivity(home);
 
             }

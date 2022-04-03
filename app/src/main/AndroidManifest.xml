@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.medscan">
+    package="com.example.medscan" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -15,7 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.MedScan"
-        tools:replace="android:supportsRtl">
+        tools:replace="android:supportsRtl" >
+        <activity
+            android:name=".successful_advice"
+            android:exported="true" />
+        <activity
+            android:name=".failed_advice"
+            android:exported="true" />
+        <activity
+            android:name=".covid_advice"
+            android:exported="true" />
         <activity
             android:name=".kidney_report"
             android:exported="true"
@@ -197,10 +206,6 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".health"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".DetailsDonor"
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -223,7 +228,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -251,15 +256,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailsPatientActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".PatientEdit"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".WaitingActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -283,7 +280,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.android.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

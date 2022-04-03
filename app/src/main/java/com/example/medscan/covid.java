@@ -23,8 +23,8 @@ public class covid extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home=new Intent(covid.this,HomeActivity.class);
-                startActivity(home);
+                Intent i=new Intent(covid.this,covid_advice.class);
+                startActivity(i);
 
             }
         });
