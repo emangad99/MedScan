@@ -154,7 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 if (firstname.isEmpty()) {
-                    txtFirstName.setError("First Name is required");
+                    txtFirstName.setError("Full Name is required");
                     txtFirstName.requestFocus();
 
                 }
@@ -193,7 +193,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 String userId =rUser.getUid();
                                 databaseReference=FirebaseDatabase.getInstance().getReference("Users").child(userId);
                                 HashMap<String,String> hashMap = new HashMap<>();
-                                hashMap.put("First Name",firstname);
+                                hashMap.put("Full Name",firstname);
                                 hashMap.put("Email",email);
                                 hashMap.put("Password",password);
 
