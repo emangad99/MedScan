@@ -30,7 +30,7 @@ public class DetailsDonor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_donor);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("Donors");
+        databaseReference=firebaseDatabase.getReference("Users").child("Donor");
         userHelper = new UserHelper();
 
         address=findViewById(R.id.txt_address);
