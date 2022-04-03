@@ -6,13 +6,17 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.medscan.menu.Feedback;
+import com.example.medscan.menu.Instruction;
+import com.example.medscan.menu.PatientEdit;
+import com.example.medscan.menu.best_doctors;
+import com.example.medscan.menu.menu_doctors;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.annotations.NotNull;
 
@@ -77,23 +81,23 @@ SessionManager sessionManager;
                         break;
 
                     case R.id.feedback:
-                        startActivity(new Intent(HomeActivity.this,Feedback.class));
+                        startActivity(new Intent(HomeActivity.this, Feedback.class));
                         break;
 
                     case R.id.recommend:
-                        startActivity(new Intent(HomeActivity.this,best_doctors.class));
+                        startActivity(new Intent(HomeActivity.this, best_doctors.class));
                         break;
 
                     case R.id.about_us:
-                        startActivity(new Intent(HomeActivity.this,Instruction.class));
+                        startActivity(new Intent(HomeActivity.this, Instruction.class));
                         break;
 
                     case R.id.edit_profile:
-                        startActivity(new Intent(HomeActivity.this,PatientEdit.class));
+                        startActivity(new Intent(HomeActivity.this, PatientEdit.class));
                         break;
 
                     case R.id.doctors:
-                        startActivity(new Intent(HomeActivity.this,menu_doctors.class));
+                        startActivity(new Intent(HomeActivity.this, menu_doctors.class));
                         break;
 
 
@@ -140,4 +144,5 @@ SessionManager sessionManager;
         backpressedtime =System.currentTimeMillis();
 
     }
+
 }

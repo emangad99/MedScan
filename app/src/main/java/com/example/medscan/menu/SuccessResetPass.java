@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.medscan.R;
-import com.example.medscan.login.SessionManager;
+import com.example.medscan.SessionManager;
 import com.example.medscan.login.Login;
 
 public class SuccessResetPass extends AppCompatActivity {
