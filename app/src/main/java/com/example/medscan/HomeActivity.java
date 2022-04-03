@@ -16,6 +16,7 @@ import com.example.medscan.menu.Feedback;
 import com.example.medscan.menu.Instruction;
 import com.example.medscan.menu.PatientEdit;
 import com.example.medscan.menu.best_doctors;
+import com.example.medscan.skin.DetailsDonor;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.annotations.NotNull;
 
@@ -122,7 +123,7 @@ SessionManager sessionManager;
             @Override
             public void onClick(View v) {
 
-                Intent donor=new Intent(HomeActivity.this,DetailsDonor.class);
+                Intent donor=new Intent(HomeActivity.this, DetailsDonor.class);
                 startActivity(donor);
 
             }

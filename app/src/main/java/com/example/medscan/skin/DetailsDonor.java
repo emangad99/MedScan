@@ -1,4 +1,4 @@
-package com.example.medscan;
+package com.example.medscan.skin;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.medscan.R;
+import com.example.medscan.UserHelper;
+import com.example.medscan.menu_doctors;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

@@ -209,7 +209,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailsDonor"
+            android:name=".skin.DetailsDonor"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
