@@ -10,7 +10,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Feedback">
+        tools:context=".menu.Feedback">
 
         <ImageView
             android:id="@+id/imageView3"

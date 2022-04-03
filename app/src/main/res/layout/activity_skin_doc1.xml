@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/skinback"
-    tools:context=".skin_doc1">
+    tools:context=".skin.skin_doc1">
 
     <ImageView
         android:id="@+id/imageView5"

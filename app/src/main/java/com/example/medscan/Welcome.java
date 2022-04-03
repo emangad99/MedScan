@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.medscan.login.Login;
+import com.example.medscan.lungs.successful;
+
 public class Welcome extends AppCompatActivity {
 Button btn_start;
 TextView txt;
@@ -22,7 +25,7 @@ TextView txt;
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this,Login.class);
+                Intent i=new Intent(Welcome.this, Login.class);
                 startActivity(i);
 
             }
@@ -32,7 +35,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this,successful.class);
+                Intent i=new Intent(Welcome.this, successful.class);
                 startActivity(i);
 
 

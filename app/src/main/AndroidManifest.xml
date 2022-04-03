@@ -17,15 +17,15 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl" >
         <activity
-            android:name=".successful_advice"
+            android:name=".lungs.successful_advice"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".failed_advice"
+            android:name=".lungs.failed_advice"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".covid_advice"
+            android:name=".lungs.covid_advice"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
@@ -33,51 +33,51 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menu_doctors"
+            android:name=".menu.menu_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_doc6"
+            android:name=".eyes.eyes_doc6"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_doc5"
+            android:name=".eyes.eyes_doc5"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_doc4"
+            android:name=".eyes.eyes_doc4"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_doc3"
+            android:name=".eyes.eyes_doc3"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_doc2"
+            android:name=".eyes.eyes_doc2"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_doc1"
+            android:name=".eyes.eyes_doc1"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_doc6"
+            android:name=".skin.skin_doc6"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_doc5"
+            android:name=".skin.skin_doc5"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_doc4"
+            android:name=".skin.skin_doc4"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_doc3"
+            android:name=".skin.skin_doc3"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".covid"
+            android:name=".lungs.covid"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -85,65 +85,65 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_hospitals"
+            android:name=".skin.skin_hospitals"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
-            android:name=".skin_doctors"
+            android:name=".skin.skin_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_doc2"
+            android:name=".skin.skin_doc2"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".skin_doc1"
+            android:name=".skin.skin_doc1"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_hospitals"
+            android:name=".lungs.lung_hospitals"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
-            android:name=".lung_doctors"
+            android:name=".lungs.lung_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_doc6"
+            android:name=".lungs.lung_doc6"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_doc5"
+            android:name=".lungs.lung_doc5"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_doc4"
+            android:name=".lungs.lung_doc4"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_doc3"
+            android:name=".lungs.lung_doc3"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_doc2"
+            android:name=".lungs.lung_doc2"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".lung_doc1"
+            android:name=".lungs.lung_doc1"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".eyes_hospitals"
+            android:name=".eyes.eyes_hospitals"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
-            android:name=".eyes_doctors"
+            android:name=".eyes.eyes_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -155,11 +155,11 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".header"
+            android:name=".menu.header"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".best_doctors"
+            android:name=".menu.best_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -167,45 +167,45 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".successful"
+            android:name=".lungs.successful"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".failed"
+            android:name=".lungs.failed"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".shared_doc6"
+            android:name=".kidneys.shared_doc6"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".hospital"
+            android:name=".kidneys.hospital"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
-            android:name=".shared_doc5"
+            android:name=".kidneys.shared_doc5"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".shared_doc4"
+            android:name=".kidneys.shared_doc4"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".shared_doc3"
+            android:name=".kidneys.shared_doc3"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".shared_doc2"
+            android:name=".kidneys.shared_doc2"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".shared_doc1"
+            android:name=".kidneys.shared_doc1"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".doctors"
+            android:name=".kidneys.doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -213,19 +213,19 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Feedback"
+            android:name=".menu.Feedback"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FacebookAuth"
+            android:name=".login.FacebookAuth"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GoogleAuth"
+            android:name=".login.GoogleAuth"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".login.RegisterActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -239,11 +239,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".login.Login"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SuccessResetPass"
+            android:name=".menu.SuccessResetPass"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -251,7 +251,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ForgetPassword"
+            android:name=".menu.ForgetPassword"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -259,11 +259,11 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PatientEdit"
+            android:name=".menu.PatientEdit"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TwitterAuth"
+            android:name=".login.TwitterAuth"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -271,7 +271,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Instruction"
+            android:name=".menu.Instruction"
             android:exported="true"
             android:screenOrientation="portrait" />
 

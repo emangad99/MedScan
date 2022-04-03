@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".failed_advice">
+    tools:context=".lungs.failed_advice">
 
     <androidx.viewpager.widget.ViewPager
 

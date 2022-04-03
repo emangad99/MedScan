@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/lungback"
-    tools:context=".lung_doc4">
+    tools:context=".lungs.lung_doc4">
 
     <ImageView
         android:id="@+id/imageView5"
