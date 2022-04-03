@@ -32,6 +32,9 @@ public class DetailsDonor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_donor);
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference("Donors");
+        userHelper = new UserHelper();
 
 
         address=findViewById(R.id.txt_address);
@@ -50,13 +53,6 @@ public class DetailsDonor extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                firebaseDatabase=FirebaseDatabase.getInstance();
-                FirebaseUser rUser = fAuth.getCurrentUser();
-                assert rUser != null;
-                String userId =rUser.getUid();
-                databaseReference=firebaseDatabase.getReference("Users").child(userId);
-                userHelper = new UserHelper();
 
                 String  Address =address.getText().toString();
                 String  Phone= phone.getText().toString();
