@@ -18,13 +18,16 @@
         tools:replace="android:supportsRtl" >
         <activity
             android:name=".successful_advice"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".failed_advice"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".covid_advice"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".kidney_report"
             android:exported="true"
