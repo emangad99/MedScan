@@ -1,4 +1,4 @@
-package com.example.medscan.menu;
+package com.example.medscan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,10 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.medscan.HomeActivity;
-import com.example.medscan.MyAdapter;
-import com.example.medscan.R;
-import com.example.medscan.UserHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

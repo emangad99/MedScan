@@ -33,7 +33,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menu.menu_doctors"
+            android:name=".menu_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
