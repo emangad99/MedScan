@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,6 +25,7 @@ public class DetailsDonor extends AppCompatActivity {
     DatabaseReference databaseReference;
     UserHelper userHelper;
     Dialog dialog;
+    FirebaseAuth fAuth;
 
 
     @Override
@@ -30,7 +33,10 @@ public class DetailsDonor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_donor);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("Users");
+        FirebaseUser rUser = fAuth.getCurrentUser();
+        assert rUser != null;
+        String userId =rUser.getUid();
+        databaseReference=firebaseDatabase.getReference("Users").child(userId);
         userHelper = new UserHelper();
 
         address=findViewById(R.id.txt_address);
@@ -94,6 +100,7 @@ public class DetailsDonor extends AppCompatActivity {
                     return;
                 }
                 else {
+
 
                     userHelper.setAddress(Address);
                     userHelper.setPhone(Phone);
