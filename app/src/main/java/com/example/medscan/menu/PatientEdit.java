@@ -88,7 +88,7 @@ public class PatientEdit extends AppCompatActivity {
 
 
         });
-/*
+
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -149,19 +149,34 @@ public class PatientEdit extends AppCompatActivity {
 
             }
         });
-        update.setOnClickListener(new View.OnClickListener() {
+      /*  update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateProfile(firebaseUser);
             }
+        });*/
+
+        update.setOnClickListener(new View.OnClickListener() {@Override
+        public void onClick(View view) {
+            uploadprofileImage();
+        }
         });
+
+        profileimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
+            }
+        });
+
+        getUserinfo();
     }
 
     private void updateProfile(FirebaseUser firebaseUser) {
-        String  Address =clinic.getText().toString();
-        String  Phone= phone.getText().toString();
-        String  Time = time.getText().toString();
-        String  Medical = medical.getText().toString();
+        String Address = clinic.getText().toString();
+        String Phone = phone.getText().toString();
+        String Time = time.getText().toString();
+        String Medical = medical.getText().toString();
         String Other = other.getText().toString();
         String fName = fullname.getText().toString();
         String email = emailedittext.getText().toString().trim();
@@ -171,9 +186,8 @@ public class PatientEdit extends AppCompatActivity {
             medical.requestFocus();
             return;
         }
-        if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Teeth") && ! Medical.equals("Lungs")
-                && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("teeth") && ! Medical.equals("lungs"))
-        {
+        if (!Medical.equals("Kidney") && !Medical.equals("eyes") && !Medical.equals("Teeth") && !Medical.equals("Lungs")
+                && !Medical.equals("Eyes") && !Medical.equals("kidney") && !Medical.equals("teeth") && !Medical.equals("lungs")) {
             medical.setError("Please enter (Kidney or Lungs or eyes )");
             medical.requestFocus();
             return;
@@ -188,7 +202,7 @@ public class PatientEdit extends AppCompatActivity {
             phone.requestFocus();
             return;
         }
-        if (Phone.length()!=11) {
+        if (Phone.length() != 11) {
             phone.setError("Please enter a valid number");
             phone.requestFocus();
             return;
@@ -212,10 +226,10 @@ public class PatientEdit extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
             emailedittext.setError("Email is required");
             return;
-        }else {
+        } else {
 
-            Address =clinic.getText().toString();
-            Phone= phone.getText().toString();
+            Address = clinic.getText().toString();
+            Phone = phone.getText().toString();
             Time = time.getText().toString();
             Medical = medical.getText().toString();
             Other = other.getText().toString();
@@ -223,23 +237,12 @@ public class PatientEdit extends AppCompatActivity {
             email = emailedittext.getText().toString().trim();
 
 
-        }*/
+        }
 
-        update.setOnClickListener(new View.OnClickListener() {@Override
-            public void onClick(View view) {
-                uploadprofileImage();
-            }
-        });
 
-        profileimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
-                                            }
-                                        });
-
-        getUserinfo();
     }
+
+
 
     private void getUserinfo() {
         databaseReference.child(authProfile.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
