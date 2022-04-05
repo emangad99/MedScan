@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
+            android:name=".chat.chat_activity"
+            android:exported="true" />
+        <activity
             android:name=".chat.chat_home"
             android:exported="true" />
         <activity

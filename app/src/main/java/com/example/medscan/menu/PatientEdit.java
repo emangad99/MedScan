@@ -37,11 +37,13 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import java.net.URL;
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class PatientEdit extends AppCompatActivity {
     TextView password;
     TextView fullname,emailedittext, phone, medical, clinic, time, other;
     String _FULLNAME ,_EMAIL, _PHONE ,_MEDICAL ,_CLINIC ,_TIME ,_OTHER;
-    ImageView profileimage;
+    CircleImageView profileimage;
     Button update;
     FirebaseDatabase database;
     FirebaseAuth authProfile;

@@ -16,9 +16,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class header extends AppCompatActivity {
 
-    ImageView profileimage;
+    CircleImageView profileimage;
     DatabaseReference databaseReference;
     TextView txtname, email;
     FirebaseAuth authProfile;
