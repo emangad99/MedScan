@@ -25,7 +25,6 @@ public class DetailsDonor extends AppCompatActivity {
     DatabaseReference databaseReference;
     UserHelper userHelper;
     Dialog dialog;
-    FirebaseAuth fAuth;
 
 
 
@@ -34,7 +33,8 @@ public class DetailsDonor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_donor);
         firebaseDatabase=FirebaseDatabase.getInstance();
-
+        databaseReference=firebaseDatabase.getReference("Donors");
+        userHelper = new UserHelper();
 
 
         address=findViewById(R.id.txt_address);
@@ -53,11 +53,6 @@ public class DetailsDonor extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseUser rUser = fAuth.getCurrentUser();
-                assert rUser != null;
-                String userId =rUser.getUid();
-                databaseReference=firebaseDatabase.getReference("Users");
-                userHelper = new UserHelper();
 
                 String  Address =address.getText().toString();
                 String  Phone= phone.getText().toString();
