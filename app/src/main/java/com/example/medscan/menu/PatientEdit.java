@@ -1,6 +1,8 @@
 package com.example.medscan.menu;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,10 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +28,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+
+import java.net.URL;
+import java.util.HashMap;
 
 public class PatientEdit extends AppCompatActivity {
     TextView password;
@@ -31,6 +45,12 @@ public class PatientEdit extends AppCompatActivity {
     Button update;
     FirebaseDatabase database;
     FirebaseAuth authProfile;
+    Uri imageUri;
+    String myUri = "";
+    StorageTask uploadTask;
+    StorageReference storageprofilepicsRef;
+    DatabaseReference databaseReference;
+
 
 
     @Override
@@ -49,9 +69,11 @@ public class PatientEdit extends AppCompatActivity {
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
         database = FirebaseDatabase.getInstance();
-
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        storageprofilepicsRef = FirebaseStorage.getInstance().getReference().child("profile pc");
+
         showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +222,112 @@ public class PatientEdit extends AppCompatActivity {
 
 
         }
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadprofileImage();
+            }
+        });
+
+        profileimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
+                                            }
+                                        }
+
+        );
+
+        getUserinfo();
     }
+
+    private void getUserinfo() {
+        databaseReference.child(authProfile.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists() && snapshot.getChildrenCount() > 0)
+                {
+                    if( snapshot.hasChild("image"))
+                    {
+                        String image = snapshot.child("image").getValue().toString();
+                        Picasso.get().load(image).into(profileimage);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if( requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null)
+        {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            imageUri = result.getUri();
+
+            profileimage.setImageURI(imageUri);
+        }
+        else{
+            Toast.makeText(this,"ERROR TRY AGAIN ", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void uploadprofileImage() {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("set your profile");
+        progressDialog.setMessage( "pease wait");
+        progressDialog.show();
+
+        if(imageUri != null){
+            final  StorageReference fileRef = storageprofilepicsRef.child(authProfile.getCurrentUser().getUid()+ "jpg");
+
+            uploadTask = fileRef.putFile(imageUri);
+            uploadTask.continueWithTask(new Continuation() {
+                @NonNull
+                @Override
+                public Object then(@NonNull Task task) throws Exception {
+
+                    if (!task.isSuccessful())
+                    {
+                        throw task.getException();
+                    }
+                    return fileRef.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task <Uri>task) {
+                    if(task.isSuccessful())
+                    {
+                        Uri dowenoadUri =task.getResult();
+                        myUri = dowenoadUri.toString();
+
+                        HashMap<String, Object> userMap = new HashMap<>();
+                        userMap.put("image",myUri);
+
+                        databaseReference.child(authProfile.getCurrentUser().getUid()).updateChildren(userMap);
+
+                        progressDialog.dismiss();
+
+                    }
+
+                }
+
+            });
+        }else
+        {
+            progressDialog.dismiss();
+            Toast.makeText(this,"Image not Selected", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }
