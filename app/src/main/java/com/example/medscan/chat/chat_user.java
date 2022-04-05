@@ -2,17 +2,23 @@ package com.example.medscan.chat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.medscan.R;
 
 public class chat_user extends AppCompatActivity {
     ProgressBar progressBar;
+    TextView texterror;
+    ImageView icon_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +34,39 @@ public class chat_user extends AppCompatActivity {
         }
 
         progressBar=findViewById(R.id.progrsess_error);
+        texterror=findViewById(R.id.texterrormessage);
+        icon_back=findViewById(R.id.icon_back);
 
+        icon_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chat=new Intent(chat_user.this, chat_home.class);
+                startActivity(chat);
+            }
+        });
 
+    }
+    private void getUsers()
+    {
+        loading(true);
+    }
+
+    private void showErrorMessage()
+    {
+        texterror.setText(String.format("%s","No user available"));
+        texterror.setVisibility(View.VISIBLE);
+    }
+
+    private void loading (Boolean isloading)
+    {
+        if(isloading)
+        {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            progressBar.setVisibility(View.INVISIBLE);
+        }
 
     }
 }

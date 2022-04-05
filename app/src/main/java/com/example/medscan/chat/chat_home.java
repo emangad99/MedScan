@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
+import com.example.medscan.databinding.ActivityMainBinding;
+import com.example.medscan.menu_doctors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class chat_home extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +24,6 @@ public class chat_home extends AppCompatActivity {
         setContentView(R.layout.activity_chat_home);
 
         final FloatingActionButton button = findViewById(R.id.chat_fab);
-
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,5 +39,9 @@ public class chat_home extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.color5));
 
         }
+    }
+    public void onBackPressed() {
+        Intent donor=new Intent(chat_home.this, HomeActivity.class);
+        startActivity(donor);
     }
 }
