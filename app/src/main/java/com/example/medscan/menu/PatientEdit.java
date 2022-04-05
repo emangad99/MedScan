@@ -44,7 +44,8 @@ public class PatientEdit extends AppCompatActivity {
     TextView fullname,emailedittext, phone, medical, clinic, time, other;
     String _FULLNAME ,_EMAIL, _PHONE ,_MEDICAL ,_CLINIC ,_TIME ,_OTHER;
     CircleImageView profileimage;
-    Button update;
+    Button update ;
+    ImageView input_btn;
     FirebaseDatabase database;
     FirebaseAuth authProfile;
     Uri imageUri;
@@ -70,13 +71,14 @@ public class PatientEdit extends AppCompatActivity {
         time = findViewById(R.id.editTextTextPersonName4);
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
+        input_btn=findViewById(R.id.camera);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         storageprofilepicsRef = FirebaseStorage.getInstance().getReference().child("profile pc");
 
-       showProfile(firebaseUser);
+       // showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,12 +97,10 @@ public class PatientEdit extends AppCompatActivity {
         }
         });
 
-
-
-        profileimage.setOnClickListener(new View.OnClickListener() {
+        input_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
+               CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
             }
         });
 
@@ -172,7 +172,6 @@ public class PatientEdit extends AppCompatActivity {
                 updateProfile(firebaseUser);
             }
         });*/
-
 
     }
 

@@ -25,7 +25,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView32"
+        android:id="@+id/camera"
         android:layout_width="42dp"
         android:layout_height="40dp"
         android:layout_marginStart="134dp"

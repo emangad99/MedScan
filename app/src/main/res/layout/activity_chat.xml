@@ -8,4 +8,6 @@
     android:background="@color/color5"
     tools:context=".chat.chat_activity">
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
