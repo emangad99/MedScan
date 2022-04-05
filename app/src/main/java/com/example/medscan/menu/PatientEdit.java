@@ -76,7 +76,7 @@ public class PatientEdit extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         storageprofilepicsRef = FirebaseStorage.getInstance().getReference().child("profile pc");
 
-       // showProfile(firebaseUser);
+       showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +88,23 @@ public class PatientEdit extends AppCompatActivity {
 
 
         });
+
+        update.setOnClickListener(new View.OnClickListener() {@Override
+        public void onClick(View view) {
+            uploadprofileImage();
+        }
+        });
+
+
+
+        profileimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
+            }
+        });
+
+        getUserinfo();
 
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -156,20 +173,7 @@ public class PatientEdit extends AppCompatActivity {
             }
         });*/
 
-        update.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View view) {
-            uploadprofileImage();
-        }
-        });
 
-        profileimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CropImage.activity().setAspectRatio(1,1).start(PatientEdit.this);
-            }
-        });
-
-        getUserinfo();
     }
 
     private void updateProfile(FirebaseUser firebaseUser) {
