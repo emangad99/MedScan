@@ -107,4 +107,6 @@
     <string name="blood_urea">blood urea</string>
     <string name="potassium">Potassium</string>
     <string name="dr_mohamed_el_samlawy">Dr.Mohamed ElSamlawy</string>
+    <string name="select_doctor">Select Doctor</string>
+    <string name="chat">Chat</string>
 </resources>

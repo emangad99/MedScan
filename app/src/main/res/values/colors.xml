@@ -16,6 +16,9 @@
     <color name="color7">#073b85</color>
     <color name="color8">#E7F5FE</color>
     <color name="color9">#ffffff</color>
+    <color name="color10">#EAE9E9</color>
+    <color name="color11">#20FFFFFF</color>
+    <color name="error">#B00020</color>
 
 
     <color name="transpatent">#cccccc</color>

@@ -26,8 +26,8 @@
     <Button
         android:id="@+id/Next_btn"
         android:drawableRight="@drawable/ic_forward_24"
-        android:drawableTint="@color/color1"
-        android:textColor="@color/color1"
+        android:drawableTint="@color/color2"
+        android:textColor="@color/color2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -47,7 +47,10 @@
         app:layout_constraintEnd_toStartOf="@+id/Next_btn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:tabBackground="@drawable/indicator_selector">
+        app:tabBackground="@drawable/indicator_selector"
+        app:tabIndicatorColor="@color/color2"
+
+        >
     </com.google.android.material.tabs.TabLayout>
 
     <Button

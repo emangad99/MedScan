@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.medscan.login.Login;
+import com.example.medscan.lungs.covid;
+import com.example.medscan.lungs.failed;
 import com.example.medscan.lungs.successful;
 
 public class Welcome extends AppCompatActivity {

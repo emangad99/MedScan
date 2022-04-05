@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.medscan.chat.chat_home;
 import com.example.medscan.menu.Feedback;
 import com.example.medscan.menu.Instruction;
 import com.example.medscan.menu.PatientEdit;
@@ -99,8 +100,9 @@ SessionManager sessionManager;
                         startActivity(new Intent(HomeActivity.this, menu_doctors.class));
                         break;
 
-
-
+                    case R.id.chat:
+                        startActivity(new Intent(HomeActivity.this, chat_home.class));
+                        break;
 
                 }
                 return false;

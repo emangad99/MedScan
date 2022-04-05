@@ -5,7 +5,7 @@
             android:innerRadius="3dp"
             android:thickness="2dp"
             android:useLevel="false">
-            <solid android:color="@color/color1"/>
+            <solid android:color="@color/color2"/>
         </shape>
     </item>
 
