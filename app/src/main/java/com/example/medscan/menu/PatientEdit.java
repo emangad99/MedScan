@@ -78,7 +78,7 @@ public class PatientEdit extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         storageprofilepicsRef = FirebaseStorage.getInstance().getReference().child("profile pc");
 
-       // showProfile(firebaseUser);
+        showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
             @Override

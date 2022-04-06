@@ -109,4 +109,5 @@
     <string name="dr_mohamed_el_samlawy">Dr.Mohamed ElSamlawy</string>
     <string name="select_doctor">Select Doctor</string>
     <string name="chat">Chat</string>
+    <string name="type_a_message">Type a message ..</string>
 </resources>

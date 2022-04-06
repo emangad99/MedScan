@@ -7,7 +7,11 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/back_icon.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_chat.xml" value="0.26615384615384613" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_chat_input.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_chat_top.xml" value="0.26615384615384613" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_img.xml" value="0.26615384615384613" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_recieved_message.xml" value="0.26615384615384613" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_send_message.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/build_icon.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/call_icon.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/card.xml" value="0.2703125" />
@@ -106,6 +110,8 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_twitter_auth.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_waiting.xml" value="0.182518115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/chat_item_recieved_message.xml" value="0.24003623188405798" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/chat_item_send_message.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/covid_screen.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/dialog_doctor.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/failed_screen.xml" value="0.24728260869565216" />
