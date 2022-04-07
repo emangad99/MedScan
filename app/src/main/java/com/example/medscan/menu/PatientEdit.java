@@ -78,7 +78,7 @@ public class PatientEdit extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         storageprofilepicsRef = FirebaseStorage.getInstance().getReference().child("profile pc");
 
-       // showProfile(firebaseUser);
+       showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +104,7 @@ public class PatientEdit extends AppCompatActivity {
             }
         });
 
-        getUserinfo();
+
 
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -166,12 +166,12 @@ public class PatientEdit extends AppCompatActivity {
 
             }
         });
-      /*  update.setOnClickListener(new View.OnClickListener() {
+       update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateProfile(firebaseUser);
             }
-        });*/
+        });
 
     }
 
@@ -242,9 +242,9 @@ public class PatientEdit extends AppCompatActivity {
 
         }
 
+        getUserinfo();
 
     }
-
 
 
     private void getUserinfo() {
@@ -312,8 +312,8 @@ public class PatientEdit extends AppCompatActivity {
                 public void onComplete(@NonNull Task <Uri>task) {
                     if(task.isSuccessful())
                     {
-                        Uri dowenoadUri =task.getResult();
-                        myUri = dowenoadUri.toString();
+                        Uri dowenoadUrl =task.getResult();
+                        myUri = dowenoadUrl.toString();
 
                         HashMap<String, Object> userMap = new HashMap<>();
                         userMap.put("image",myUri);
