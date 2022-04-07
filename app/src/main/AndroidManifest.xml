@@ -18,13 +18,16 @@
         tools:replace="android:supportsRtl">
         <activity
             android:name=".chat.chat_activity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".chat.chat_home"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".chat.chat_user"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".lungs.successful_advice"
             android:exported="true"
@@ -266,7 +269,8 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".menu.PatientEdit"
             android:exported="true"
@@ -283,6 +287,9 @@
             android:name=".menu.Instruction"
             android:exported="true"
             android:screenOrientation="portrait" />
+        
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
 
 
         <meta-data
