@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "413215403479",
+    "firebase_url": "https://medscan-36621-default-rtdb.firebaseio.com",
     "project_id": "medscan-36621",
     "storage_bucket": "medscan-36621.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "413215403479-4lqt8kfp9i2ak4peo251l7lc2iclalr5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medscan",
+            "certificate_hash": "cf297a4b09897678afe9a4d95be5e77fc2bc1852"
+          }
+        },
         {
           "client_id": "413215403479-gd8r22j56a9d4hu86j2di17e5458fpjs.apps.googleusercontent.com",
           "client_type": 3

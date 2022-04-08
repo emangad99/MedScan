@@ -1,5 +1,6 @@
 package com.example.medscan.chat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,13 +13,24 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.medscan.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class chat_user extends AppCompatActivity {
     ProgressBar progressBar;
     TextView texterror;
     ImageView icon_back;
+    FirebaseDatabase database;
+    FirebaseAuth fAuth;
+    String _TEXTERROR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +49,17 @@ public class chat_user extends AppCompatActivity {
         texterror=findViewById(R.id.texterrormessage);
         icon_back=findViewById(R.id.icon_back);
 
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = fAuth.getCurrentUser();
+
+        if(firebaseUser == null){
+            Toast.makeText(chat_user.this,"something is wrong ",Toast.LENGTH_LONG).show();
+        }else{
+            progressBar.setVisibility(View.VISIBLE);
+            showChatuser(firebaseUser);
+        }
+
+
         icon_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +69,26 @@ public class chat_user extends AppCompatActivity {
         });
 
     }
+
+    private void showChatuser(FirebaseUser firebaseUser) {
+
+        String userIdRegistered = firebaseUser.getUid();
+        DatabaseReference referenceuser = FirebaseDatabase.getInstance().getReference("Users");
+        referenceuser.child(userIdRegistered).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                _TEXTERROR = firebaseUser.getDisplayName();
+                texterror.setText(_TEXTERROR);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(chat_user.this,"something is wrong",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
     private void getUsers()
     {
         loading(true);

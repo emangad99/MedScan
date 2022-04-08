@@ -1,12 +1,16 @@
 package com.example.medscan.menu;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +24,7 @@ import com.example.medscan.R;
 import com.example.medscan.UserHelper;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,9 +36,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
@@ -49,10 +56,10 @@ public class PatientEdit extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseAuth authProfile;
     Uri imageUri;
-    String myUri = "";
-    StorageTask uploadTask;
-    StorageReference storageprofilepicsRef;
+    StorageReference storageReference;
     DatabaseReference databaseReference;
+    int image_request_code = 7;
+    ProgressDialog progressDialog;
 
 
 
@@ -75,8 +82,13 @@ public class PatientEdit extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
-        storageprofilepicsRef = FirebaseStorage.getInstance().getReference().child("profile pc");
+        storageReference = FirebaseStorage.getInstance().getReference("Images");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+        progressDialog=new ProgressDialog(PatientEdit.this);
+
+
+
+
 
        showProfile(firebaseUser);
 
@@ -113,6 +125,61 @@ public class PatientEdit extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.color3));
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == image_request_code && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            imageUri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                profileimage.setImageBitmap(bitmap);
+            }
+            catch (IOException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String GetFileExtension(Uri uri) {
+
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
+
+    }
+
+
+    private void uploadprofileImage() {
+
+        if (imageUri != null) {
+
+            progressDialog.setTitle("Image is Uploading...");
+            progressDialog.show();
+            StorageReference storageReference2 = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(imageUri));
+            storageReference2.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
+                            @SuppressWarnings("VisibleForTests")
+                            uploadinfo imageUploadInfo = new uploadinfo(  taskSnapshot.getUploadSessionUri().toString());
+                            String ImageUploadId = databaseReference.push().getKey();
+                            databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
+                        }
+                    });
+        }
+        else {
+
+            Toast.makeText(PatientEdit.this, "Please Select Image or Add Image Name", Toast.LENGTH_LONG).show();
+
+        }
     }
 
     private void showProfile(FirebaseUser firebaseUser) {
@@ -166,12 +233,12 @@ public class PatientEdit extends AppCompatActivity {
 
             }
         });
-       update.setOnClickListener(new View.OnClickListener() {
+   /*    update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateProfile(firebaseUser);
             }
-        });
+        });*/
 
     }
 
@@ -242,97 +309,11 @@ public class PatientEdit extends AppCompatActivity {
 
         }
 
-        getUserinfo();
+
 
     }
 
 
-    private void getUserinfo() {
-        databaseReference.child(authProfile.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists() && snapshot.getChildrenCount() > 0)
-                {
-                    if( snapshot.hasChild("image"))
-                    {
-                        String image = snapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(profileimage);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if( requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null)
-        {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            imageUri = result.getUri();
-
-            profileimage.setImageURI(imageUri);
-        }
-        else{
-            Toast.makeText(this,"ERROR TRY AGAIN ", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    private void uploadprofileImage() {
-
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("set your profile");
-        progressDialog.setMessage( "pease wait");
-        progressDialog.show();
-
-        if(imageUri != null){
-            final  StorageReference fileRef = storageprofilepicsRef.child(authProfile.getCurrentUser().getUid()+ "jpg");
-
-            uploadTask = fileRef.putFile(imageUri);
-            uploadTask.continueWithTask(new Continuation() {
-                @NonNull
-                @Override
-                public Object then(@NonNull Task task) throws Exception {
-
-                    if (!task.isSuccessful())
-                    {
-                        throw task.getException();
-                    }
-                    return fileRef.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task <Uri>task) {
-                    if(task.isSuccessful())
-                    {
-                        Uri dowenoadUrl =task.getResult();
-                        myUri = dowenoadUrl.toString();
-
-                        HashMap<String, Object> userMap = new HashMap<>();
-                        userMap.put("image",myUri);
-
-                        databaseReference.child(authProfile.getCurrentUser().getUid()).updateChildren(userMap);
-
-                        progressDialog.dismiss();
-
-                    }
-
-                }
-
-            });
-        }else
-        {
-            progressDialog.dismiss();
-            Toast.makeText(this,"Image not Selected", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
 }
