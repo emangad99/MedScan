@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +28,8 @@ public class menu_doctors extends AppCompatActivity {
     DatabaseReference databaseReference;
     MyAdapter myAdapter;
     ArrayList<UserHelper> list;
+    UserHelper userHelper;
+    //FirebaseAuth authProfile;
 
 
     @Override
@@ -32,7 +38,10 @@ public class menu_doctors extends AppCompatActivity {
         setContentView(R.layout.activity_menu_doctors);
 
         recyclerView=findViewById(R.id.recyclerView);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Donors");
+        //authProfile = FirebaseAuth.getInstance();
+        //FirebaseUser firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -44,8 +53,9 @@ public class menu_doctors extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot :snapshot.getChildren()){
-                    UserHelper userHelper = dataSnapshot.getValue(UserHelper.class);
+                    userHelper = dataSnapshot.getValue(UserHelper.class);
                     list.add(userHelper);
+
 
                 }
                 myAdapter.notifyDataSetChanged();

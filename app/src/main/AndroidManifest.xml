@@ -224,7 +224,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailsDonor"
+            android:name=".DetailsDoctor"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
