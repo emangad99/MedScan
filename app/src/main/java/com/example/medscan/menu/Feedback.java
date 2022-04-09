@@ -16,8 +16,12 @@ import android.widget.EditText;
 import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class Feedback extends AppCompatActivity {
 
@@ -26,7 +30,8 @@ public class Feedback extends AppCompatActivity {
     EditText txtFeedback;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    UserHelper userHelper;
+    //UserHelper userHelper;
+    FirebaseAuth authProfile;
     Dialog dialog;
 
     @Override
@@ -40,8 +45,11 @@ public class Feedback extends AppCompatActivity {
         charactanim= AnimationUtils.loadAnimation(this,R.anim.charactanim);
         btn_submit.startAnimation(charactanim);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("Feedbacks");
-        userHelper = new UserHelper();
+        authProfile = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        //databaseReference=firebaseDatabase.getReference("Feedbacks");
+        //userHelper = new UserHelper();
         txtFeedback = findViewById(R.id.txt_feedback);
         dialog=new Dialog(this);
 
@@ -56,8 +64,11 @@ public class Feedback extends AppCompatActivity {
                     return;
                 }else{
 
-                    userHelper.setFeedback(feedback);
-                    databaseReference.push().setValue(userHelper);
+                    HashMap<String ,Object> map = new HashMap<>();
+                    map.put("Feedback",feedback);
+
+                    databaseReference.updateChildren(map);
+
 
                     openDialog();
 
