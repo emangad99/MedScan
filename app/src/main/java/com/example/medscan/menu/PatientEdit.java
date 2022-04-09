@@ -20,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
 import com.google.android.gms.tasks.Continuation;
@@ -99,6 +101,8 @@ public class PatientEdit extends AppCompatActivity {
                 other.setText(userHelper.getOther());
 
 
+
+
             }
 
             @Override
@@ -122,11 +126,11 @@ public class PatientEdit extends AppCompatActivity {
 
         });
 
-        //update.setOnClickListener(new View.OnClickListener() {@Override
-        //public void onClick(View view) {
-            //uploadprofileImage();
-        //}
-        //});
+        update.setOnClickListener(new View.OnClickListener() {@Override
+        public void onClick(View view) {
+            uploadprofileImage();
+        }
+        });
 
         input_btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -229,6 +233,7 @@ public class PatientEdit extends AppCompatActivity {
 
             }
         });
+        /*
 
        update.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -240,55 +245,7 @@ public class PatientEdit extends AppCompatActivity {
                String Other = other.getText().toString();
                String fName = fullname.getText().toString();
                String email = emailedittext.getText().toString().trim();
-/*
-                if (Medical.isEmpty()) {
-                    medical.setError("Please enter your medical specialty");
-                    medical.requestFocus();
-                    return;
-                }
-                if (!Medical.equals("Kidney") && !Medical.equals("eyes") && !Medical.equals("Skin") && !Medical.equals("Lungs")
-                        && !Medical.equals("Eyes") && !Medical.equals("kidney") && !Medical.equals("skin") && !Medical.equals("lungs")) {
-                    medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
-                    medical.requestFocus();
-                    return;
-                }
-                if (Address.isEmpty()) {
-                    clinic.setError("Please enter your clinic address");
-                    clinic.requestFocus();
-                    return;
-                }
-                if (Phone.isEmpty()) {
-                    phone.setError("Please enter your Phone number");
-                    phone.requestFocus();
-                    return;
-                }
-                if (Phone.length() != 11) {
-                    phone.setError("Please enter a valid number");
-                    phone.requestFocus();
-                    return;
-                }
-                if (Time.isEmpty()) {
-                    time.setError("Please enter your available time");
-                    time.requestFocus();
-                    return;
-                }
-                if (Other.isEmpty()) {
-                    other.setError("If you have any other information ,please write it here..If not,Write Nothing");
-                    other.requestFocus();
-                    return;
-                }
-                if (fName.isEmpty()) {
-                    fullname.setError("Full Name is required");
-                    fullname.requestFocus();
 
-                }
-
-                if (TextUtils.isEmpty(email)) {
-                    emailedittext.setError("Email is required");
-                    return;
-                } else {
-
- */
                HashMap<String, Object> map = new HashMap<>();
                map.put("address", Address);
                map.put("phone", Phone);
@@ -307,8 +264,10 @@ public class PatientEdit extends AppCompatActivity {
 
 
            }
-      // }
-        });
+
+       });
+
+         */
 
     }
 
