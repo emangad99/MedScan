@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class DetailsDonor extends AppCompatActivity {
 
     EditText  medical,phone,address,time,other;
@@ -24,6 +26,7 @@ public class DetailsDonor extends AppCompatActivity {
      FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
+    FirebaseAuth authProfile;
     Dialog dialog;
 
 
@@ -33,7 +36,9 @@ public class DetailsDonor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_donor);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("Donors");
+        authProfile = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         userHelper = new UserHelper();
 
 
@@ -99,16 +104,15 @@ public class DetailsDonor extends AppCompatActivity {
                 }
                 else {
 
-
-                    userHelper.setAddress(Address);
-                    userHelper.setPhone(Phone);
-                    userHelper.setMedical(Medical);
-                    userHelper.setTime(Time);
-                    userHelper.setOther(Other);
-                    databaseReference.push().setValue(userHelper);
+                    HashMap<String ,Object> map = new HashMap<>();
+                    map.put("address",Address);
+                    map.put("phone",Phone);
+                    map.put("medical",Medical);
+                    map.put("time",Time);
+                    map.put("other",Other);
+                    databaseReference.updateChildren(map);
 
                     openDialog();
-
 
                     Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
 

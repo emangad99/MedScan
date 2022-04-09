@@ -22,7 +22,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,8 +35,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
+import java.util.HashMap;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PatientEdit extends AppCompatActivity {
@@ -50,6 +56,7 @@ public class PatientEdit extends AppCompatActivity {
     DatabaseReference databaseReference;
     int image_request_code = 7;
     ProgressDialog progressDialog;
+
 
 
 
@@ -75,7 +82,7 @@ public class PatientEdit extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
-        databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         progressDialog=new ProgressDialog(PatientEdit.this);
 
 
@@ -159,7 +166,7 @@ public class PatientEdit extends AppCompatActivity {
             progressDialog.show();
             StorageReference storageReference2 = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(imageUri));
             storageReference2.putFile(imageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                   .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
@@ -167,13 +174,18 @@ public class PatientEdit extends AppCompatActivity {
                             @SuppressWarnings("VisibleForTests")
                             uploadinfo imageUploadInfo = new uploadinfo(  taskSnapshot.getUploadSessionUri().toString());
                             String ImageUploadId = databaseReference.push().getKey();
-                            databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
+                           // databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
+                            HashMap<String ,Object> map = new HashMap<>();
+                            map.put("imageURI",ImageUploadId);
+                            databaseReference.updateChildren(map);
                         }
                     });
+
+
         }
         else {
 
-            Toast.makeText(PatientEdit.this, "Please Select Image or Add Image Name", Toast.LENGTH_LONG).show();
+            Toast.makeText(PatientEdit.this, "Please Select Image.. ", Toast.LENGTH_LONG).show();
 
         }
     }

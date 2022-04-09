@@ -38,32 +38,7 @@ public class header extends AppCompatActivity {
         email = findViewById(R.id.user_email);
 
 
-        getUserinfo();
 
     }
 
-    private void getUserinfo() {
-        databaseReference.child(authProfile.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists() && snapshot.getChildrenCount() > 0) {
-                       String name = snapshot.child("Full Name").getValue().toString();
-                       txtname.setText(name);
-                    if( snapshot.hasChild("image"))
-                    {
-                        String image = snapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(profileimage);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
-
-
-    }
 }
