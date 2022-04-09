@@ -25,7 +25,7 @@ public class DetailsDoctor extends AppCompatActivity {
     Button submit;
      FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    //UserHelper userHelper;
+    UserHelper userHelper;
     FirebaseAuth authProfile;
     Dialog dialog;
 
@@ -39,7 +39,6 @@ public class DetailsDoctor extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        //userHelper = new UserHelper();
 
 
         address=findViewById(R.id.txt_address);

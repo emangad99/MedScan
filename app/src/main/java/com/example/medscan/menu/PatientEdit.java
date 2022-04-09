@@ -45,7 +45,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PatientEdit extends AppCompatActivity {
     TextView password;
     TextView fullname,emailedittext, phone, medical, clinic, time, other;
-    String _FULLNAME ,_EMAIL, _PHONE ,_MEDICAL ,_CLINIC ,_TIME ,_OTHER;
+    String _EMAIL;
     CircleImageView profileimage;
     Button update ;
     ImageView input_btn;
@@ -56,6 +56,7 @@ public class PatientEdit extends AppCompatActivity {
     DatabaseReference databaseReference;
     int image_request_code = 7;
     ProgressDialog progressDialog;
+    FirebaseUser firebaseUser ;
 
 
 
@@ -80,13 +81,32 @@ public class PatientEdit extends AppCompatActivity {
         input_btn=findViewById(R.id.camera);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = authProfile.getCurrentUser();
+        firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         progressDialog=new ProgressDialog(PatientEdit.this);
 
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserHelper userHelper = snapshot.getValue(UserHelper.class);
+                assert userHelper != null;
+                fullname.setText(userHelper.getFull_Name());
+                phone.setText(userHelper.getPhone());
+                medical.setText(userHelper.getMedical());
+                clinic.setText(userHelper.getAddress());
+                time.setText(userHelper.getTime());
+                other.setText(userHelper.getOther());
 
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PatientEdit.this,error.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
        showProfile(firebaseUser);
@@ -197,9 +217,7 @@ public class PatientEdit extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                _FULLNAME = firebaseUser.getDisplayName();
                 _EMAIL = firebaseUser.getEmail();
-                fullname.setText(_FULLNAME);
                 emailedittext.setText(_EMAIL);
 
             }
@@ -211,117 +229,88 @@ public class PatientEdit extends AppCompatActivity {
 
             }
         });
-        DatabaseReference referenceProfile2 =FirebaseDatabase.getInstance().getReference("Donors");
-        referenceProfile2.child(userIdRegistered).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserHelper userHelper = snapshot.getValue(UserHelper.class);
-                if(userHelper !=null){
-                    _CLINIC = userHelper.getAddress();
-                    _MEDICAL = userHelper.getMedical();
-                    _PHONE = userHelper.getPhone();
-                    _TIME = userHelper.getTime();
-                    _OTHER = userHelper.getOther();
 
-                    phone.setText(_PHONE);
-                    time.setText(_TIME);
-                    medical.setText(_MEDICAL);
-                    other.setText(_OTHER);
-                    clinic.setText(_CLINIC);
-
-                }
-                else{
-                    Toast.makeText(PatientEdit.this, "SomeThing went wrong !", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PatientEdit.this, "SomeThing went wrong !", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-   /*    update.setOnClickListener(new View.OnClickListener() {
+       update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateProfile(firebaseUser);
+                String Address = clinic.getText().toString();
+                String Phone = phone.getText().toString();
+                String Time = time.getText().toString();
+                String Medical = medical.getText().toString();
+                String Other = other.getText().toString();
+                String fName = fullname.getText().toString();
+                String email = emailedittext.getText().toString().trim();
+
+                if (Medical.isEmpty()) {
+                    medical.setError("Please enter your medical specialty");
+                    medical.requestFocus();
+                    return;
+                }
+                if (!Medical.equals("Kidney") && !Medical.equals("eyes") && !Medical.equals("Teeth") && !Medical.equals("Lungs")
+                        && !Medical.equals("Eyes") && !Medical.equals("kidney") && !Medical.equals("teeth") && !Medical.equals("lungs")) {
+                    medical.setError("Please enter (Kidney or Lungs or eyes )");
+                    medical.requestFocus();
+                    return;
+                }
+                if (Address.isEmpty()) {
+                    clinic.setError("Please enter your clinic address");
+                    clinic.requestFocus();
+                    return;
+                }
+                if (Phone.isEmpty()) {
+                    phone.setError("Please enter your Phone number");
+                    phone.requestFocus();
+                    return;
+                }
+                if (Phone.length() != 11) {
+                    phone.setError("Please enter a valid number");
+                    phone.requestFocus();
+                    return;
+                }
+                if (Time.isEmpty()) {
+                    time.setError("Please enter your available time");
+                    time.requestFocus();
+                    return;
+                }
+                if (Other.isEmpty()) {
+                    other.setError("If you have any other information ,please write it here..If not,Write Nothing");
+                    other.requestFocus();
+                    return;
+                }
+                if (fName.isEmpty()) {
+                    fullname.setError("Full Name is required");
+                    fullname.requestFocus();
+
+                }
+
+                if (TextUtils.isEmpty(email)) {
+                    emailedittext.setError("Email is required");
+                    return;
+                } else {
+                    HashMap<String ,Object> map = new HashMap<>();
+                    map.put("address",Address);
+                    map.put("phone",Phone);
+                    map.put("medical",Medical);
+                    map.put("time",Time);
+                    map.put("other",Other);
+                    map.put("Full_Name",fName);
+                    databaseReference.child(firebaseUser.getUid()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess( Void unused) {
+                            Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    });
+
+
+
+
+                }
             }
-        });*/
+        });
 
     }
-
-    private void updateProfile(FirebaseUser firebaseUser) {
-        String Address = clinic.getText().toString();
-        String Phone = phone.getText().toString();
-        String Time = time.getText().toString();
-        String Medical = medical.getText().toString();
-        String Other = other.getText().toString();
-        String fName = fullname.getText().toString();
-        String email = emailedittext.getText().toString().trim();
-
-        if (Medical.isEmpty()) {
-            medical.setError("Please enter your medical specialty");
-            medical.requestFocus();
-            return;
-        }
-        if (!Medical.equals("Kidney") && !Medical.equals("eyes") && !Medical.equals("Teeth") && !Medical.equals("Lungs")
-                && !Medical.equals("Eyes") && !Medical.equals("kidney") && !Medical.equals("teeth") && !Medical.equals("lungs")) {
-            medical.setError("Please enter (Kidney or Lungs or eyes )");
-            medical.requestFocus();
-            return;
-        }
-        if (Address.isEmpty()) {
-            clinic.setError("Please enter your clinic address");
-            clinic.requestFocus();
-            return;
-        }
-        if (Phone.isEmpty()) {
-            phone.setError("Please enter your Phone number");
-            phone.requestFocus();
-            return;
-        }
-        if (Phone.length() != 11) {
-            phone.setError("Please enter a valid number");
-            phone.requestFocus();
-            return;
-        }
-        if (Time.isEmpty()) {
-            time.setError("Please enter your available time");
-            time.requestFocus();
-            return;
-        }
-        if (Other.isEmpty()) {
-            other.setError("If you have any other information ,please write it here..If not,Write Nothing");
-            other.requestFocus();
-            return;
-        }
-        if (fName.isEmpty()) {
-            fullname.setError("Full Name is required");
-            fullname.requestFocus();
-
-        }
-
-        if (TextUtils.isEmpty(email)) {
-            emailedittext.setError("Email is required");
-            return;
-        } else {
-
-            Address = clinic.getText().toString();
-            Phone = phone.getText().toString();
-            Time = time.getText().toString();
-            Medical = medical.getText().toString();
-            Other = other.getText().toString();
-            fName = fullname.getText().toString();
-            email = emailedittext.getText().toString().trim();
-
-
-        }
-
-
-
-    }
-
-
 
 
 }
