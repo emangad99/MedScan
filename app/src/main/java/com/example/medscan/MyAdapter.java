@@ -32,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
 
         UserHelper user= list.get(position);
-        holder.fullname.setText(user.getFull_name());
+        holder.fullname.setText(user.getFull_Name());
         holder.medical.setText(user.getMedical());
         holder.address.setText(user.getAddress());
         holder.phone.setText(user.getPhone());

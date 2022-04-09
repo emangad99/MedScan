@@ -2,30 +2,23 @@ package com.example.medscan;
 
 public class UserHelper {
 
-    String address,phone,time,medical,full_name,feedback,other;
+    String feedback, userId;
+    String address,phone,medical,time,other,Full_Name;
 
-    public String getTime() {
-        return time;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public String getFull_Name() {
+        return Full_Name;
     }
 
-    public String getMedical() {
-        return medical;
+    public void setFull_Name(String full_Name) {
+        Full_Name = full_Name;
     }
 
-    public void setMedical(String medical) {
-        this.medical = medical;
-    }
-
-    public String getOther() {
-        return other;
-    }
-
-    public void setOther(String other) {
-        this.other = other;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getAddress() {
@@ -44,16 +37,32 @@ public class UserHelper {
         this.phone = phone;
     }
 
-
-
-    public String getFull_name() {
-        return full_name;
+    public String getMedical() {
+        return medical;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setMedical(String medical) {
+        this.medical = medical;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
+
+    public UserHelper() {
+    }
 
     public String getFeedback() {
         return feedback;

@@ -39,7 +39,6 @@ public class DetailsDonor extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        userHelper = new UserHelper();
 
 
         address=findViewById(R.id.txt_address);
