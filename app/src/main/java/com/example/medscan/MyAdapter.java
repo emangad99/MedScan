@@ -15,6 +15,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
 
     Context context;
     ArrayList<UserHelper> list;
+    UserHelper user;
 
     public MyAdapter(Context context, ArrayList<UserHelper> list) {
         this.context = context;
@@ -24,6 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
     @NonNull
     @Override
     public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View v = LayoutInflater.from(context).inflate(R.layout.item_doctors,parent,false);
         return new myviewholder(v);
     }
@@ -31,7 +33,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
 
-        UserHelper user= list.get(position);
+        user= list.get(position);
+
         holder.fullname.setText(user.getFull_Name());
         holder.medical.setText(user.getMedical());
         holder.address.setText(user.getAddress());

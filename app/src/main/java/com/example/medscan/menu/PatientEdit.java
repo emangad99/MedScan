@@ -231,24 +231,24 @@ public class PatientEdit extends AppCompatActivity {
         });
 
        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Address = clinic.getText().toString();
-                String Phone = phone.getText().toString();
-                String Time = time.getText().toString();
-                String Medical = medical.getText().toString();
-                String Other = other.getText().toString();
-                String fName = fullname.getText().toString();
-                String email = emailedittext.getText().toString().trim();
-
+           @Override
+           public void onClick(View v) {
+               String Address = clinic.getText().toString();
+               String Phone = phone.getText().toString();
+               String Time = time.getText().toString();
+               String Medical = medical.getText().toString();
+               String Other = other.getText().toString();
+               String fName = fullname.getText().toString();
+               String email = emailedittext.getText().toString().trim();
+/*
                 if (Medical.isEmpty()) {
                     medical.setError("Please enter your medical specialty");
                     medical.requestFocus();
                     return;
                 }
-                if (!Medical.equals("Kidney") && !Medical.equals("eyes") && !Medical.equals("Teeth") && !Medical.equals("Lungs")
-                        && !Medical.equals("Eyes") && !Medical.equals("kidney") && !Medical.equals("teeth") && !Medical.equals("lungs")) {
-                    medical.setError("Please enter (Kidney or Lungs or eyes )");
+                if (!Medical.equals("Kidney") && !Medical.equals("eyes") && !Medical.equals("Skin") && !Medical.equals("Lungs")
+                        && !Medical.equals("Eyes") && !Medical.equals("kidney") && !Medical.equals("skin") && !Medical.equals("lungs")) {
+                    medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
                     medical.requestFocus();
                     return;
                 }
@@ -287,27 +287,27 @@ public class PatientEdit extends AppCompatActivity {
                     emailedittext.setError("Email is required");
                     return;
                 } else {
-                    HashMap<String ,Object> map = new HashMap<>();
-                    map.put("address",Address);
-                    map.put("phone",Phone);
-                    map.put("medical",Medical);
-                    map.put("time",Time);
-                    map.put("other",Other);
-                    map.put("Full_Name",fName);
-                    databaseReference.child(firebaseUser.getUid()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess( Void unused) {
-                            Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+
+ */
+               HashMap<String, Object> map = new HashMap<>();
+               map.put("address", Address);
+               map.put("phone", Phone);
+               map.put("medical", Medical);
+               map.put("time", Time);
+               map.put("other", Other);
+               map.put("Full_Name", fName);
+               databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                   @Override
+                   public void onSuccess(Void unused) {
+                       Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
 
 
-                        }
-                    });
+                   }
+               });
 
 
-
-
-                }
-            }
+           }
+      // }
         });
 
     }
