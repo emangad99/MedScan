@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We have more than field .."
+            android:text="@string/we_have_more_than_field"
             android:textColor="?android:textColorPrimary"
             android:textSize="24dp"
             android:textStyle="bold"
@@ -48,7 +48,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lungs"
+                        android:text="@string/lungs"
                         android:layout_marginTop="10dp"
                         android:paddingBottom="10dp"
                         android:textSize="24dp"
@@ -85,7 +85,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kidneys"
+                        android:text="@string/kidneys"
                         android:layout_marginTop="70dp"
                         android:textSize="24dp"
                         android:textStyle="bold"
@@ -123,7 +123,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Eyes"
+                        android:text="@string/eyes"
                         android:layout_marginTop="70dp"
                         android:textSize="24dp"
                         android:textStyle="bold"
@@ -162,7 +162,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Skin"
+                        android:text="@string/skin"
                         android:layout_marginTop="20dp"
                         android:textColor="@color/black"
                         android:textSize="24dp"

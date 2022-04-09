@@ -209,7 +209,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/custom_button"
-        android:text="Update"
+        android:text="@string/update"
         android:textAllCaps="false"
         android:textColor="@color/color3"
         android:textSize="16sp"

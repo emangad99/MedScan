@@ -65,7 +65,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Sadr El Fayoum Hospital"
+                android:text="@string/sadr_el_fayoum_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -74,7 +74,7 @@
                 android:id="@+id/loc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Qesm Al Fayoum, Faiyum, Faiyum Governorate"
+                android:text="@string/qesm_al_fayoum_faiyum_faiyum_governorate"
                 android:gravity="center"
                 android:textColor="@color/gray"
                 android:textSize="12dp"
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.0"
+                android:text="@string/_4_0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -131,7 +131,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Alexandria Chest Center"
+                android:text="@string/alexandria_chest_center"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -140,7 +140,7 @@
                 android:id="@+id/loc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="712 El-Horeya Rd, San Stefano, El Raml 1, Alexandria"
+                android:text="@string/_712_el_horeya_rd_san_stefano_el_raml_1_alexandria"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -153,7 +153,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="@string/_4_5"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -197,7 +197,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Dar Al Fouad Hospital"
+                android:text="@string/dar_al_fouad_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -206,7 +206,7 @@
                 android:id="@+id/loc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" First 6th of October, Giza Governorate"
+                android:text="@string/first_6th_of_october_giza_governorate"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -219,7 +219,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.0"
+                android:text="@string/_3_0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -262,7 +262,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Abassya Chest Diseases Hospital"
+                android:text="@string/abassya_chest_diseases_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -271,7 +271,7 @@
                 android:id="@+id/loc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ABBASSEYA، Nasr City, Cairo Governorate"
+                android:text="@string/abbasseya_nasr_city_cairo_governorate"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -284,7 +284,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.5"
+                android:text="@string/_3_5"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -327,7 +327,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Sadr El Giza Hospital"
+                android:text="@string/sadr_el_giza_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -336,7 +336,7 @@
                 android:id="@+id/loc5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Teraet El Zomor St., El Haram"
+                android:text="@string/teraet_el_zomor_st_el_haram"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -349,7 +349,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.8"
+                android:text="@string/_2_8"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -392,7 +392,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Sadr hospital in Assiut"
+                android:text="@string/sadr_hospital_in_assiut"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -401,7 +401,7 @@
                 android:id="@+id/loc6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Al Ibrahimeya, Al Walideyah Al Westaneyah, Asyut 2, Assiut "
+                android:text="@string/al_ibrahimeya_al_walideyah_al_westaneyah_asyut_2_assiut"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -414,7 +414,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.7"
+                android:text="@string/_3_7"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 

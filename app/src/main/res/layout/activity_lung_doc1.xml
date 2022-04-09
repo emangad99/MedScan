@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Ahmed Ezzat"
+        android:text="@string/dr_ahmed_ezzat"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,8 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Consultant of internal chest diseases and allergies - Ain Shams University.
-Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest and Respiratory, Adult Chest and Respiratory and General Internal Medicine"
+        android:text="@string/consultant_of_internal_chest_diseases_and_allergies_ain_shams_university_chest_and_respiratory_doctor_specialized_in_respiratory_allergy_pediatric_chest_and_respiratory_adult_chest_and_respiratory_and_general_internal_medicine"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction" />
@@ -91,7 +90,7 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="300 EGP"
+        android:text="@string/_300_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -107,7 +106,7 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Nasr City: Abbas El Akkad Street"
+        android:text="@string/nasr_city_abbas_el_akkad_street"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -119,7 +118,7 @@ Chest and Respiratory Doctor specialized in Respiratory Allergy, Pediatric Chest
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01227767861"
+        android:text="@string/_01227767861"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

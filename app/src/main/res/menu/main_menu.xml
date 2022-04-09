@@ -14,7 +14,8 @@
             android:icon="@drawable/doc_icon"/>
 
         <item android:id="@+id/chat"
-            android:title="@string/chat"/>
+            android:title="@string/chat"
+            android:icon="@drawable/chat"/>
 
 
         <item android:id="@+id/about_us"

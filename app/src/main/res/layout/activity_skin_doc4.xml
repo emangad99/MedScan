@@ -45,8 +45,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="-185dp"
         android:layout_toStartOf="@+id/imageView5"
-        android:text="Dermatologist specialized in plastic surgery, burns, plastic surgery and laser, venereal diseases, dermatology, plastic surgery, plastic surgery, dermatology, pediatric dermatology
-"
+        android:text="@string/dermatologist_specialized_in_plastic_surgery_burns_plastic_surgery_and_laser_venereal_diseases_dermatology_plastic_surgery_plastic_surgery_dermatology_pediatric_dermatology"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction4" />
@@ -89,7 +88,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="350 EGP"
+        android:text="@string/_350_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -105,7 +104,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="El-Khalifa El-Maamoun, Mansheya El-Bakry, Heliopolis, Cairo"
+        android:text="@string/el_khalifa_el_maamoun_mansheya_el_bakry_heliopolis_cairo"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -117,7 +116,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="0100 500 6115"
+        android:text="@string/_0100_500_6115"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

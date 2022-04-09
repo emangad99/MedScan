@@ -66,7 +66,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Dermatology clinic in Bakus"
+                android:text="@string/dermatology_clinic_in_bakus"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -75,7 +75,7 @@
                 android:id="@+id/loc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El Raml , Alexandria Governorate"
+                android:text="@string/el_raml_alexandria_governorate"
                 android:gravity="center"
                 android:textColor="@color/gray"
                 android:textSize="12dp"
@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.7"
+                android:text="@string/_4_7"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -133,7 +133,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Abbasia Clinic"
+                android:text="@string/abbasia_clinic"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -142,7 +142,7 @@
                 android:id="@+id/loc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fakhry Abd El-Nour, Al Abbaseyah Al Qebleyah, El Weili, Cairo"
+                android:text="@string/fakhry_abd_el_nour_al_abbaseyah_al_qebleyah_el_weili_cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -155,7 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.4"
+                android:text="@string/_4_4"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -197,7 +197,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Vascuderm Clinic"
+                android:text="@string/vascuderm_clinic"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -206,7 +206,7 @@
                 android:id="@+id/loc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ezbet Saad, Sidi Gaber, Alexandria"
+                android:text="@string/ezbet_saad_sidi_gaber_alexandria"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -219,7 +219,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.3"
+                android:text="@string/_4_3"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -261,7 +261,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Salahuddin Dermatology Hospital"
+                android:text="@string/salahuddin_dermatology_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -270,7 +270,7 @@
                 android:id="@+id/loc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4 Kayetbai, street, Almazah, Heliopolis, Cairo"
+                android:text="@string/_4_kayetbai_street_almazah_heliopolis_cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -283,7 +283,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.0"
+                android:text="@string/_4_0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -325,7 +325,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Dalia Derma Clinic"
+                android:text="@string/dalia_derma_clinic"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -334,7 +334,7 @@
                 android:id="@+id/loc5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Abou Quer, Sidi Gabir, Sidi Gaber, Alexandria"
+                android:text="@string/abou_quer_sidi_gabir_sidi_gaber_alexandria"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -347,7 +347,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.7"
+                android:text="@string/_3_7"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -389,7 +389,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Dermatology Hospital"
+                android:text="@string/dermatology_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -398,7 +398,7 @@
                 android:id="@+id/loc6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Qism Damietta, Damietta Desert, Damietta "
+                android:text="@string/qism_damietta_damietta_desert_damietta"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -411,7 +411,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.6"
+                android:text="@string/_3_6"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 

@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Doctor Name : "
+                android:text="@string/doctor_name"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>
@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Medical Specialty : "
+                android:text="@string/medical_specialty"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clinic Address : "
+                android:text="@string/clinic_address"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>
@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone : "
+                android:text="@string/phone2"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>
@@ -107,7 +107,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available time : "
+                android:text="@string/available_time"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>
@@ -129,7 +129,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Other inf : "
+                android:text="@string/other_inf"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>

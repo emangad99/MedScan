@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bback"
-    tools:context=".shared_doc4">
+    tools:context=".kidneys.shared_doc4">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -28,7 +28,7 @@
         android:layout_marginTop="93dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Hussain Farouk"
+        android:text="@string/dr_hussain_farouk"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -44,8 +44,7 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="-166dp"
         android:layout_toStartOf="@+id/imageView5"
-        android:text="Kidney disease, renal insufficiency, nephrolithiasis and immunology, dialysis, internal diseases, pressure and diabetes, plasmapheresis sessions for immune diseases.
-"
+        android:text="@string/kidney_disease_renal_insufficiency_nephrolithiasis_and_immunology_dialysis_internal_diseases_pressure_and_diabetes_plasmapheresis_sessions_for_immune_diseases"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction4" />
@@ -88,7 +87,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="150 EGP"
+        android:text="@string/_150_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -104,7 +103,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Tanta: Al Bahar Street (University Bridge)"
+        android:text="@string/tanta_al_bahar_street_university_bridge"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -116,7 +115,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01553782838"
+        android:text="@string/_01553782838"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

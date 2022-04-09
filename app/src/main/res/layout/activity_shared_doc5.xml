@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bback"
-    tools:context=".shared_doc5">
+    tools:context=".kidneys.shared_doc5">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -28,7 +28,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Rania Al-Shall"
+        android:text="@string/dr_rania_al_shall"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -42,8 +42,7 @@
         android:layout_marginStart="-175dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Consultant of nephrology and kidney transplantation and consultant of pediatric nephrology
-, a nephrologist specialized in general internal medicine, adult nephrology and pediatric nephrology"
+        android:text="@string/consultant_of_nephrology_and_kidney_transplantation_and_consultant_of_pediatric_nephrology_a_nephrologist_specialized_in_general_internal_medicine_adult_nephrology_and_pediatric_nephrology"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction5" />
@@ -86,7 +85,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="160 EGP"
+        android:text="@string/_160_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -102,7 +101,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Mansoura: Happy Land Square"
+        android:text="@string/mansoura_happy_land_square"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -114,7 +113,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01153657279"
+        android:text="@string/_01153657279"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

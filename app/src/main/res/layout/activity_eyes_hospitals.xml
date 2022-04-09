@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Compound: Behind the Air Hospital - El-Ayoun City"
+                android:text="@string/compound_behind_the_air_hospital_el_ayoun_city"
                 android:textColor="@color/gray"
                 android:textSize="12dp" />
 
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5.0"
+                android:text="@string/_5_0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -133,7 +133,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="I-vision eye hospital"
+                android:text="@string/i_vision_eye_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -142,7 +142,7 @@
                 android:id="@+id/loc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25 Ahmed Tayseer, Al Golf, Nasr City, Cairo"
+                android:text="@string/_25_ahmed_tayseer_al_golf_nasr_city_cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -155,7 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.2"
+                android:text="@string/_4_2"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -199,7 +199,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="El Rowad Hospital"
+                android:text="@string/el_rowad_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -208,7 +208,7 @@
                 android:id="@+id/loc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" El Mahalla El Kubra, Gharbia"
+                android:text="@string/el_mahalla_el_kubra_gharbia"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -221,7 +221,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.0"
+                android:text="@string/_4_0"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -263,7 +263,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Ophthalmology Hospital"
+                android:text="@string/ophthalmology_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -272,7 +272,7 @@
                 android:id="@+id/loc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Quds Lane, Qism Damanhour, El Beheira "
+                android:text="@string/el_quds_lane_qism_damanhour_el_beheira"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -285,7 +285,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.8"
+                android:text="@string/_3_8"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -328,7 +328,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Magrabi Eye Hospital "
+                android:text="@string/magrabi_eye_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -337,7 +337,7 @@
                 android:id="@+id/loc5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Al Sayeda Nafisa, El Khalifa, Cairo"
+                android:text="@string/al_sayeda_nafisa_el_khalifa_cairo"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -350,7 +350,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.6"
+                android:text="@string/_3_6"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -393,7 +393,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Cataract Hospital"
+                android:text="@string/cataract_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -402,7 +402,7 @@
                 android:id="@+id/loc6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="42 Abdel Salam Aref Street, Fleming, Saba Pasha, Raml."
+                android:text="@string/_42_abdel_salam_aref_street_fleming_saba_pasha_raml"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -415,7 +415,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.1"
+                android:text="@string/_3_1"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 

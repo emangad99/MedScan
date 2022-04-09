@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Ghada Rabie"
+        android:text="@string/dr_ghada_rabie"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,8 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Dermatology, Cosmetology and Laser Specialist, Kasr Al-Ainy - Cairo University. Dermatologist specialized in plastic surgery and laser
-."
+        android:text="@string/dermatology_cosmetology_and_laser_specialist_kasr_al_ainy_cairo_university_dermatologist_specialized_in_plastic_surgery_and_laser"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction3" />
@@ -91,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="400 EGP"
+        android:text="@string/_400_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -107,8 +106,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Misr Scope Center (Dokki)
-107 Liberation Street"
+        android:text="@string/misr_scope_center_dokki_107_liberation_street"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -120,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01063486632"
+        android:text="@string/_01063486632"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

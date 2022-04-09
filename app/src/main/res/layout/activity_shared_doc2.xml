@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bback"
-    tools:context=".shared_doc2">
+    tools:context=".kidneys.shared_doc2">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -28,7 +28,7 @@
         android:layout_marginTop="93dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Maged Habib "
+        android:text="@string/dr_maged_habib"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -44,10 +44,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="-185dp"
         android:layout_toStartOf="@+id/imageView5"
-        android:text="Consultant of Nephrology, Diabetes,
-         Internal Medicine, Immunology and Thyroid Diseases
-         (Nephrologist specialized in adult diabetes and endocrinology, general internal medicine and adult nephrology)
-"
+        android:text="@string/consultant_of_nephrology_diabetes_internal_medicine_immunology_and_thyroid_diseases_nephrologist_specialized_in_adult_diabetes_and_endocrinology_general_internal_medicine_and_adult_nephrology"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction2" />
@@ -90,7 +87,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="300 EGP"
+        android:text="@string/_300_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -106,8 +103,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Street 105, Cairo, Maadi
-"
+        android:text="@string/street_105_cairo_maadi"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -119,7 +115,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="02 25262688"
+        android:text="@string/_02_25262688"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

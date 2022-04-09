@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.medscan.skin.skin_menu;
+
 public class choose_field extends AppCompatActivity {
     CardView lungs , Skin , kidney , eyes ;
 
@@ -50,7 +52,7 @@ public class choose_field extends AppCompatActivity {
         Skin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent skin = new Intent(choose_field.this,skin_upload.class);
+                Intent skin = new Intent(choose_field.this, skin_menu.class);
                 startActivity(skin);
 
             }

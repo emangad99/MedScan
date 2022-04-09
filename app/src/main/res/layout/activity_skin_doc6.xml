@@ -29,7 +29,7 @@
         android:layout_marginTop="93dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Hany Khalil"
+        android:text="@string/dr_hany_khalil"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -45,8 +45,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="-165dp"
         android:layout_toStartOf="@+id/imageView5"
-        android:text="Dermatologist specialized in Adult Dermatology, Cosmetic and Laser, Genital Diseases, Andrology, Pediatric Dermatology, Eye Plastic Surgery and Facial Plastic Surgery
-"
+        android:text="@string/dermatologist_specialized_in_adult_dermatology_cosmetic_and_laser_genital_diseases_andrology_pediatric_dermatology_eye_plastic_surgery_and_facial_plastic_surgery"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction6" />
@@ -89,7 +88,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="300 EGP"
+        android:text="@string/_300_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -105,8 +104,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="370 Faisal Main Street, Tamimi station, in front of Twinki, second floor, Faisal
-"
+        android:text="@string/_370_faisal_main_street_tamimi_station_in_front_of_twinki_second_floor_faisal"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -118,7 +116,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="0115 637 0101"
+        android:text="@string/_0115_637_0101"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

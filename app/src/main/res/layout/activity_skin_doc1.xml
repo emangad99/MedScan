@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr.Ghada AbdelHadi"
+        android:text="@string/dr_ghada_abdelhadi"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,8 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="15dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="PhD and consultant of dermatology, dermatology and laser therapy at Benha University and Children's Specialized Hospital
-."
+        android:text="@string/phd_and_consultant_of_dermatology_dermatology_and_laser_therapy_at_benha_university_and_children_s_specialized_hospital"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction" />
@@ -91,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="100 EGP"
+        android:text="@string/_100_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -107,8 +106,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="4 Farid Nada Street - in front of the emergency - Banha
-"
+        android:text="@string/_4_farid_nada_street_in_front_of_the_emergency_banha"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -120,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01210077689"
+        android:text="@string/_01210077689"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

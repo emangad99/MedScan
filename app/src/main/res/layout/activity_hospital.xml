@@ -65,7 +65,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Sheikh Zayed Specialized Hospital"
+                android:text="@string/sheikh_zayed_specialized_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -74,7 +74,7 @@
                 android:id="@+id/loc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Central Axis, Sheikh Zayed"
+                android:text="@string/central_axis_sheikh_zayed"
                 android:textColor="@color/gray"
                 android:textSize="12dp"
                 />
@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="@string/_4_5"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -130,7 +130,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Ghoneim Center at Mansoura University"
+                android:text="@string/ghoneim_center_at_mansoura_university"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -139,7 +139,7 @@
                 android:id="@+id/loc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mansoura University"
+                android:text="@string/mansoura_university"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -152,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
+                android:text="@string/_4_5"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -196,7 +196,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Arab Contractors Medical Centre"
+                android:text="@string/arab_contractors_medical_centre"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -205,7 +205,7 @@
                 android:id="@+id/loc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Nasr Rd, Al Abageyah, Nasr City, Cairo Governorate"
+                android:text="@string/el_nasr_rd_al_abageyah_nasr_city_cairo_governorate"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -218,7 +218,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.1"
+                android:text="@string/_4_1"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -261,7 +261,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Elite Medical Hospital"
+                android:text="@string/elite_medical_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -270,7 +270,7 @@
                 android:id="@+id/loc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sidi Beshr Bahri, Montaza 2, Alexandria Governorate"
+                android:text="@string/sidi_beshr_bahri_montaza_2_alexandria_governorate"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -283,7 +283,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.8"
+                android:text="@string/_3_8"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -326,7 +326,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="As-Salam International Hospital Maadi Branch"
+                android:text="@string/as_salam_international_hospital_maadi_branch"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -335,7 +335,7 @@
                 android:id="@+id/loc5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cairo - Al Wosta, Athar an Nabi, Old Cairo, Cairo Governorate"
+                android:text="@string/cairo_al_wosta_athar_an_nabi_old_cairo_cairo_governorate"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -348,7 +348,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.3"
+                android:text="@string/_3_3"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 
@@ -391,7 +391,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="Nile Hospital"
+                android:text="@string/nile_hospital"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -400,7 +400,7 @@
                 android:id="@+id/loc6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="El-Nasr, Hurghada, Red Sea Governorate"
+                android:text="@string/el_nasr_hurghada_red_sea_governorate"
                 android:textColor="@color/gray"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -413,7 +413,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2"
+                android:text="@string/_3_2"
                 android:textColor="@color/black"
                 android:textSize="14dp"/>
 

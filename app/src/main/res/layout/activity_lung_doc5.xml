@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr.Haitham Sami"
+        android:text="@string/dr_haitham_sami"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Chest Diseases Consultant. Chest and Respiratory Doctor specialized in Adult Chest and Respiratory."
+        android:text="@string/chest_diseases_consultant_chest_and_respiratory_doctor_specialized_in_adult_chest_and_respiratory"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction5" />
@@ -90,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="500 EGP"
+        android:text="@string/_500_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -106,8 +106,7 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="8 El Fardous Buildings - Taqa Street - Behind Al Ahly Club - Nasr City / 39 Cleopatra Street - Salah El Din Square - Heliopolis - Cairo, Nasr City
-"
+        android:text="@string/_8_el_fardous_buildings_taqa_street_behind_al_ahly_club_nasr_city_39_cleopatra_street_salah_el_din_square_heliopolis_cairo_nasr_city"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -119,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01023177777"
+        android:text="@string/_01023177777"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
