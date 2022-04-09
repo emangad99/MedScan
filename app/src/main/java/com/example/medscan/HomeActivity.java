@@ -124,7 +124,7 @@ SessionManager sessionManager;
             @Override
             public void onClick(View v) {
 
-                Intent donor=new Intent(HomeActivity.this, DetailsDonor.class);
+                Intent donor=new Intent(HomeActivity.this, DetailsDoctor.class);
                 startActivity(donor);
 
             }

@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class DetailsDonor extends AppCompatActivity {
+public class DetailsDoctor extends AppCompatActivity {
 
     EditText  medical,phone,address,time,other;
     Button submit;
@@ -114,7 +114,7 @@ public class DetailsDonor extends AppCompatActivity {
 
                     openDialog();
 
-                    Toast.makeText(DetailsDonor.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailsDoctor.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -128,7 +128,7 @@ public class DetailsDonor extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsDonor.this, menu_doctors.class);
+                Intent intent = new Intent(DetailsDoctor.this, menu_doctors.class);
                 startActivity(intent);
             }
         });
