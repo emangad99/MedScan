@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class chat_home extends AppCompatActivity {
     FirebaseAuth fAuth;
     ProgressBar progressBar;
     StorageReference mstorageReference;
+    //RoundedImageView img;
 
 
     @Override
@@ -61,7 +63,7 @@ public class chat_home extends AppCompatActivity {
                 public void onSuccess(@NonNull FileDownloadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(chat_home.this,"Picture Retrieved",Toast.LENGTH_SHORT).show();
                     Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-                    ((RoundImageView)findViewById(R.id.img_prof)).setImageBitmap(bitmap);
+                    ((RoundedImageView)findViewById(R.id.img_prof)).setImageBitmap(bitmap);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
