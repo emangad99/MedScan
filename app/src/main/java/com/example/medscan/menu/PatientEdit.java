@@ -122,11 +122,11 @@ public class PatientEdit extends AppCompatActivity {
 
         });
 
-        update.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View view) {
-            uploadprofileImage();
-        }
-        });
+        //update.setOnClickListener(new View.OnClickListener() {@Override
+        //public void onClick(View view) {
+            //uploadprofileImage();
+        //}
+        //});
 
         input_btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
