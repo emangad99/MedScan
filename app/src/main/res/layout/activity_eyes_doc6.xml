@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/eyesback"
-    tools:context=".eyes_doc6">
+    tools:context=".eyes.eyes_doc6">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -29,7 +29,7 @@
         android:layout_marginTop="93dp"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr.Isis Sayed"
+        android:text="@string/dr_isis_sayed"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -45,8 +45,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="-185dp"
         android:layout_toStartOf="@+id/imageView5"
-        android:text="Ophthalmologist specialized in Adult Eyes, Retinal and Vitreous Surgery, Pediatric Ophthalmology and Lasik, Vision Correction and Cataract
-"
+        android:text="@string/ophthalmologist_specialized_in_adult_eyes_retinal_and_vitreous_surgery_pediatric_ophthalmology_and_lasik_vision_correction_and_cataract"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction6" />
@@ -89,7 +88,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="200 EGP"
+        android:text="@string/_200_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -105,8 +104,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Al-Ahram Gardens 184 Army Road - Zone A, Hadayek Al-Ahram, Fourth Gate - next to El Far Pharmacy
-"
+        android:text="@string/al_ahram_gardens_184_army_road_zone_a_hadayek_al_ahram_fourth_gate_next_to_el_far_pharmacy"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -118,7 +116,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01201111344"
+        android:text="@string/_01201111344"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

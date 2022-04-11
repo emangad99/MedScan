@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/eyesback"
-    tools:context=".eyes_doc3">
+    tools:context=".eyes.eyes_doc3">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Amr Hussein"
+        android:text="@string/dr_amr_hussein"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Consultant of ophthalmology and LASIK at the International Medical CenterDoctor of ophthalmology specialized in LASIK, vision correction and cataracts, adult ophthalmology and pediatric ophthalmology."
+        android:text="@string/consultant_of_ophthalmology_and_lasik_at_the_international_medical_centerdoctor_of_ophthalmology_specialized_in_lasik_vision_correction_and_cataracts_adult_ophthalmology_and_pediatric_ophthalmology"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction3" />
@@ -90,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="400 EGP"
+        android:text="@string/_400_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -106,7 +106,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="139 El Tahrir, Ad Doqi A, Dokki, Giza Governorate"
+        android:text="@string/_139_el_tahrir_ad_doqi_a_dokki_giza_governorate"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -118,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="02 37605285"
+        android:text="@string/_02_37605285"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

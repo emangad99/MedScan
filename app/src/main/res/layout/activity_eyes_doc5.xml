@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/eyesback"
-    tools:context=".eyes_doc5">
+    tools:context=".eyes.eyes_doc5">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Amr Rady"
+        android:text="@string/dr_amr_rady"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Instructor of ophthalmology and laser, ophthalmologist specialized in LASIK, vision correction, cataracts, pediatric ophthalmology, retinal and vitreous surgery."
+        android:text="@string/instructor_of_ophthalmology_and_laser_ophthalmologist_specialized_in_lasik_vision_correction_cataracts_pediatric_ophthalmology_retinal_and_vitreous_surgery"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction5" />
@@ -90,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="200 EGP"
+        android:text="@string/_200_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -106,7 +106,7 @@
         android:layout_marginTop="29dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="Cairo: El Shorouk City - City Center 1 - El Atebaa Tower"
+        android:text="@string/cairo_el_shorouk_city_city_center_1_el_atebaa_tower"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -118,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01006098955"
+        android:text="@string/_01006098955"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/eyesback"
-    tools:context=".eyes_doc1">
+    tools:context=".eyes.eyes_doc1">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -31,7 +31,7 @@
         android:layout_toEndOf="@+id/imageView5"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="Dr. Amr said"
+        android:text="@string/dr_amr_said"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_marginTop="-250dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:text="Lecturer of ophthalmology and surgery, Faculty of Medicine, Alexandria University….. Consultant of cataract, corneal, LASIK, and lens implant surgeries…. Member of the European Society for Vision Correction and Cataracts"
+        android:text="@string/lecturer_of_ophthalmology_and_surgery_faculty_of_medicine_alexandria_university_consultant_of_cataract_corneal_lasik_and_lens_implant_surgeries_member_of_the_european_society_for_vision_correction_and_cataracts"
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:transitionName="desctransaction" />
@@ -90,7 +90,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView8"
-        android:text="150 EGP"
+        android:text="@string/_150_egp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
@@ -106,7 +106,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:layout_toEndOf="@+id/imageView7"
-        android:text="5th Sayed Fahmy Street Above Baraka Bank, Smouha"
+        android:text="@string/_5th_sayed_fahmy_street_above_baraka_bank_smouha"
         android:textColor="@color/black"
         android:textStyle="normal" />
 
@@ -118,7 +118,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageView"
-        android:text="01226154154"
+        android:text="@string/_01226154154"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal" />
