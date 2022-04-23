@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.medscan.kidneys.kidney_failed;
+import com.example.medscan.kidneys.kidney_successful;
+import com.example.medscan.kidneys.kidney_successful_advice;
 import com.example.medscan.login.Login;
 import com.example.medscan.lungs.covid;
 import com.example.medscan.lungs.failed;
@@ -44,7 +47,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, seborrheic_keratosis.class);
+                Intent i=new Intent(Welcome.this, dermatofibroma.class);
                 startActivity(i);
 
 
