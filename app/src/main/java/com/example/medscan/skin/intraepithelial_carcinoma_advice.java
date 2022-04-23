@@ -40,10 +40,10 @@ public class intraepithelial_carcinoma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Make sure","The doctor takes a biopsy using a long, thin needle that withdraws a sample of the lump or body suspected of sarcoma for laboratory testing. A pathologist analyzes the sample to determine if it is cancer and, if so, its type and severity.",R.drawable.pp));
+        mlist.add(new screen_item("genetic syndromes","Intraepithelial carcinoma risk it can be inherited from both parents. ",R.drawable.dna));
+        mlist.add(new screen_item("Radiation exposure"," Radiation exposure Previous radiation treatment for other types of cancer may increase the risk of soft tissue sarcoma.",R.drawable.bed));
+        mlist.add(new screen_item("Exposure to chemicals","Exposure to certain chemicals, such as herbicides, arsenic, and dioxin, may increase the risk of intraepithelial carcinoma",R.drawable.chemicals));
 
 
 

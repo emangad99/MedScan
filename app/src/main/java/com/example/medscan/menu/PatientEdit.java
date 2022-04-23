@@ -39,6 +39,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -60,7 +62,9 @@ public class PatientEdit extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseUser firebaseUser ;
 
-
+    FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference4 = firebaseDatabase.getReference("Users");
+    DatabaseReference first = databaseReference4.child("imageURI");
 
 
     @Override
@@ -87,6 +91,7 @@ public class PatientEdit extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         progressDialog=new ProgressDialog(PatientEdit.this);
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -152,6 +157,23 @@ public class PatientEdit extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.color3));
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        first.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String link = snapshot.getValue(String.class);
+                Picasso.get().load(link).into(profileimage);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override

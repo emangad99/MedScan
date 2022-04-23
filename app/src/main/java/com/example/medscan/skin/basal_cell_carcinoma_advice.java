@@ -43,10 +43,11 @@ public class basal_cell_carcinoma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Protective clothing","Cover your skin with dark, tightly woven clothing to cover your arms and legs, and wear a wide-brimmed hat; This provides more protection than a baseball cap or face cap.\n" +
+                "Don't forget to wear sunglasses. Look for ones that block both types of UV rays — UVA and UVB rays.",R.drawable.hat));
+        mlist.add(new screen_item("Use sunblock","Use a broad spectrum sunscreen with an SPF of at least 30, even on cloudy days. It is recommended to apply a generous amount of sunscreen, and to repeat this every two hours or less when swimming or sweating.",R.drawable.sunblock));
+        mlist.add(new screen_item("Check your skin ","Check your skin regularly and report any changes. Sometimes looking for new growths in the skin or for improvements in the vicinity. Mirrors to check your face, neck, ears, and scalp.",R.drawable.check2));
+        mlist.add(new screen_item("Avoid sunlight","Avoid the sun during the midday period. In many places, the sun's rays are strongest and strongest between 10 am and 4 pm. Schedule outdoor activities for other times of the day, during the winter season or when the sky is cloudy.",R.drawable.sun));
 
 
 

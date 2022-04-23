@@ -41,10 +41,10 @@ public class actinic_keratosis_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Avoid sun","Avoid staying in the sun for too long until you get a sunburn or tan because both lead to skin damage that can increase the risk of actinic keratoses.",R.drawable.sun2));
+        mlist.add(new screen_item("Use sunscreen","Before spending time outdoors, use a broad-spectrum sunscreen with an SPF of at least 15.",R.drawable.sunscreen));
+        mlist.add(new screen_item("Wear woven clothing","For extra protection from the sun, wear tightly woven clothing that covers your arms and legs.",R.drawable.walk));
+        mlist.add(new screen_item("Use a medicated cream","You can use a medicated cream or gel to eliminate them such as fluorouracil (Karac, Fluoroplex, others), imiquimod (Aldara, Zyclara), ingenol mebutate or diclofenac (Solaraz).",R.drawable.cream));
 
 
 

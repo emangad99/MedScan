@@ -42,10 +42,11 @@ public class dermatofibroma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Be kind to your body","Be kind to your body and mind. Getting enough sleep, eating a healthy diet, and taking time to do things you enjoy can contribute to an overall feeling of balance in your life and help reduce stress.",R.drawable.relax));
+        mlist.add(new screen_item(
+                "Go to the doctor","While it is usually benign, follow up with a doctor to avoid it being harmful.",R.drawable.go_doctor));
+        mlist.add(new screen_item("Sunblock","Before spending time outdoors, use a broad-spectrum sunscreen with an SPF of at least 15.",R.drawable.sunscreen));
+        mlist.add(new screen_item("Removed","Removing them by surgery will always leave a small scar. Most doctors choose local anesthesia to perform the surgery. In 10% of cases, the tumor can recur.",R.drawable.skin_illness));
 
 
 

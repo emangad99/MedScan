@@ -42,10 +42,10 @@ public class melanoma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Drink fluids","Drink plenty of fluids to prevent dehydration. Choose water and other clear liquids. If you have kidney, heart, or liver disease and have to limit fluids, talk with your doctor before you increase the amount of fluids you drink.",R.drawable.water3));
+        mlist.add(new screen_item("Clear soups","When you are able to eat, try clear soups, mild foods, and liquids until all symptoms are gone for 12 to 48 hours.",R.drawable.soup));
+        mlist.add(new screen_item("No Smoking","Do not smoke. Smoking can slow healing. If you need help quitting, talk to your doctor about stop-smoking programs and medicines. These can increase your chances of quitting for good.",R.drawable.smoke));
+        mlist.add(new screen_item("Protect yourself","Wear a wide-brimmed hat, a long-sleeved shirt, and pants if you are going to be outdoors for very long.",R.drawable.wear2));
 
 
 
