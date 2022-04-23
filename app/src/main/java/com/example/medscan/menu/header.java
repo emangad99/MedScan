@@ -44,7 +44,7 @@ public class header extends AppCompatActivity {
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+       // databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
         profileimage = findViewById(R.id.pic);
         txtname = findViewById(R.id.user_name);

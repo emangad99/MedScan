@@ -62,9 +62,7 @@ public class PatientEdit extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseUser firebaseUser ;
 
-    FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference4 = firebaseDatabase.getReference("Users");
-    DatabaseReference first = databaseReference4.child("imageURI");
+
 
 
     @Override
@@ -92,6 +90,19 @@ public class PatientEdit extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         progressDialog=new ProgressDialog(PatientEdit.this);
 
+        database.getReference("Users").child("imageURI").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String image = snapshot.getValue(String.class);
+                Picasso.get().load(image).into(profileimage);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -104,6 +115,8 @@ public class PatientEdit extends AppCompatActivity {
                 clinic.setText(userHelper.getAddress());
                 time.setText(userHelper.getTime());
                 other.setText(userHelper.getOther());
+
+
 
 
 
@@ -159,22 +172,9 @@ public class PatientEdit extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        first.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String link = snapshot.getValue(String.class);
-                Picasso.get().load(link).into(profileimage);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
