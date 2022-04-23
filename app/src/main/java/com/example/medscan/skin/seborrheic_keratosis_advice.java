@@ -42,10 +42,10 @@ public class seborrheic_keratosis_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Cover it with a bandage","If clothing irritates your seborrheic keratosis, cover it with a bandage to prevent rubbing and bleeding.",R.drawable.bandage));
+        mlist.add(new screen_item("Soap and water","If you have a seborrheic keratosis removed, clean the area with soap and water two times a day unless your doctor gives you different instructions. Don't use hydrogen peroxide or alcohol, which can slow healing.",R.drawable.soap));
+        mlist.add(new screen_item("Use sunblock","Use a broad spectrum sunscreen with an SPF of at least 30, even on cloudy days. It is recommended to apply a generous amount of sunscreen, and to repeat this every two hours or less when swimming or sweating.",R.drawable.cream));
+        mlist.add(new screen_item("Vaseline","You may cover the wound with a thin layer of petroleum jelly, such as Vaseline, and a non-stick bandage.",R.drawable.vasline));
 
 
 

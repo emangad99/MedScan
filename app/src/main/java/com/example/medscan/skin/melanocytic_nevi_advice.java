@@ -42,10 +42,10 @@ public class melanocytic_nevi_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        mlist.add(new screen_item("Go to the doctor","The mole should be examined under a microscope. To make sure it's not harmful.",R.drawable.check_skin));
+        mlist.add(new screen_item("Protect yourself","You must also protect yourself from too much sun exposure. This does not mean that you cannot ever go on a sunny holiday again; it just means that you need to be careful to avoid sunbathing and burning. You should cover yourself up and use sun protection creams of SPF 30 or above.",R.drawable.protect));
+        mlist.add(new screen_item("Avoid sun","Spend time in the shade between 11am and 3pm when it’s sunny. Step out of the sun before your skin has a chance to redden or burn.",R.drawable.summer1));
+        mlist.add(new screen_item("Vitamin D","It may be worth taking Vitamin D supplement tablets (available from health food stores) as strictly avoiding sunlight can reduce Vitamin D levels.",R.drawable.vitamin));
 
 
 

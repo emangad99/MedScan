@@ -347,5 +347,12 @@
     <string name="skin5_info">It is a skin disease in which small, non-cancerous growths occur on the skin. The skin consists of several layers including the layer of fat cells, the epidermis, and the dermis.\n And this disease occurs in conjunction with the occurrence of abnormal growth in the dermis. It is very common and has nothing to do with skin cancer, and it is common for a person to develop this disease in more than one area of the body.\n It is painless, and has no negative health effects.</string>
     <string name="skin6_info">Melanoma, a risky type of skin cancer, arises from cells (melanomas) that convert the pigment melanin that gives your skin its colour. Melanoma can also affect your eyes and, rarely, parts of your body such as the inside of your nose or throat.\n Ultraviolet (UV) rays emitted from sunlight or ultraviolet (UV) rays. It may help you get UV rays.\nPeople under age 40, especially women, are more likely to develop melanoma. Skin cancer risk indicators can help ensure that precancerous changes are detected and treated before the cancer spreads. Successful treatment of melanoma is possible if the tumor is detected early.</string>
     <string name="skin7_info">Moles are a common type of skin growth condition. They often appear as small, dark brown spots and result from clusters of melanocytes. Moles generally appear during childhood and adolescence. Most people have about 10 to 40 moles, some of which may change appearance or disappear over time.\n Most moles are harmless. It rarely becomes cancerous. Monitoring moles and other pigmented spots is an important step in detecting skin cancer, especially malignant melanoma.\n The medical name for moles is nevus.</string>
+    <string name="eyes_diseases">Eyes diseases</string>
+    <string name="you_can_upload_a_picture_of_your_eyes_and_we_will_n_tell_you_if_you_suffer_from_one_of_these_diseases">you can upload a picture of your eyes and we will \n tell you if you suffer from one of these diseases</string>
+    <string name="bulging_eyes">bulging eyes</string>
+    <string name="cataract">Cataract</string>
+    <string name="crossed_eyes">Crossed eyes</string>
+    <string name="uveitis">Uveitis</string>
+    <string name="glaucoma">glaucoma</string>
 
 </resources>
