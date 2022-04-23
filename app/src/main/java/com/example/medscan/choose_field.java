@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.medscan.eyes.eyes_menu;
 import com.example.medscan.skin.skin_menu;
 
 public class choose_field extends AppCompatActivity {
@@ -43,7 +44,7 @@ public class choose_field extends AppCompatActivity {
         eyes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent eyes = new Intent(choose_field.this,eyes_image.class);
+                Intent eyes = new Intent(choose_field.this, eyes_menu.class);
                 startActivity(eyes);
 
             }

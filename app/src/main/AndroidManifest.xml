@@ -17,13 +17,16 @@
         android:theme="@style/Theme.MedScan"
         tools:replace="android:supportsRtl">
         <activity
+            android:name=".eyes.eyes_menu"
+            android:exported="true" />
+        <activity
             android:name=".kidneys.kidney_failed_advice"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".kidneys.kidney_failed"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".kidneys.kidney_successful_advice"
             android:exported="true"
