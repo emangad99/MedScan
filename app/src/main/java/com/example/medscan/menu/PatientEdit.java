@@ -84,7 +84,7 @@ public class PatientEdit extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
-            database.getReference("Users").child("image").addValueEventListener(new ValueEventListener() {
+            database.getReference().child("image").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
@@ -102,14 +102,14 @@ public class PatientEdit extends AppCompatActivity {
             public void onActivityResult(Uri result) {
                 binding.profilePic.setImageURI(result);
 
-                final StorageReference reference = storage.getReference("Users").child("image");
+                final StorageReference reference = storage.getReference().child("image");
                 reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                            @Override
                            public void onSuccess(Uri uri) {
-                               database.getReference("Users").child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                               database.getReference().child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override
                                    public void onSuccess(Void unused) {
                                        Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
@@ -272,25 +272,8 @@ public class PatientEdit extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
-                            @SuppressWarnings("VisibleForTests")
-                            uploadinfo imageUploadInfo = new uploadinfo(  taskSnapshot.getUploadSessionUri().toString());
-                            String ImageUploadId = databaseReference.push().getKey();
-                           // databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
-                            HashMap<String ,Object> map = new HashMap<>();
-                            map.put("imageURI",ImageUploadId);
-                            databaseReference.updateChildren(map);
-                        }
-                    });
+                            */
 
-
-        }
-        else {
-
-            Toast.makeText(PatientEdit.this, "Please Select Image.. ", Toast.LENGTH_LONG).show();
-
-        }
-    }*/
 
     private void showProfile(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
