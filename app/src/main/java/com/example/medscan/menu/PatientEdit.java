@@ -84,18 +84,18 @@ public class PatientEdit extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
-          /*  database.getReference("Users").child("image").addValueEventListener(new ValueEventListener() {
+            database.getReference("Users").child("image").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
-                Picasso.get().load(image).into(profile_pic);
+                Picasso.get().load(image).into(profileimage);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
