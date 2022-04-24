@@ -1,7 +1,6 @@
 package com.example.medscan.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,15 +11,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
-import com.example.medscan.UserHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.HashMap;
 
 public class Feedback extends AppCompatActivity {
@@ -30,7 +26,6 @@ public class Feedback extends AppCompatActivity {
     EditText txtFeedback;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    //UserHelper userHelper;
     FirebaseAuth authProfile;
     Dialog dialog;
 
@@ -48,8 +43,6 @@ public class Feedback extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        //databaseReference=firebaseDatabase.getReference("Feedbacks");
-        //userHelper = new UserHelper();
         txtFeedback = findViewById(R.id.txt_feedback);
         dialog=new Dialog(this);
 

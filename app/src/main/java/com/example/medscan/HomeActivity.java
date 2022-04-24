@@ -6,10 +6,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medscan.chat.chat_home;
@@ -17,8 +19,15 @@ import com.example.medscan.menu.Feedback;
 import com.example.medscan.menu.Instruction;
 import com.example.medscan.menu.PatientEdit;
 import com.example.medscan.menu.best_doctors;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.annotations.NotNull;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -31,26 +40,53 @@ NavigationView navigationView;
 private long backpressedtime;
 private Toast backtoast;
 SessionManager sessionManager;
+CircleImageView userImg;
+
+TextView name , email ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        userImg=(CircleImageView)findViewById(R.id.pic);
+        name=findViewById(R.id.user_name);
+        email=findViewById(R.id.user_email);
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sessionManager=new SessionManager(getApplicationContext());
 
         navigationView=findViewById(R.id.navigationview);
         navigationView.setItemIconTintList(null);
+        navigationView.bringToFront();
         drawerLayout =findViewById(R.id.drawerlayout);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+        navigationView.bringToFront();
+
+/*
+        reference = FirebaseStorage.getInstance().getReference();
+        auth = FirebaseAuth.getInstance();
+        StorageReference storage = reference.child(auth.getCurrentUser().getEmail() + "/profile.jpg");
+        storage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                userImg = (CircleImageView) findViewById(R.id.pic);
+                userImg.setBackground(null);
+                Picasso.get().load(uri).into(userImg);
+                //userImg.setImageURI(uri);
+            }
+        });
+
+ */
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){

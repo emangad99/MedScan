@@ -283,10 +283,6 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menu.header"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".menu.best_doctors"
             android:exported="true"
             android:screenOrientation="portrait" />
