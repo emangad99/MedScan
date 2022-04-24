@@ -32,10 +32,6 @@ public class header extends AppCompatActivity {
     TextView txtname, email;
     FirebaseAuth authProfile;
     FirebaseUser firebaseUser ;
-    FirebaseDatabase firebaseDatabase= FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference2 =firebaseDatabase.getReference("Users");
-    DatabaseReference first = databaseReference2.child("imageURI");
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +40,6 @@ public class header extends AppCompatActivity {
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
-       // databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
         profileimage = findViewById(R.id.pic);
         txtname = findViewById(R.id.user_name);
@@ -70,22 +65,8 @@ public class header extends AppCompatActivity {
         showProfile(firebaseUser);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        first.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String link = snapshot.getValue(String.class);
-                Picasso.get().load(link).into(profileimage);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-    }
 
     private void showProfile(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
