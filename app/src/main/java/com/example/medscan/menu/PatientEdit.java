@@ -16,6 +16,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -24,6 +28,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.example.medscan.databinding.ActivityMainBinding;
+import com.example.medscan.databinding.ActivityPatientEditBinding;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,15 +58,19 @@ public class PatientEdit extends AppCompatActivity {
     String _EMAIL;
     CircleImageView profileimage;
     Button update ;
-    ImageView input_btn;
+   ImageView input_btn;
     FirebaseDatabase database;
     FirebaseAuth authProfile;
     Uri imageUri;
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    FirebaseStorage storage;
     int image_request_code = 7;
     ProgressDialog progressDialog;
     FirebaseUser firebaseUser ;
+    ActivityPatientEditBinding binding;
+    ActivityResultLauncher<String> launcher;
+
 
 
 
@@ -68,7 +78,60 @@ public class PatientEdit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_edit);
+     //  setContentView(R.layout.activity_patient_edit);
+        binding = ActivityPatientEditBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
+
+          /*  database.getReference("Users").child("image").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String image = snapshot.getValue(String.class);
+                Picasso.get().load(image).into(profile_pic);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
+        launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+                binding.profilePic.setImageURI(result);
+
+                final StorageReference reference = storage.getReference("Users").child("image");
+                reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                       reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                           @Override
+                           public void onSuccess(Uri uri) {
+                               database.getReference("Users").child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                   @Override
+                                   public void onSuccess(Void unused) {
+                                       Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
+                                   }
+                               });
+                           }
+                       }) ;
+                    }
+                });
+            }
+        });
+
+        binding.camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launcher.launch(
+                        "image/*"
+                );
+
+            }
+        });
+
 
         profileimage=findViewById(R.id.profile_pic);
 
@@ -90,18 +153,10 @@ public class PatientEdit extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         progressDialog=new ProgressDialog(PatientEdit.this);
 
-        database.getReference("Users").child("imageURI").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.getValue(String.class);
-                Picasso.get().load(image).into(profileimage);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+
+
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -133,6 +188,7 @@ public class PatientEdit extends AppCompatActivity {
 
        showProfile(firebaseUser);
 
+
         password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,13 +200,13 @@ public class PatientEdit extends AppCompatActivity {
 
         });
 
-        update.setOnClickListener(new View.OnClickListener() {@Override
+      /*  update.setOnClickListener(new View.OnClickListener() {@Override
         public void onClick(View view) {
             uploadprofileImage();
         }
-        });
+        });*/
 
-        input_btn.setOnClickListener(new View.OnClickListener() {
+      /*  input_btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -159,23 +215,23 @@ public class PatientEdit extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent,"select image"),image_request_code);
             }
-        });
+        });*/
 
 
 
 
-        if (android.os.Build.VERSION.SDK_INT >= 21) {
+       /* if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             window.setStatusBarColor(this.getResources().getColor(R.color.color3));
-        }
+        }*/
 
     }
 
 
 
 
-
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -234,7 +290,7 @@ public class PatientEdit extends AppCompatActivity {
             Toast.makeText(PatientEdit.this, "Please Select Image.. ", Toast.LENGTH_LONG).show();
 
         }
-    }
+    }*/
 
     private void showProfile(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
