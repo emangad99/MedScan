@@ -18,7 +18,8 @@
         tools:replace="android:supportsRtl">
         <activity
             android:name=".eyes.eyes_menu"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".kidneys.kidney_failed_advice"
             android:exported="true"

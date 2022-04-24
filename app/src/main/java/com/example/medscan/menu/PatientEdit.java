@@ -84,7 +84,9 @@ public class PatientEdit extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
-            database.getReference("Users").child("image").addValueEventListener(new ValueEventListener() {
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        database.getReference("Users").child(firebaseUser.getUid()).child("image").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
@@ -102,14 +104,14 @@ public class PatientEdit extends AppCompatActivity {
             public void onActivityResult(Uri result) {
                 binding.profilePic.setImageURI(result);
 
-                final StorageReference reference = storage.getReference("Users").child("image");
+                final StorageReference reference = storage.getReference("Users").child(firebaseUser.getUid()).child("image");
                 reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                            @Override
                            public void onSuccess(Uri uri) {
-                               database.getReference("Users").child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                               database.getReference("Users").child(firebaseUser.getUid()).child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override
                                    public void onSuccess(Void unused) {
                                        Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
@@ -200,80 +202,7 @@ public class PatientEdit extends AppCompatActivity {
 
         });
 
-       /*update.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View view) {
-            uploadprofileImage();
-        }
-        });*/
-
-      /*  input_btn.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent,"select image"),image_request_code);
-            }
-        });*/
-
-
-
-
-       /* if (android.os.Build.VERSION.SDK_INT >= 21) {
-            Window window = this.getWindow();
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            window.setStatusBarColor(this.getResources().getColor(R.color.color3));
-        }*/
-
     }
-
-
-
-
-/*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == image_request_code && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
-            imageUri = data.getData();
-
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                profileimage.setImageBitmap(bitmap);
-            }
-            catch (IOException e) {
-
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public String GetFileExtension(Uri uri) {
-
-        ContentResolver contentResolver = getContentResolver();
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
-
-    }
-
-
-    private void uploadprofileImage() {
-
-        if (imageUri != null) {
-
-            progressDialog.setTitle("Image is Uploading...");
-            progressDialog.show();
-            StorageReference storageReference2 = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(imageUri));
-            storageReference2.putFile(imageUri)
-                   .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            */
-
 
     private void showProfile(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
@@ -323,14 +252,10 @@ public class PatientEdit extends AppCompatActivity {
                    }
                });
 
-
            }
 
        });
 
-
-
     }
-
 
 }
