@@ -200,7 +200,7 @@ public class PatientEdit extends AppCompatActivity {
 
         });
 
-      /*  update.setOnClickListener(new View.OnClickListener() {@Override
+       /*update.setOnClickListener(new View.OnClickListener() {@Override
         public void onClick(View view) {
             uploadprofileImage();
         }
@@ -294,7 +294,7 @@ public class PatientEdit extends AppCompatActivity {
 
             }
         });
-        /*
+
 
        update.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -328,7 +328,7 @@ public class PatientEdit extends AppCompatActivity {
 
        });
 
-         */
+
 
     }
 
