@@ -84,7 +84,7 @@ public class PatientEdit extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
-            database.getReference("Users").child(firebaseUser.getUid()).child("image").addValueEventListener(new ValueEventListener() {
+            database.getReference("Users").child("image").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
@@ -102,14 +102,14 @@ public class PatientEdit extends AppCompatActivity {
             public void onActivityResult(Uri result) {
                 binding.profilePic.setImageURI(result);
 
-                final StorageReference reference = storage.getReference("Users").child(firebaseUser.getUid()).child("image");
+                final StorageReference reference = storage.getReference("Users").child("image");
                 reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                            @Override
                            public void onSuccess(Uri uri) {
-                               database.getReference("Users").child(firebaseUser.getUid()).child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                               database.getReference("Users").child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override
                                    public void onSuccess(Void unused) {
                                        Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
