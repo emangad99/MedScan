@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
@@ -28,6 +29,8 @@ public class header extends AppCompatActivity {
 
     CircleImageView profileimage;
     String _EMAIL;
+    FirebaseDatabase database;
+    FirebaseStorage storage;
     DatabaseReference databaseReference;
     TextView txtname, email;
     FirebaseAuth authProfile;
@@ -37,9 +40,25 @@ public class header extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_header);
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
+
+        database.getReference("Users").child(firebaseUser.getUid()).child("image").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String  image = snapshot.getValue(String.class);
+                Picasso.get().load(image).into(profileimage);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         profileimage = findViewById(R.id.pic);
         txtname = findViewById(R.id.user_name);
