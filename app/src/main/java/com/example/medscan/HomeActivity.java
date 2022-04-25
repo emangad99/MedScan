@@ -1,5 +1,6 @@
 package com.example.medscan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +23,12 @@ import com.example.medscan.menu.best_doctors;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -31,18 +38,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class HomeActivity extends AppCompatActivity {
-Button patient, donor;
 
-DrawerLayout drawerLayout;
-ActionBarDrawerToggle toggle;
-Toolbar toolbar;
-NavigationView navigationView;
-private long backpressedtime;
-private Toast backtoast;
-SessionManager sessionManager;
-CircleImageView userImg;
-
-TextView name , email ;
+    Button patient, donor;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
+    Toolbar toolbar;
+    NavigationView navigationView;
+    private long backpressedtime;
+    private Toast backtoast;
+    SessionManager sessionManager;
+    CircleImageView userImg;
+    TextView name , email ;
+    FirebaseAuth authProfile;
+    FirebaseUser firebaseUser ;
+    DatabaseReference databaseReference;
+    String profileUrl,username,useremail;
 
 
     @Override
@@ -50,10 +60,9 @@ TextView name , email ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        userImg=(CircleImageView)findViewById(R.id.pic);
-        name=findViewById(R.id.user_name);
-        email=findViewById(R.id.user_email);
-
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -63,7 +72,7 @@ TextView name , email ;
 
         navigationView=findViewById(R.id.navigationview);
         navigationView.setItemIconTintList(null);
-        navigationView.bringToFront();
+        //navigationView.bringToFront();
         drawerLayout =findViewById(R.id.drawerlayout);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -72,22 +81,11 @@ TextView name , email ;
         toggle.syncState();
         navigationView.bringToFront();
 
-/*
-        reference = FirebaseStorage.getInstance().getReference();
-        auth = FirebaseAuth.getInstance();
-        StorageReference storage = reference.child(auth.getCurrentUser().getEmail() + "/profile.jpg");
-        storage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                userImg = (CircleImageView) findViewById(R.id.pic);
-                userImg.setBackground(null);
-                Picasso.get().load(uri).into(userImg);
-                //userImg.setImageURI(uri);
-            }
-        });
+        View view = navigationView.inflateHeaderView(R.layout.menu_header);
 
- */
-
+        userImg=view.findViewById(R.id.pic);
+        name=view.findViewById(R.id.user_name);
+        email=view.findViewById(R.id.user_email);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
@@ -145,6 +143,8 @@ TextView name , email ;
             }
         });
 
+
+
         patient=findViewById(R.id.btn_patient);
         donor=findViewById(R.id.btn_donor);
 
@@ -166,6 +166,37 @@ TextView name , email ;
             }
         });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    profileUrl=snapshot.child("image").getValue().toString();
+                    username=snapshot.child("Full_Name").getValue().toString();
+                    useremail=snapshot.child("Email").getValue().toString();
+
+                    Picasso.get().load(profileUrl).into(userImg);
+                    name.setText(username);
+                    email.setText(useremail);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeActivity.this, "sorry", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
 
     @Override
     public void onBackPressed() {
