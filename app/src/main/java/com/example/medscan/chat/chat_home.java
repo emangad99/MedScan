@@ -60,41 +60,7 @@ public class chat_home extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
-/*
-        fAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = fAuth.getCurrentUser();
-        mstorageReference = FirebaseStorage.getInstance().getReference().child("Users/imageURL");
-        try {
-            final File localfile = File.createTempFile("imageURL","");
-            mstorageReference.getFile(localfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(@NonNull FileDownloadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(chat_home.this,"Picture Retrieved",Toast.LENGTH_SHORT).show();
-                    Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-                    ((RoundedImageView)findViewById(R.id.img_prof)).setImageBitmap(bitmap);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(chat_home.this,"Picture  Not  Retrieved",Toast.LENGTH_SHORT).show();
-                }
-            });
-        } catch (IOException e){
-            e.printStackTrace();
-        }
 
-
-
-
-
-        if(firebaseUser == null){
-            Toast.makeText(chat_home.this,"something is wrong ",Toast.LENGTH_LONG).show();
-        }else{
-            progressBar.setVisibility(View.VISIBLE);
-            showChat(firebaseUser);
-        }
-
- */
         final FloatingActionButton button = findViewById(R.id.chat_fab);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,27 +110,6 @@ public class chat_home extends AppCompatActivity {
             }
         });
     }
-    /*
-
-    private void showChat(FirebaseUser firebaseUser) {
-        String userIdRegistered = firebaseUser.getUid();
-        DatabaseReference referenceuser = FirebaseDatabase.getInstance().getReference("Users");
-        referenceuser.child(userIdRegistered).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                _NAME = firebaseUser.getDisplayName();
-                name.setText(_NAME);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(chat_home.this,"something is wrong",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
-
-     */
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_home.this, HomeActivity.class);
