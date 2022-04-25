@@ -30,6 +30,7 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,12 +38,14 @@ import java.io.IOException;
 public class chat_home extends AppCompatActivity {
 
     TextView name;
-    String _NAME;
-    FirebaseDatabase Database;
-    FirebaseAuth fAuth;
-    ProgressBar progressBar;
-    StorageReference mstorageReference;
-    //RoundedImageView img;
+    String _NAME , photo;
+    //ProgressBar progressBar;
+    //StorageReference mstorageReference;
+    RoundedImageView img;
+
+    FirebaseAuth authProfile;
+    FirebaseUser firebaseUser ;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -52,7 +55,12 @@ public class chat_home extends AppCompatActivity {
 
 
         name=findViewById(R.id.text_name);
+        img=findViewById(R.id.img_prof);
 
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+/*
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = fAuth.getCurrentUser();
         mstorageReference = FirebaseStorage.getInstance().getReference().child("Users/imageURL");
@@ -76,6 +84,17 @@ public class chat_home extends AppCompatActivity {
         }
 
 
+
+
+
+        if(firebaseUser == null){
+            Toast.makeText(chat_home.this,"something is wrong ",Toast.LENGTH_LONG).show();
+        }else{
+            progressBar.setVisibility(View.VISIBLE);
+            showChat(firebaseUser);
+        }
+
+ */
         final FloatingActionButton button = findViewById(R.id.chat_fab);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,14 +104,6 @@ public class chat_home extends AppCompatActivity {
 
             }
         });
-
-
-        if(firebaseUser == null){
-            Toast.makeText(chat_home.this,"something is wrong ",Toast.LENGTH_LONG).show();
-        }else{
-            progressBar.setVisibility(View.VISIBLE);
-            showChat(firebaseUser);
-        }
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -104,6 +115,36 @@ public class chat_home extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    photo=snapshot.child("image").getValue().toString();
+                    _NAME=snapshot.child("Full_Name").getValue().toString();
+
+
+                    Picasso.get().load(photo).into(img);
+                    name.setText(_NAME);
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(chat_home.this, "sorry", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+    /*
 
     private void showChat(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
@@ -122,6 +163,8 @@ public class chat_home extends AppCompatActivity {
             }
         });
     }
+
+     */
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_home.this, HomeActivity.class);

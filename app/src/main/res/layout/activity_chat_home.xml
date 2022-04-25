@@ -9,7 +9,7 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/img_prof"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -28,10 +28,11 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
+        android:layout_marginEnd="46dp"
         android:textColor="@color/white"
         android:textSize="14dp"
         android:textStyle="bold"
-        android:text="kk"
+
         app:layout_constraintBottom_toBottomOf="@id/img_prof"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/img_prof"
