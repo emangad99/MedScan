@@ -42,9 +42,28 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/img_prof"
+        android:background="@drawable/background_chat"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/background_chat">
+        app:layout_constraintTop_toBottomOf="@id/img_prof"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-197dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/conversation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:padding="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/color5"/>
     </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

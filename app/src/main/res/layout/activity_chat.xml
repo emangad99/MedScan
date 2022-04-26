@@ -53,6 +53,7 @@
         android:orientation="vertical"
         android:overScrollMode="never"
         android:padding="20dp"
+        app:stackFromEnd="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@id/viewback"
         app:layout_constraintTop_toBottomOf="@id/viewusers"/>
