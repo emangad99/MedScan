@@ -2,10 +2,12 @@ package com.example.medscan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,7 +22,9 @@ import com.example.medscan.menu.Feedback;
 import com.example.medscan.menu.Instruction;
 import com.example.medscan.menu.PatientEdit;
 import com.example.medscan.menu.best_doctors;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -139,6 +143,41 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_delete:
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
+                        dialog.setTitle("Are you sure ?");
+                        dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
+                        dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful())
+                                        {
+                                            Toast.makeText(HomeActivity.this, "Account Deleted", Toast.LENGTH_SHORT).show();
+                                            sessionManager.setLogin(false);
+                                            sessionManager.setUsername("");
+                                            startActivity(new Intent(HomeActivity.this,MainActivity.class));
+
+                                        }else{
+                                            Toast.makeText(HomeActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                                        }
+
+                                    }
+                                });
+
+                            }
+                        });
+                        dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        AlertDialog alertDialog = dialog.create();
+                        alertDialog.show();
 
 
                         break;
