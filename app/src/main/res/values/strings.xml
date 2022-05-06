@@ -354,5 +354,6 @@
     <string name="crossed_eyes">Crossed eyes</string>
     <string name="uveitis">Uveitis</string>
     <string name="glaucoma">glaucoma</string>
+    <string name="delete_account">Delete Account</string>
 
 </resources>

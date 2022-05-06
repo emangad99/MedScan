@@ -138,6 +138,10 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, chat_home.class));
                         break;
 
+                    case R.id.nav_delete:
+
+
+                        break;
                 }
                 return false;
             }
