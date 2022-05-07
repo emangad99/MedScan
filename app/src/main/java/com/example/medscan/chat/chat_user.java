@@ -2,10 +2,10 @@ package com.example.medscan.chat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -13,9 +13,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.medscan.R;
+import com.example.medscan.login.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,18 +24,33 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapter.UserItemAdapter;
+
 public class chat_user extends AppCompatActivity {
     ProgressBar progressBar;
     TextView texterror;
     ImageView icon_back;
-    FirebaseDatabase database;
+   /* FirebaseDatabase database;
     FirebaseAuth fAuth;
-    String _TEXTERROR;
+    String _TEXTERROR;*/
+     RecyclerView recyclerView;
+     UserItemAdapter userItemAdapter;
+     List<User> mUsers;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_user);
+
+       recyclerView = findViewById(R.id.recycle_chat);
+       recyclerView.setHasFixedSize(true);
+       recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+       mUsers = new ArrayList<>();
+       readUer();
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -49,15 +64,15 @@ public class chat_user extends AppCompatActivity {
         texterror=findViewById(R.id.texterrormessage);
         icon_back=findViewById(R.id.icon_back);
 
-        fAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = fAuth.getCurrentUser();
+    //    fAuth = FirebaseAuth.getInstance();
+      //  FirebaseUser firebaseUser = fAuth.getCurrentUser();
 
-        if(firebaseUser == null){
+       /* if(firebaseUser == null){
             Toast.makeText(chat_user.this,"something is wrong ",Toast.LENGTH_LONG).show();
         }else{
             progressBar.setVisibility(View.VISIBLE);
             showChatuser(firebaseUser);
-        }
+        }*/
 
 
         icon_back.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +85,36 @@ public class chat_user extends AppCompatActivity {
 
     }
 
-    private void showChatuser(FirebaseUser firebaseUser) {
+    private void readUer() {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mUsers.clear();
+                for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                    User user = snapshot1.getValue(User.class);
+
+                    assert  user != null;
+                    assert  firebaseUser !=null;
+                    if (!user.getUserId().equals(firebaseUser.getUid())){
+                        mUsers.add(user);
+                    }
+
+                }
+
+                userItemAdapter = new UserItemAdapter(getApplicationContext(), mUsers);
+                recyclerView.setAdapter(userItemAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+  /*  private void showChatuser(FirebaseUser firebaseUser) {
 
         String userIdRegistered = firebaseUser.getUid();
         DatabaseReference referenceuser = FirebaseDatabase.getInstance().getReference("Users");
@@ -87,7 +131,7 @@ public class chat_user extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
     private void getUsers()
     {
