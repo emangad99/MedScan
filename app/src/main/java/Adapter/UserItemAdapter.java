@@ -13,50 +13,54 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.medscan.R;
+import com.example.medscan.UserHelper;
 import com.example.medscan.login.User;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.List;
 
 public class UserItemAdapter  extends RecyclerView.Adapter<UserItemAdapter.ViewHolder> {
 
-     Context mcontext;
-     List<User> mUsers;
+     Context context;
+     List<UserHelper> mUserHelper;
 
-    public UserItemAdapter(Context mcontext, List<User> mUsers){
+    public UserItemAdapter(ValueEventListener mcontext, List<UserHelper> mUserHelper){
 
-        this.mcontext = mcontext;
-        this.mUsers = mUsers;
+        this.context = context;
+        this.mUserHelper = mUserHelper;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mcontext).inflate(R.layout.item_select_doctor, parent,false);
-        return new UserItemAdapter.ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_select_doctor, parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        User user = mUsers.get(position);
-        holder.doc_name.setText(user.getDoc_name());
-        if(user.getImageURl().equals("defult")){
+        UserHelper user = mUserHelper.get(position);
+        holder.doc_name.setText(user.getFull_Name());
+        holder.doc_medical.setText(user.getMedical());
+        if(user.getImageURI().equals("defult")){
 
             holder.imag_profile.setImageResource(R.mipmap.ic_launcher);
         }else {
-            Glide.with(mcontext).load(user.getImageURl()).into(holder.imag_profile);
+            Glide.with(context).load(user.getImageURI()).into(holder.imag_profile);
         }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mUserHelper.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView doc_name;
+        public  TextView doc_medical;
         public ImageView imag_profile;
 
 
@@ -66,6 +70,7 @@ public class UserItemAdapter  extends RecyclerView.Adapter<UserItemAdapter.ViewH
 
             doc_name = itemView.findViewById(R.id.doc_name);
             imag_profile = itemView.findViewById(R.id.imag_profile);
+            doc_medical = itemView.findViewById(R.id.doc_medical);
 
 
         }
