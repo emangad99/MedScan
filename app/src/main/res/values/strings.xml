@@ -348,15 +348,24 @@
     <string name="skin6_info">Melanoma, a risky type of skin cancer, arises from cells (melanomas) that convert the pigment melanin that gives your skin its colour. Melanoma can also affect your eyes and, rarely, parts of your body such as the inside of your nose or throat.\n Ultraviolet (UV) rays emitted from sunlight or ultraviolet (UV) rays. It may help you get UV rays.\nPeople under age 40, especially women, are more likely to develop melanoma. Skin cancer risk indicators can help ensure that precancerous changes are detected and treated before the cancer spreads. Successful treatment of melanoma is possible if the tumor is detected early.</string>
     <string name="skin7_info">Moles are a common type of skin growth condition. They often appear as small, dark brown spots and result from clusters of melanocytes. Moles generally appear during childhood and adolescence. Most people have about 10 to 40 moles, some of which may change appearance or disappear over time.\n Most moles are harmless. It rarely becomes cancerous. Monitoring moles and other pigmented spots is an important step in detecting skin cancer, especially malignant melanoma.\n The medical name for moles is nevus.</string>
     <string name="eyes_diseases">Eyes diseases</string>
-    <string name="you_can_upload_a_picture_of_your_eyes_and_we_will_n_tell_you_if_you_suffer_from_one_of_these_diseases">you can upload a picture of your eyes and we will \n tell you if you suffer from one of these diseases</string>
+    <string name="you_can_upload_a_picture_of_your_eyes_and_we_will_n_tell_you_if_you_suffer_from_one_of_these_diseases">you can upload a picture of your eyes and we will   tell you if you suffer from one of these diseases</string>
     <string name="bulging_eyes">bulging eyes</string>
     <string name="cataract">Cataract</string>
     <string name="crossed_eyes">Crossed eyes</string>
     <string name="uveitis">Uveitis</string>
     <string name="glaucoma">glaucoma</string>
     <string name="delete_account">Delete Account</string>
-    <string name="i_m_sorry_nyour_eyes_aren_t_healthy">i\'m sorry\nyour eyes aren\'t healthy</string>
-    <string name="you_are_infected_with_bulging_eyes">you are infected with bulging eyes</string>
+    <string name="i_m_sorry_nyour_eyes_aren_t_healthy">i\'m sorry your eyes aren\'t healthy</string>
+    <string name="you_are_infected_with_bulging_eyes">"You have bulging eyes "</string>
     <string name="your_eyes_are_healthy">your eyes are healthy</string>
+    <string name="eyes_info1">A bulging eye or eyes is usually caused by thyroid issues, such as Graves\' disease or hyperthyroidism. Symptoms include a gritty sensation with eye movement, eyelid swelling and redness and dry, irritated or watering eyes. Treatments include medications for thyroid disease, artificial tears, corticosteroids, immunosuppressant drugs and possibly surgery.</string>
+    <string name="eyes_info2">Strabismus (crossed eyes) is a condition in which one eye is turned in a direction that is different from the other eye. Treatment may include glasses, patching, eye exercises, medication or surgery.</string>
+    <string name="eyes_info3">Cataracts are the clouding of the lens of your eye, which is normally clear. Most cataracts develop slowly over time, causing symptoms such as blurry vision. Cataracts can be surgically removed through an outpatient procedure that restores vision in nearly everyone.</string>
+    <string name="eyes_info4">People with uveitis develop red, swollen, inflamed eyes. They also have eye pain. Certain conditions increase the risk of uveitis, but the disease often occurs for no known reason. Treatments can restore lost vision and prevent further vision loss. Certain types of uveitis can return after treatment. Untreated uveitis can lead to blindness.</string>
+    <string name="eyes_info5">People with glaucoma have optic nerve damage from fluid buildup in the eye. Left untreated, this eye pressure can permanently affect vision. Glaucoma is the second leading cause of blindness in the world. Treatments — including eyedrops, laser treatments and surgeries — can slow down vision loss and save your sight.</string>
+    <string name="you_have_glaucoma">you have glaucoma</string>
+    <string name="you_have_crossed_eyes">You have crossed eyes</string>
+    <string name="you_have_uveitis">You have uveitis</string>
+    <string name="you_have_cataracts">You have cataracts</string>
 
 </resources>

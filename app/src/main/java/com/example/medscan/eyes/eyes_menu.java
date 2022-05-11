@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
 import com.example.medscan.eyes_image;
 import com.example.medscan.skin.skin_menu;
@@ -87,5 +88,9 @@ public class eyes_menu extends AppCompatActivity {
 
             }
         });
+    }
+    public void onBackPressed() {
+        Intent donor=new Intent(eyes_menu.this, HomeActivity.class);
+        startActivity(donor);
     }
 }

@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.medscan.eyes.bulging_eyes;
+import com.example.medscan.eyes.cataract;
+import com.example.medscan.eyes.crossed_eyes;
+import com.example.medscan.eyes.glaucoma;
+import com.example.medscan.eyes.uveitis;
 import com.example.medscan.kidneys.kidney_failed;
 import com.example.medscan.kidneys.kidney_successful;
 import com.example.medscan.kidneys.kidney_successful_advice;
@@ -47,7 +52,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, actinic_keratosis.class);
+                Intent i=new Intent(Welcome.this, covid.class);
                 startActivity(i);
 
 

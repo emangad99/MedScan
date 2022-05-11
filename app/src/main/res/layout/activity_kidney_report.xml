@@ -339,15 +339,17 @@
             android:layout_width="280dp"
             android:layout_height="48dp"
             android:layout_marginTop="17dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/custom_button"
             android:text="@string/sub"
             android:textAllCaps="false"
             android:textColor="@color/color3"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner_anaemia" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
