@@ -28,7 +28,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
 
         View v = LayoutInflater.from(context).inflate(R.layout.item_doctors,parent,false);
         return new myviewholder(v);
+
+
     }
+
+
+
 
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
@@ -41,6 +46,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
         holder.phone.setText(user.getPhone());
         holder.time.setText(user.getTime());
         holder.info.setText(user.getOther());
+        holder.doc_name.setText(user.getFull_Name());
+        holder._docmedical.setText(user.getMedical());
+        holder.image_profile.setText(user.getImageURI());
 
 
     }
@@ -52,7 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
 
     public static class myviewholder extends RecyclerView.ViewHolder {
 
-        TextView fullname,medical, address,phone,time,info;
+        TextView fullname,medical, address,phone,time,info,doc_name,_docmedical,image_profile;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +71,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myviewholder> {
             phone=itemView.findViewById(R.id.tv_phone);
             time=itemView.findViewById(R.id.tv_time);
             info=itemView.findViewById(R.id.tv_inf);
+            doc_name=itemView.findViewById(R.id.doc_name);
+            _docmedical=itemView.findViewById(R.id.doc_medical);
+            image_profile=itemView.findViewById(R.id.img_prof);
 
         }
     }

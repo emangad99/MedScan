@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.example.medscan.MyAdapter;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,14 +29,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapter.UserItemAdapter;
-
 public class chat_user extends AppCompatActivity {
     ProgressBar progressBar;
     ImageView icon_back;
      RecyclerView recyclerView;
-     UserItemAdapter userItemAdapter;
-     List<UserHelper> mUserHelper;
+     MyAdapter MyAdapter;
+     List<UserHelper> list;
      UserHelper userHelper;
 
 
@@ -56,10 +55,10 @@ public class chat_user extends AppCompatActivity {
             recyclerView = findViewById(R.id.recycle_chat);
 
             recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        mUserHelper = new ArrayList<>();
+        list = new ArrayList<>();
 
         ReadDoctors();
 
@@ -81,15 +80,15 @@ public class chat_user extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mUserHelper.clear();
+                list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     userHelper = dataSnapshot.getValue(UserHelper.class);
-                    mUserHelper.add(userHelper);
+                    list.add(userHelper);
                 }
 
 
-                userItemAdapter = new UserItemAdapter(getBaseContext(),mUserHelper);
-                recyclerView.setAdapter(userItemAdapter);
+              //  MyAdapter = new MyAdapter(chat_user.this,list);
+                recyclerView.setAdapter(MyAdapter);
             }
 
 
