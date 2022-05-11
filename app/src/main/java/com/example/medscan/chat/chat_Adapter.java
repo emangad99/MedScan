@@ -42,6 +42,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
         holder.fullname.setText(user.getFull_Name());
         holder.medical.setText(user.getMedical());
         Glide.with(context).load(user.getimage()).into(holder.img);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

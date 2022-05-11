@@ -46,13 +46,14 @@ public class chat_activity extends AppCompatActivity {
         edit = findViewById(R.id.edit_send);
         intent = getIntent();
         String userid = intent.getStringExtra("userid");
+        fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String msg = edit.getText().toString();
                 if(!msg.equals("")){
-                    sendMessage(fuser.getUid(), userid, msg);
+                    sendMessage(fuser.getUid(),userid,msg);
                 }else {
                     Toast.makeText(chat_activity.this,"you canot send emty message",Toast.LENGTH_SHORT).show();
                 }
@@ -60,7 +61,7 @@ public class chat_activity extends AppCompatActivity {
             }
         });
 
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
