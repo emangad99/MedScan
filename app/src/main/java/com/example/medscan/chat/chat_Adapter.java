@@ -1,6 +1,7 @@
 package com.example.medscan.chat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,15 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
         holder.fullname.setText(user.getFull_Name());
         holder.medical.setText(user.getMedical());
         Glide.with(context).load(user.getimage()).into(holder.img);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,chat_activity.class);
+                intent.putExtra("userid",user.getUserId());
+                context.startActivity(intent);
 
-
+            }
+        });
     }
 
     @Override
