@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -211,21 +212,71 @@ public class PatientEdit extends AppCompatActivity {
                String Other = other.getText().toString();
                String fName = fullname.getText().toString();
 
-               HashMap<String, Object> map = new HashMap<>();
-               map.put("address", Address);
-               map.put("phone", Phone);
-               map.put("medical", Medical);
-               map.put("time", Time);
-               map.put("other", Other);
-               map.put("Full_Name", fName);
-               databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                   @Override
-                   public void onSuccess(Void unused) {
-                       Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+               if (fName.isEmpty()) {
+                   fullname.setError("Your Name is required");
+                   fullname.requestFocus();
+                   return;
+
+               }
+
+               if (Medical.isEmpty()) {
+                   medical.setError("Please enter your medical specialty");
+                   medical.requestFocus();
+                   return;
+               }
+               if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
+                       && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs"))
+               {
+                   medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
+                   medical.requestFocus();
+                   return;
+               }
+               if (Address.isEmpty()) {
+                   clinic.setError("Please enter your clinic address");
+                   clinic.requestFocus();
+                   return;
+               }
+               if (Phone.isEmpty()) {
+                   phone.setError("Please enter your Phone number");
+                   phone.requestFocus();
+                   return;
+               }
+               if (Phone.length()!=11) {
+                   phone.setError("Please enter a valid number");
+                   phone.requestFocus();
+                   return;
+               }
+               if (Time.isEmpty()) {
+                   time.setError("Please enter your available time");
+                   time.requestFocus();
+                   return;
+               }
+               if (Other.isEmpty()) {
+                   other.setError("If you have any other information ,please write it here..If not,Write Nothing");
+                   other.requestFocus();
+                   return;
+               }
+               else{
+
+                   HashMap<String, Object> map = new HashMap<>();
+                   map.put("address", Address);
+                   map.put("phone", Phone);
+                   map.put("medical", Medical);
+                   map.put("time", Time);
+                   map.put("other", Other);
+                   map.put("Full_Name", fName);
+                   databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                       @Override
+                       public void onSuccess(Void unused) {
+                           Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
 
 
-                   }
-               });
+                       }
+                   });
+
+               }
+
+
 
            }
 
