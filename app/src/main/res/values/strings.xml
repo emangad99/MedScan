@@ -355,5 +355,8 @@
     <string name="uveitis">Uveitis</string>
     <string name="glaucoma">glaucoma</string>
     <string name="delete_account">Delete Account</string>
+    <string name="i_m_sorry_nyour_eyes_aren_t_healthy">i\'m sorry\nyour eyes aren\'t healthy</string>
+    <string name="you_are_infected_with_bulging_eyes">you are infected with bulging eyes</string>
+    <string name="your_eyes_are_healthy">your eyes are healthy</string>
 
 </resources>

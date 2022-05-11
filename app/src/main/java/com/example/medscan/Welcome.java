@@ -47,7 +47,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, seborrheic_keratosis.class);
+                Intent i=new Intent(Welcome.this, actinic_keratosis.class);
                 startActivity(i);
 
 

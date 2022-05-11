@@ -1,4 +1,4 @@
-package com.example.medscan.skin;
+package com.example.medscan.eyes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,23 +8,24 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.medscan.R;
+import com.example.medscan.skin.actinic_keratosis_info;
+import com.example.medscan.skin.skin_menu;
 
-public class actinic_keratosis_info extends AppCompatActivity {
-
+public class bulging_eyes_info extends AppCompatActivity {
     ImageView icon_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actinic_keratosis_info);
+        setContentView(R.layout.activity_bulging_eyes_info);
 
-        icon_back=findViewById(R.id.icon_back1);
+        icon_back=findViewById(R.id.icon_back11);
 
         icon_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent skin=new Intent(actinic_keratosis_info.this, skin_menu.class);
-                startActivity(skin);
+                Intent eyes=new Intent(bulging_eyes_info.this, eyes_menu.class);
+                startActivity(eyes);
             }
         });
     }

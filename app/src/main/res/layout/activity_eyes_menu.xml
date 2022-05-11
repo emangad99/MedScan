@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/actinic_keratosis"
+        android:id="@+id/bulging_eyes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView25" />
 
     <TextView
-        android:id="@+id/intraepithelial_carcinoma"
+        android:id="@+id/cataract"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -105,10 +105,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/actinic_keratosis" />
+        app:layout_constraintTop_toBottomOf="@+id/bulging_eyes" />
 
     <TextView
-        android:id="@+id/basal_cell_carcinoma"
+        android:id="@+id/crossed_eyes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -117,10 +117,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/intraepithelial_carcinoma" />
+        app:layout_constraintTop_toBottomOf="@+id/cataract" />
 
     <TextView
-        android:id="@+id/seborrheic_keratosis"
+        android:id="@+id/uveitis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -129,10 +129,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/basal_cell_carcinoma" />
+        app:layout_constraintTop_toBottomOf="@+id/crossed_eyes" />
 
     <TextView
-        android:id="@+id/dermatofibroma"
+        android:id="@+id/glaucoma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -141,7 +141,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/seborrheic_keratosis" />
+        app:layout_constraintTop_toBottomOf="@+id/uveitis" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/color5"
-    tools:context=".chat.chat_user">
+    tools:context=".chat.chat_useer">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon_back"
@@ -73,8 +73,6 @@
 
 
     </FrameLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

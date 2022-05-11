@@ -1,39 +1,24 @@
 package com.example.medscan.menu;
 
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.bumptech.glide.Glide;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
-import com.example.medscan.databinding.ActivityMainBinding;
 import com.example.medscan.databinding.ActivityPatientEditBinding;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,13 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
 import java.util.HashMap;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PatientEdit extends AppCompatActivity {
@@ -58,18 +39,18 @@ public class PatientEdit extends AppCompatActivity {
     String _EMAIL;
     CircleImageView profileimage;
     Button update ;
-   ImageView input_btn;
+    ImageView input_btn;
     FirebaseDatabase database;
     FirebaseAuth authProfile;
-    Uri imageUri;
     StorageReference storageReference;
     DatabaseReference databaseReference;
     FirebaseStorage storage;
-    int image_request_code = 7;
     ProgressDialog progressDialog;
     FirebaseUser firebaseUser ;
     ActivityPatientEditBinding binding;
     ActivityResultLauncher<String> launcher;
+
+    ProgressBar progressBar;
 
 
 
@@ -78,7 +59,9 @@ public class PatientEdit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-     //  setContentView(R.layout.activity_patient_edit);
+
+        progressBar=findViewById(R.id.progrsess_edit);
+
         binding = ActivityPatientEditBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         database = FirebaseDatabase.getInstance();
@@ -103,17 +86,22 @@ public class PatientEdit extends AppCompatActivity {
             @Override
             public void onActivityResult(Uri result) {
                 binding.profilePic.setImageURI(result);
+               // progressBar.setVisibility(View.VISIBLE);
 
                 final StorageReference reference = storage.getReference("Users").child(firebaseUser.getUid()).child("image");
                 reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                            @Override
                            public void onSuccess(Uri uri) {
+
                                database.getReference("Users").child(firebaseUser.getUid()).child("image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+
                                    @Override
                                    public void onSuccess(Void unused) {
+                                      // progressBar.setVisibility(View.GONE);
                                        Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
                                    }
                                });
@@ -136,8 +124,6 @@ public class PatientEdit extends AppCompatActivity {
 
 
         profileimage=findViewById(R.id.profile_pic);
-
-
         password = findViewById(R.id.txt_reset);
         fullname = findViewById(R.id.fullnameedit);
         emailedittext = findViewById(R.id.editTextTextEmailAddress);
@@ -157,10 +143,6 @@ public class PatientEdit extends AppCompatActivity {
 
 
 
-
-
-
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -173,11 +155,6 @@ public class PatientEdit extends AppCompatActivity {
                 time.setText(userHelper.getTime());
                 other.setText(userHelper.getOther());
 
-
-
-
-
-
             }
 
             @Override
@@ -189,7 +166,6 @@ public class PatientEdit extends AppCompatActivity {
 
 
        showProfile(firebaseUser);
-
 
         password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,7 +210,6 @@ public class PatientEdit extends AppCompatActivity {
                String Medical = medical.getText().toString();
                String Other = other.getText().toString();
                String fName = fullname.getText().toString();
-               String email = emailedittext.getText().toString().trim();
 
                HashMap<String, Object> map = new HashMap<>();
                map.put("address", Address);

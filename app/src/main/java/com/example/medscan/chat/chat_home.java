@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
+import com.example.medscan.lungs.covid;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -65,7 +66,7 @@ public class chat_home extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent chat=new Intent(chat_home.this, chat_user.class);
+                Intent chat=new Intent(chat_home.this, chat_useer.class);
                 startActivity(chat);
 
             }
