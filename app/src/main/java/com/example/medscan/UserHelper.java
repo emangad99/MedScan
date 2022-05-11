@@ -3,14 +3,16 @@ package com.example.medscan;
 public class UserHelper {
 
     String feedback, userId;
-    String address,phone,medical,time,other,Full_Name,imageURI;
+    String address,phone,medical,time,other,Full_Name,image;
 
-    public String getImageURI() {
-        return imageURI;
+    public String getimage() {
+        return image
+                ;
     }
 
-    public void setImageURI(String imageURI) {
-        this.imageURI = imageURI;
+    public void setimage(String imageURI) {
+        this.image
+                = imageURI;
     }
 
     public String getUserId() {
