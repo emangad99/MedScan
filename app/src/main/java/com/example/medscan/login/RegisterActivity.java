@@ -189,6 +189,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 hashMap.put("Email",email);
                                 hashMap.put("Password",password);
                                 hashMap.put("userId",userId);
+                                hashMap.put("medical","");
                                 hashMap.put("image","https://firebasestorage.googleapis.com/v0/b/medscan-36621.appspot.com/o/Users%2FZuSrNSz6SaNcpBmUJQ7aJoMMc6l1%2Fimage?alt=media&token=58528708-03b5-4a29-94ee-2127a6bc1baa");
 
                                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {

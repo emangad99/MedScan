@@ -29,7 +29,6 @@ public class menu_doctors extends AppCompatActivity {
     MyAdapter myAdapter;
     ArrayList<UserHelper> list;
     UserHelper userHelper;
-    //FirebaseAuth authProfile;
 
 
     @Override
@@ -38,13 +37,9 @@ public class menu_doctors extends AppCompatActivity {
         setContentView(R.layout.activity_menu_doctors);
 
         recyclerView=findViewById(R.id.recyclerView);
-        //authProfile = FirebaseAuth.getInstance();
-        //FirebaseUser firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         list=new ArrayList<>();
         myAdapter=new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
@@ -54,7 +49,14 @@ public class menu_doctors extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot :snapshot.getChildren()){
                     userHelper = dataSnapshot.getValue(UserHelper.class);
-                    list.add(userHelper);
+
+                    assert userHelper != null;
+
+                    if( !userHelper.getMedical().equals(""))
+                    {
+                        list.add(userHelper);
+                    }
+
 
 
                 }

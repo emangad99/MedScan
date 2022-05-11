@@ -4,19 +4,27 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.example.medscan.Welcome;
+import com.example.medscan.lungs.covid;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 
@@ -28,6 +36,9 @@ public class chat_useer extends AppCompatActivity {
     ArrayList<UserHelper> list;
     UserHelper userHelper;
     ProgressBar progressBar;
+    ImageView back;
+    FirebaseUser firebaseUser ;
+    FirebaseAuth authProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +52,20 @@ public class chat_useer extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.color5));
         }
 
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+
 
         recyclerView=findViewById(R.id.recycle_chat);
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         list=new ArrayList<>();
         chat_Adapter=new chat_Adapter(this,list);
         recyclerView.setAdapter(chat_Adapter);
         progressBar=findViewById(R.id.progrsess_error);
+        back=findViewById(R.id.icon_back);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,8 +73,19 @@ public class chat_useer extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot :snapshot.getChildren()){
                     progressBar.setVisibility(View.VISIBLE);
 
+
                     userHelper = dataSnapshot.getValue(UserHelper.class);
-                    list.add(userHelper);
+                    assert userHelper != null;
+                    assert firebaseUser !=null;
+                    if( !userHelper.getMedical().equals(""))
+                    {
+                        if(!userHelper.getUserId().equals(firebaseUser.getUid()))
+                        {
+                            list.add(userHelper);
+                        }
+
+                    }
+
 
 
                 }
@@ -72,6 +97,15 @@ public class chat_useer extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(chat_useer.this, chat_home.class);
+                startActivity(i);
             }
         });
     }
