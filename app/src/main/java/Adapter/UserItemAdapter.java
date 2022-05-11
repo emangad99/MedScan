@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
-import com.example.medscan.login.User;
-import com.google.firebase.database.ValueEventListener;
+import com.example.medscan.chat.MessageActivity;
 
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class UserItemAdapter  extends RecyclerView.Adapter<UserItemAdapter.ViewH
      Context context;
      List<UserHelper> mUserHelper;
 
-    public UserItemAdapter(ValueEventListener mcontext, List<UserHelper> mUserHelper){
+    public UserItemAdapter(Context context, List<UserHelper> mUserHelper){
 
         this.context = context;
         this.mUserHelper = mUserHelper;
@@ -35,7 +35,7 @@ public class UserItemAdapter  extends RecyclerView.Adapter<UserItemAdapter.ViewH
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_select_doctor, parent,false);
-        return new ViewHolder(view);
+        return new UserItemAdapter.ViewHolder(view);
     }
 
     @Override
@@ -50,6 +50,12 @@ public class UserItemAdapter  extends RecyclerView.Adapter<UserItemAdapter.ViewH
         }else {
             Glide.with(context).load(user.getImageURI()).into(holder.imag_profile);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MessageActivity.class);
+            }
+        });
     }
 
     @Override

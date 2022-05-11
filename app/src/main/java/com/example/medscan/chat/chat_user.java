@@ -2,30 +2,21 @@ package com.example.medscan.chat;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
-import com.example.medscan.MyAdapter;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
-import com.example.medscan.login.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,13 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Adapter.UserItemAdapter;
-import okio.Options;
 
 public class chat_user extends AppCompatActivity {
     ProgressBar progressBar;
-    TextView texterror;
     ImageView icon_back;
-   // DatabaseReference databaseReference;
      RecyclerView recyclerView;
      UserItemAdapter userItemAdapter;
      List<UserHelper> mUserHelper;
@@ -63,44 +51,17 @@ public class chat_user extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.color5));
         }
             progressBar = findViewById(R.id.progrsess_error);
-            texterror=findViewById(R.id.texterrormessage);
+
             icon_back=findViewById(R.id.icon_back);
             recyclerView = findViewById(R.id.recycle_chat);
 
             recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
 
         mUserHelper = new ArrayList<>();
 
         ReadDoctors();
-
-
-
-
-
-      /*  databaseReference.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:  snapshot.getChildren()){
-                    userHelper = dataSnapshot.getValue(UserHelper.class);
-                    mUserHelper.add(userHelper);
-
-
-
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
-
-
 
 
 
@@ -122,11 +83,12 @@ public class chat_user extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUserHelper.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    UserHelper user = dataSnapshot.getValue(UserHelper.class);
-                    mUserHelper.add(user);
+                    userHelper = dataSnapshot.getValue(UserHelper.class);
+                    mUserHelper.add(userHelper);
                 }
 
-                userItemAdapter = new UserItemAdapter(this,mUserHelper);
+
+                userItemAdapter = new UserItemAdapter(getBaseContext(),mUserHelper);
                 recyclerView.setAdapter(userItemAdapter);
             }
 
