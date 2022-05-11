@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.medscan.R;
@@ -19,11 +22,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class chat_activity extends AppCompatActivity {
     TextView username;
 
     FirebaseUser fuser;
     DatabaseReference reference;
+
+    ImageButton btn;
+    EditText edit;
+
+
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +41,24 @@ public class chat_activity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         username = findViewById(R.id.username);
+        btn = findViewById(R.id.btnsend);
+        edit = findViewById(R.id.edit_send);
         intent = getIntent();
         String userid = intent.getStringExtra("userid");
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = edit.getText().toString();
+                if(!msg.equals("")){
+                    sendMessage(fuser.getUid(), userid, msg);
+                }else {
+                    Toast.makeText(chat_activity.this,"you canot send emty message",Toast.LENGTH_SHORT).show();
+                }
+                edit.setText("");
+            }
+        });
+
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
         reference.addValueEventListener(new ValueEventListener() {
@@ -47,5 +73,18 @@ public class chat_activity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void sendMessage(String sender, String receiver ,String message){
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("sender",sender);
+        hashMap.put("receiver",receiver);
+        hashMap.put("message",message);
+
+        reference.child("chats").push().setValue(hashMap);
+
+
     }
 }
