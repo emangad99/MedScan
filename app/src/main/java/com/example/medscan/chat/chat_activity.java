@@ -30,33 +30,40 @@ import java.util.HashMap;
 
 public class chat_activity extends AppCompatActivity {
     TextView username;
-
     FirebaseUser fuser;
     DatabaseReference reference;
-    ImageView btn;
+    ImageView btn , back;
     EditText edit;
     MessageAdapter messageAdapter;
     ArrayList<UserHelper> list;
     RecyclerView recyclerView;
-
-
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
         recyclerView = findViewById(R.id.chatRecycle);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-
+        back=findViewById(R.id.img_back2);
         username = findViewById(R.id.username);
         btn = findViewById(R.id.btnsend);
         edit = findViewById(R.id.edit_send);
         intent = getIntent();
         String userid = intent.getStringExtra("userid");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(chat_activity.this, chat_useer.class);
+                startActivity(i);
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +72,7 @@ public class chat_activity extends AppCompatActivity {
                 if(!msg.equals("")){
                     sendMessage(fuser.getUid(),userid,msg);
                 }else {
-                    Toast.makeText(chat_activity.this,"you canot send emty message",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(chat_activity.this,"you can't send empty message",Toast.LENGTH_SHORT).show();
                 }
                 edit.setText("");
             }
