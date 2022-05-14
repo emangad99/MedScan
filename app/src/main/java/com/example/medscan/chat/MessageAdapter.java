@@ -29,7 +29,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
     String image;
     FirebaseUser fUser;
 
-    public MessageAdapter(Context context, ArrayList<UserHelper> list, String image) {
+    public MessageAdapter(Context context, ArrayList<UserHelper> list , String image) {
 
 
         this.context = context;
@@ -53,11 +53,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
     public void onBindViewHolder(@NonNull   MessageAdapter.viewholder holder, int position) {
         UserHelper  user =list.get(position);
         holder.show_message.setText(user.getMessage());
-        if(!image.equals("default")){
+        /*if(!image.equals("default")){
             holder.img.setBackgroundResource(R.mipmap.ic_launcher);
         }else {
             Glide.with(context).load(image).into(holder.img);
         }
+
+         */
+
+
 
         }
 
@@ -75,8 +79,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
             super(itemView);
 
             show_message = itemView.findViewById(R.id.textmessage);
-           // medical = itemView.findViewById(R.id.doc_medical);
-            img=itemView.findViewById(R.id.imag_profile);
+         //   medical = itemView.findViewById(R.id.doc_medical);
+            img=itemView.findViewById(R.id.chat_img);
 
 
         }

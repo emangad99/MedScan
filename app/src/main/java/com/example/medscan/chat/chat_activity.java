@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -44,6 +47,13 @@ public class chat_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.color5));
+        }
 
         recyclerView = findViewById(R.id.chatRecycle);
         recyclerView.setHasFixedSize(true);
@@ -92,7 +102,7 @@ public class chat_activity extends AppCompatActivity {
                 }else{
                     Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
                 }
-                readMessage(fuser.getUid(), userid, userHelper.getimage());
+                readMessage(fuser.getUid(), userid , userHelper.getimage());
             }
 
             @Override
@@ -115,20 +125,20 @@ public class chat_activity extends AppCompatActivity {
 
     }
 
-    private void readMessage(String myid, String userid, String image){
+    private void readMessage(String myid, String userid , String image){
         list = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("chats");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     UserHelper user = snapshot.getValue(UserHelper.class);
                     if(user.getReceiver().equals(myid) && user.getSender().equals(userid) || user.getReceiver().equals(userid) && user.getSender().equals(myid)){
 
                         list.add(user);
                     }
-                    messageAdapter = new MessageAdapter(chat_activity.this, list,image);
+                    messageAdapter = new MessageAdapter(chat_activity.this, list, image);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }

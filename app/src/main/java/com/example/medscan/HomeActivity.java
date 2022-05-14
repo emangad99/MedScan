@@ -143,6 +143,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_delete:
+                        /*
                         AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
                         dialog.setTitle("Are you sure ?");
                         dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
@@ -178,6 +179,8 @@ public class HomeActivity extends AppCompatActivity {
 
                         AlertDialog alertDialog = dialog.create();
                         alertDialog.show();
+
+                         */
 
 
                         break;
