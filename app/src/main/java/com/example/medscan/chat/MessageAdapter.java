@@ -44,7 +44,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
             View v = LayoutInflater.from(context).inflate(R.layout.chat_item_send_message, parent, false);
             return new MessageAdapter.viewholder(v);
         }else {
-            View v = LayoutInflater.from(context).inflate(R.layout.chat_item_send_message, parent, false);
+            View v = LayoutInflater.from(context).inflate(R.layout.chat_item_recieved_message, parent, false);
             return new MessageAdapter.viewholder(v);
         }
     }
@@ -52,7 +52,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
     @Override
     public void onBindViewHolder(@NonNull   MessageAdapter.viewholder holder, int position) {
         UserHelper  user =list.get(position);
-        holder.receive.setText(user.getMessage());
+        holder.show_message.setText(user.getMessage());
         if(!image.equals("default")){
             holder.img.setBackgroundResource(R.mipmap.ic_launcher);
         }else {
@@ -68,13 +68,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
 
     public static class viewholder extends RecyclerView.ViewHolder {
 
-        TextView receive ;
+        TextView show_message ;
         RoundedImageView img;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
 
-            receive = itemView.findViewById(R.id.textmessage);
+            show_message = itemView.findViewById(R.id.textmessage);
            // medical = itemView.findViewById(R.id.doc_medical);
             img=itemView.findViewById(R.id.imag_profile);
 

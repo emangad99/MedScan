@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,7 +33,7 @@ public class chat_activity extends AppCompatActivity {
     TextView username;
     FirebaseUser fuser;
     DatabaseReference reference;
-    ImageView btn , back;
+    ImageView btn , back , profile_image;
     EditText edit;
     MessageAdapter messageAdapter;
     ArrayList<UserHelper> list;
@@ -51,6 +52,7 @@ public class chat_activity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         back=findViewById(R.id.img_back2);
         username = findViewById(R.id.username);
+        profile_image = findViewById(R.id.img_prof2);
         btn = findViewById(R.id.btnsend);
         edit = findViewById(R.id.edit_send);
         intent = getIntent();
@@ -85,7 +87,11 @@ public class chat_activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserHelper userHelper = snapshot.getValue(UserHelper.class);
                 username.setText(userHelper.getFull_Name());
-
+                if (userHelper.getimage().equals("default")){
+                    profile_image.setImageResource(R.mipmap.ic_launcher);
+                }else{
+                    Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
+                }
                 readMessage(fuser.getUid(), userid, userHelper.getimage());
             }
 
@@ -109,7 +115,7 @@ public class chat_activity extends AppCompatActivity {
 
     }
 
-    private void readMessage(String myid, String userid, String imag){
+    private void readMessage(String myid, String userid, String image){
         list = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("chats");
         reference.addValueEventListener(new ValueEventListener() {
@@ -122,7 +128,7 @@ public class chat_activity extends AppCompatActivity {
 
                         list.add(user);
                     }
-                    messageAdapter = new MessageAdapter(chat_activity.this, list,imag);
+                    messageAdapter = new MessageAdapter(chat_activity.this, list,image);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }
