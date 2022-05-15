@@ -19,8 +19,10 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.example.medscan.menu_doctors;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -72,7 +74,7 @@ public class chat_activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(chat_activity.this, chat_useer.class);
+                Intent i=new Intent(chat_activity.this, chat_home.class);
                 startActivity(i);
             }
         });
@@ -148,5 +150,10 @@ public class chat_activity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void onBackPressed() {
+        Intent donor=new Intent(chat_activity.this, chat_home.class);
+        startActivity(donor);
     }
 }

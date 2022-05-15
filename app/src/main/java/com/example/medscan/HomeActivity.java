@@ -148,9 +148,37 @@ public class HomeActivity extends AppCompatActivity {
 
                     case R.id.nav_delete:
 
-                        delete_current_user();
-                        break;
+                        //delete_current_user();
 
+
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
+                        dialog.setTitle("Are you sure ?");
+                        dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
+                        dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                delete_current_user();
+
+
+                            }
+                        });
+                        dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        AlertDialog alertDialog = dialog.create();
+                        alertDialog.show();
+
+
+
+
+
+
+                        break;
                 }
                 return false;
             }
@@ -182,6 +210,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void delete_current_user() {
 
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Please wait ... ");
         progressDialog.setMessage("We are deleting your account.");
@@ -208,6 +237,8 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     @Override
     protected void onStart() {
