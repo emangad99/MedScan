@@ -156,6 +156,17 @@ public class PatientEdit extends AppCompatActivity {
                 time.setText(userHelper.getTime());
                 other.setText(userHelper.getOther());
 
+
+                if( userHelper.getMedical().equals(""))
+                {
+                    phone.setEnabled(false);
+                    medical.setEnabled(false);
+                    clinic.setEnabled(false);
+                    time.setEnabled(false);
+                    other.setEnabled(false);
+
+                }
+
             }
 
             @Override
