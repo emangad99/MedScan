@@ -52,7 +52,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, covid.class);
+                Intent i=new Intent(Welcome.this, bulging_eyes.class);
                 startActivity(i);
 
 

@@ -70,6 +70,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_basal_cell_carcinoma_info.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_best_doctors.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_bulging_eyes.xml" value="0.2368659420289855" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_bulging_eyes_advice.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_bulging_eyes_info.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_cataract.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_cataract_info.xml" value="0.2368659420289855" />
@@ -172,6 +173,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_waiting.xml" value="0.182518115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/basal_cell_carcinoma_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/bulging_eyes_screen.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/chat_item_recieved_message.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/chat_item_send_message.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/covid_screen.xml" value="0.24818840579710144" />

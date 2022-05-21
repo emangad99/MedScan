@@ -25,8 +25,8 @@ public class bulging_eyes extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i=new Intent(bulging_eyes.this, actinic_keratosis_advice.class);
-                //startActivity(i);
+                Intent i=new Intent(bulging_eyes.this, bulging_eyes_advice.class);
+                startActivity(i);
 
             }
         });

@@ -13,9 +13,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
+import com.example.medscan.UserHelper;
 import com.example.medscan.lungs.covid;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +30,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -35,6 +39,8 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class chat_home extends AppCompatActivity {
 
@@ -43,23 +49,49 @@ public class chat_home extends AppCompatActivity {
     //ProgressBar progressBar;
     //StorageReference mstorageReference;
     RoundedImageView img;
-
+    RecyclerView recyclerView;
+    chat_Adapter chat_adapter2;
+    ArrayList<UserHelper>list;
     FirebaseAuth authProfile;
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
+    List<String>userlist;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_home);
-
-
+        recyclerView=findViewById(R.id.conversation);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         name=findViewById(R.id.text_name);
         img=findViewById(R.id.img_prof);
-
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
+        userlist = new ArrayList<>();
+        databaseReference =FirebaseDatabase.getInstance().getReference().child("chats");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userlist.clear();
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    UserHelper user =snapshot.getValue(UserHelper.class);
+                    if(user.getSender().equals(firebaseUser.getUid())){
+                        userlist.add(user.getReceiver());
+                    }
+                    if (user.getReceiver().equals(firebaseUser.getUid())){
+                        userlist.add(user.getSender());
+                    }
+                }
+                readchat();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
         final FloatingActionButton button = findViewById(R.id.chat_fab);
@@ -81,6 +113,44 @@ public class chat_home extends AppCompatActivity {
         }
 
 
+    }
+
+    private void readchat() {
+
+        list = new ArrayList<>();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
+                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    UserHelper user = snapshot.getValue(UserHelper.class);
+                    for(String id : userlist){
+                        if (user.getUserId().equals(id)){
+                            if (userlist.size() != 0){
+                                for (UserHelper userHelper : list){
+                                    if (!user.getUserId().equals(userHelper.getUserId())){
+                                        list.add(user);
+                                    }
+
+                                }
+                            }else {
+                                list.add(user);
+                            }
+                        }
+                    }
+                }
+                chat_adapter2 = new chat_Adapter(chat_home.this,list);
+                recyclerView.setAdapter(chat_adapter2);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
