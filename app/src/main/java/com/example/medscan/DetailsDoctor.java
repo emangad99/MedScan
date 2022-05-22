@@ -70,7 +70,8 @@ public class DetailsDoctor extends AppCompatActivity {
                     return;
                 }
                 if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
-                        && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs"))
+                        && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs")
+                        && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة"))
                 {
                     medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
                     medical.requestFocus();

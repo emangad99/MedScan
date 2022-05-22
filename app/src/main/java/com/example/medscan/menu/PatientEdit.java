@@ -216,6 +216,7 @@ public class PatientEdit extends AppCompatActivity {
        update.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+
                String Address = clinic.getText().toString();
                String Phone = phone.getText().toString();
                String Time = time.getText().toString();
@@ -223,69 +224,101 @@ public class PatientEdit extends AppCompatActivity {
                String Other = other.getText().toString();
                String fName = fullname.getText().toString();
 
-               if (fName.isEmpty()) {
-                   fullname.setError("Your Name is required");
-                   fullname.requestFocus();
-                   return;
-
-               }
-
-               if (Medical.isEmpty()) {
-                   medical.setError("Please enter your medical specialty");
-                   medical.requestFocus();
-                   return;
-               }
-               if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
-                       && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs"))
+               if( Medical.isEmpty())
                {
-                   medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
-                   medical.requestFocus();
-                   return;
-               }
-               if (Address.isEmpty()) {
-                   clinic.setError("Please enter your clinic address");
-                   clinic.requestFocus();
-                   return;
-               }
-               if (Phone.isEmpty()) {
-                   phone.setError("Please enter your Phone number");
-                   phone.requestFocus();
-                   return;
-               }
-               if (Phone.length()!=11) {
-                   phone.setError("Please enter a valid number");
-                   phone.requestFocus();
-                   return;
-               }
-               if (Time.isEmpty()) {
-                   time.setError("Please enter your available time");
-                   time.requestFocus();
-                   return;
-               }
-               if (Other.isEmpty()) {
-                   other.setError("If you have any other information ,please write it here..If not,Write Nothing");
-                   other.requestFocus();
-                   return;
-               }
-               else{
+                   if (fName.isEmpty()) {
+                       fullname.setError("Your Name is required");
+                       fullname.requestFocus();
+                       return;
 
-                   HashMap<String, Object> map = new HashMap<>();
-                   map.put("address", Address);
-                   map.put("phone", Phone);
-                   map.put("medical", Medical);
-                   map.put("time", Time);
-                   map.put("other", Other);
-                   map.put("Full_Name", fName);
-                   databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                       @Override
-                       public void onSuccess(Void unused) {
-                           Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+                   }
+                   else{
+
+                       HashMap<String, Object> map = new HashMap<>();
+                       map.put("Full_Name", fName);
+                       databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void unused) {
+                               Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
 
 
-                       }
-                   });
+                           }
+                       });
+
+                   }
 
                }
+               else
+               {
+                   if (fName.isEmpty()) {
+                       fullname.setError("Your Name is required");
+                       fullname.requestFocus();
+                       return;
+
+                   }
+
+                   if (Medical.isEmpty()) {
+                       medical.setError("Please enter your medical specialty");
+                       medical.requestFocus();
+                       return;
+                   }
+                   if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
+                           && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs")
+                           && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة"))
+                   {
+                       medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
+                       medical.requestFocus();
+                       return;
+                   }
+                   if (Address.isEmpty()) {
+                       clinic.setError("Please enter your clinic address");
+                       clinic.requestFocus();
+                       return;
+                   }
+                   if (Phone.isEmpty()) {
+                       phone.setError("Please enter your Phone number");
+                       phone.requestFocus();
+                       return;
+                   }
+                   if (Phone.length()!=11) {
+                       phone.setError("Please enter a valid number");
+                       phone.requestFocus();
+                       return;
+                   }
+                   if (Time.isEmpty()) {
+                       time.setError("Please enter your available time");
+                       time.requestFocus();
+                       return;
+                   }
+                   if (Other.isEmpty()) {
+                       other.setError("If you have any other information ,please write it here..If not,Write Nothing");
+                       other.requestFocus();
+                       return;
+                   }
+                   else{
+
+                       HashMap<String, Object> map = new HashMap<>();
+                       map.put("address", Address);
+                       map.put("phone", Phone);
+                       map.put("medical", Medical);
+                       map.put("time", Time);
+                       map.put("other", Other);
+                       map.put("Full_Name", fName);
+                       databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void unused) {
+                               Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+
+
+                           }
+                       });
+
+                   }
+
+               }
+
+
+
 
 
 
