@@ -23,8 +23,8 @@ public class crossed_eyes extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i=new Intent(crossed_eyes.this, actinic_keratosis_advice.class);
-                //startActivity(i);
+                Intent i=new Intent(crossed_eyes.this, crossed_eyes_advice.class);
+                startActivity(i);
 
             }
         });

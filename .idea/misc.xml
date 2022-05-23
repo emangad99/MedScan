@@ -73,6 +73,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_bulging_eyes_advice.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_bulging_eyes_info.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_cataract.xml" value="0.2368659420289855" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_cataract_advice.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_cataract_info.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_chat_home.xml" value="0.2477355072463768" />
@@ -82,6 +83,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_covid.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_covid_advice.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_crossed_eyes.xml" value="0.2368659420289855" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_crossed_eyes_advice.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_crossed_eyes_info.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_dermatofibroma.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_dermatofibroma_advice.xml" value="0.24010416666666667" />
@@ -106,6 +108,7 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_feedback.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_forget_password.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_glaucoma.xml" value="0.2368659420289855" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_glaucoma_advice.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_glaucoma_info.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_google_auth.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_header.xml" value="0.15307971014492755" />
@@ -163,23 +166,29 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_success_reset_pass.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful.xml" value="0.2" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_advice.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_eyes.xml" value="0.2259963768115942" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_eyes_advice.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_page.xml" value="0.1802536231884058" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_skin.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_skin_advice.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_test.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_twitter_auth.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_uveitis.xml" value="0.2368659420289855" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_uveitis_advice.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_uveitis_info.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_waiting.xml" value="0.182518115942029" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/basal_cell_carcinoma_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/bulging_eyes_screen.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/cataract_screen.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/chat_item_recieved_message.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/chat_item_send_message.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/covid_screen.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/crossed_eyes_screen.xml" value="0.14719202898550723" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/dermatofibroma_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/dialog_doctor.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/failed_screen.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/glaucoma_screen.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/header.xml" value="0.2115036231884058" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/intraepithelial_carcinoma_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/item_doctors.xml" value="0.2477355072463768" />
@@ -194,8 +203,10 @@
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/menu_header.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/seborrheic_keratosis_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/slide_layout.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/successful_eyes_screen.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/successful_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/successful_skin_screen.xml" value="0.24094202898550723" />
+        <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/layout/uveitis_screen.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan2/app/src/main/res/drawable/custom_button.xml" value="0.2537037037037037" />

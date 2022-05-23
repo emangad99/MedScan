@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -54,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnFacebook = findViewById(R.id.Facebook);
         btnGoogle = findViewById(R.id.Google);
         btnTwitter = findViewById(R.id.Twitter);
+        String templang = Locale.getDefault().getLanguage();
 
         txtPass.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -146,32 +148,92 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 if (firstname.isEmpty()) {
-                    txtFirstName.setError("Full Name is required");
-                    txtFirstName.requestFocus();
+
+                    if(templang == "ar")
+                    {
+                        txtFirstName.setError("يجب عليك كتابة الاسم ");
+                        txtFirstName.requestFocus();
+                    }
+                    else
+                    {
+                        txtFirstName.setError("Full Name is required");
+                        txtFirstName.requestFocus();
+                    }
 
                 }
 
                 if (TextUtils.isEmpty(email)) {
-                    txtEmail.setError("Email is required");
-                    return;
+
+                    if(templang == "ar")
+                    {
+                        txtEmail.setError("يجب عليك كتابة البريد الالكتروني");
+                        return;
+                    }
+                    else
+                    {
+                        txtEmail.setError("Email is required");
+                        return;
+                    }
                 }
                 if (TextUtils.isEmpty(password)) {
-                    txtPass.setError("Password is required");
-                    return;
+
+                    if(templang == "ar")
+                    {
+                        txtPass.setError("كلمة المرور مطلوبة");
+                        return;
+                    }
+                    else
+                    {
+                        txtPass.setError("Password is required");
+                        return;
+                    }
+
                 }
                 if (confirm_password.isEmpty()){
-                    txtpassconfirm.setError("confirm password is empty");
-                    txtpassconfirm.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        txtpassconfirm.setError("تأكيد كلمة المرور");
+                        txtpassconfirm.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        txtpassconfirm.setError("confirm password is empty");
+                        txtpassconfirm.requestFocus();
+                        return;
+                    }
+
                 }
                 if(! password.equals(confirm_password)){
-                    txtpassconfirm.setError("Confirm the password does not match the password");
-                    txtpassconfirm.requestFocus();
-                    return;
+
+                    if(templang == "ar")
+                    {
+                        txtpassconfirm.setError("Confirm the password does not match the password");
+                        txtpassconfirm.setError("كلمة المرور ليست متطابقة");
+                        txtpassconfirm.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        txtpassconfirm.setError("Confirm the password does not match the password");
+                        txtpassconfirm.requestFocus();
+                        return;
+                    }
+
                 }
                 if (!password.matches(pw)) {
-                    txtPass.setError("Password must contain at least 8 (Upper case, Lower case,Numbers and signs)");
-                    txtPass.requestFocus();
+
+                    if(templang == "ar")
+                    {
+                        txtPass.setError("يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل ( الحروف الكبيرة ، الصغيرة ، والارقام والرموز )");
+                        txtPass.requestFocus();
+                    }
+                    else
+                    {
+                        txtPass.setError("Password must contain at least 8 (Upper case, Lower case,Numbers and signs)");
+                        txtPass.requestFocus();
+                    }
+
                 }
                 else{
 
@@ -203,7 +265,16 @@ public class RegisterActivity extends AppCompatActivity {
                                                        Intent intent = new Intent(RegisterActivity.this,Login.class);
                                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
                                                         startActivity(intent);
-                                                        Toast.makeText(RegisterActivity.this, "User created Successfully..Please check you email for Verification ", Toast.LENGTH_SHORT).show();
+                                                        if(templang == "ar")
+                                                        {
+                                                            Toast.makeText(RegisterActivity.this, "لقد تم التسجيل بنجاح . من فضلك قم بمراجعة بريدك الالكتروني للمصادقة ", Toast.LENGTH_SHORT).show();
+
+                                                        }
+                                                        else
+                                                        {
+                                                            Toast.makeText(RegisterActivity.this, "User created Successfully..Please check you email for Verification ", Toast.LENGTH_SHORT).show();
+
+                                                        }
                                                     }else{
                                                         Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 

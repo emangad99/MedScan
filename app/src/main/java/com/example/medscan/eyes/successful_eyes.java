@@ -9,23 +9,24 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.medscan.R;
+import com.example.medscan.kidneys.kidney_successful;
+import com.example.medscan.kidneys.kidney_successful_advice;
 
-public class uveitis extends AppCompatActivity {
-
+public class successful_eyes extends AppCompatActivity {
     Button done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uveitis);
+        setContentView(R.layout.activity_successful_eyes);
 
-        done=findViewById(R.id.btn_done_eyes5);
+        done=findViewById(R.id.btn_done_eyes7);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(uveitis.this, uveitis_advice.class);
-                startActivity(i);
+                Intent home=new Intent(successful_eyes.this, successful_eyes_advice.class);
+                startActivity(home);
 
             }
         });

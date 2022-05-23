@@ -75,6 +75,8 @@ public class Feedback extends AppCompatActivity {
     private void openDialog() {
         dialog.setContentView(R.layout.layout_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+
 
         Button btn_ok = dialog.findViewById(R.id.send_feedback);
         btn_ok.setOnClickListener(new View.OnClickListener() {

@@ -24,8 +24,8 @@ public class glaucoma extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i=new Intent(glaucoma.this, actinic_keratosis_advice.class);
-                //startActivity(i);
+                Intent i=new Intent(glaucoma.this, glaucoma_advice.class);
+                startActivity(i);
 
             }
         });

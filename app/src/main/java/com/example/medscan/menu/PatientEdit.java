@@ -1,6 +1,7 @@
 package com.example.medscan.menu;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,11 +16,19 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
+import com.example.medscan.SessionManager;
 import com.example.medscan.UserHelper;
+import com.example.medscan.Welcome;
 import com.example.medscan.databinding.ActivityPatientEditBinding;
+import com.example.medscan.login.Login;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,7 +44,7 @@ import java.util.HashMap;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PatientEdit extends AppCompatActivity {
-    TextView password;
+    TextView password,delete;
     TextView fullname,emailedittext, phone, medical, clinic, time, other;
     String _EMAIL;
     CircleImageView profileimage;
@@ -50,18 +59,19 @@ public class PatientEdit extends AppCompatActivity {
     FirebaseUser firebaseUser ;
     ActivityPatientEditBinding binding;
     ActivityResultLauncher<String> launcher;
+    SessionManager sessionManager;
 
     ProgressBar progressBar;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_patient_edit);
+
 
         progressBar=findViewById(R.id.progrsess_edit);
+        sessionManager=new SessionManager(getApplicationContext());
+
 
         binding = ActivityPatientEditBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -135,12 +145,49 @@ public class PatientEdit extends AppCompatActivity {
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
         input_btn=findViewById(R.id.camera);
+        delete=findViewById(R.id.delete);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         progressDialog=new ProgressDialog(PatientEdit.this);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(PatientEdit.this);
+                dialog.setTitle("Are you sure ?");
+                dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
+                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        delete_current_user();
+
+                    }
+                });
+                dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alertDialog = dialog.create();
+                alertDialog.show();
+
+                 */
+
+
+
+
+
+
+            }
+        });
 
 
 
@@ -164,6 +211,7 @@ public class PatientEdit extends AppCompatActivity {
                     clinic.setEnabled(false);
                     time.setEnabled(false);
                     other.setEnabled(false);
+                  //  delete.setVisibility(View.GONE);
 
                 }
 
@@ -191,6 +239,38 @@ public class PatientEdit extends AppCompatActivity {
         });
 
     }
+    /*
+
+    private void delete_current_user() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please wait ... ");
+        progressDialog.setMessage("We are deleting your account.");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            progressDialog.dismiss();
+                            //sessionManager.setLogin(false);
+                           // sessionManager.setUsername("");
+                            Intent intent = new Intent(PatientEdit.this, Welcome.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+            }
+        });
+    }
+    */
+
+
 
     private void showProfile(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
