@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class kidney_failed_advice extends AppCompatActivity {
 
@@ -40,15 +41,29 @@ public class kidney_failed_advice extends AppCompatActivity {
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
+        String templang = Locale.getDefault().getLanguage();
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Eat protein","You should carefully monitor your protein intake.\n" +
-                "You can eat 1 gram of protein per kilogram of your ideal body weight per day.",R.drawable.protein));
-        mlist.add(new screen_item("pharmaceutical","If you smoke, stop.\n Ask your doctor about support groups, medications and other ways to help you quit.",R.drawable.kf));
-        mlist.add(new screen_item("Drink water","Drink several glasses of water daily, as fluids help thin the mucus in your lungs and throat.",R.drawable.water2));
-        mlist.add(new screen_item("blood pressure","Monitor your blood pressure carefully. It's important to understand that high blood pressure can lead to narrowing, weakening or hardening of the arteries around the kidneys over time.",R.drawable.blood));
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("تناول البروتين","يجب أن تراقب بعناية كمية البروتين التي تتناولها ، يمكنك تناول 1 جرام من البروتين لكل كيلوغرام من وزنك المثالي يوميًا.",R.drawable.protein));
+            mlist.add(new screen_item("الأدوية","إذا كنت تدخن ، توقف.\n" +
+                    " اسأل طبيبك عن مجموعات الدعم والأدوية والطرق الأخرى لمساعدتك على الإقلاع عن التدخين.",R.drawable.kf));
+            mlist.add(new screen_item("اشرب ماء","اشرب عدة أكواب من الماء يوميًا ، لأن السوائل تساعد على ترقيق المخاط في رئتيك وحلقك.",R.drawable.water2));
+            mlist.add(new screen_item("ضغط الدم","راقب ضغط دمك بعناية. من المهم أن نفهم أن ارتفاع ضغط الدم يمكن أن يؤدي إلى تضييق أو ضعف أو تصلب الشرايين حول الكلى بمرور الوقت.",R.drawable.blood));
 
 
+        }
+        else
+        {
+            mlist.add(new screen_item("Eat protein","You should carefully monitor your protein intake.\n" +
+                    "You can eat 1 gram of protein per kilogram of your ideal body weight per day.",R.drawable.protein));
+            mlist.add(new screen_item("pharmaceutical","If you smoke, stop.\n Ask your doctor about support groups, medications and other ways to help you quit.",R.drawable.kf));
+            mlist.add(new screen_item("Drink water","Drink several glasses of water daily, as fluids help thin the mucus in your lungs and throat.",R.drawable.water2));
+            mlist.add(new screen_item("blood pressure","Monitor your blood pressure carefully. It's important to understand that high blood pressure can lead to narrowing, weakening or hardening of the arteries around the kidneys over time.",R.drawable.blood));
+
+
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

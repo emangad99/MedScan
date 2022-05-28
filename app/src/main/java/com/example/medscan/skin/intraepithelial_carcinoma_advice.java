@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class intraepithelial_carcinoma_advice extends AppCompatActivity {
     private ViewPager screenpager;
@@ -29,6 +30,7 @@ public class intraepithelial_carcinoma_advice extends AppCompatActivity {
     int position = 0;
     Button backtohome;
     Animation btn_anim;
+    String templang = Locale.getDefault().getLanguage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +42,20 @@ public class intraepithelial_carcinoma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Make sure","The doctor takes a biopsy using a long, thin needle that withdraws a sample of the lump or body suspected of sarcoma for laboratory testing. A pathologist analyzes the sample to determine if it is cancer and, if so, its type and severity.",R.drawable.pp));
-        mlist.add(new screen_item("genetic syndromes","Intraepithelial carcinoma risk it can be inherited from both parents. ",R.drawable.dna));
-        mlist.add(new screen_item("Radiation exposure"," Radiation exposure Previous radiation treatment for other types of cancer may increase the risk of soft tissue sarcoma.",R.drawable.bed));
-        mlist.add(new screen_item("Exposure to chemicals","Exposure to certain chemicals, such as herbicides, arsenic, and dioxin, may increase the risk of intraepithelial carcinoma",R.drawable.chemicals));
-
-
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("تأكد من المرض ","يأخذ الطبيب خزعة باستخدام إبرة طويلة رفيعة تسحب عينة من الكتلة أو الجسم المشتبه في إصابته بالساركوما لفحصها في المختبر. يقوم أخصائي علم الأمراض بتحليل العينة لتحديد ما إذا كانت سرطانًا ، وإذا كان الأمر كذلك ، فنوعها وشدتها.",R.drawable.pp));
+            mlist.add(new screen_item("المتلازمات الجينية","خطر الإصابة بسرطان داخل الظهارة يمكن أن يكون موروثًا من كلا الوالدين.",R.drawable.dna));
+            mlist.add(new screen_item("تعرض للاشعاع"," التعرض للإشعاع قد يؤدي العلاج الإشعاعي السابق لأنواع أخرى من السرطان إلى زيادة خطر الإصابة بساركوما الأنسجة الرخوة.",R.drawable.bed));
+            mlist.add(new screen_item("التعرض للمواد الكيميائية","قد يؤدي التعرض لبعض المواد الكيميائية ، مثل مبيدات الأعشاب والزرنيخ والديوكسين ، إلى زيادة خطر الإصابة بسرطان داخل الظهارة",R.drawable.chemicals));
+        }
+        else
+        {
+            mlist.add(new screen_item("Make sure","The doctor takes a biopsy using a long, thin needle that withdraws a sample of the lump or body suspected of sarcoma for laboratory testing. A pathologist analyzes the sample to determine if it is cancer and, if so, its type and severity.",R.drawable.pp));
+            mlist.add(new screen_item("genetic syndromes","Intraepithelial carcinoma risk it can be inherited from both parents. ",R.drawable.dna));
+            mlist.add(new screen_item("Radiation exposure"," Radiation exposure Previous radiation treatment for other types of cancer may increase the risk of soft tissue sarcoma.",R.drawable.bed));
+            mlist.add(new screen_item("Exposure to chemicals","Exposure to certain chemicals, such as herbicides, arsenic, and dioxin, may increase the risk of intraepithelial carcinoma",R.drawable.chemicals));
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

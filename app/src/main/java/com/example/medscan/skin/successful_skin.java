@@ -18,7 +18,7 @@ public class successful_skin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_successful_skin);
 
-        done=findViewById(R.id.btn_done_skin4);
+        done=findViewById(R.id.btn_skin8);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override

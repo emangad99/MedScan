@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class failed_advice extends AppCompatActivity {
 
@@ -38,14 +39,25 @@ public class failed_advice extends AppCompatActivity {
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
+        String templang = Locale.getDefault().getLanguage();
+
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Get rest","Get plenty of rest: Getting enough sleep gives your body the strength it needs to fight disease.",R.drawable.rest));
-        mlist.add(new screen_item("Quit Smoking","If you smoke, stop.\n Ask your doctor about support groups, medications and other ways to help you quit.",R.drawable.smoke));
-        mlist.add(new screen_item("Drink water","Drink several glasses of water daily, as fluids help thin the mucus in your lungs and throat.",R.drawable.water));
-        mlist.add(new screen_item("Healthy food","Eat a balanced diet so your body can function at its best and recover quickly.",R.drawable.eat));
-
-
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("استرح","الحصول على قسط وافر من الراحة: الحصول على قسط كافٍ من النوم يمنح جسمك القوة التي يحتاجها لمحاربة الأمراض.",R.drawable.rest));
+            mlist.add(new screen_item("اقلع عن التدخين ","إذا كنت تدخن ، توقف.\n" +
+                    " اسأل طبيبك عن مجموعات الدعم والأدوية والطرق الأخرى لمساعدتك على الإقلاع عن التدخين.",R.drawable.smoke));
+            mlist.add(new screen_item("اشرب مياه ","اشرب عدة أكواب من الماء يوميًا ، لأن السوائل تساعد على ترقيق المخاط في رئتيك وحلقك.",R.drawable.water));
+            mlist.add(new screen_item("اكل صحي ","تناول نظامًا غذائيًا متوازنًا حتى يتمكن جسمك من العمل في أفضل حالاته والتعافي بسرعة.",R.drawable.eat));
+        }
+        else
+        {
+            mlist.add(new screen_item("Get rest","Get plenty of rest: Getting enough sleep gives your body the strength it needs to fight disease.",R.drawable.rest));
+            mlist.add(new screen_item("Quit Smoking","If you smoke, stop.\n Ask your doctor about support groups, medications and other ways to help you quit.",R.drawable.smoke));
+            mlist.add(new screen_item("Drink water","Drink several glasses of water daily, as fluids help thin the mucus in your lungs and throat.",R.drawable.water));
+            mlist.add(new screen_item("Healthy food","Eat a balanced diet so your body can function at its best and recover quickly.",R.drawable.eat));
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

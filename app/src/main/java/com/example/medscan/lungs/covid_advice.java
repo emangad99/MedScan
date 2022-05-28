@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class covid_advice extends AppCompatActivity {
 
@@ -39,14 +40,27 @@ public class covid_advice extends AppCompatActivity {
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
+        String templang = Locale.getDefault().getLanguage();
+
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Isolate yourself","Stay home and isolate yourself\n even if you have mild symptoms such as cough\n, headache and mild fever, until you recover.",R.drawable.isolate));
-        mlist.add(new screen_item("Wash hands","Regularly clean your hands thoroughly with an alcohol-based hand sanitizer or wash them with soap and water. This removes germs, including viruses.",R.drawable.wash));
-        mlist.add(new screen_item("Wear a mask","Wearing a mask helps slow the spread of coronavirus disease.\n Do not forget to wear a mask to avoid transmitting the infection to others.",R.drawable.mask));
-        mlist.add(new screen_item("Hand sanitizer","Use hand sanitizer and keep at least 1 meter away from others to reduce the risk of infection when they cough, sneeze or speak. Keep an even greater distance from others when indoors. The greater the distance, the better.",R.drawable.hand));
-
-
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("اعزل نفسك","ابق في المنزل واعزل نفسك" +
+                    " حتى لو كان لديك أعراض خفيفة مثل السعال "+
+                    "، صداع وحمى خفيفة ، حتى تتعافى.",R.drawable.isolate));
+            mlist.add(new screen_item("غسل اليدين","نظف يديك جيدًا بانتظام باستخدام معقم لليدين يحتوي على الكحول أو اغسلهما بالماء والصابون. هذا يزيل الجراثيم ، بما في ذلك الفيروسات.",R.drawable.wash));
+            mlist.add(new screen_item("ارتدي الكمامة ","يساعد ارتداء الكمامة على إبطاء انتشار مرض فيروس كورونا.\n" +
+                    "لا تنسى ارتداء كمامة لتجنب نقل العدوى للآخرين.",R.drawable.mask));
+            mlist.add(new screen_item("عقم يديك","استخدم معقم اليدين وابتعد مسافة متر واحد على الأقل عن الآخرين لتقليل خطر الإصابة بالعدوى عند السعال أو العطس أو التحدث. حافظ على مسافة أكبر بينك وبين الآخرين عندما تكون في الداخل. كلما زادت المسافة ، كان ذلك أفضل.",R.drawable.hand));
+        }
+        else
+        {
+            mlist.add(new screen_item("Isolate yourself","Stay home and isolate yourself\n even if you have mild symptoms such as cough\n, headache and mild fever, until you recover.",R.drawable.isolate));
+            mlist.add(new screen_item("Wash hands","Regularly clean your hands thoroughly with an alcohol-based hand sanitizer or wash them with soap and water. This removes germs, including viruses.",R.drawable.wash));
+            mlist.add(new screen_item("Wear a mask","Wearing a mask helps slow the spread of coronavirus disease.\n Do not forget to wear a mask to avoid transmitting the infection to others.",R.drawable.mask));
+            mlist.add(new screen_item("Hand sanitizer","Use hand sanitizer and keep at least 1 meter away from others to reduce the risk of infection when they cough, sneeze or speak. Keep an even greater distance from others when indoors. The greater the distance, the better.",R.drawable.hand));
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

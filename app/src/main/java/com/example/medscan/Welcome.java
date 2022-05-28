@@ -26,6 +26,7 @@ import com.example.medscan.skin.intraepithelial_carcinoma;
 import com.example.medscan.skin.melanocytic_nevi;
 import com.example.medscan.skin.melanoma;
 import com.example.medscan.skin.seborrheic_keratosis;
+import com.example.medscan.skin.successful_skin;
 
 public class Welcome extends AppCompatActivity {
 Button btn_start;
@@ -52,7 +53,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, bulging_eyes.class);
+                Intent i=new Intent(Welcome.this, melanoma.class);
                 startActivity(i);
 
 

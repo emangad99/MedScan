@@ -30,6 +30,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Locale;
+
 public class RayUploaded extends AppCompatActivity {
 
     ImageView btn_choose , image;
@@ -37,7 +39,7 @@ public class RayUploaded extends AppCompatActivity {
     private Uri imageuri;
     int SELECT_PHOTO=2;
     private int STORAGE_PERMISSION_CODE = 1 ;
-
+    String templang = Locale.getDefault().getLanguage();
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_lung");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     @Override
@@ -79,7 +81,14 @@ public class RayUploaded extends AppCompatActivity {
                     uplaodToFirebase(imageuri);
 
                 }else{
-                    Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    if(templang == "ar")
+                    {
+                        Toast.makeText(RayUploaded.this, "من فضلك قم بإختيار الصورة ", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -103,25 +112,50 @@ public class RayUploaded extends AppCompatActivity {
     {
         if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
         {
-            new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed to upload images")
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+            if(templang == "ar")
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("مطلوب إذن ")
+                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
+                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
 
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
 
-                        }
-                    })
-                    .create().show();
+                            }
+                        })
+                        .create().show();
 
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("Permission needed")
+                        .setMessage("This permission is needed to upload images")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
         }
         else{
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
@@ -132,13 +166,27 @@ public class RayUploaded extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            if(templang == "ar")
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
 
-            } else {
-                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
 
 
+                }
+            }
+            else
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+
+                }
             }
 
 
@@ -157,7 +205,16 @@ public class RayUploaded extends AppCompatActivity {
                         Model model = new Model(uri.toString());
                         String modelId = root.push().getKey();
                         root.child(modelId).setValue(model);
-                        Toast.makeText(RayUploaded.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+                        if(templang == "ar")
+                        {
+                            Toast.makeText(RayUploaded.this, "تم الرفع بنجاح ", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else
+                        {
+                            Toast.makeText(RayUploaded.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+
+                        }
 
                     }
                 });
@@ -166,7 +223,14 @@ public class RayUploaded extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RayUploaded.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+                if(templang == "ar")
+                {
+                    Toast.makeText(RayUploaded.this, "حدث خطأ ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(RayUploaded.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

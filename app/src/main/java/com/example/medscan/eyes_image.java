@@ -40,6 +40,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class eyes_image extends AppCompatActivity {
 
@@ -63,7 +64,7 @@ public class eyes_image extends AppCompatActivity {
         image=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
         btn_camera=findViewById(R.id.camera);
-
+        String templang = Locale.getDefault().getLanguage();
 
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -95,7 +96,14 @@ public class eyes_image extends AppCompatActivity {
                     uplaodToFirebase(imageuri);
 
                 }else{
-                    Toast.makeText(eyes_image.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    if(templang == "ar")
+                    {
+                        Toast.makeText(eyes_image.this, "قم بإختيار الصورة", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(eyes_image.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -147,26 +155,54 @@ public class eyes_image extends AppCompatActivity {
 
     private void requesrtstoragepermission()
     {
+        String templang = Locale.getDefault().getLanguage();
+
         if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
         {
-            new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed to upload images")
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(eyes_image.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+            if(templang == "ar")
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("مطلوب إذن ")
+                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
+                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(eyes_image.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
 
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
 
-                        }
-                    })
-                    .create().show();
+                            }
+                        })
+                        .create().show();
+
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("Permission needed")
+                        .setMessage("This permission is needed to upload images")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(eyes_image.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
 
         }
         else{
@@ -222,29 +258,61 @@ public class eyes_image extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        String templang = Locale.getDefault().getLanguage();
+
         if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            if(templang == "ar")
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
 
-            } else {
-                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
 
 
+                }
+            }
+            else
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+
+                }
             }
 
 
         }
         if (requestCode == MY_CAMERA_PERMISSION_CODE)
         {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            if(templang == "ar")
             {
-                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    Toast.makeText(this, "تم منح إذن الكاميرا", Toast.LENGTH_LONG).show();
+                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                }
+                else
+                {
+                    Toast.makeText(this, "تم رفض إذن الكاميرا", Toast.LENGTH_LONG).show();
+                }
             }
             else
             {
-                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
+                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                }
+                else
+                {
+                    Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+                }
             }
         }
 
@@ -262,8 +330,15 @@ public class eyes_image extends AppCompatActivity {
                         Model4 model = new Model4(uri.toString());
                         String modelId = root.push().getKey();
                         root.child(modelId).setValue(model);
-                        Toast.makeText(eyes_image.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
-
+                        String templang = Locale.getDefault().getLanguage();
+                        if(templang == "ar")
+                        {
+                            Toast.makeText(eyes_image.this, "تم الرفع بنجاح", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(eyes_image.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
 
@@ -271,7 +346,18 @@ public class eyes_image extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(eyes_image.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+                String templang = Locale.getDefault().getLanguage();
+
+                if(templang == "ar")
+                {
+                    Toast.makeText(eyes_image.this, "حدث خطأ", Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Toast.makeText(eyes_image.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 

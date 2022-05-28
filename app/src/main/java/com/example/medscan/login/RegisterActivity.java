@@ -153,11 +153,13 @@ public class RegisterActivity extends AppCompatActivity {
                     {
                         txtFirstName.setError("يجب عليك كتابة الاسم ");
                         txtFirstName.requestFocus();
+                        return;
                     }
                     else
                     {
                         txtFirstName.setError("Full Name is required");
                         txtFirstName.requestFocus();
+                        return;
                     }
 
                 }
@@ -167,11 +169,13 @@ public class RegisterActivity extends AppCompatActivity {
                     if(templang == "ar")
                     {
                         txtEmail.setError("يجب عليك كتابة البريد الالكتروني");
+                        txtEmail.requestFocus();
                         return;
                     }
                     else
                     {
                         txtEmail.setError("Email is required");
+                        txtEmail.requestFocus();
                         return;
                     }
                 }
@@ -180,11 +184,13 @@ public class RegisterActivity extends AppCompatActivity {
                     if(templang == "ar")
                     {
                         txtPass.setError("كلمة المرور مطلوبة");
+                        txtPass.requestFocus();
                         return;
                     }
                     else
                     {
                         txtPass.setError("Password is required");
+                        txtPass.requestFocus();
                         return;
                     }
 
@@ -208,7 +214,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if(templang == "ar")
                     {
-                        txtpassconfirm.setError("Confirm the password does not match the password");
                         txtpassconfirm.setError("كلمة المرور ليست متطابقة");
                         txtpassconfirm.requestFocus();
                         return;
@@ -225,7 +230,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if(templang == "ar")
                     {
-                        txtPass.setError("يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل ( الحروف الكبيرة ، الصغيرة ، والارقام والرموز )");
+                        txtPass.setError("يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل ( الأحرف الكبيرة ، الصغيرة ، والارقام والرموز )");
                         txtPass.requestFocus();
                     }
                     else

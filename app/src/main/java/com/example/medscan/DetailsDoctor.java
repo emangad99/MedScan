@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 public class DetailsDoctor extends AppCompatActivity {
 
@@ -40,7 +41,6 @@ public class DetailsDoctor extends AppCompatActivity {
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
-
         address=findViewById(R.id.txt_address);
         phone=findViewById(R.id.txt_phone);
         time=findViewById(R.id.txt_time);
@@ -48,10 +48,7 @@ public class DetailsDoctor extends AppCompatActivity {
         submit=findViewById(R.id.btn_submit);
         medical=findViewById(R.id.txt_meical);
         dialog=new Dialog(this);
-
-
-
-
+        String templang = Locale.getDefault().getLanguage();
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -65,42 +62,110 @@ public class DetailsDoctor extends AppCompatActivity {
                 String Other = other.getText().toString();
 
                 if (Medical.isEmpty()) {
-                    medical.setError("Please enter your medical specialty");
-                    medical.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        medical.setError("من فضلك قم بكتابة المجال الطبي");
+                        medical.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        medical.setError("Please enter your medical specialty");
+                        medical.requestFocus();
+                        return;
+                    }
                 }
                 if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
                         && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs")
                         && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة"))
                 {
-                    medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
-                    medical.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        medical.setError("من فضلك اختار ( عيون ، كلي ، رئة ، جلد )");
+                        medical.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
+                        medical.requestFocus();
+                        return;
+                    }
                 }
                     if (Address.isEmpty()) {
-                    address.setError("Please enter your clinic address");
-                    address.requestFocus();
-                    return;
+
+                        if(templang == "ar")
+                        {
+                            address.setError("قم بكتابة عنوان العيادة ");
+                            address.requestFocus();
+                            return;
+                        }
+                        else
+                        {
+                            address.setError("Please enter your clinic address");
+                            address.requestFocus();
+                            return;
+                        }
+
                 }
                 if (Phone.isEmpty()) {
-                    phone.setError("Please enter your Phone number");
-                    phone.requestFocus();
-                    return;
+
+                    if(templang == "ar")
+                    {
+                        phone.setError("قم بكتابة رقم الموبايل ");
+                        phone.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        phone.setError("Please enter your Phone number");
+                        phone.requestFocus();
+                        return;
+                    }
+
                 }
                 if (Phone.length()!=11) {
-                    phone.setError("Please enter a valid number");
-                    phone.requestFocus();
-                    return;
+
+                    if(templang == "ar")
+                    {
+                        phone.setError("من فضلك قم بكتابة رقم صحيح");
+                        phone.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        phone.setError("Please enter a valid number");
+                        phone.requestFocus();
+                        return;
+                    }
                 }
                 if (Time.isEmpty()) {
-                    time.setError("Please enter your available time");
-                    time.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        time.setError("قم بكتابة وقتك المتاح");
+                        time.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        time.setError("Please enter your available time");
+                        time.requestFocus();
+                        return;
+                    }
                 }
                 if (Other.isEmpty()) {
-                    other.setError("If you have any other information ,please write it here..If not,Write Nothing");
-                    other.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        other.setError("اذا كان هناك أي معلومات أخري من فضلك قم بكتابتها..");
+                        other.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        other.setError("If you have any other information ,please write it here..If not,Write Nothing");
+                        other.requestFocus();
+                        return;
+                    }
                 }
                 else {
 
@@ -113,8 +178,14 @@ public class DetailsDoctor extends AppCompatActivity {
                     databaseReference.updateChildren(map);
 
                     openDialog();
-
-                    Toast.makeText(DetailsDoctor.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                    if(templang == "ar")
+                    {
+                        Toast.makeText(DetailsDoctor.this, "تم تسجيل بياناتك بنجاح", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(DetailsDoctor.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                    }
 
                 }
             }

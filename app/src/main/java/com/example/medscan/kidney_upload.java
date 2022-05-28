@@ -28,6 +28,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Locale;
+
 public class kidney_upload extends AppCompatActivity {
     ImageView btn_choose , image;
     Button upload ;
@@ -45,7 +47,7 @@ public class kidney_upload extends AppCompatActivity {
         btn_choose = findViewById(R.id.choose);
         image=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
-
+        String templang = Locale.getDefault().getLanguage();
 
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +81,14 @@ public class kidney_upload extends AppCompatActivity {
                     uplaodToFirebase(imageuri);
 
                 }else{
-                    Toast.makeText(kidney_upload.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    if(templang == "ar")
+                    {
+                        Toast.makeText(kidney_upload.this, "قم بإختيار الصورة", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(kidney_upload.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -101,26 +110,52 @@ public class kidney_upload extends AppCompatActivity {
     }
     private void requesrtstoragepermission()
     {
+        String templang = Locale.getDefault().getLanguage();
+
         if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
         {
-            new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed to upload images")
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(kidney_upload.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+            if(templang == "ar")
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("مطلوب إذن ")
+                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
+                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(kidney_upload.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
 
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
 
-                        }
-                    })
-                    .create().show();
+                            }
+                        })
+                        .create().show();
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("Permission needed")
+                        .setMessage("This permission is needed to upload images")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(kidney_upload.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+            }
 
         }
         else{
@@ -131,16 +166,33 @@ public class kidney_upload extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        String templang = Locale.getDefault().getLanguage();
+
         if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            if(templang == "ar")
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
 
-            } else {
-                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
 
+
+                }
 
             }
+            else
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
 
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+
+                }
+
+            }
 
         }
 
@@ -157,7 +209,18 @@ public class kidney_upload extends AppCompatActivity {
                         Model2 model = new Model2(uri.toString());
                         String modelId = root.push().getKey();
                         root.child(modelId).setValue(model);
-                        Toast.makeText(kidney_upload.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+                        String templang = Locale.getDefault().getLanguage();
+
+                        if(templang == "ar")
+                        {
+                            Toast.makeText(kidney_upload.this, "تم الرفع بنجاح", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else
+                        {
+                            Toast.makeText(kidney_upload.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+
+                        }
 
                     }
                 });
@@ -166,7 +229,15 @@ public class kidney_upload extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(kidney_upload.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+                String templang = Locale.getDefault().getLanguage();
+                if(templang == "ar")
+                {
+                    Toast.makeText(kidney_upload.this, "حدث خطأ ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(kidney_upload.this, "Uploading failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

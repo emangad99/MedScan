@@ -9,11 +9,9 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".kidney_report">
-
 
         <TextView
             android:id="@+id/textView16"
@@ -25,7 +23,7 @@
             android:textColor="@color/color2"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/patient_age"
+            app:layout_constraintBottom_toTopOf="@+id/blood_pressure"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.165"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,15 +31,15 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/patient_age"
+            android:id="@+id/blood_pressure"
             android:layout_width="335dp"
             android:layout_height="48dp"
             android:layout_marginTop="70dp"
             android:background="@drawable/custom_input"
             android:backgroundTintMode="add"
             android:ems="10"
-            android:hint="@string/age"
-            android:inputType="number"
+            android:hint="@string/blood_pressure"
+            android:inputType="numberDecimal|numberSigned"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
@@ -69,7 +67,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/patient_age" />
+            app:layout_constraintTop_toBottomOf="@+id/blood_pressure" />
 
         <LinearLayout
             android:id="@+id/linear_patient"
@@ -82,21 +80,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/patient_Albumin">
 
-            <Spinner
-                android:id="@+id/spinner_redblood"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/red_blood" />
+            <RadioGroup
+                android:id="@+id/radio_puscell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/puscell"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginLeft="40dp"/>
+                <RadioButton
+                    android:id="@+id/normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:layout_marginLeft="40dp" />
+                <RadioButton
+                    android:id="@+id/non_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/un_normal"
+                    android:layout_marginLeft="40dp" />
+            </RadioGroup>
 
-            <Spinner
-                android:id="@+id/spinner_cell"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/cell" />
+            <RadioGroup
+                android:id="@+id/radio_PusCellClimps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/puscell_climps"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginLeft="90dp"/>
+                <RadioButton
+                    android:id="@+id/normal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/present"
+                    android:layout_marginLeft="90dp" />
+                <RadioButton
+                    android:id="@+id/non_normal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_present"
+                    android:layout_marginLeft="90dp" />
+            </RadioGroup>
         </LinearLayout>
 
         <EditText
@@ -107,7 +137,7 @@
             android:background="@drawable/custom_input"
             android:backgroundTintMode="add"
             android:ems="10"
-            android:hint="@string/blood_glucose_rendom"
+            android:hint="@string/blood_glucose_random"
             android:inputType="numberDecimal|numberSigned"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -167,21 +197,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/patient_white_blood">
 
-            <Spinner
-                android:id="@+id/spinner_diabetes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/diabetes" />
+            <RadioGroup
+                android:id="@+id/radio_hypertension"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hypertension"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginLeft="40dp"/>
+                <RadioButton
+                    android:id="@+id/normal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:layout_marginLeft="40dp" />
+                <RadioButton
+                    android:id="@+id/non_normal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:layout_marginLeft="40dp" />
+            </RadioGroup>
 
-            <Spinner
-                android:id="@+id/spinner_pedal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/pedal" />
+            <RadioGroup
+                android:id="@+id/radio_diabete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diabete"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginLeft="120dp"/>
+                <RadioButton
+                    android:id="@+id/normal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:layout_marginLeft="120dp" />
+                <RadioButton
+                    android:id="@+id/non_normal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:layout_marginLeft="120dp" />
+            </RadioGroup>
         </LinearLayout>
 
         <EditText
@@ -192,7 +254,7 @@
             android:background="@drawable/custom_input"
             android:backgroundTintMode="add"
             android:ems="10"
-            android:hint="@string/blood_pressure"
+            android:hint="@string/specific_gravity"
             android:inputType="numberDecimal|numberSigned"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -204,14 +266,14 @@
             app:layout_constraintTop_toBottomOf="@+id/linear_patient2" />
 
         <EditText
-            android:id="@+id/patient_sugar"
+            android:id="@+id/sodium"
             android:layout_width="335dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/custom_input"
             android:backgroundTintMode="add"
             android:ems="10"
-            android:hint="@string/sugar"
+            android:hint="@string/sodium"
             android:inputType="numberDecimal|numberSigned"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -231,23 +293,55 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/patient_sugar">
+            app:layout_constraintTop_toBottomOf="@+id/sodium">
 
-            <Spinner
-                android:id="@+id/spinner_pus_cell"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/pus_cell" />
+            <RadioGroup
+                android:id="@+id/radio_peda_edema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/peda_edema"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginLeft="40dp"/>
+                <RadioButton
+                    android:id="@+id/normal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:layout_marginLeft="40dp" />
+                <RadioButton
+                    android:id="@+id/non_normal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:layout_marginLeft="40dp" />
+            </RadioGroup>
 
-            <Spinner
-                android:id="@+id/spinner_bacteria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/bacteria" />
+            <RadioGroup
+                android:id="@+id/radio_anemia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anemia"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginLeft="120dp"/>
+                <RadioButton
+                    android:id="@+id/normal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:layout_marginLeft="120dp" />
+                <RadioButton
+                    android:id="@+id/non_normal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:layout_marginLeft="120dp" />
+            </RadioGroup>
         </LinearLayout>
 
         <EditText
@@ -288,51 +382,63 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/patient_urea" />
 
-        <LinearLayout
-            android:id="@+id/linear_patient4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:orientation="horizontal"
-            android:weightSum="2"
+        <EditText
+            android:id="@+id/haemoglobin"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/haemoglobin"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/patient_potassium">
+            app:layout_constraintTop_toBottomOf="@+id/patient_potassium" />
 
-            <Spinner
-                android:id="@+id/spinner_hyper"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/hyper" />
-
-            <Spinner
-                android:id="@+id/spinner_coronary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:entries="@array/coronary" />
-
-        </LinearLayout>
-
-
-        <Spinner
-            android:id="@+id/spinner_anaemia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:entries="@array/anaemia"
-            android:foregroundGravity="center"
-            android:gravity="center"
+        <EditText
+            android:id="@+id/PacketCellVolum"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/packetcellvolum"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_patient4" />
+            app:layout_constraintTop_toBottomOf="@+id/haemoglobin" />
+
+        <EditText
+            android:id="@+id/redbloodcellcount"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/red_bloodcell_count"
+            android:inputType="numberDecimal|numberSigned"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ACACAC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PacketCellVolum" />
+
 
         <Button
             android:id="@+id/btn_submit"
@@ -348,7 +454,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_anaemia" />
+            app:layout_constraintTop_toBottomOf="@+id/redbloodcellcount" />
+
+        <TextView
+            android:id="@+id/text_try"
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTintMode="add"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_submit" />
+
 
 
 

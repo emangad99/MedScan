@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class successful_advice extends AppCompatActivity {
 
@@ -37,14 +38,23 @@ public class successful_advice extends AppCompatActivity {
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
+        String templang = Locale.getDefault().getLanguage();
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
-
-
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("تنفس بعمق","تسمى تمارين التنفس ، وهي تساهم بشكل كبير في الحفاظ على صحة الرئتين ، حيث تعمل هذه الطريقة على تغذية الرئتين بمزيد من الأكسجين ، مما يعمل على تقوية وتنظيف مجرى الهواء ، مما يساهم في إمداد الجسم بمزيد من الطاقة.",R.drawable.breathe));
+            mlist.add(new screen_item("لا تدخن","التدخين من الأشياء التي تضر بالرئتين والجهاز التنفسي. يجب الابتعاد عن التدخين والمدخنين.",R.drawable.smoke));
+            mlist.add(new screen_item("مارس الرياضة","التمرين يساعد في الحفاظ على صحة جسمك. يساعد على تنظيم عملية التنفس الطبيعية في جسمك.",R.drawable.sport));
+            mlist.add(new screen_item("تهوية جيدة","عن طريق فتح النوافذ يوميا. التخلص من الغبار والأوساخ في المنزل بشكل مستمر.",R.drawable.air));
+        }
+        else
+        {
+            mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
+            mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
+            mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
+            mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

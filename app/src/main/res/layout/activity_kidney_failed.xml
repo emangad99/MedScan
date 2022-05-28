@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="your kidney isn't healthy"
+        android:text="@string/your_kidney_isn_t_healthy"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"

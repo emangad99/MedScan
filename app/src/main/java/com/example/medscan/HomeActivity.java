@@ -41,6 +41,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -177,6 +179,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        String templang = Locale.getDefault().getLanguage();
+
 
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -197,7 +201,14 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomeActivity.this, "sorry", Toast.LENGTH_SHORT).show();
+                if(templang == "ar")
+                {
+                    Toast.makeText(HomeActivity.this, "حدث خطأ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(HomeActivity.this, "sorry", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -209,6 +220,8 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        String templang = Locale.getDefault().getLanguage();
+
         if(backpressedtime + 2000 >System.currentTimeMillis())
         {
             finishAffinity();
@@ -216,8 +229,16 @@ public class HomeActivity extends AppCompatActivity {
             return;
 
         }else{
-            backtoast= Toast.makeText(getBaseContext(), "double click to exit ", Toast.LENGTH_SHORT);
-            backtoast.show();
+            if(templang == "ar")
+            {
+                backtoast= Toast.makeText(getBaseContext(), "انقر نقرًا مزدوجًا للخروج", Toast.LENGTH_SHORT);
+                backtoast.show();
+            }
+            else
+            {
+                backtoast= Toast.makeText(getBaseContext(), "double click to exit ", Toast.LENGTH_SHORT);
+                backtoast.show();
+            }
         }
         backpressedtime =System.currentTimeMillis();
 

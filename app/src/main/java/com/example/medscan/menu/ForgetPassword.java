@@ -22,6 +22,8 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
+
 public class ForgetPassword extends AppCompatActivity {
     Button reset , auth;
     EditText oldPass , newPass,confirmPass;
@@ -38,7 +40,7 @@ public class ForgetPassword extends AppCompatActivity {
         newPass=findViewById(R.id.txt_new_password);
         confirmPass=findViewById(R.id.txt_confirm_password);
         auth=findViewById(R.id.authentication);
-
+        String templang = Locale.getDefault().getLanguage();
         newPass.setEnabled(false);
         confirmPass.setEnabled(false);
         reset.setEnabled(false);
@@ -52,7 +54,14 @@ public class ForgetPassword extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser =authProfile.getCurrentUser();
         if (firebaseUser.equals((""))){
-            Toast.makeText(ForgetPassword.this, "Something went wrong ! User's details not available", Toast.LENGTH_SHORT).show();
+            if(templang == "ar")
+            {
+                Toast.makeText(ForgetPassword.this, "هناك خطأ .. ", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(ForgetPassword.this, "Something went wrong ! User's details not available", Toast.LENGTH_SHORT).show();
+            }
             Intent nnn = new Intent(ForgetPassword.this, PatientEdit.class);
             startActivity(nnn);
             finish();
@@ -121,12 +130,22 @@ public class ForgetPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String oldpass = oldPass.getText().toString();
+                String templang = Locale.getDefault().getLanguage();
 
 
                 if (oldpass.isEmpty()) {
-                    oldPass.setError("please enter your current password to authenticate ! ");
-                    oldPass.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        oldPass.setError("من فضلك قم بكتابة الباسورد الحالي للمصادقة ");
+                        oldPass.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        oldPass.setError("please enter your current password to authenticate ! ");
+                        oldPass.requestFocus();
+                        return;
+                    }
                 } else {
                     AuthCredential credential = EmailAuthProvider.getCredential(firebaseUser.getEmail(), oldpass);
                     firebaseUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -145,9 +164,16 @@ public class ForgetPassword extends AppCompatActivity {
                                 reset.setBackgroundTintList(ContextCompat.getColorStateList(
                                         ForgetPassword.this,R.color.color2
                                 ));
+                                if(templang == "ar")
+                                {
+                                    Toast.makeText(ForgetPassword.this, "تمت المصادقة بنجاح ." + " يمكنك تغيير كلمة السر الأن .. ", Toast.LENGTH_SHORT).show();
 
+                                }
+                                else
+                                {
+                                    Toast.makeText(ForgetPassword.this, "Password has been verified." + " Change your password now", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(ForgetPassword.this, "Password has been verified." + " Change your password now", Toast.LENGTH_SHORT).show();
+                                }
 
                                 reset.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -172,28 +198,75 @@ public class ForgetPassword extends AppCompatActivity {
                             String confirmpass = confirmPass.getText().toString();
 
                             if (newpass.isEmpty()) {
-                                newPass.setError("New Password is needed! ");
-                                newPass.requestFocus();
-                                return;
+                                if(templang == "ar")
+                                {
+                                    newPass.setError("كلمة المرور مطلوبة");
+                                    newPass.requestFocus();
+                                    return;
+                                }
+                                else
+                                {
+                                    newPass.setError("Password is required");
+                                    newPass.requestFocus();
+                                    return;
+                                }
                             }
                             if (confirmpass.isEmpty()) {
-                                confirmPass.setError("Please confirm your password! ");
-                                confirmPass.requestFocus();
-                                return;
+                                if(templang == "ar")
+                                {
+                                    confirmPass.setError("تأكيد كلمة المرور");
+                                    confirmPass.requestFocus();
+                                    return;
+                                }
+                                else
+                                {
+                                    confirmPass.setError("confirm password is empty");
+                                    confirmPass.requestFocus();
+                                    return;
+                                }
+
                             }
                             if(! newpass.equals(confirmpass)){
-                                confirmPass.setError("Please re-enter the same password");
-                                confirmPass.requestFocus();
-                                return;
+
+                                if(templang == "ar")
+                                {
+                                    confirmPass.setError("من فضلك يرجى إدخال نفس كلمة المرور");
+                                    confirmPass.requestFocus();
+                                    return;
+                                }
+                                else
+                                {
+                                    confirmPass.setError("Please re-enter the same password");
+                                    confirmPass.requestFocus();
+                                    return;
+                                }
                             }
                             if(oldpass.equals(newpass)){
-                                newPass.setError("new password cannot be the same as old password");
-                                newPass.requestFocus();
-                                return;
+                                if(templang == "ar")
+                                {
+                                    newPass.setError("لا يكن إعادة كتابة نفس كلمة المرور القديمة");
+                                    newPass.requestFocus();
+                                    return;
+                                }
+                                else
+                                {
+                                    newPass.setError("new password cannot be the same as old password");
+                                    newPass.requestFocus();
+                                    return;
+                                }
                             }
                             if (!newpass.matches(pw)) {
-                                newPass.setError("This must contain at least 8 (Upper case, Lower case,Numbers and signs)");
-                                newPass.requestFocus();
+                                if(templang == "ar")
+                                {
+                                    newPass.setError("يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل ( الأحرف الكبيرة ، الصغيرة ، والارقام والرموز )");
+                                    newPass.requestFocus();
+                                }
+                                else
+                                {
+                                    newPass.setError("Password must contain at least 8 (Upper case, Lower case,Numbers and signs)");
+                                    newPass.requestFocus();
+                                }
+
                             }else{
                                 firebaseUser.updatePassword(newpass).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
