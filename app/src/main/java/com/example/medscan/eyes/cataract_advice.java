@@ -36,6 +36,7 @@ public class cataract_advice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cataract_advice);
+
         tabindicator=findViewById(R.id.tab_indicator);
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
@@ -45,17 +46,17 @@ public class cataract_advice extends AppCompatActivity {
 
         if(templang == "ar")
         {
-            mlist.add(new screen_item("Use medicine","Medication to correct the level of thyroid hormones in your blood – this won't necessarily improve the problems with your eyes, but may stop them getting worse.",R.drawable.med_eyes));
-            mlist.add(new screen_item("Corrective surgery","This may be carried out to improve the appearance of your eyes once the inflammation is under control.",R.drawable.correct_eyes));
-            mlist.add(new screen_item("Quick Tips","You should quit smoking, use artificial tears to reduce eye dryness and irritation, and wear special lenses to correct double vision.",R.drawable.tips_eyes));
-            mlist.add(new screen_item("Not take any treatment","You should not take any treatment because the treatment varies depending on the underlying cause. For example, treatments such as radiation therapy, chemotherapy, or surgery may be recommended if exophthalmos is caused by a tumor.",R.drawable.tips2_eyes));
+            mlist.add(new screen_item("غير قادر على الجراحة","إذا كنت غير قادر على الجراحة أو غير مهتم بها ، فقد يكون طبيبك قادرًا على مساعدتك في إدارة الأعراض. قد يقترحون نظارات أقوى أو عدسات مكبرة أو نظارات شمسية ذات طلاء مضاد للوهج.",R.drawable.surgery));
+            mlist.add(new screen_item("اخضع لفحوصات عين منتظمة","يمكن أن تساعد فحوصات العين في الكشف عن المياه البيضاء ومشكلات العين الأخرى في مراحلها الأولى، فاستشر طبيبك عن عدد مرات فحوصات العين التي يجب أن تجريها.",R.drawable.eyes_exam));
+            mlist.add(new screen_item(" الامتناع عن شرب الكحوليات","يمكن أن يزيد الإفراط في تناول الكحول من مخاطر الإصابة بمرض المياه البيضاء.",R.drawable.drink));
+            mlist.add(new screen_item("اختيار نظام غذائي صحي","تضمن إضافة مجموعة متنوعة من الفاكهة والخضروات الملونة إلى نظامك الغذائي أنك تحصل على العديد من الفيتامينات والمواد الغذائية، حيث تحتوي الفاكهة والخضروات على العديد من مضادات الأكسدة التي تساعد على الحفاظ على صحة عينيك.",R.drawable.fruits));
         }
         else
         {
-            mlist.add(new screen_item("Use medicine","Medication to correct the level of thyroid hormones in your blood – this won't necessarily improve the problems with your eyes, but may stop them getting worse.",R.drawable.med_eyes));
-            mlist.add(new screen_item("Corrective surgery","This may be carried out to improve the appearance of your eyes once the inflammation is under control.",R.drawable.correct_eyes));
-            mlist.add(new screen_item("Quick Tips","You should quit smoking, use artificial tears to reduce eye dryness and irritation, and wear special lenses to correct double vision.",R.drawable.tips_eyes));
-            mlist.add(new screen_item("Not take any treatment","You should not take any treatment because the treatment varies depending on the underlying cause. For example, treatments such as radiation therapy, chemotherapy, or surgery may be recommended if exophthalmos is caused by a tumor.",R.drawable.tips2_eyes));
+            mlist.add(new screen_item("Unable in surgery","If you’re unable or uninterested in surgery, your doctor may be able to help you manage your symptoms. They may suggest stronger eyeglasses, magnifying lenses, or sunglasses with an anti-glare coating.",R.drawable.surgery));
+            mlist.add(new screen_item("Get regular eye exams","Eye exams can help detect cataracts and other eye problems in their early stages, so check with your doctor about how often you should have eye exams.",R.drawable.eyes_exam));
+            mlist.add(new screen_item("Refrain from drinking alcohol","Excessive alcohol consumption can increase the risk of developing cataracts.",R.drawable.drink));
+            mlist.add(new screen_item("Choose a healthy diet","Adding a variety of colorful fruits and vegetables to your diet ensures that you are getting many vitamins and nutrients, as fruits and vegetables contain many antioxidants that help keep your eyes healthy.",R.drawable.fruits));
         }
 
         screenpager=findViewById(R.id.screen);

@@ -37,19 +37,27 @@ public class crossed_eyes_advice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crossed_eyes_advice);
+
         tabindicator=findViewById(R.id.tab_indicator);
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("عين نعسانة","إذا كانت عينك ناتجة عن عين كسولة ، فقد يطلب منك طبيبك ارتداء رقعة على عينك القوية لإجبار عضلات عينك الأضعف على العمل بجهد أكبر.",R.drawable.lazy));
+            mlist.add(new screen_item("النظارات","العدسات التصحيحية مثل النظارات أو العدسات اللاصقة.",R.drawable.glasses));
+            mlist.add(new screen_item("جراحة في العين ","جراحة في عضلات معينة في العين ، خاصة إذا لم تصحح العدسات التصحيحية الحالة.",R.drawable.eyes_advice));
+            mlist.add(new screen_item("قطرات العين ","قد يصف طبيبك أيضًا قطرات للعين لتعتيم الرؤية في عينك القوية. يمكنهم أيضًا استخدام حقن البوتوكس لإضعاف العضلات التي تفرط في الحركة وتتسبب في انعطاف العين.",R.drawable.eye_drops));
+        }
+        else {
+            mlist.add(new screen_item("Lazy eye", " If your crossed eyes have resulted from a lazy eye, your doctor may have you wear a patch over your stronger eye to force the muscles of your weaker eye to work harder.", R.drawable.lazy));
+            mlist.add(new screen_item("Eyeglasses", "corrective lenses, such as eyeglasses or contact lenses.", R.drawable.glasses));
+            mlist.add(new screen_item("Eye surgery", " surgery on certain eye muscles, particularly if corrective lenses haven’t corrected the condition.", R.drawable.eyes_advice));
+            mlist.add(new screen_item("Eye drops", " Your doctor might also prescribe eye drops to blur the vision in your stronger eye. They can also use Botox injections to weaken the muscle that’s overacting and causing the eye turn.", R.drawable.eye_drops));
 
-        mlist.add(new screen_item("Use medicine","Medication to correct the level of thyroid hormones in your blood – this won't necessarily improve the problems with your eyes, but may stop them getting worse.",R.drawable.med_eyes));
-        mlist.add(new screen_item("Corrective surgery","This may be carried out to improve the appearance of your eyes once the inflammation is under control.",R.drawable.correct_eyes));
-        mlist.add(new screen_item("Quick Tips","You should quit smoking, use artificial tears to reduce eye dryness and irritation, and wear special lenses to correct double vision.",R.drawable.tips_eyes));
-        mlist.add(new screen_item("Not take any treatment","You should not take any treatment because the treatment varies depending on the underlying cause. For example, treatments such as radiation therapy, chemotherapy, or surgery may be recommended if exophthalmos is caused by a tumor.",R.drawable.tips2_eyes));
-
-
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

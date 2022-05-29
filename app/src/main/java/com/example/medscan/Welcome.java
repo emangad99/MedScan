@@ -11,6 +11,7 @@ import com.example.medscan.eyes.bulging_eyes;
 import com.example.medscan.eyes.cataract;
 import com.example.medscan.eyes.crossed_eyes;
 import com.example.medscan.eyes.glaucoma;
+import com.example.medscan.eyes.successful_eyes;
 import com.example.medscan.eyes.uveitis;
 import com.example.medscan.kidneys.kidney_failed;
 import com.example.medscan.kidneys.kidney_successful;
@@ -53,7 +54,7 @@ TextView txt;
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, melanoma.class);
+                Intent i=new Intent(Welcome.this, glaucoma.class);
                 startActivity(i);
 
 

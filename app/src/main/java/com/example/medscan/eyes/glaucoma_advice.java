@@ -36,18 +36,30 @@ public class glaucoma_advice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glaucoma_advice);
+
         tabindicator=findViewById(R.id.tab_indicator);
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Use medicine","Medication to correct the level of thyroid hormones in your blood – this won't necessarily improve the problems with your eyes, but may stop them getting worse.",R.drawable.med_eyes));
-        mlist.add(new screen_item("Corrective surgery","This may be carried out to improve the appearance of your eyes once the inflammation is under control.",R.drawable.correct_eyes));
-        mlist.add(new screen_item("Quick Tips","You should quit smoking, use artificial tears to reduce eye dryness and irritation, and wear special lenses to correct double vision.",R.drawable.tips_eyes));
-        mlist.add(new screen_item("Not take any treatment","You should not take any treatment because the treatment varies depending on the underlying cause. For example, treatments such as radiation therapy, chemotherapy, or surgery may be recommended if exophthalmos is caused by a tumor.",R.drawable.tips2_eyes));
 
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("القيام ببعض التمارين","يُنصح عادةً المصابين بمرض المياه الزرقاء بالقيام ببعض التمارين التي تُساعدهم بشكل كبير في خفض ضغط العين، بالإضافة إلى الحفاظ على تدفق الدم إلى الأعصاب الموجودة في داخل العين.",R.drawable.eye_advice));
+            mlist.add(new screen_item(" تناول الأطعمة الصحية","وُجد أن تناول كميات كبيرة من الأطعمة التي تحتوي على مضادات الأكسدة (Antioxidant) تُساعد بشكل كبير في حالة الإصابة بهذا النوع من الحالات الصحية، ومن أبرز هذه الأطعمة:\n" +
+                    "( الخضروات ذات الأوراق الداكنة - الأسماك الغنية بأحماض أوميغا 3 الدهنية. ) ",R.drawable.fish));
+            mlist.add(new screen_item("شرب سوائل","شرب كميات جيدة من السوائل المختلفة وبنسب معتدلة خلال اليوم.",R.drawable.drink_advice));
+            mlist.add(new screen_item("الكافيين","استهلاك الكافيين بكميات محدودة فقط، فهي لها آثار سلبية على صحة العينين.",R.drawable.coffee));
+        }
+        else {
+            mlist.add(new screen_item("Do some exercises", "People with glaucoma are usually advised to do some exercises that help them greatly in lowering intraocular pressure, in addition to maintaining blood flow to the nerves inside the eye. ", R.drawable.eye_advice));
+            mlist.add(new screen_item("Eat healthy foods", "It has been found that eating large amounts of foods that contain antioxidants greatly help in the event of this type of health condition, and the most prominent of these foods are:\n" +
+                    "(Dark leafy vegetables - fish rich in omega-3 fatty acids.)", R.drawable.fish));
+            mlist.add(new screen_item("drink fluids", "Drink good amounts of different fluids and in moderate proportions during the day. ", R.drawable.drink_advice));
+            mlist.add(new screen_item("Caffeine", "Caffeine is only consumed in limited quantities, as it has negative effects on the health of the eyes. ", R.drawable.coffee));
 
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

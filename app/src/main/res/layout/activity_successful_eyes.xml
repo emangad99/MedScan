@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="424dp"
-        android:text="@string/Successful_rays"
+        android:text="@string/Successful_photos"
         android:textAlignment="center"
         android:textColor="#FF4F5A"
 

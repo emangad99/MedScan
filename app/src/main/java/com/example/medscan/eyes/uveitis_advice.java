@@ -36,18 +36,28 @@ public class uveitis_advice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uveitis_advice);
+
         tabindicator=findViewById(R.id.tab_indicator);
         next=findViewById(R.id.Next_btn);
         backtohome=findViewById(R.id.covid_ok);
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Use medicine","Medication to correct the level of thyroid hormones in your blood – this won't necessarily improve the problems with your eyes, but may stop them getting worse.",R.drawable.med_eyes));
-        mlist.add(new screen_item("Corrective surgery","This may be carried out to improve the appearance of your eyes once the inflammation is under control.",R.drawable.correct_eyes));
-        mlist.add(new screen_item("Quick Tips","You should quit smoking, use artificial tears to reduce eye dryness and irritation, and wear special lenses to correct double vision.",R.drawable.tips_eyes));
-        mlist.add(new screen_item("Not take any treatment","You should not take any treatment because the treatment varies depending on the underlying cause. For example, treatments such as radiation therapy, chemotherapy, or surgery may be recommended if exophthalmos is caused by a tumor.",R.drawable.tips2_eyes));
 
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("قطرات العين","قطرات العين الموسعة لحدقة العين، تساعد في تسريع عملية الشفاء، وتخفيف شدة الألم.",R.drawable.eyes_advice1));
+            mlist.add(new screen_item("الادوية","المضادات الحيوية ومضادات الفيروسات، في حال الإصابة بالعدوى.",R.drawable.eyes_advice3));
+            mlist.add(new screen_item("نظارات شمسية","ارتداء نظارات شمسية داكنة اللون، في حال أصبحت عيني الشخص حساسة تجاه الضوء.",R.drawable.eyes_advice2));
+            mlist.add(new screen_item("تهدئة العين","وضع قطعة قماش نظيفة ودافئة على العين، بهدف تهدئتها وتخفيف شدة الأعراض.",R.drawable.eyes_advice4));
+        }
+        else {
+            mlist.add(new screen_item("Eye drops", " Eye drops that dilate the pupil of the eyes, help speed up the healing process and relieve pain.", R.drawable.eyes_advice1));
+            mlist.add(new screen_item("pharmaceutical", "Antibiotics and antivirals, in case of infection.", R.drawable.eyes_advice3));
+            mlist.add(new screen_item("Sunglasses", "Wear dark-colored sunglasses, in case the person's eyes become sensitive to light.", R.drawable.eyes_advice2));
+            mlist.add(new screen_item("Soothe the eye", "Placing a clean, warm cloth over the eye, in order to soothe it and relieve symptoms. ", R.drawable.eyes_advice4));
 
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);
