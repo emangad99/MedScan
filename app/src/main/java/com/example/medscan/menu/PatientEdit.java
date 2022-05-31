@@ -287,7 +287,7 @@ public class PatientEdit extends AppCompatActivity {
                     clinic.setEnabled(false);
                     time.setEnabled(false);
                     other.setEnabled(false);
-                  //  delete.setVisibility(View.GONE);
+                    delete.setVisibility(View.GONE);
 
                 }
 
