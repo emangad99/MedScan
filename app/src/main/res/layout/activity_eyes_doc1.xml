@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-200dp"
         android:layout_marginTop="-250dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/imageView5"
         android:text="@string/lecturer_of_ophthalmology_and_surgery_faculty_of_medicine_alexandria_university_consultant_of_cataract_corneal_lasik_and_lens_implant_surgeries_member_of_the_european_society_for_vision_correction_and_cataracts"
         android:textColor="@color/gray"
@@ -104,7 +104,7 @@
         android:layout_marginStart="23dp"
 
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="23dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="@string/_5th_sayed_fahmy_street_above_baraka_bank_smouha"
         android:textColor="@color/black"

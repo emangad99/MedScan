@@ -147,20 +147,12 @@ public class PatientEdit extends AppCompatActivity {
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
         input_btn=findViewById(R.id.camera);
-        delete=findViewById(R.id.delete);
+       // delete=findViewById(R.id.delete);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {

@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-200dp"
         android:layout_marginTop="-250dp"
-        android:layout_marginEnd="-1dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/imageView5"
         android:text="@string/kidney_and_diabetes_consultant_nephrologist_specialized_in_adult_diabetes_adult_endocrinology_and_adult_nephrology"
         android:textColor="@color/gray"
@@ -104,7 +104,7 @@
         android:layout_marginStart="23dp"
 
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="@string/new_cairo_settlement_edrak_clinics_street_15_district_one_fifth_settlement_medical_park_1_in_front_of_the_courts_complex_next_to_7_stars_mall"
         android:textColor="@color/black"
