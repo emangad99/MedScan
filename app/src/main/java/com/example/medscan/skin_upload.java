@@ -25,6 +25,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -54,12 +55,14 @@ public class skin_upload extends AppCompatActivity {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_skin");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     String templang = Locale.getDefault().getLanguage();
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skin_upload);
 
+        text=findViewById(R.id.text_skin);
         btn_choose = findViewById(R.id.choose);
         image=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
@@ -134,7 +137,7 @@ public class skin_upload extends AppCompatActivity {
         {
             imageuri = data.getData();
             image.setImageURI(imageuri);
-
+            text.setVisibility(View.GONE);
         }
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
@@ -145,9 +148,8 @@ public class skin_upload extends AppCompatActivity {
             Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             imageuri = Uri.fromFile(f);
             mediaScanIntent.setData(imageuri);
+            text.setVisibility(View.GONE);
             this.sendBroadcast(mediaScanIntent);
-
-
 
         }
 
@@ -208,7 +210,6 @@ public class skin_upload extends AppCompatActivity {
 
 
     }
-
 
 
     private File createImageFile() throws IOException {

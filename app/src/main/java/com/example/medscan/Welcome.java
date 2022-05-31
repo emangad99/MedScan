@@ -38,7 +38,7 @@ TextView txt;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-
+        txt=findViewById(R.id.txt1);
 
         btn_start=findViewById(R.id.btn_started);
         btn_start.setOnClickListener(new View.OnClickListener() {
@@ -50,17 +50,6 @@ TextView txt;
             }
         });
 
-        txt=findViewById(R.id.txt1);
-        txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(Welcome.this, glaucoma.class);
-                startActivity(i);
-
-
-            }
-        });
     }
-
 
 }

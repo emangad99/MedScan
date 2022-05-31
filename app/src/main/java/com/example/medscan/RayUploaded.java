@@ -19,6 +19,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -42,11 +43,13 @@ public class RayUploaded extends AppCompatActivity {
     String templang = Locale.getDefault().getLanguage();
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_lung");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ray_uploaded);
 
+        text=findViewById(R.id.text_lung);
         btn_choose = findViewById(R.id.choose);
         image=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
@@ -103,6 +106,7 @@ public class RayUploaded extends AppCompatActivity {
         {
             imageuri = data.getData();
             image.setImageURI(imageuri);
+            text.setVisibility(View.GONE);
 
         }
 

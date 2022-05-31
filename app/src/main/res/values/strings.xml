@@ -210,7 +210,7 @@
     <string name="raml_station_faculty_of_medicine">Raml Station: Faculty of Medicine</string>
     <string name="_200_egp">200 EGP</string>
     <string name="sadr_el_fayoum_hospital">Sadr El Fayoum Hospital</string>
-    <string name="qesm_al_fayoum_faiyum_faiyum_governorate">Qesm Al Fayoum, Faiyum, Faiyum Governorate</string>
+    <string name="qesm_al_fayoum_faiyum_faiyum_governorate">Qesm Al Fayoum,Faiyum Governorate</string>
     <string name="alexandria_chest_center">Alexandria Chest Center</string>
     <string name="_712_el_horeya_rd_san_stefano_el_raml_1_alexandria">712 El-Horeya Rd, San Stefano, El Raml 1, Alexandria</string>
     <string name="_4_5" translatable="false">4.5</string>
@@ -254,7 +254,7 @@
     <string name="el_nasr_hurghada_red_sea_governorate">El-Nasr, Hurghada, Red Sea Governorate</string>
     <string name="_3_2" translatable="false">3.2</string>
     <string name="compound_behind_the_air_hospital_el_ayoun_city">Compound: Behind the Air Hospital - El-Ayoun City</string>
-    <string name="_5_0">5.0</string>
+    <string name="_5_0" translatable="false">5.0</string>
     <string name="el_rowad_hospital">El Rowad Hospital</string>
     <string name="el_mahalla_el_kubra_gharbia">El Mahalla El Kubra, Gharbia</string>
     <string name="magrabi_eye_hospital">Magrabi Eye Hospital</string>

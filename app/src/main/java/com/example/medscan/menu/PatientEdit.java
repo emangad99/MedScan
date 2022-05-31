@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.medscan.R;
 import com.example.medscan.SessionManager;
 import com.example.medscan.UserHelper;
+import com.example.medscan.Welcome;
 import com.example.medscan.databinding.ActivityPatientEditBinding;
 import com.example.medscan.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -54,7 +55,6 @@ public class PatientEdit extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference databaseReference;
     FirebaseStorage storage;
-    ProgressDialog progressDialog;
     FirebaseUser firebaseUser ;
     ActivityPatientEditBinding binding;
     ActivityResultLauncher<String> launcher;
@@ -153,39 +153,10 @@ public class PatientEdit extends AppCompatActivity {
         firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        progressDialog=new ProgressDialog(PatientEdit.this);
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-
-                AlertDialog.Builder dialog = new AlertDialog.Builder(PatientEdit.this);
-                dialog.setTitle("Are you sure ?");
-                dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
-                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        delete_current_user();
-
-                    }
-                });
-                dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog alertDialog = dialog.create();
-                alertDialog.show();
-
-                 */
-
-
-
-
 
 
             }
@@ -211,7 +182,7 @@ public class PatientEdit extends AppCompatActivity {
                     clinic.setEnabled(false);
                     time.setEnabled(false);
                     other.setEnabled(false);
-                    delete.setVisibility(View.GONE);
+                  //  delete.setVisibility(View.GONE);
 
                 }
 
@@ -239,37 +210,6 @@ public class PatientEdit extends AppCompatActivity {
         });
 
     }
-    /*
-
-    private void delete_current_user() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Please wait ... ");
-        progressDialog.setMessage("We are deleting your account.");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
-        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            progressDialog.dismiss();
-                            //sessionManager.setLogin(false);
-                           // sessionManager.setUsername("");
-                            Intent intent = new Intent(PatientEdit.this, Welcome.class);
-                            startActivity(intent);
-                        }
-                    }
-                });
-
-            }
-        });
-    }
-    */
-
 
 
     private void showProfile(FirebaseUser firebaseUser) {
