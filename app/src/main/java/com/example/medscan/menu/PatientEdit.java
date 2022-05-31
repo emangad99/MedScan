@@ -18,6 +18,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
 import com.example.medscan.SessionManager;
 import com.example.medscan.UserHelper;
@@ -27,6 +29,8 @@ import com.example.medscan.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -147,12 +151,121 @@ public class PatientEdit extends AppCompatActivity {
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
         input_btn=findViewById(R.id.camera);
-       // delete=findViewById(R.id.delete);
+        delete=findViewById(R.id.delete);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(templang == "ar")
+                {
+
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(PatientEdit.this);
+                    dialog.setTitle("هل انت متأكد ؟");
+                    dialog.setMessage("سيؤدي حذف هذا الحساب إلى إزالة حسابك تمامًا ولن تتمكن من الوصول إلى التطبيق.");
+                    dialog.setPositiveButton("حذف", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            AuthCredential credential = EmailAuthProvider
+                                    .getCredential("user@example.com", "password1234");
+
+                            user.reauthenticate(credential)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            user.delete()
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                sessionManager.setLogin(false);
+                                                                sessionManager.setUsername("");
+                                                                Intent intent = new Intent(PatientEdit.this, Welcome.class);
+                                                                startActivity(intent);
+                                                                Toast.makeText(PatientEdit.this, "تم حذف الحساب بنجاح", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
+
+                                        }
+                                    });
+
+                        }
+                    });
+                    dialog.setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alertDialog = dialog.create();
+                    alertDialog.show();
+
+
+                }
+                else
+                {
+
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(PatientEdit.this);
+                    dialog.setTitle("Are you sure ?");
+                    dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
+                    dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            AuthCredential credential = EmailAuthProvider
+                                    .getCredential("user@example.com", "password1234");
+
+                            user.reauthenticate(credential)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            user.delete()
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                sessionManager.setLogin(false);
+                                                                sessionManager.setUsername("");
+                                                                Intent intent = new Intent(PatientEdit.this, Welcome.class);
+                                                                startActivity(intent);
+                                                                Toast.makeText(PatientEdit.this, "User account deleted", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
+
+                                        }
+                                    });
+
+                        }
+                    });
+                    dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alertDialog = dialog.create();
+                    alertDialog.show();
+
+
+                }
+
+
+            }
+        });
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {

@@ -63,16 +63,11 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
     String profileUrl,username,useremail;
-    ProgressDialog progressDialog;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        progressDialog=new ProgressDialog(HomeActivity.this);
 
 
         authProfile = FirebaseAuth.getInstance();
@@ -156,30 +151,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, chat_home.class));
                         break;
 
-                    case R.id.delete_account:
 
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
-                        dialog.setTitle("Are you sure ?");
-                        dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
-                        dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                delete_current_user();
-
-                            }
-                        });
-                        dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-
-                        AlertDialog alertDialog = dialog.create();
-                        alertDialog.show();
-
-                        break;
 
                 }
                 return false;
@@ -205,37 +177,6 @@ public class HomeActivity extends AppCompatActivity {
 
                 Intent donor=new Intent(HomeActivity.this, DetailsDoctor.class);
                 startActivity(donor);
-
-            }
-        });
-    }
-
-    private void delete_current_user() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Please wait ... ");
-        progressDialog.setMessage("We are deleting your account.");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
-        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            progressDialog.dismiss();
-                            sessionManager.setLogin(false);
-                            sessionManager.setUsername("");
-                            Intent intent = new Intent(HomeActivity.this, Welcome.class);
-                            startActivity(intent);
-                        }
-                        else{
-
-                        }
-                    }
-                });
 
             }
         });
