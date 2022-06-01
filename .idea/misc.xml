@@ -4,6 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_patient_edit.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_dermatofibroma.xml" value="0.10400000000000001" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_home.xml" value="0.259375" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_lung_doc1.xml" value="0.259375" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_lung_doctors.xml" value="0.259375" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_lung_hospitals.xml" value="0.259375" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_ray_uploaded.xml" value="0.2557291666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_skin_upload.xml" value="0.152" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_successful_skin.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_welcome.xml" value="0.259375" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/back_icon.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_chat.xml" value="0.26615384615384613" />

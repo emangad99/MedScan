@@ -13,6 +13,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +23,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.medscan.lungs.ApiInterface;
+import com.example.medscan.lungs.RealPathUtil;
+import com.example.medscan.lungs.Result;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +34,17 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RayUploaded extends AppCompatActivity {
 
@@ -40,6 +56,8 @@ public class RayUploaded extends AppCompatActivity {
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_lung");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    String path;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +94,7 @@ public class RayUploaded extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if ( (imageuri != null)){
-                    uplaodToFirebase(imageuri);
+                    result();
 
                 }else{
                     Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
@@ -93,7 +111,10 @@ public class RayUploaded extends AppCompatActivity {
         if(requestCode == 2 && resultCode == RESULT_OK && data != null )
         {
             imageuri = data.getData();
-            image.setImageURI(imageuri);
+            Context c = RayUploaded.this;
+            path = RealPathUtil.getRealPath(c, imageuri);
+            Bitmap bitmap = BitmapFactory.decodeFile(path);
+            image.setImageBitmap(bitmap);
 
         }
 
@@ -176,7 +197,55 @@ public class RayUploaded extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return  mime.getExtensionFromMimeType(cr.getType(mUri));
     }
+
+    public void result(){
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://ai-team.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        File file = new File(path);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
+
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<Result> call = apiInterface.addImage(body);
+        call.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(@NonNull Call<Result> call, @NonNull Response<Result> response) {
+                if (response.isSuccessful()){
+
+                    if (response.body() != null) {
+                        if (response.body().getData().toString().equals("Covid-19")){
+                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with Covid-19", Toast.LENGTH_LONG).show();
+                        }
+                        else if (response.body().getData().toString().equals("Pneumonia")){
+                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with Pneumonia", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Your Lungs Are Healthy", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
 }
+
+
+
 class  Model{
     private String imageUri;
     public Model(){
