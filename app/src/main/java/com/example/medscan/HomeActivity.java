@@ -63,11 +63,16 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
     String profileUrl,username,useremail;
+    //ProgressDialog progressDialog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+       // progressDialog=new ProgressDialog(HomeActivity.this);
 
 
         authProfile = FirebaseAuth.getInstance();
@@ -151,8 +156,6 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, chat_home.class));
                         break;
 
-
-
                 }
                 return false;
             }
@@ -181,6 +184,39 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+/*
+    private void delete_current_user() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please wait ... ");
+        progressDialog.setMessage("We are deleting your account.");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            progressDialog.dismiss();
+                            sessionManager.setLogin(false);
+                            sessionManager.setUsername("");
+                            Intent intent = new Intent(HomeActivity.this, Welcome.class);
+                            startActivity(intent);
+                        }
+                        else{
+
+                        }
+                    }
+                });
+
+            }
+        });
+    }
+
+ */
 
     @Override
     protected void onStart() {
