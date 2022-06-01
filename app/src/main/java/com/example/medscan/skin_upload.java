@@ -68,7 +68,6 @@ public class skin_upload extends AppCompatActivity {
         upload=findViewById(R.id.btn_upload_rays);
         btn_camera=findViewById(R.id.camera);
 
-
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -201,16 +200,12 @@ public class skin_upload extends AppCompatActivity {
                             }
                         })
                         .create().show();
-
             }
         }
         else{
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
         }
-
-
     }
-
 
     private File createImageFile() throws IOException {
         // Create an image file name
@@ -240,7 +235,6 @@ public class skin_upload extends AppCompatActivity {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
-
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
@@ -261,26 +255,18 @@ public class skin_upload extends AppCompatActivity {
             {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
-
                 } else {
                     Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
-
-
                 }
             }
             else
             {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-
                 } else {
                     Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
-
-
                 }
             }
-
-
         }
         if (requestCode == MY_CAMERA_PERMISSION_CODE)
         {
@@ -329,16 +315,13 @@ public class skin_upload extends AppCompatActivity {
                         if(templang == "ar")
                         {
                             Toast.makeText(skin_upload.this, "تم الرفع بنجاح ", Toast.LENGTH_SHORT).show();
-
                         }
                         else
                         {
                             Toast.makeText(skin_upload.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 });
-
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

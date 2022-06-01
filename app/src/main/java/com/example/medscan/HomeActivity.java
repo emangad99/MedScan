@@ -26,6 +26,7 @@ import com.example.medscan.menu.Feedback;
 import com.example.medscan.menu.Instruction;
 import com.example.medscan.menu.PatientEdit;
 import com.example.medscan.menu.best_doctors;
+import com.example.medscan.menu.delete_account;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -63,16 +64,21 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
     String profileUrl,username,useremail;
-    //ProgressDialog progressDialog;
-
-
+    TextView or;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-       // progressDialog=new ProgressDialog(HomeActivity.this);
+        or=findViewById(R.id.txt_or);
+        or.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent delete = new Intent(HomeActivity.this, delete_account.class);
+                startActivity(delete);
+            }
+        });
 
 
         authProfile = FirebaseAuth.getInstance();
@@ -87,7 +93,6 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView=findViewById(R.id.navigationview);
         navigationView.setItemIconTintList(null);
-        //navigationView.bringToFront();
         drawerLayout =findViewById(R.id.drawerlayout);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -184,39 +189,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-/*
-    private void delete_current_user() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Please wait ... ");
-        progressDialog.setMessage("We are deleting your account.");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
-        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            progressDialog.dismiss();
-                            sessionManager.setLogin(false);
-                            sessionManager.setUsername("");
-                            Intent intent = new Intent(HomeActivity.this, Welcome.class);
-                            startActivity(intent);
-                        }
-                        else{
-
-                        }
-                    }
-                });
-
-            }
-        });
-    }
-
- */
 
     @Override
     protected void onStart() {
@@ -237,10 +209,7 @@ public class HomeActivity extends AppCompatActivity {
                     name.setText(username);
                     email.setText(useremail);
 
-
-
                 }
-
             }
 
             @Override
@@ -257,10 +226,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
 
     @Override
     public void onBackPressed() {

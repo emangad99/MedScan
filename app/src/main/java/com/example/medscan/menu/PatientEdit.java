@@ -157,32 +157,6 @@ public class PatientEdit extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(PatientEdit.this);
-                dialog.setTitle("Are you sure ?");
-                dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
-                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        //   delete_current_user();
-
-                    }
-                });
-                dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog alertDialog = dialog.create();
-                alertDialog.show();
-            }
-        });
-
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -216,7 +190,6 @@ public class PatientEdit extends AppCompatActivity {
             }
         });
 
-
        showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
@@ -226,12 +199,17 @@ public class PatientEdit extends AppCompatActivity {
                 Intent reset = new Intent(PatientEdit.this, ForgetPassword.class);
                 startActivity(reset);
             }
-
-
         });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+              //  Intent delete = new Intent(PatientEdit.this, delete_account.class);
+               // startActivity(delete);
+            }
+        });
     }
-
 
     private void showProfile(FirebaseUser firebaseUser) {
         String userIdRegistered = firebaseUser.getUid();
