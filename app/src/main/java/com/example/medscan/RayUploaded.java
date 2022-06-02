@@ -235,40 +235,26 @@ public class RayUploaded extends AppCompatActivity {
                     if (response.body() != null) {
                         if (response.body().getData().toString().equals("Covid-19")){
 
+                            Intent covid = new Intent(RayUploaded.this, covid.class);
+                            startActivity(covid);
 
-                            final Handler handler = new Handler(Looper.getMainLooper());
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Intent covid = new Intent(RayUploaded.this, covid.class);
-                                    startActivity(covid);
-                                }
-                            }, 10000);
 
-                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with covid-19", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with covid-19", Toast.LENGTH_LONG).show();
                         }
                         else if (response.body().getData().toString().equals("PNEUMONIA")){
-                            final Handler handler = new Handler(Looper.getMainLooper());
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Intent pneumonia = new Intent(RayUploaded.this, failed.class);
-                                    startActivity(pneumonia);
-                                }
-                            }, 10000);
+
+                            Intent pneumonia = new Intent(RayUploaded.this, failed.class);
+                            startActivity(pneumonia);
+
                         }
                         else if (response.body().getData().toString().equals("NORMAL")){
-                            final Handler handler = new Handler(Looper.getMainLooper());
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Intent normal = new Intent(RayUploaded.this, successful.class);
-                                    startActivity(normal);
-                                }
-                            }, 10000);
+
+                            Intent normal = new Intent(RayUploaded.this, successful.class);
+                            startActivity(normal);
+
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Something went wrong! Please Retry Again", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Something went wrong! Please try Again", Toast.LENGTH_LONG).show();
                         }
                     }
 
