@@ -311,7 +311,6 @@
     <string name="you_are_infected_with_melanoma">You are infected with Melanoma</string>
     <string name="you_are_infected_with_melanocytic_nevi">You are infected with Melanocytic nevi</string>
     <string name="your_skin_is_healthy">Your skin is healthy</string>
-    <string name="skin1_info">An actinic keratosis is a rough, scaly patch of skin that forms from exposure to the sun for several years. It most often appears on the face, lips, ears, forearms, scalp, neck, or back of the hands.  Also known as a solar keratosis, it grows slowly and usually first appears after a person is over 40 years old. You can reduce the risk of this skin condition by reducing sun exposure and protecting the skin from UV rays.  If an actinic keratosis is left untreated, it may turn into a type of skin cancer called squamous cell carcinoma, with a probability of 5% to 10%.</string>
     <string name="dr_amr_said">Dr. Amr said</string>
     <string name="lecturer_of_ophthalmology_and_surgery_faculty_of_medicine_alexandria_university_consultant_of_cataract_corneal_lasik_and_lens_implant_surgeries_member_of_the_european_society_for_vision_correction_and_cataracts">Lecturer of ophthalmology and surgery, Faculty of Medicine, Alexandria University….. Consultant of cataract, corneal, LASIK, and lens implant surgeries…. Member of the European Society for Vision Correction and Cataracts</string>
     <string name="_01226154154" translatable="false">01226154154</string>
@@ -389,5 +388,8 @@
     <string name="present">Present</string>
     <string name="not_present">Not present</string>
     <string name="disease_skin">you are infected with vascular lesions</string>
+    <string name="vascular_lesions">vascular lesions</string>
+    <string name="skin1_info">Vascular lesions are relatively common abnormalities of the skin and underlying tissues, more commonly known as birthmarks. There are three major categories of vascular lesions: Hemangiomas, Vascular Malformations, and Pyogenic Granulomas. While these birthmarks can look similar at times, they each vary in terms of origin and necessary treatment.</string>
+
 
 </resources>

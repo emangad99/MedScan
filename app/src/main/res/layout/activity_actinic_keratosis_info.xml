@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="@string/actinic_keratosis"
+        android:text="@string/vascular_lesions"
         android:textColor="@color/color2"
         android:textSize="20sp"
         android:textStyle="bold"
