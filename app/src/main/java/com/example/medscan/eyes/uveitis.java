@@ -24,8 +24,8 @@ public class uveitis extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i=new Intent(uveitis.this, actinic_keratosis_advice.class);
-                //startActivity(i);
+                Intent i=new Intent(uveitis.this, uveitis_advice.class);
+                startActivity(i);
 
             }
         });

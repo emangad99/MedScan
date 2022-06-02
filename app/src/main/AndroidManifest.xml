@@ -19,8 +19,36 @@
         tools:replace="android:supportsRtl"
         tools:targetApi="m">
         <activity
-            android:name=".eyes.bulging_eyes_advice"
+            android:name=".menu.delete_account"
             android:exported="true" />
+        <activity
+            android:name=".eyes.successful_eyes_advice"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".eyes.successful_eyes"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".eyes.uveitis_advice"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".eyes.glaucoma_advice"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".eyes.crossed_eyes_advice"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".eyes.cataract_advice"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".eyes.bulging_eyes_advice"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".chat.chat_useer"
             android:exported="true"

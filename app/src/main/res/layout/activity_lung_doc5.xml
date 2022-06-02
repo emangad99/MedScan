@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-200dp"
         android:layout_marginTop="-250dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/imageView5"
         android:text="@string/chest_diseases_consultant_chest_and_respiratory_doctor_specialized_in_adult_chest_and_respiratory"
         android:textColor="@color/gray"
@@ -104,7 +104,7 @@
         android:layout_marginStart="23dp"
 
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="@string/_8_el_fardous_buildings_taqa_street_behind_al_ahly_club_nasr_city_39_cleopatra_street_salah_el_din_square_heliopolis_cairo_nasr_city"
         android:textColor="@color/black"

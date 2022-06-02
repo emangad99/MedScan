@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class successful_skin_advice extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class successful_skin_advice extends AppCompatActivity {
     int position = 0;
     Button backtohome;
     Animation btn_anim;
+    String templang = Locale.getDefault().getLanguage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,22 @@ public class successful_skin_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("breathe deeply","They are called breathing exercises, and they contribute greatly to maintaining the health of the lungs, as this method works to feed the lungs with more oxygen, which works to strengthen and clean the airway, which contributes to supplying the body with more energy.",R.drawable.breathe));
-        mlist.add(new screen_item("No Smoking","Smoking is one of the things that damage the lungs and respiratory system. You should stay away from smoking and smokers.",R.drawable.smoke));
-        mlist.add(new screen_item("Do sport","Exercising helps keep your body healthy. It helps to regulate the natural breathing process in your body.",R.drawable.sport));
-        mlist.add(new screen_item("Good ventilation","by opening the windows daily. Getting rid of dust and dirt in the house on an ongoing basis.",R.drawable.air));
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("ترطيب بشرتك","ضعِى كريم ترطيب خاليا من الزيوت على وجهك، يخلق المرطب حاجزًا وقائيًا على بشرتك ويمنع البشرة من التأثير القاسي للبيئة التي يمكن أن تجعل بشرتك جافة وباهتة.",R.drawable.skin_skin));
+            mlist.add(new screen_item("التقليل من تناول السكر","إن الحد من السكر قد تكون قادرًا على تقليل كمية الأنسولين ونتيجة لذلك سيقل إنتاج الزيوت وحب الشباب أيضًا كما أن تناول كميات أقل من السكر يقلل من التهاب الجلد.",R.drawable.suger));
+            mlist.add(new screen_item("استشر الطبيب بانتظام","كلما كان لديك مشكلة في الجلد. يجب أن تستشير طبيبا.",R.drawable.doctor_sskkiinn));
+            mlist.add(new screen_item("استخدام المنتجات بعناية","عندما يتعلق الأمر بالجلد ، فإن الإفراط في منتجات العناية ليس دائمًا هو الأفضل، لكن في الواقع ، استخدمى القليل من المكونات واستخدميها كما هو محدد.",R.drawable.beauty));
 
+        }
+        else
+        {
+            mlist.add(new screen_item("Moisturizing your skin","Apply an oil-free moisturizing cream to your face. A moisturizer creates a protective barrier on your skin and prevents the skin from the harsh impact of the environment that can make your skin dry and dull.",R.drawable.skin_skin));
+            mlist.add(new screen_item("Reducing sugar intake","Reducing sugar you may be able to reduce the amount of insulin and as a result oil production and acne will also decrease and eating less sugar reduces skin inflammation.",R.drawable.suger));
+            mlist.add(new screen_item("Consult a dermatologist regularly","Whenever you have a skin problem. You should consult a doctor.",R.drawable.doctor_sskkiinn));
+            mlist.add(new screen_item("Use products carefully","When it comes to skin, over-care isn't always best, but in fact, use fewer ingredients and use them as directed.",R.drawable.beauty));
 
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

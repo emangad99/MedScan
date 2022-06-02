@@ -43,7 +43,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="-185dp"
+        android:layout_marginEnd="-165dp"
         android:layout_toStartOf="@+id/imageView5"
         android:text="@string/ophthalmologist_specialized_in_adult_eyes_retinal_and_vitreous_surgery_pediatric_ophthalmology_and_lasik_vision_correction_and_cataract"
         android:textColor="@color/gray"
@@ -102,7 +102,7 @@
         android:layout_marginStart="23dp"
 
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="23dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="@string/al_ahram_gardens_184_army_road_zone_a_hadayek_al_ahram_fourth_gate_next_to_el_far_pharmacy"
         android:textColor="@color/black"

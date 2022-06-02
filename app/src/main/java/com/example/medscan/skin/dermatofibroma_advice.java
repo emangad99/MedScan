@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class dermatofibroma_advice extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class dermatofibroma_advice extends AppCompatActivity {
     int position = 0;
     Button backtohome;
     Animation btn_anim;
+    String templang = Locale.getDefault().getLanguage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +44,22 @@ public class dermatofibroma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Be kind to your body","Be kind to your body and mind. Getting enough sleep, eating a healthy diet, and taking time to do things you enjoy can contribute to an overall feeling of balance in your life and help reduce stress.",R.drawable.relax));
-        mlist.add(new screen_item(
-                "Go to the doctor","While it is usually benign, follow up with a doctor to avoid it being harmful.",R.drawable.go_doctor));
-        mlist.add(new screen_item("Sunblock","Before spending time outdoors, use a broad-spectrum sunscreen with an SPF of at least 15.",R.drawable.sunscreen));
-        mlist.add(new screen_item("Removed","Removing them by surgery will always leave a small scar. Most doctors choose local anesthesia to perform the surgery. In 10% of cases, the tumor can recur.",R.drawable.skin_illness));
-
-
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("كن لطيفا مع جسدك","كن لطيفا مع جسدك وعقلك. يمكن أن يساهم الحصول على قسط كافٍ من النوم وتناول نظام غذائي صحي واستغراق الوقت في القيام بأشياء تستمتع بها في الشعور العام بالتوازن في حياتك ويساعد في تقليل التوتر.",R.drawable.relax));
+            mlist.add(new screen_item(
+                    "اذهب الى الطبيب","في حين أنه عادة ما يكون حميدًا ، يجب المتابعة مع الطبيب لتجنب كونه ضارًا.",R.drawable.go_doctor));
+            mlist.add(new screen_item("كريم واقي شمس","قبل قضاء الوقت في الهواء الطلق ، استخدم واقيًا من الشمس واسع الطيف مع عامل حماية من الشمس 15 على الأقل.",R.drawable.sunscreen));
+            mlist.add(new screen_item("إزالة","إن إزالتها بالجراحة ستترك ندبة صغيرة دائمًا. يختار معظم الأطباء التخدير الموضعي لإجراء الجراحة. في 10٪ من الحالات ، يمكن أن يتكرر الورم.",R.drawable.skin_illness));
+        }
+        else
+        {
+            mlist.add(new screen_item("Be kind to your body","Be kind to your body and mind. Getting enough sleep, eating a healthy diet, and taking time to do things you enjoy can contribute to an overall feeling of balance in your life and help reduce stress.",R.drawable.relax));
+            mlist.add(new screen_item(
+                    "Go to the doctor","While it is usually benign, follow up with a doctor to avoid it being harmful.",R.drawable.go_doctor));
+            mlist.add(new screen_item("Sunblock","Before spending time outdoors, use a broad-spectrum sunscreen with an SPF of at least 15.",R.drawable.sunscreen));
+            mlist.add(new screen_item("Removed","Removing them by surgery will always leave a small scar. Most doctors choose local anesthesia to perform the surgery. In 10% of cases, the tumor can recur.",R.drawable.skin_illness));
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

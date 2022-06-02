@@ -43,7 +43,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="-185dp"
+        android:layout_marginEnd="-155dp"
         android:layout_toStartOf="@+id/imageView5"
         android:text="@string/master_of_chest_diseases_and_allergy_ain_shams_university_chest_and_allergy_specialist"
         android:textColor="@color/gray"
@@ -102,7 +102,7 @@
         android:layout_marginStart="23dp"
 
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="@string/_6056_al_miraj_city_zahraa_el_maadi_next_to_aba_el_dahab_ceramic_cairo_cairo_governorate_egypt_6056"
         android:textColor="@color/black"

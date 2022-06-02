@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class melanoma_advice extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class melanoma_advice extends AppCompatActivity {
     int position = 0;
     Button backtohome;
     Animation btn_anim;
+    String templang = Locale.getDefault().getLanguage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,22 @@ public class melanoma_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Drink fluids","Drink plenty of fluids to prevent dehydration. Choose water and other clear liquids. If you have kidney, heart, or liver disease and have to limit fluids, talk with your doctor before you increase the amount of fluids you drink.",R.drawable.water3));
-        mlist.add(new screen_item("Clear soups","When you are able to eat, try clear soups, mild foods, and liquids until all symptoms are gone for 12 to 48 hours.",R.drawable.soup));
-        mlist.add(new screen_item("No Smoking","Do not smoke. Smoking can slow healing. If you need help quitting, talk to your doctor about stop-smoking programs and medicines. These can increase your chances of quitting for good.",R.drawable.smoke));
-        mlist.add(new screen_item("Protect yourself","Wear a wide-brimmed hat, a long-sleeved shirt, and pants if you are going to be outdoors for very long.",R.drawable.wear2));
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("اشرب سوائل","اشرب الكثير من السوائل للوقاية من الجفاف. اختر الماء والسوائل الصافية الأخرى. إذا كنت تعاني من أمراض الكلى أو القلب أو الكبد وتضطر إلى الحد من تناول السوائل ، فتحدث مع طبيبك قبل زيادة كمية السوائل التي تتناولها.",R.drawable.water3));
+            mlist.add(new screen_item("حساء صافي ","عندما تكون قادرًا على تناول الطعام ، جرب الحساء الصافي والأطعمة الخفيفة والسوائل حتى تختفي جميع الأعراض لمدة 12 إلى 48 ساعة.",R.drawable.soup));
+            mlist.add(new screen_item("لا تدخن ","لا تدخن. يمكن للتدخين أن يبطئ الشفاء. إذا كنت بحاجة إلى مساعدة في الإقلاع ، فتحدث إلى طبيبك حول برامج الإقلاع عن التدخين والأدوية. يمكن أن يزيد ذلك من فرصك في الإقلاع عن التدخين للأبد.",R.drawable.smoke));
+            mlist.add(new screen_item("احمي نفسك ","ارتدِ قبعة واسعة الحواف وقميصًا بأكمام طويلة وبنطالًا إذا كنت ستبقى بالخارج لفترة طويلة جدًا.",R.drawable.wear2));
 
+        }
+        else
+        {
+            mlist.add(new screen_item("Drink fluids","Drink plenty of fluids to prevent dehydration. Choose water and other clear liquids. If you have kidney, heart, or liver disease and have to limit fluids, talk with your doctor before you increase the amount of fluids you drink.",R.drawable.water3));
+            mlist.add(new screen_item("Clear soups","When you are able to eat, try clear soups, mild foods, and liquids until all symptoms are gone for 12 to 48 hours.",R.drawable.soup));
+            mlist.add(new screen_item("No Smoking","Do not smoke. Smoking can slow healing. If you need help quitting, talk to your doctor about stop-smoking programs and medicines. These can increase your chances of quitting for good.",R.drawable.smoke));
+            mlist.add(new screen_item("Protect yourself","Wear a wide-brimmed hat, a long-sleeved shirt, and pants if you are going to be outdoors for very long.",R.drawable.wear2));
 
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

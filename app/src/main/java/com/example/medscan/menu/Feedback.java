@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Feedback extends AppCompatActivity {
 
@@ -45,6 +46,7 @@ public class Feedback extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         txtFeedback = findViewById(R.id.txt_feedback);
         dialog=new Dialog(this);
+        String templang = Locale.getDefault().getLanguage();
 
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,9 +54,19 @@ public class Feedback extends AppCompatActivity {
                 String feedback = txtFeedback.getText().toString();
 
                 if (feedback.isEmpty()) {
-                    txtFeedback.setError("Please fill it..Your Opinion matters");
-                    txtFeedback.requestFocus();
-                    return;
+                    if(templang == "ar")
+                    {
+                        txtFeedback.setError(" من فضلك رأيك مهم لنا .. ");
+                        txtFeedback.requestFocus();
+                        return;
+                    }
+                    else
+                    {
+                        txtFeedback.setError("Please fill it..Your Opinion matters");
+                        txtFeedback.requestFocus();
+                        return;
+                    }
+
                 }else{
 
                     HashMap<String ,Object> map = new HashMap<>();
@@ -75,6 +87,8 @@ public class Feedback extends AppCompatActivity {
     private void openDialog() {
         dialog.setContentView(R.layout.layout_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+
 
         Button btn_ok = dialog.findViewById(R.id.send_feedback);
         btn_ok.setOnClickListener(new View.OnClickListener() {

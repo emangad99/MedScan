@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class melanocytic_nevi_advice extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class melanocytic_nevi_advice extends AppCompatActivity {
     int position = 0;
     Button backtohome;
     Animation btn_anim;
+    String templang = Locale.getDefault().getLanguage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,20 @@ public class melanocytic_nevi_advice extends AppCompatActivity {
         btn_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_anim);
 
         List<screen_item> mlist = new ArrayList<>();
-        mlist.add(new screen_item("Go to the doctor","The mole should be examined under a microscope. To make sure it's not harmful.",R.drawable.check_skin));
-        mlist.add(new screen_item("Protect yourself","You must also protect yourself from too much sun exposure. This does not mean that you cannot ever go on a sunny holiday again; it just means that you need to be careful to avoid sunbathing and burning. You should cover yourself up and use sun protection creams of SPF 30 or above.",R.drawable.protect));
-        mlist.add(new screen_item("Avoid sun","Spend time in the shade between 11am and 3pm when it’s sunny. Step out of the sun before your skin has a chance to redden or burn.",R.drawable.summer1));
-        mlist.add(new screen_item("Vitamin D","It may be worth taking Vitamin D supplement tablets (available from health food stores) as strictly avoiding sunlight can reduce Vitamin D levels.",R.drawable.vitamin));
-
-
+        if(templang == "ar")
+        {
+            mlist.add(new screen_item("اذهب الى الطبيب","يجب فحص الشامة تحت المجهر. للتأكد من أنها ليست ضارة.",R.drawable.check_skin));
+            mlist.add(new screen_item("احمي نفسك ","يجب عليك أيضًا حماية نفسك من التعرض المفرط للشمس. هذا لا يعني أنه لا يمكنك الذهاب في عطلة مشمسة مرة أخرى ؛ هذا يعني فقط أنك بحاجة إلى توخي الحذر لتجنب حمامات الشمس والحرق. يجب عليك تغطية نفسك واستخدام كريمات الحماية من الشمس بعامل وقاية من الشمس 30 أو أعلى.",R.drawable.protect));
+            mlist.add(new screen_item("تجنب الشمس ","اقضِ بعض الوقت في الظل بين الساعة 11 صباحًا و 3 مساءً عندما يكون الجو مشمسًا. ابتعد عن الشمس قبل أن تتاح لجلدك فرصة للاحمرار أو الاحتراق.",R.drawable.summer1));
+            mlist.add(new screen_item("فيتامين د","قد يكون من المفيد تناول أقراص مكملات فيتامين د (متوفرة في متاجر الأطعمة الصحية) لأن تجنب أشعة الشمس بشكل صارم يمكن أن يقلل من مستويات فيتامين د.",R.drawable.vitamin));
+        }
+        else
+        {
+            mlist.add(new screen_item("Go to the doctor","The mole should be examined under a microscope. To make sure it's not harmful.",R.drawable.check_skin));
+            mlist.add(new screen_item("Protect yourself","You must also protect yourself from too much sun exposure. This does not mean that you cannot ever go on a sunny holiday again; it just means that you need to be careful to avoid sunbathing and burning. You should cover yourself up and use sun protection creams of SPF 30 or above.",R.drawable.protect));
+            mlist.add(new screen_item("Avoid sun","Spend time in the shade between 11am and 3pm when it’s sunny. Step out of the sun before your skin has a chance to redden or burn.",R.drawable.summer1));
+            mlist.add(new screen_item("Vitamin D","It may be worth taking Vitamin D supplement tablets (available from health food stores) as strictly avoiding sunlight can reduce Vitamin D levels.",R.drawable.vitamin));
+        }
 
         screenpager=findViewById(R.id.screen);
         slide_Adapter=new covidAdapter(this,mlist);

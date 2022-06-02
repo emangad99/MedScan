@@ -1,8 +1,12 @@
 package com.example.medscan.menu;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,11 +19,24 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
+import com.example.medscan.SessionManager;
 import com.example.medscan.UserHelper;
+import com.example.medscan.Welcome;
 import com.example.medscan.databinding.ActivityPatientEditBinding;
+import com.example.medscan.eyes_image;
+import com.example.medscan.login.Login;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,10 +49,12 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import java.util.HashMap;
+import java.util.Locale;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PatientEdit extends AppCompatActivity {
-    TextView password;
+    TextView password,delete;
     TextView fullname,emailedittext, phone, medical, clinic, time, other;
     String _EMAIL;
     CircleImageView profileimage;
@@ -46,28 +65,26 @@ public class PatientEdit extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference databaseReference;
     FirebaseStorage storage;
-    ProgressDialog progressDialog;
     FirebaseUser firebaseUser ;
     ActivityPatientEditBinding binding;
     ActivityResultLauncher<String> launcher;
-
+    SessionManager sessionManager;
     ProgressBar progressBar;
-
-
-
+    private int STORAGE_PERMISSION_CODE = 1 ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_patient_edit);
 
         progressBar=findViewById(R.id.progrsess_edit);
-
+        sessionManager=new SessionManager(getApplicationContext());
+        String templang = Locale.getDefault().getLanguage();
         binding = ActivityPatientEditBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
-
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         database.getReference("Users").child(firebaseUser.getUid()).child("image").addValueEventListener(new ValueEventListener() {
@@ -103,7 +120,14 @@ public class PatientEdit extends AppCompatActivity {
                                    @Override
                                    public void onSuccess(Void unused) {
                                       // progressBar.setVisibility(View.GONE);
-                                       Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
+                                       if(templang == "ar")
+                                       {
+                                           Toast.makeText(getApplicationContext(),"تم رفع الصورة ",Toast.LENGTH_SHORT).show();
+                                       }
+                                       else
+                                       {
+                                           Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
+                                       }
                                    }
                                });
                            }
@@ -116,9 +140,21 @@ public class PatientEdit extends AppCompatActivity {
         binding.camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launcher.launch(
-                        "image/*"
-                );
+
+                if(ContextCompat.checkSelfPermission(PatientEdit.this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
+                {
+                    launcher.launch(
+                            "image/*"
+                    );
+
+                }
+                else
+                {
+                    requesrtstoragepermission();
+
+                }
+
 
             }
         });
@@ -135,13 +171,12 @@ public class PatientEdit extends AppCompatActivity {
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
         input_btn=findViewById(R.id.camera);
+        delete=findViewById(R.id.delete);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("Images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        progressDialog=new ProgressDialog(PatientEdit.this);
-
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -156,7 +191,6 @@ public class PatientEdit extends AppCompatActivity {
                 time.setText(userHelper.getTime());
                 other.setText(userHelper.getOther());
 
-
                 if( userHelper.getMedical().equals(""))
                 {
                     phone.setEnabled(false);
@@ -164,6 +198,7 @@ public class PatientEdit extends AppCompatActivity {
                     clinic.setEnabled(false);
                     time.setEnabled(false);
                     other.setEnabled(false);
+                  //  delete.setVisibility(View.GONE);
 
                 }
 
@@ -176,7 +211,6 @@ public class PatientEdit extends AppCompatActivity {
             }
         });
 
-
        showProfile(firebaseUser);
 
         password.setOnClickListener(new View.OnClickListener() {
@@ -186,9 +220,74 @@ public class PatientEdit extends AppCompatActivity {
                 Intent reset = new Intent(PatientEdit.this, ForgetPassword.class);
                 startActivity(reset);
             }
-
-
         });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+              //  Intent delete = new Intent(PatientEdit.this, delete_account.class);
+               // startActivity(delete);
+            }
+        });
+    }
+
+    private void requesrtstoragepermission()
+    {
+        String templang = Locale.getDefault().getLanguage();
+
+        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
+        {
+            if(templang == "ar")
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("مطلوب إذن ")
+                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
+                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(PatientEdit.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("Permission needed")
+                        .setMessage("This permission is needed to upload images")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(PatientEdit.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
+
+        }
+        else{
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+        }
+
 
     }
 
@@ -206,8 +305,16 @@ public class PatientEdit extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PatientEdit.this, "SomeThing went wrong !", Toast.LENGTH_SHORT).show();
+                String templang = Locale.getDefault().getLanguage();
 
+                if(templang == "ar")
+                {
+                    Toast.makeText(PatientEdit.this, "حدث خطأ ! ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(PatientEdit.this, "SomeThing went wrong !", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -223,13 +330,24 @@ public class PatientEdit extends AppCompatActivity {
                String Medical = medical.getText().toString();
                String Other = other.getText().toString();
                String fName = fullname.getText().toString();
+               String templang = Locale.getDefault().getLanguage();
+
 
                if( Medical.isEmpty())
                {
                    if (fName.isEmpty()) {
-                       fullname.setError("Your Name is required");
-                       fullname.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           fullname.setError("من فضلك قم بكتابة اسمك ");
+                           fullname.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           fullname.setError("Your Name is required");
+                           fullname.requestFocus();
+                           return;
+                       }
 
                    }
                    else{
@@ -239,8 +357,14 @@ public class PatientEdit extends AppCompatActivity {
                        databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                            @Override
                            public void onSuccess(Void unused) {
-                               Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
-
+                               if(templang == "ar")
+                               {
+                                   Toast.makeText(PatientEdit.this, "لقد تم تعديل بياناتك بنجاح  ", Toast.LENGTH_SHORT).show();
+                               }
+                               else
+                               {
+                                   Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+                               }
 
                            }
                        });
@@ -251,49 +375,122 @@ public class PatientEdit extends AppCompatActivity {
                else
                {
                    if (fName.isEmpty()) {
-                       fullname.setError("Your Name is required");
-                       fullname.requestFocus();
-                       return;
+
+                       if(templang == "ar")
+                       {
+                           fullname.setError("من فضلك قم بكتابة اسمك ");
+                           fullname.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           fullname.setError("Your Name is required");
+                           fullname.requestFocus();
+                           return;
+                       }
 
                    }
 
                    if (Medical.isEmpty()) {
-                       medical.setError("Please enter your medical specialty");
-                       medical.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           medical.setError("قم بكتابة مجالك الطبي ");
+                           medical.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           medical.setError("Please enter your medical specialty");
+                           medical.requestFocus();
+                           return;
+                       }
                    }
                    if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
                            && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs")
                            && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة"))
                    {
-                       medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
-                       medical.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           medical.setError("من فضلك اختار ( عيون ، كلي ، رئة ، جلد )");
+                           medical.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           medical.setError("Please enter (Kidney or Lungs or eyes or skin )");
+                           medical.requestFocus();
+                           return;
+                       }
                    }
                    if (Address.isEmpty()) {
-                       clinic.setError("Please enter your clinic address");
-                       clinic.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           clinic.setError("قم بكتابة عنوان العيادة ");
+                           clinic.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           clinic.setError("Please enter your clinic address");
+                           clinic.requestFocus();
+                           return;
+                       }
                    }
                    if (Phone.isEmpty()) {
-                       phone.setError("Please enter your Phone number");
-                       phone.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           phone.setError("قم بكتابة رقم الموبايل ");
+                           phone.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           phone.setError("Please enter your Phone number");
+                           phone.requestFocus();
+                           return;
+                       }
                    }
                    if (Phone.length()!=11) {
-                       phone.setError("Please enter a valid number");
-                       phone.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           phone.setError("من فضلك قم بكتابة رقم صحيح");
+                           phone.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           phone.setError("Please enter a valid number");
+                           phone.requestFocus();
+                           return;
+                       }
                    }
                    if (Time.isEmpty()) {
-                       time.setError("Please enter your available time");
-                       time.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           time.setError("قم بكتابة وقتك المتاح");
+                           time.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           time.setError("Please enter your available time");
+                           time.requestFocus();
+                           return;
+                       }
                    }
                    if (Other.isEmpty()) {
-                       other.setError("If you have any other information ,please write it here..If not,Write Nothing");
-                       other.requestFocus();
-                       return;
+                       if(templang == "ar")
+                       {
+                           other.setError("اذا كان هناك أي معلومات أخري من فضلك قم بكتابتها..");
+                           other.requestFocus();
+                           return;
+                       }
+                       else
+                       {
+                           other.setError("If you have any other information ,please write it here..If not,Write Nothing");
+                           other.requestFocus();
+                           return;
+                       }
                    }
                    else{
 
@@ -307,8 +504,14 @@ public class PatientEdit extends AppCompatActivity {
                        databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                            @Override
                            public void onSuccess(Void unused) {
-                               Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
-
+                               if(templang == "ar")
+                               {
+                                   Toast.makeText(PatientEdit.this, "لقد تم تعديل بياناتك بنجاح  ", Toast.LENGTH_SHORT).show();
+                               }
+                               else
+                               {
+                                   Toast.makeText(PatientEdit.this, "Your Data is successfully updated ", Toast.LENGTH_SHORT).show();
+                               }
 
                            }
                        });
@@ -317,15 +520,46 @@ public class PatientEdit extends AppCompatActivity {
 
                }
 
-
-
-
-
-
            }
 
        });
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        String templang = Locale.getDefault().getLanguage();
+
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (templang == "ar") {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
+                    launcher.launch(
+                            "image/*"
+                    );
+
+                } else {
+                    Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
+
+
+                }
+            } else {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                    launcher.launch(
+                            "image/*"
+                    );
+
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+
+                }
+            }
+
+
+        }
     }
 
 }

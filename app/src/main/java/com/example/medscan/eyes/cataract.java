@@ -23,8 +23,8 @@ public class cataract extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent i=new Intent(cataract.this, actinic_keratosis_advice.class);
-                //startActivity(i);
+                Intent i=new Intent(cataract.this, cataract_advice.class);
+                startActivity(i);
 
             }
         });

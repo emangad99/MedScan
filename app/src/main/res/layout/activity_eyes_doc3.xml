@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-200dp"
         android:layout_marginTop="-250dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="27dp"
         android:layout_toEndOf="@+id/imageView5"
         android:text="@string/consultant_of_ophthalmology_and_lasik_at_the_international_medical_centerdoctor_of_ophthalmology_specialized_in_lasik_vision_correction_and_cataracts_adult_ophthalmology_and_pediatric_ophthalmology"
         android:textColor="@color/gray"
@@ -104,7 +104,7 @@
         android:layout_marginStart="23dp"
 
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="23dp"
         android:layout_toEndOf="@+id/imageView7"
         android:text="@string/_139_el_tahrir_ad_doqi_a_dokki_giza_governorate"
         android:textColor="@color/black"

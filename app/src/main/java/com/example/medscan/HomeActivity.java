@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ import com.example.medscan.menu.Feedback;
 import com.example.medscan.menu.Instruction;
 import com.example.medscan.menu.PatientEdit;
 import com.example.medscan.menu.best_doctors;
+import com.example.medscan.menu.delete_account;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -40,6 +42,8 @@ import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -60,13 +64,22 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
     String profileUrl,username,useremail;
-    ProgressDialog progressDialog;
-
+    TextView or;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        or=findViewById(R.id.txt_or);
+        or.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent delete = new Intent(HomeActivity.this, delete_account.class);
+                startActivity(delete);
+            }
+        });
+
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -80,7 +93,6 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView=findViewById(R.id.navigationview);
         navigationView.setItemIconTintList(null);
-        //navigationView.bringToFront();
         drawerLayout =findViewById(R.id.drawerlayout);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -95,10 +107,13 @@ public class HomeActivity extends AppCompatActivity {
         name=view.findViewById(R.id.user_name);
         email=view.findViewById(R.id.user_email);
 
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NotNull MenuItem item) {
                 int id=item.getItemId();
+
 
                 switch (id)
                 {
@@ -146,35 +161,6 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, chat_home.class));
                         break;
 
-                    case R.id.nav_delete:
-
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
-                        dialog.setTitle("Are you sure ?");
-                        dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
-                        dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                delete_current_user();
-
-                            }
-                        });
-                        dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-
-                        AlertDialog alertDialog = dialog.create();
-                        alertDialog.show();
-
-
-
-
-
-
-                        break;
                 }
                 return false;
             }
@@ -204,41 +190,11 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void delete_current_user() {
-
-
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Please wait ... ");
-        progressDialog.setMessage("We are deleting your account.");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
-                FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                        .setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    progressDialog.dismiss();
-                                    sessionManager.setLogin(false);
-                                    sessionManager.setUsername("");
-                                    Intent intent = new Intent(HomeActivity.this, Login.class);
-                                    startActivity(intent);
-                                }
-                            }
-                        });
-
-                    }
-                });
-    }
-
-
-
     @Override
     protected void onStart() {
         super.onStart();
+        String templang = Locale.getDefault().getLanguage();
+
 
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -254,23 +210,27 @@ public class HomeActivity extends AppCompatActivity {
                     email.setText(useremail);
 
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomeActivity.this, "sorry", Toast.LENGTH_SHORT).show();
+                if(templang == "ar")
+                {
+                    Toast.makeText(HomeActivity.this, "حدث خطأ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(HomeActivity.this, "sorry", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
     }
 
-
-
-
-
     @Override
     public void onBackPressed() {
+        String templang = Locale.getDefault().getLanguage();
+
         if(backpressedtime + 2000 >System.currentTimeMillis())
         {
             finishAffinity();
@@ -278,8 +238,16 @@ public class HomeActivity extends AppCompatActivity {
             return;
 
         }else{
-            backtoast= Toast.makeText(getBaseContext(), "double click to exit ", Toast.LENGTH_SHORT);
-            backtoast.show();
+            if(templang == "ar")
+            {
+                backtoast= Toast.makeText(getBaseContext(), "انقر نقرًا مزدوجًا للخروج", Toast.LENGTH_SHORT);
+                backtoast.show();
+            }
+            else
+            {
+                backtoast= Toast.makeText(getBaseContext(), "double click to exit ", Toast.LENGTH_SHORT);
+                backtoast.show();
+            }
         }
         backpressedtime =System.currentTimeMillis();
 
