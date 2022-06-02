@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/you_are_infected_with_actinic_keratosis"
+        android:text="@string/disease_skin"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"

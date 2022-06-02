@@ -388,5 +388,6 @@
     <string name="red_bloodcell_count" translatable="false">Red bloodcell count</string>
     <string name="present">Present</string>
     <string name="not_present">Not present</string>
+    <string name="disease_skin">you are infected with vascular lesions</string>
 
 </resources>

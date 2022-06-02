@@ -72,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         or=findViewById(R.id.txt_or);
+        /*
         or.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +80,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(delete);
             }
         });
+
+         */
 
 
         authProfile = FirebaseAuth.getInstance();

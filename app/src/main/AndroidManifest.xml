@@ -20,7 +20,8 @@
         tools:targetApi="m">
         <activity
             android:name=".menu.delete_account"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".eyes.successful_eyes_advice"
             android:exported="true"

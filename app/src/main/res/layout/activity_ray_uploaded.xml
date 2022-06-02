@@ -35,7 +35,7 @@
     <ImageView
         android:id="@+id/image_ray"
         android:layout_width="515dp"
-        android:layout_height="350dp"
+        android:layout_height="343dp"
         android:layout_marginBottom="268dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
         app:srcCompat="@drawable/upload" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/txt_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -68,7 +68,7 @@
         app:layout_constraintBottom_toTopOf="@+id/prog_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/txt_upload"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/upload_2" />
 
@@ -95,6 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:indeterminateTint="@color/color1"
         app:layout_constraintBottom_toTopOf="@+id/btn_upload_rays"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
