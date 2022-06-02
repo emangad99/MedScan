@@ -151,7 +151,6 @@ public class skin_upload extends AppCompatActivity {
 
             text.setVisibility(View.GONE);
 
-
         }
 
     }
@@ -277,10 +276,7 @@ public class skin_upload extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
                     Toast.makeText(this, "تم أخذ إذن الكاميرا ", Toast.LENGTH_LONG).show();
-                   // Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    //startActivityForResult(cameraIntent, CAMERA_REQUEST);
                     dispatchTakePictureIntent();
-
                 }
                 else
                 {
@@ -292,10 +288,6 @@ public class skin_upload extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED )
                 {
                     Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
-                   /* Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
-
-                    */
                     dispatchTakePictureIntent();
                 }
                 else
