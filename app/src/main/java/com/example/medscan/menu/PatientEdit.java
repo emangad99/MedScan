@@ -1,9 +1,12 @@
 package com.example.medscan.menu;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,8 +19,11 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.medscan.HomeActivity;
 import com.example.medscan.R;
@@ -25,6 +31,7 @@ import com.example.medscan.SessionManager;
 import com.example.medscan.UserHelper;
 import com.example.medscan.Welcome;
 import com.example.medscan.databinding.ActivityPatientEditBinding;
+import com.example.medscan.eyes_image;
 import com.example.medscan.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -63,6 +70,8 @@ public class PatientEdit extends AppCompatActivity {
     ActivityResultLauncher<String> launcher;
     SessionManager sessionManager;
     ProgressBar progressBar;
+    private int STORAGE_PERMISSION_CODE = 1 ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,9 +140,21 @@ public class PatientEdit extends AppCompatActivity {
         binding.camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launcher.launch(
-                        "image/*"
-                );
+
+                if(ContextCompat.checkSelfPermission(PatientEdit.this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
+                {
+                    launcher.launch(
+                            "image/*"
+                    );
+
+                }
+                else
+                {
+                    requesrtstoragepermission();
+
+                }
+
 
             }
         });
@@ -209,6 +230,65 @@ public class PatientEdit extends AppCompatActivity {
                // startActivity(delete);
             }
         });
+    }
+
+    private void requesrtstoragepermission()
+    {
+        String templang = Locale.getDefault().getLanguage();
+
+        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
+        {
+            if(templang == "ar")
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("مطلوب إذن ")
+                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
+                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(PatientEdit.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("Permission needed")
+                        .setMessage("This permission is needed to upload images")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(PatientEdit.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
+
+        }
+        else{
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+        }
+
+
     }
 
     private void showProfile(FirebaseUser firebaseUser) {
@@ -444,6 +524,42 @@ public class PatientEdit extends AppCompatActivity {
 
        });
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        String templang = Locale.getDefault().getLanguage();
+
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (templang == "ar") {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
+                    launcher.launch(
+                            "image/*"
+                    );
+
+                } else {
+                    Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
+
+
+                }
+            } else {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                    launcher.launch(
+                            "image/*"
+                    );
+
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+
+                }
+            }
+
+
+        }
     }
 
 }
