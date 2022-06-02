@@ -245,7 +245,7 @@ public class RayUploaded extends AppCompatActivity {
                                 }
                             }, 10000);
 
-                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with covid-19", Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with covid-19", Toast.LENGTH_LONG).show();
                         }
                         else if (response.body().getData().toString().equals("PNEUMONIA")){
                             final Handler handler = new Handler(Looper.getMainLooper());

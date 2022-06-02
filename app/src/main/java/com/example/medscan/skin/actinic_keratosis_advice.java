@@ -45,19 +45,19 @@ public class actinic_keratosis_advice extends AppCompatActivity {
         List<screen_item> mlist = new ArrayList<>();
         if(templang == "ar")
         {
-            mlist.add(new screen_item("تجنب الشمس ","تجنب البقاء في الشمس لفترة طويلة حتى تصاب بحروق الشمس أو تان لأن كلاهما يؤدي إلى تلف الجلد الذي يمكن أن يزيد من خطر الإصابة بالتقران السفعي.",R.drawable.sun2));
+            mlist.add(new screen_item("تجنب الشمس ","تجنب البقاء في الشمس لفترة طويلة حتى تصاب بحروق الشمس أو تان لأن كلاهما يؤدي إلى تلف الجلد ",R.drawable.sun2));
             mlist.add(new screen_item("استخدم واقي من الشمس ","قبل قضاء الوقت في الهواء الطلق ، استخدم واقيًا من الشمس واسع الطيف مع عامل حماية من الشمس 15 على الأقل.",R.drawable.sunscreen));
             mlist.add(new screen_item("ارتدي ملابس للحماية ","لمزيد من الحماية من أشعة الشمس ، ارتدِ ملابس منسوجة بإحكام تغطي ذراعيك وساقيك.",R.drawable.walk));
-            mlist.add(new screen_item("استخدم كريمًا طبيًا","يمكنك استخدام كريم أو هلام طبي للتخلص منها مثل فلورويوراسيل (Karac، Fluoroplex ، وغيرهما) ، إيميكويمود (Aldara ، Zyclara) ، إنجينول ميبوتات أو ديكلوفيناك (Solaraz).",R.drawable.cream));
+            mlist.add(new screen_item("العلاج بالأدوية ","أدوية الكورتيكوستيرويد (Corticosteroid) هي الخيار الأول لعلاج التهاب الأوعية الدموية في الجسم، وأبرز دواء منها يُوصف في هذا الشأن هو دواء بريدنيزون (Prednisone).",R.drawable.cream));
 
 
         }
         else
         {
-            mlist.add(new screen_item("Avoid sun","Avoid staying in the sun for too long until you get a sunburn or tan because both lead to skin damage that can increase the risk of actinic keratoses.",R.drawable.sun2));
+            mlist.add(new screen_item("Avoid sun","Avoid staying in the sun for too long until you get a sunburn or tan because both lead to skin damage ",R.drawable.sun2));
             mlist.add(new screen_item("Use sunscreen","Before spending time outdoors, use a broad-spectrum sunscreen with an SPF of at least 15.",R.drawable.sunscreen));
             mlist.add(new screen_item("Wear woven clothing","For extra protection from the sun, wear tightly woven clothing that covers your arms and legs.",R.drawable.walk));
-            mlist.add(new screen_item("Use a medicated cream","You can use a medicated cream or gel to eliminate them such as fluorouracil (Karac, Fluoroplex, others), imiquimod (Aldara, Zyclara), ingenol mebutate or diclofenac (Solaraz).",R.drawable.cream));
+            mlist.add(new screen_item("drug therapy","Corticosteroid medications are the first choice for treating dermatitis on the body, and the most commonly prescribed medication in this regard is prednisone.",R.drawable.cream));
 
 
         }
