@@ -23,6 +23,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.medscan.lungs.ApiInterface;
@@ -55,6 +56,7 @@ public class RayUploaded extends AppCompatActivity {
 
     ImageView btn_choose , image;
     Button upload ;
+    ProgressBar prog_bar;
     private Uri imageuri;
     int SELECT_PHOTO=2;
     private int STORAGE_PERMISSION_CODE = 1 ;
@@ -71,11 +73,15 @@ public class RayUploaded extends AppCompatActivity {
         btn_choose = findViewById(R.id.choose);
         image=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
+        prog_bar = findViewById(R.id.prog_bar);
+        prog_bar.setVisibility(View.INVISIBLE);
 
 
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                prog_bar.setVisibility(View.INVISIBLE);
 
                 if(ContextCompat.checkSelfPermission(RayUploaded.this,
                         Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
@@ -98,11 +104,15 @@ public class RayUploaded extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if ( (imageuri != null)){
+
+                    prog_bar.setVisibility(View.VISIBLE);
 
                     result();
 
                 }else{
+
                     Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
                 }
 
