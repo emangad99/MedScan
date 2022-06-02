@@ -132,6 +132,8 @@ public class skin_upload extends AppCompatActivity {
                 if ( (imageuri != null)){
 
                     prog_bar.setVisibility(View.VISIBLE);
+                    btn_choose.setVisibility(View.GONE);
+                    btn_camera.setVisibility(View.GONE);
 
                     result();
 
@@ -179,6 +181,7 @@ public class skin_upload extends AppCompatActivity {
             path = RealPathUtil.getRealPath(c, imageuri);
             Bitmap bitmap = BitmapFactory.decodeFile(path);
             image.setImageBitmap(bitmap);
+            text.setVisibility(View.GONE);
         }
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {

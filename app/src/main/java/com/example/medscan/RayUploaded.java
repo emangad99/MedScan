@@ -24,6 +24,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medscan.lungs.ApiInterface;
@@ -42,6 +43,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
+import java.util.Locale;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -64,6 +66,8 @@ public class RayUploaded extends AppCompatActivity {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_lung");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     String path;
+    String templang = Locale.getDefault().getLanguage();
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,7 @@ public class RayUploaded extends AppCompatActivity {
         upload=findViewById(R.id.btn_upload_rays);
         prog_bar = findViewById(R.id.prog_bar);
         prog_bar.setVisibility(View.INVISIBLE);
+        text=findViewById(R.id.txt_upload);
 
 
         btn_choose.setOnClickListener(new View.OnClickListener() {
@@ -108,12 +113,21 @@ public class RayUploaded extends AppCompatActivity {
                 if ( (imageuri != null)){
 
                     prog_bar.setVisibility(View.VISIBLE);
+                    btn_choose.setVisibility(View.GONE);
 
                     result();
 
                 }else{
 
-                    Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    if(templang == "ar")
+                    {
+                        Toast.makeText(RayUploaded.this, "من فضلك قم بإختيار الصورة ", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(RayUploaded.this, "Please select image ", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
 
             }
@@ -131,6 +145,7 @@ public class RayUploaded extends AppCompatActivity {
             path = RealPathUtil.getRealPath(c, imageuri);
             Bitmap bitmap = BitmapFactory.decodeFile(path);
             image.setImageBitmap(bitmap);
+            text.setVisibility(View.GONE);
 
         }
 
@@ -140,25 +155,50 @@ public class RayUploaded extends AppCompatActivity {
     {
         if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
         {
-            new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed to upload images")
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+            if(templang == "ar")
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("مطلوب إذن")
+                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
+                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
 
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
 
-                        }
-                    })
-                    .create().show();
+                            }
+                        })
+                        .create().show();
 
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setTitle("Permission needed")
+                        .setMessage("This permission is needed to upload images")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(RayUploaded.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create().show();
+
+            }
         }
         else{
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
@@ -169,18 +209,29 @@ public class RayUploaded extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            if(templang == "ar")
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "تم أخذ الإذن", Toast.LENGTH_SHORT).show();
 
-            } else {
-                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "تم رفض الإذن", Toast.LENGTH_SHORT).show();
 
 
+                }
             }
+            else
+            {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
 
 
+                }
+            }
         }
-
     }
     private  void  uplaodToFirebase(Uri uri){
         StorageReference fileRef =  reference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
@@ -268,7 +319,14 @@ public class RayUploaded extends AppCompatActivity {
                             }, 10000);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Something went wrong! Please Retry Again", Toast.LENGTH_LONG).show();
+                            if(templang == "ar")
+                            {
+                                Toast.makeText(getApplicationContext(), "هناك خطأ ! . من فضلك قم بالمحاولة مرة أخرى .. ", Toast.LENGTH_LONG).show();
+                            }
+                            else
+                            {
+                                Toast.makeText(getApplicationContext(), "Something went wrong! Please Retry Again", Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
 
