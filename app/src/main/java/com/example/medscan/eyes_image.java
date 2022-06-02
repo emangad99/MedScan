@@ -300,8 +300,6 @@ public class eyes_image extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
                     Toast.makeText(this, "تم منح إذن الكاميرا", Toast.LENGTH_LONG).show();
-                   // Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    //startActivityForResult(cameraIntent, CAMERA_REQUEST);
                     dispatchTakePictureIntent();
 
                 }
@@ -315,8 +313,6 @@ public class eyes_image extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
                     Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
-                   // Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    //startActivityForResult(cameraIntent, CAMERA_REQUEST);
                     dispatchTakePictureIntent();
 
                 }
