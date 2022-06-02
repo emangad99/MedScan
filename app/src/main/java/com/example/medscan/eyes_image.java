@@ -149,8 +149,10 @@ public class eyes_image extends AppCompatActivity {
             Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             imageuri = Uri.fromFile(f);
             mediaScanIntent.setData(imageuri);
-            text.setVisibility(View.GONE);
             this.sendBroadcast(mediaScanIntent);
+
+            text.setVisibility(View.GONE);
+
 
 
 
@@ -298,8 +300,10 @@ public class eyes_image extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
                     Toast.makeText(this, "تم منح إذن الكاميرا", Toast.LENGTH_LONG).show();
-                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                   // Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    //startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                    dispatchTakePictureIntent();
+
                 }
                 else
                 {
@@ -311,8 +315,10 @@ public class eyes_image extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
                     Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
-                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                   // Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    //startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                    dispatchTakePictureIntent();
+
                 }
                 else
                 {
