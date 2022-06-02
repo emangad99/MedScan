@@ -17,6 +17,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -26,12 +28,15 @@ import android.widget.Toast;
 import com.example.medscan.lungs.ApiInterface;
 import com.example.medscan.lungs.RealPathUtil;
 import com.example.medscan.lungs.Result;
+import com.example.medscan.lungs.covid;
+import com.example.medscan.lungs.covid_advice;
+import com.example.medscan.lungs.failed;
+import com.example.medscan.lungs.successful;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -94,6 +99,7 @@ public class RayUploaded extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if ( (imageuri != null)){
+
                     result();
 
                 }else{
@@ -218,15 +224,44 @@ public class RayUploaded extends AppCompatActivity {
 
                     if (response.body() != null) {
                         if (response.body().getData().toString().equals("Covid-19")){
-                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with Covid-19", Toast.LENGTH_LONG).show();
+
+
+                            final Handler handler = new Handler(Looper.getMainLooper());
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent covid = new Intent(RayUploaded.this, covid.class);
+                                    startActivity(covid);
+                                }
+                            }, 10000);
+
+                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with covid-19", Toast.LENGTH_LONG).show();
                         }
-                        else if (response.body().getData().toString().equals("Pneumonia")){
-                            Toast.makeText(getApplicationContext(), "Sorry! Your Are Infected with Pneumonia", Toast.LENGTH_LONG).show();
+                        else if (response.body().getData().toString().equals("PNEUMONIA")){
+                            final Handler handler = new Handler(Looper.getMainLooper());
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent pneumonia = new Intent(RayUploaded.this, failed.class);
+                                    startActivity(pneumonia);
+                                }
+                            }, 10000);
+                        }
+                        else if (response.body().getData().toString().equals("NORMAL")){
+                            final Handler handler = new Handler(Looper.getMainLooper());
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent normal = new Intent(RayUploaded.this, successful.class);
+                                    startActivity(normal);
+                                }
+                            }, 10000);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Your Lungs Are Healthy", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Something went wrong! Please Retry Again", Toast.LENGTH_LONG).show();
                         }
                     }
+
 
 
                 }

@@ -12,7 +12,7 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="280dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/custom_button"
         android:backgroundTintMode="add"
         android:fontFamily="sans-serif"
@@ -23,7 +23,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

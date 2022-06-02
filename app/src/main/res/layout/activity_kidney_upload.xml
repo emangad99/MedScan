@@ -78,7 +78,7 @@
         android:background="@drawable/custom_button"
         android:clickable="false"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/upload_now"
+        android:text="@string/check_now"
         android:textAllCaps="false"
         android:textColor="@color/color3"
         android:textSize="16sp"

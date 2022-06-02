@@ -9,8 +9,6 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.medscan.R;
-import com.example.medscan.lungs.covid;
-import com.example.medscan.lungs.covid_advice;
 
 public class actinic_keratosis extends AppCompatActivity {
     Button done;

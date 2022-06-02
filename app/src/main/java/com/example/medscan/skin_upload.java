@@ -10,6 +10,7 @@ import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.MediaRouteButton;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,8 +26,19 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.medscan.login.Login;
+import com.example.medscan.skin.dermatofibroma;
+import com.example.medscan.skin.dermatofibroma_advice;
+import com.example.medscan.skin.successful_skin;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -35,10 +47,15 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class skin_upload extends AppCompatActivity {
 
@@ -46,12 +63,14 @@ public class skin_upload extends AppCompatActivity {
     private int STORAGE_PERMISSION_CODE = 1 ;
     ImageView btn_choose , image , btn_camera;
     Button upload ;
-    private Uri imageuri;
+    public Uri imageuri;
     String currentPhotoPath;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST = 1888;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_skin");
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +81,8 @@ public class skin_upload extends AppCompatActivity {
         image=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
         btn_camera=findViewById(R.id.camera);
+
+
 
 
         btn_choose.setOnClickListener(new View.OnClickListener() {
@@ -90,10 +111,15 @@ public class skin_upload extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( (imageuri != null)){
-                    uplaodToFirebase(imageuri);
+                if ( (imageuri != null)) {
+                    //uplaodToFirebase(imageuri);
 
-                }else{
+
+                }
+
+
+
+                else{
                     Toast.makeText(skin_upload.this, "Please select image ", Toast.LENGTH_SHORT).show();
                 }
 

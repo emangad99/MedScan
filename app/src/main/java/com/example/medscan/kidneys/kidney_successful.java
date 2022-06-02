@@ -9,9 +9,6 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.medscan.R;
-import com.example.medscan.lungs.covid_advice;
-import com.example.medscan.lungs.successful;
-import com.example.medscan.lungs.successful_advice;
 
 public class kidney_successful extends AppCompatActivity {
     Button done;

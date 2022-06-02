@@ -8,24 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.medscan.eyes.bulging_eyes;
-import com.example.medscan.eyes.cataract;
-import com.example.medscan.eyes.crossed_eyes;
-import com.example.medscan.eyes.glaucoma;
-import com.example.medscan.eyes.uveitis;
-import com.example.medscan.kidneys.kidney_failed;
-import com.example.medscan.kidneys.kidney_successful;
-import com.example.medscan.kidneys.kidney_successful_advice;
 import com.example.medscan.login.Login;
-import com.example.medscan.lungs.covid;
-import com.example.medscan.lungs.failed;
-import com.example.medscan.lungs.successful;
-import com.example.medscan.skin.actinic_keratosis;
-import com.example.medscan.skin.basal_cell_carcinoma;
-import com.example.medscan.skin.dermatofibroma;
-import com.example.medscan.skin.intraepithelial_carcinoma;
-import com.example.medscan.skin.melanocytic_nevi;
-import com.example.medscan.skin.melanoma;
-import com.example.medscan.skin.seborrheic_keratosis;
 
 public class Welcome extends AppCompatActivity {
 Button btn_start;

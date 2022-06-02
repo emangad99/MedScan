@@ -24,7 +24,7 @@ public class covid extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(covid.this,covid_advice.class);
+                Intent i=new Intent(covid.this, covid_advice.class);
                 startActivity(i);
 
             }
