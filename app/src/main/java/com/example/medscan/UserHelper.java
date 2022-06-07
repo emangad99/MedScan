@@ -4,18 +4,18 @@ public class UserHelper {
 
     String feedback, userId;
     String address,phone,medical,time,other,Full_Name,image;
-    String sender,receiver,message;
+   // String sender,receiver,message;
 
     public String getimage() {
         return image
                 ;
     }
 
-    public UserHelper(String sender, String receiver, String message) {
+  /*  public UserHelper(String sender, String receiver, String message) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
-    }
+    }*/
 
     public void setimage(String imageURI) {
         this.image
@@ -78,7 +78,7 @@ public class UserHelper {
         this.other = other;
     }
 
-    public String getSender() {
+   /* public String getSender() {
         return sender;
     }
 
@@ -100,7 +100,7 @@ public class UserHelper {
 
     public void setMessage(String message) {
         this.message = message;
-    }
+    }*/
 
     public UserHelper() {
     }

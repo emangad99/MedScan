@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +35,7 @@ public class chat_home extends AppCompatActivity {
 
     TextView name;
     String _NAME , photo;
-    //ProgressBar progressBar;
+    //Progres00000000sBar progressBar;
     //StorageReference mstorageReference;
     RoundedImageView img;
     RecyclerView recyclerView;
@@ -43,7 +44,7 @@ public class chat_home extends AppCompatActivity {
     FirebaseAuth authProfile;
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
-    List<String>userlist;
+    List<chatlist>userlist;
 
 
     @Override
@@ -58,30 +59,24 @@ public class chat_home extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         userlist = new ArrayList<>();
-        databaseReference =FirebaseDatabase.getInstance().getReference().child("chats");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userlist.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    UserHelper user =snapshot.getValue(UserHelper.class);
-                    if(user.getSender().equals(firebaseUser.getUid())){
-                        userlist.add(user.getReceiver());
-                    }
-                    if (user.getReceiver().equals(firebaseUser.getUid())){
-                        userlist.add(user.getSender());
-                    }
-                }
-                readchat();
-            }
+       databaseReference = FirebaseDatabase.getInstance().getReference("chatlist").child(firebaseUser.getUid());
+       databaseReference.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               userlist.clear();
+               for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                   chatlist chatlist = snapshot.getValue(chatlist.class);
+                   userlist.add(chatlist);
+               }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+               Chatlist();
+           }
 
-            }
-        });
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
 
+           }
+       });
         final FloatingActionButton button = findViewById(R.id.chat_fab);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,36 +97,23 @@ public class chat_home extends AppCompatActivity {
 
 
     }
-
-    private void readchat() {
-
+private void Chatlist(){
         list = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
-                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     UserHelper user = snapshot.getValue(UserHelper.class);
-                    for(String id : userlist){
-                        if (user.getUserId().equals(id)){
-                            if (userlist.size() != 0){
-                                for (UserHelper userHelper : list){
-                                    if (!user.getUserId().equals(userHelper.getUserId())){
-                                        list.add(user);
-                                    }
-
-                                }
-                            }else {
-                                list.add(user);
-                            }
+                    for (chatlist chatllist :userlist){
+                        if(user.getUserId().equals(chatllist.getId())){
+                            list.add(user);
                         }
                     }
                 }
                 chat_adapter2 = new chat_Adapter(chat_home.this,list);
                 recyclerView.setAdapter(chat_adapter2);
-
-
             }
 
             @Override
@@ -139,7 +121,10 @@ public class chat_home extends AppCompatActivity {
 
             }
         });
-    }
+
+}
+
+
 
     @Override
     protected void onStart() {
