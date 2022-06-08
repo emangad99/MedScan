@@ -74,7 +74,7 @@ public class chat_useer extends AppCompatActivity {
                     userHelper = dataSnapshot.getValue(UserHelper.class);
                     assert userHelper != null;
                     assert firebaseUser !=null;
-                    if( !userHelper.getMedical().equals(""))
+                   if( !userHelper.getMedical().equals(""))
                     {
                         if(!userHelper.getUserId().equals(firebaseUser.getUid()))
                         {

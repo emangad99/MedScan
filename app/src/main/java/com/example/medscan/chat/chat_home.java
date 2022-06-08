@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ public class chat_home extends AppCompatActivity {
 
     TextView name;
     String _NAME , photo;
-    //Progres00000000sBar progressBar;
+    ProgressBar progressBar;
     //StorageReference mstorageReference;
     RoundedImageView img;
     RecyclerView recyclerView;
@@ -55,6 +56,7 @@ public class chat_home extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         name=findViewById(R.id.text_name);
+        progressBar=findViewById(R.id.progress_bar);
         img=findViewById(R.id.img_prof);
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -63,6 +65,7 @@ public class chat_home extends AppCompatActivity {
        databaseReference.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               progressBar.setVisibility(View.VISIBLE);
                userlist.clear();
                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                    chatlist chatlist = snapshot.getValue(chatlist.class);
@@ -97,12 +100,15 @@ public class chat_home extends AppCompatActivity {
 
 
     }
+
+
 private void Chatlist(){
         list = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               // progressBar.setVisibility(View.VISIBLE);
                 list.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     UserHelper user = snapshot.getValue(UserHelper.class);
@@ -112,6 +118,7 @@ private void Chatlist(){
                         }
                     }
                 }
+                progressBar.setVisibility(View.GONE);
                 chat_adapter2 = new chat_Adapter(chat_home.this,list);
                 recyclerView.setAdapter(chat_adapter2);
             }
@@ -154,6 +161,10 @@ private void Chatlist(){
             }
         });
     }
+
+
+
+
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_home.this, HomeActivity.class);
