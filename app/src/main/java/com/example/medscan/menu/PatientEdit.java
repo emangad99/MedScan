@@ -78,7 +78,8 @@ public class PatientEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_edit);
 
-        progressBar=findViewById(R.id.progrsess_edit);
+        progressBar=findViewById(R.id.progrsess_edit2);
+
         sessionManager=new SessionManager(getApplicationContext());
         String templang = Locale.getDefault().getLanguage();
         binding = ActivityPatientEditBinding.inflate(getLayoutInflater());
@@ -127,7 +128,7 @@ public class PatientEdit extends AppCompatActivity {
                                        {
                                            Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
 
-                                           progressBar.setVisibility(View.GONE);
+                                          // progressBar.setVisibility(View.GONE);
                                        }
                                    }
                                });
@@ -149,6 +150,7 @@ public class PatientEdit extends AppCompatActivity {
                     launcher.launch(
                             "image/*"
                     );
+                 //   progressBar.setVisibility(View.VISIBLE);
 
                 }
                 else
@@ -156,7 +158,6 @@ public class PatientEdit extends AppCompatActivity {
                     requesrtstoragepermission();
 
                 }
-                progressBar.setVisibility(View.VISIBLE);
 
 
             }
