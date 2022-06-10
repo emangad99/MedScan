@@ -54,7 +54,7 @@ import java.util.Locale;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PatientEdit extends AppCompatActivity {
-    TextView password,delete;
+    TextView password;
     TextView fullname,emailedittext, phone, medical, clinic, time, other;
     String _EMAIL;
     CircleImageView profileimage;
@@ -171,7 +171,6 @@ public class PatientEdit extends AppCompatActivity {
         other = findViewById(R.id.editTextTextPersonName5);
         update = findViewById(R.id.button3);
         input_btn=findViewById(R.id.camera);
-        delete=findViewById(R.id.delete);
         database = FirebaseDatabase.getInstance();
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -198,7 +197,6 @@ public class PatientEdit extends AppCompatActivity {
                     clinic.setEnabled(false);
                     time.setEnabled(false);
                     other.setEnabled(false);
-                  //  delete.setVisibility(View.GONE);
 
                 }
 
@@ -219,15 +217,6 @@ public class PatientEdit extends AppCompatActivity {
 
                 Intent reset = new Intent(PatientEdit.this, ForgetPassword.class);
                 startActivity(reset);
-            }
-        });
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-              //  Intent delete = new Intent(PatientEdit.this, delete_account.class);
-               // startActivity(delete);
             }
         });
     }
@@ -407,7 +396,10 @@ public class PatientEdit extends AppCompatActivity {
                    }
                    if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
                            && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs")
-                           && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة"))
+                           && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة")
+                           &&! Medical.equals("Kidney ") && ! Medical.equals("eyes ") && ! Medical.equals("Skin ") && ! Medical.equals("Lungs ")
+                           && ! Medical.equals("Eyes ") && ! Medical.equals("kidney ") && ! Medical.equals("skin ") && ! Medical.equals("lungs ")
+                           && ! Medical.equals("عيون ") && ! Medical.equals("كلى ") && ! Medical.equals("جلد ") && ! Medical.equals("رئة "))
                    {
                        if(templang == "ar")
                        {

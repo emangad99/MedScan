@@ -164,6 +164,13 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, chat_home.class));
                         break;
 
+                    case R.id.nav_delete:
+
+                            Intent delete = new Intent(HomeActivity.this, delete_account.class);
+                         startActivity(delete);
+
+                        break;
+
                 }
                 return false;
             }

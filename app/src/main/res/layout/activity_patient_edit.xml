@@ -123,7 +123,7 @@
         android:id="@+id/txt_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="45dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/reset"
         android:textColor="@color/color2"
@@ -222,17 +222,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_reset"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
-
-    <TextView
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/delete_account"
-        android:textColor="@color/color2"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/txt_reset"
-        app:layout_constraintTop_toBottomOf="@+id/txt_reset" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

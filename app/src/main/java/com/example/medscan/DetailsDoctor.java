@@ -77,7 +77,10 @@ public class DetailsDoctor extends AppCompatActivity {
                 }
                 if (! Medical.equals("Kidney") && ! Medical.equals("eyes") && ! Medical.equals("Skin") && ! Medical.equals("Lungs")
                         && ! Medical.equals("Eyes") && ! Medical.equals("kidney") && ! Medical.equals("skin") && ! Medical.equals("lungs")
-                        && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة"))
+                        && ! Medical.equals("عيون") && ! Medical.equals("كلى") && ! Medical.equals("جلد") && ! Medical.equals("رئة")
+                        &&! Medical.equals("Kidney ") && ! Medical.equals("eyes ") && ! Medical.equals("Skin ") && ! Medical.equals("Lungs ")
+                        && ! Medical.equals("Eyes ") && ! Medical.equals("kidney ") && ! Medical.equals("skin ") && ! Medical.equals("lungs ")
+                        && ! Medical.equals("عيون ") && ! Medical.equals("كلى ") && ! Medical.equals("جلد ") && ! Medical.equals("رئة "))
                 {
                     if(templang == "ar")
                     {
