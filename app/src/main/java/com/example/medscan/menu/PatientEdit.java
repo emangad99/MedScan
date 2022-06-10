@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -72,7 +73,6 @@ public class PatientEdit extends AppCompatActivity {
     ProgressBar progressBar;
     private int STORAGE_PERMISSION_CODE = 1 ;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +104,6 @@ public class PatientEdit extends AppCompatActivity {
             @Override
             public void onActivityResult(Uri result) {
                 binding.profilePic.setImageURI(result);
-               // progressBar.setVisibility(View.VISIBLE);
 
                 final StorageReference reference = storage.getReference("Users").child(firebaseUser.getUid()).child("image");
                 reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -127,6 +126,8 @@ public class PatientEdit extends AppCompatActivity {
                                        else
                                        {
                                            Toast.makeText(getApplicationContext(),"Image uploaded",Toast.LENGTH_SHORT).show();
+
+                                           progressBar.setVisibility(View.GONE);
                                        }
                                    }
                                });
@@ -143,6 +144,7 @@ public class PatientEdit extends AppCompatActivity {
 
                 if(ContextCompat.checkSelfPermission(PatientEdit.this,
                         Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
+
                 {
                     launcher.launch(
                             "image/*"
@@ -154,6 +156,7 @@ public class PatientEdit extends AppCompatActivity {
                     requesrtstoragepermission();
 
                 }
+                progressBar.setVisibility(View.VISIBLE);
 
 
             }
@@ -162,6 +165,7 @@ public class PatientEdit extends AppCompatActivity {
 
         profileimage=findViewById(R.id.profile_pic);
         password = findViewById(R.id.txt_reset);
+
         fullname = findViewById(R.id.fullnameedit);
         emailedittext = findViewById(R.id.editTextTextEmailAddress);
         phone = findViewById(R.id.editTextPhone);
@@ -214,6 +218,7 @@ public class PatientEdit extends AppCompatActivity {
         password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 Intent reset = new Intent(PatientEdit.this, ForgetPassword.class);
                 startActivity(reset);
@@ -312,6 +317,8 @@ public class PatientEdit extends AppCompatActivity {
        update.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+
+
 
                String Address = clinic.getText().toString();
                String Phone = phone.getText().toString();

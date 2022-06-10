@@ -41,7 +41,7 @@ public class chat_activity extends AppCompatActivity {
     ImageView btn , back , profile_image;
     EditText edit;
     MessageAdapter messageAdapter;
-    ArrayList<UserHelper> list;
+    ArrayList<chatm> list;
     RecyclerView recyclerView;
     Intent intent;
 
@@ -115,6 +115,7 @@ public class chat_activity extends AppCompatActivity {
     }
 
     private void sendMessage(String sender, String receiver ,String message){
+        String userid = intent.getStringExtra("userid");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -123,6 +124,22 @@ public class chat_activity extends AppCompatActivity {
         hashMap.put("message",message);
 
         reference.child("chats").push().setValue(hashMap);
+
+        DatabaseReference chatRef= FirebaseDatabase.getInstance().getReference("chatlist").child(fuser.getUid()).child(userid);
+        chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+              if(!dataSnapshot.exists()){
+                    chatRef.child("id").setValue(userid);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
     }
@@ -135,7 +152,7 @@ public class chat_activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    UserHelper user = snapshot.getValue(UserHelper.class);
+                    chatm user = snapshot.getValue(chatm.class);
                     if(user.getReceiver().equals(myid) && user.getSender().equals(userid) || user.getReceiver().equals(userid) && user.getSender().equals(myid)){
 
                         list.add(user);

@@ -24,12 +24,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
     public static  final int MSG_RECEIVE =0;
     public static  final  int MSG_SENT = 1;
     Context context;
-    ArrayList<UserHelper> list;
+    ArrayList<chatm> list;
     UserHelper user;
     String image;
     FirebaseUser fUser;
 
-    public MessageAdapter(Context context, ArrayList<UserHelper> list , String image) {
+    public MessageAdapter(Context context, ArrayList<chatm> list , String image) {
 
 
         this.context = context;
@@ -51,7 +51,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
 
     @Override
     public void onBindViewHolder(@NonNull   MessageAdapter.viewholder holder, int position) {
-        UserHelper  user =list.get(position);
+        chatm  user =list.get(position);
         holder.show_message.setText(user.getMessage());
         /*if(!image.equals("default")){
             holder.img.setBackgroundResource(R.mipmap.ic_launcher);
