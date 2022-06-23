@@ -47,6 +47,14 @@
         app:layout_constraintTop_toBottomOf="@id/img_prof"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="-197dp">
+        <EditText
+            android:id="@+id/search"
+            android:hint="Search ... "
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/conversation"
@@ -55,9 +63,10 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:overScrollMode="never"
-            android:padding="20dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
+            android:paddingLeft="20dp"
+            android:paddingTop="60dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="25dp"

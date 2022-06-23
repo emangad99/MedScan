@@ -17,6 +17,11 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl"
         tools:targetApi="m">
+
+        <activity
+            android:name=".chat.chat_home"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".menu.delete_account"
             android:exported="true"

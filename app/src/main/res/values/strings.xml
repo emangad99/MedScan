@@ -390,6 +390,6 @@
     <string name="disease_skin">you are infected with vascular lesions</string>
     <string name="vascular_lesions">Vascular lesions</string>
     <string name="skin1_info">Vascular lesions are relatively common abnormalities of the skin and underlying tissues, more commonly known as birthmarks. There are three major categories of vascular lesions: Hemangiomas, Vascular Malformations, and Pyogenic Granulomas. While these birthmarks can look similar at times, they each vary in terms of origin and necessary treatment.</string>
-
+    <string name="search">Search ... </string>
 
 </resources>
