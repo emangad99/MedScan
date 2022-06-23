@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ import java.util.List;
 public class chat_home extends AppCompatActivity {
 
     TextView name;
+    EditText search;
     String _NAME , photo;
     ProgressBar progressBar;
     //StorageReference mstorageReference;
@@ -52,6 +54,8 @@ public class chat_home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_home);
+
+        search=findViewById(R.id.search);
         recyclerView=findViewById(R.id.conversation);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
