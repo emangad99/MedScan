@@ -19,7 +19,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
 
     Context context;
     ArrayList<UserHelper> list;
-    UserHelper user;
+  //  UserHelper user;
 
     public chat_Adapter(Context context, ArrayList<UserHelper> list) {
         this.context = context;
@@ -31,13 +31,13 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
     public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.item_select_doctor,parent,false);
-        return new viewholder(v);
+        return new chat_Adapter.viewholder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
 
-        user= list.get(position);
+        final UserHelper user= list.get(position);
 
         holder.fullname.setText(user.getFull_Name());
         holder.medical.setText(user.getMedical());
@@ -59,10 +59,10 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
         return list.size();
     }
 
-    public static class viewholder extends RecyclerView.ViewHolder {
+    public class viewholder extends RecyclerView.ViewHolder {
 
-        TextView fullname,medical ;
-        RoundedImageView img;
+        public TextView fullname,medical ;
+        public RoundedImageView img;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);

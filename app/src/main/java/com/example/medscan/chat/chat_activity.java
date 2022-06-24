@@ -70,6 +70,27 @@ public class chat_activity extends AppCompatActivity {
         intent = getIntent();
         String userid = intent.getStringExtra("userid");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserHelper userHelper = snapshot.getValue(UserHelper.class);
+                username.setText(userHelper.getFull_Name());
+                if (userHelper.getimage().equals("default")){
+                    profile_image.setImageResource(R.mipmap.ic_launcher);
+                }else{
+                    Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
+                }
+                readMessage(fuser.getUid(), userid , userHelper.getimage());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,25 +114,6 @@ public class chat_activity extends AppCompatActivity {
         });
 
 
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserHelper userHelper = snapshot.getValue(UserHelper.class);
-                username.setText(userHelper.getFull_Name());
-                if (userHelper.getimage().equals("default")){
-                    profile_image.setImageResource(R.mipmap.ic_launcher);
-                }else{
-                    Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
-                }
-                readMessage(fuser.getUid(), userid , userHelper.getimage());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     private void sendMessage(String sender, String receiver ,String message){
