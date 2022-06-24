@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -22,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -65,32 +68,50 @@ public class chat_useer extends AppCompatActivity {
         recyclerView.setAdapter(chat_Adapter);
         progressBar=findViewById(R.id.progrsess_error);
         back=findViewById(R.id.icon_back);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                       searchUsers(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot :snapshot.getChildren()){
-                    progressBar.setVisibility(View.VISIBLE);
+               if (search.getText().toString().equals("")) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        progressBar.setVisibility(View.VISIBLE);
 
 
-                    userHelper = dataSnapshot.getValue(UserHelper.class);
-                    assert userHelper != null;
-                    assert firebaseUser !=null;
-                   if( !userHelper.getMedical().equals(""))
-                    {
-                        if(!userHelper.getUserId().equals(firebaseUser.getUid()))
-                        {
-                            list.add(userHelper);
+                        userHelper = dataSnapshot.getValue(UserHelper.class);
+                        assert userHelper != null;
+                        assert firebaseUser != null;
+                       // if (search.getText().toString().equals("")) {
+                        if (!userHelper.getMedical().equals("")) {
+
+
+                            if (!userHelper.getUserId().equals(firebaseUser.getUid())) {
+                                list.add(userHelper);
+                            }
+
                         }
 
+
                     }
-
-
+                    progressBar.setVisibility(View.GONE);
+                    chat_Adapter.notifyDataSetChanged();
 
                 }
-                progressBar.setVisibility(View.GONE);
-                chat_Adapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -105,6 +126,36 @@ public class chat_useer extends AppCompatActivity {
 
                 Intent i=new Intent(chat_useer.this, chat_home.class);
                 startActivity(i);
+            }
+        });
+    }
+
+    private void searchUsers(String s) {
+        FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
+        Query qery = FirebaseDatabase.getInstance().getReference("Users").orderByChild("Full_Name" +
+                "").startAt(s).endAt(s +"\uf8ff");
+        qery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                    UserHelper user = dataSnapshot.getValue(UserHelper.class);
+                    if (!user.getMedical().equals("")) {
+                        if (!user.getUserId().equals(fuser.getUid())) {
+                            list.add(user);
+                        }
+                    }
+
+                }
+
+
+                chat_Adapter = new chat_Adapter(chat_useer.this,list);
+                recyclerView.setAdapter(chat_Adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

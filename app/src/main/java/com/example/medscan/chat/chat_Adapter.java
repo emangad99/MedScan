@@ -11,6 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.medscan.R;
 import com.example.medscan.UserHelper;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.ArrayList;
 
@@ -20,7 +27,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
     Context context;
     ArrayList<UserHelper> list;
   //  UserHelper user;
-
+   String thelastMessage;
     public chat_Adapter(Context context, ArrayList<UserHelper> list) {
         this.context = context;
         this.list = list;
@@ -63,6 +70,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
 
         public TextView fullname,medical ;
         public RoundedImageView img;
+        public TextView last_msg;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -70,8 +78,44 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
             fullname = itemView.findViewById(R.id.doc_name);
             medical = itemView.findViewById(R.id.doc_medical);
             img=itemView.findViewById(R.id.imag_profile);
+            last_msg = itemView.findViewById(R.id.txt_message);
 
 
         }
+    }
+
+    private void lastMessage(String userid ,TextView last_msg){
+
+        thelastMessage = "defult";
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("chats");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    chatm chat = dataSnapshot.getValue(chatm.class);
+                    if(chat.getReceiver().equals(firebaseUser.getUid()) && chat.getSender().equals(userid) ||
+                    chat.getReceiver().equals(userid) && chat.getSender().equals(firebaseUser.getUid()));
+                    {
+                        thelastMessage = chat.getMessage();
+                    }
+                }
+
+                switch (thelastMessage){
+                    case "defult":
+                        last_msg.setText("NO Message");
+                        break;
+                    default:
+                        last_msg.setText(thelastMessage);
+                        break;
+                }
+                thelastMessage = "defult";
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
