@@ -9,8 +9,8 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/img_prof"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -47,14 +47,6 @@
         app:layout_constraintTop_toBottomOf="@id/img_prof"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="-197dp">
-        <EditText
-            android:id="@+id/search"
-            android:hint="Search ... "
-            android:paddingLeft="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/conversation"
@@ -63,8 +55,7 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:overScrollMode="never"
-            android:paddingLeft="20dp"
-            android:paddingTop="60dp"
+            android:padding="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <ProgressBar

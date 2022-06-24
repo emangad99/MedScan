@@ -36,7 +36,6 @@ import java.util.List;
 public class chat_home extends AppCompatActivity {
 
     TextView name;
-    EditText search;
     String _NAME , photo;
     ProgressBar progressBar;
     //StorageReference mstorageReference;
@@ -55,7 +54,6 @@ public class chat_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_home);
 
-        search=findViewById(R.id.search);
         recyclerView=findViewById(R.id.conversation);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -84,6 +82,8 @@ public class chat_home extends AppCompatActivity {
 
            }
        });
+
+
         final FloatingActionButton button = findViewById(R.id.chat_fab);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +106,7 @@ public class chat_home extends AppCompatActivity {
     }
 
 
-private void Chatlist(){
+    private void Chatlist(){
         list = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -133,14 +133,14 @@ private void Chatlist(){
             }
         });
 
-}
+    }
 
 
 
     @Override
     protected void onStart() {
         super.onStart();
-
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.example.medscan.R;
@@ -36,6 +37,7 @@ public class chat_useer extends AppCompatActivity {
     ImageView back;
     FirebaseUser firebaseUser ;
     FirebaseAuth authProfile;
+    EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public class chat_useer extends AppCompatActivity {
         firebaseUser = authProfile.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
-
+        search=findViewById(R.id.search);
         recyclerView=findViewById(R.id.recycle_chat);
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         recyclerView.setHasFixedSize(true);
