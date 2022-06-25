@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class chat_activity extends AppCompatActivity {
-    TextView username;
+    TextView username,lastseen;
     FirebaseUser fuser;
     DatabaseReference reference;
     ImageView btn , back , profile_image;
@@ -56,6 +56,8 @@ public class chat_activity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.color5));
         }
+
+        lastseen=findViewById(R.id.lastseen);
 
         recyclerView = findViewById(R.id.chatRecycle);
         recyclerView.setHasFixedSize(true);
@@ -82,6 +84,13 @@ public class chat_activity extends AppCompatActivity {
                 }else{
                     Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
                 }
+
+                lastseen.setText(userHelper.getType());
+                if(lastseen.equals("Offline"))
+                {
+                    lastseen.setText("last seen "+ userHelper.getCurrentTime());
+                }
+
                 readMessage(fuser.getUid(), userid , userHelper.getimage());
             }
 
@@ -170,6 +179,8 @@ public class chat_activity extends AppCompatActivity {
             }
         });
     }
+
+
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_activity.this, chat_home.class);

@@ -4,6 +4,7 @@ public class UserHelper {
 
     String feedback, userId;
     String address,phone,medical,time,other,Full_Name,image;
+    String currentTime,currentdate,type;
    // String sender,receiver,message;
 
     public String getimage() {
@@ -11,7 +12,30 @@ public class UserHelper {
                 ;
     }
 
-  /*  public UserHelper(String sender, String receiver, String message) {
+    public String getCurrentdate() {
+        return currentdate;
+    }
+
+    public void setCurrentdate(String currentdate) {
+        this.currentdate = currentdate;
+    }
+
+    public String getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(String currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    /*  public UserHelper(String sender, String receiver, String message) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;

@@ -43,6 +43,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -137,6 +140,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         sessionManager.setLogin(false);
                         sessionManager.setUsername("");
+                        upgradestates("Offline");
                         startActivity(new Intent(HomeActivity.this,MainActivity.class));
                         break;
 
@@ -203,9 +207,10 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        upgradestates("Online");
         String templang = Locale.getDefault().getLanguage();
-
-
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -235,6 +240,41 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void upgradestates(String state)
+    {
+        String savecurrentDate, savecurrentTime;
+
+        Calendar calForDate =Calendar.getInstance();
+        SimpleDateFormat currenrDate= new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentDate=currenrDate.format(calForDate.getTime());
+
+        Calendar calFortime =Calendar.getInstance();
+        SimpleDateFormat currenrtime= new SimpleDateFormat("hh:mm a");
+        savecurrentTime=currenrtime.format(calFortime.getTime());
+
+        HashMap<String ,Object> map = new HashMap<>();
+        map.put("currentTime",savecurrentTime);
+        map.put("currentdate",savecurrentDate);
+        map.put("type",state);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        databaseReference.updateChildren(map);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        upgradestates("Offline");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        upgradestates("Offline");
+
     }
 
     @Override
