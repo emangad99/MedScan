@@ -95,7 +95,7 @@
         android:id="@+id/viewusers"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintTop_toBottomOf="@id/img_back2"/>
 
     <androidx.recyclerview.widget.RecyclerView
