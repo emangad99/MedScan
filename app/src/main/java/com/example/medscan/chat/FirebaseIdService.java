@@ -1,4 +1,6 @@
 package com.example.medscan.chat;
 
-public class FirebaseIdService {
+import com.google.firebase.messaging.FirebaseMessagingService;
+
+public class FirebaseIdService extends FirebaseMessagingService {
 }
