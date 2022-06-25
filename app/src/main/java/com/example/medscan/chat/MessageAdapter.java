@@ -53,15 +53,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
     public void onBindViewHolder(@NonNull   MessageAdapter.viewholder holder, int position) {
         chatm  user =list.get(position);
         holder.show_message.setText(user.getMessage());
-        /*if(!image.equals("default")){
-            holder.img.setBackgroundResource(R.mipmap.ic_launcher);
-        }else {
-            Glide.with(context).load(image).into(holder.img);
-        }
-
-         */
-
-
 
         }
 
@@ -73,15 +64,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewhold
     public static class viewholder extends RecyclerView.ViewHolder {
 
         TextView show_message ;
-        RoundedImageView img;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
 
             show_message = itemView.findViewById(R.id.textmessage);
-         //   medical = itemView.findViewById(R.id.doc_medical);
-            img=itemView.findViewById(R.id.chat_img);
-
 
         }
     }

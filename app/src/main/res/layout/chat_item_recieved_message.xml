@@ -7,34 +7,22 @@
     android:layout_marginTop="8dp"
     android:padding="4dp">
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/chat_img"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/background_img"
-        app:layout_constraintBottom_toBottomOf="@id/textmessage"
-        android:scaleType="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:riv_oval="true"
-        />
 
     <TextView
         android:id="@+id/textmessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:background="@drawable/background_recieved_message"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        android:paddingEnd="16dp"
         android:paddingStart="14dp"
-        app:layout_constraintWidth_max="wrap"
-        android:textSize="13sp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/chat_img"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.75"/>
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.75" />
 
     <TextView
         android:id="@+id/textdatetime"
