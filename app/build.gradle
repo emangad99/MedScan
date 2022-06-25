@@ -74,6 +74,10 @@ dependencies {
 
     implementation'com.android.volley:volley-cronet:1.2.1'
 
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+
 
 
 

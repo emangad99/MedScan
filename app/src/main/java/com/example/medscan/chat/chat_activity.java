@@ -106,7 +106,7 @@ public class chat_activity extends AppCompatActivity {
 
                 }else
                 {
-                    lasttime.setText(userHelper.getType());
+                    lastseen.setText(userHelper.getType());
                 }
 
                 readMessage(fuser.getUid(), userid , userHelper.getimage());
