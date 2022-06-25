@@ -43,7 +43,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -110,6 +114,9 @@ public class HomeActivity extends AppCompatActivity {
         name=view.findViewById(R.id.user_name);
         email=view.findViewById(R.id.user_email);
 
+        upgradestatus("Online");
+
+
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
@@ -137,6 +144,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         sessionManager.setLogin(false);
                         sessionManager.setUsername("");
+                        upgradestatus("Offline");
                         startActivity(new Intent(HomeActivity.this,MainActivity.class));
                         break;
 
@@ -262,5 +270,32 @@ public class HomeActivity extends AppCompatActivity {
         backpressedtime =System.currentTimeMillis();
 
     }
+
+    public void upgradestatus(String state)
+    {
+        String savecurrentdate, savecurrenttime;
+        Calendar calfordate= Calendar.getInstance();
+        SimpleDateFormat currentdate = new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentdate=currentdate.format(calfordate.getTime());
+
+        Calendar calfortime= Calendar.getInstance();
+        SimpleDateFormat currenttime = new SimpleDateFormat("hh:mm a");
+        savecurrenttime=currenttime.format(calfortime.getTime());
+
+        Map currentstatemap =new HashMap();
+        currentstatemap.put("time",savecurrenttime);
+        currentstatemap.put("date",savecurrentdate);
+        currentstatemap.put("type",state);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(firebaseUser.getUid()).child("user state")
+                .updateChildren(currentstatemap);
+
+
+
+
+
+    }
+
 
 }

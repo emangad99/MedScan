@@ -53,11 +53,29 @@
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toEndOf="@+id/img_prof2"
         app:layout_constraintTop_toTopOf="@id/img_back2" />
+
+    <TextView
+        android:id="@+id/lastseen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/img_prof2"
+        app:layout_constraintTop_toTopOf="@id/img_back2" />
     <View
         android:id="@+id/viewusers"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/img_back2"/>
 
     <androidx.recyclerview.widget.RecyclerView
