@@ -85,10 +85,13 @@ public class chat_activity extends AppCompatActivity {
                     Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
                 }
 
-                lastseen.setText(userHelper.getType());
-                if(lastseen.equals("Offline"))
+               // lastseen.setText(userHelper.getType());
+                if(userHelper.getType().equals("Offline"))
                 {
                     lastseen.setText("last seen "+ userHelper.getCurrentTime());
+                }else
+                {
+                    lastseen.setText("Online");
                 }
 
                 readMessage(fuser.getUid(), userid , userHelper.getimage());
