@@ -45,6 +45,7 @@ public class chat_useer extends AppCompatActivity {
     FirebaseAuth authProfile;
     EditText search;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +68,7 @@ public class chat_useer extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<>();
-        chat_Adapter=new chat_Adapter(this,list);
+        chat_Adapter=new chat_Adapter(this,list,false);
         recyclerView.setAdapter(chat_Adapter);
         progressBar=findViewById(R.id.progrsess_error);
         back=findViewById(R.id.icon_back);
@@ -151,7 +152,7 @@ public class chat_useer extends AppCompatActivity {
                 }
 
 
-                chat_Adapter = new chat_Adapter(chat_useer.this,list);
+                chat_Adapter = new chat_Adapter(chat_useer.this,list,false);
                 recyclerView.setAdapter(chat_Adapter);
             }
 

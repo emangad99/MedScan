@@ -26,11 +26,14 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
 
     Context context;
     ArrayList<UserHelper> list;
-  //  UserHelper user;
-   String thelastMessage;
-    public chat_Adapter(Context context, ArrayList<UserHelper> list) {
+    String thelastMessage;
+    private boolean ischat;
+
+    public chat_Adapter(Context context, ArrayList<UserHelper> list, boolean ischat) {
         this.context = context;
         this.list = list;
+        this.ischat=ischat;
+
     }
 
     @NonNull
@@ -49,6 +52,18 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
         holder.fullname.setText(user.getFull_Name());
         holder.medical.setText(user.getMedical());
         Glide.with(context).load(user.getimage()).into(holder.img);
+
+        //lastMessage(user.getUserId(),holder.last_msg);
+
+        if(ischat)
+        {
+            holder.medical.setVisibility(View.GONE);
+            lastMessage(user.getUserId(),holder.last_msg);
+        }else {
+            holder.last_msg.setVisibility(View.GONE);
+        }
+
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +103,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
     private void lastMessage(String userid ,TextView last_msg){
 
 
-        thelastMessage = "defult";
+        thelastMessage = "default";
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("chats");
         reference.addValueEventListener(new ValueEventListener() {
@@ -107,14 +122,14 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
                 }
 
                 switch (thelastMessage){
-                    case "defult":
+                    case "default":
                         last_msg.setText("NO Message");
                         break;
                     default:
                         last_msg.setText(thelastMessage);
                         break;
                 }
-                thelastMessage = "defult";
+                thelastMessage = "default";
             }
 
             @Override
