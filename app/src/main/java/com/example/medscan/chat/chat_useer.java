@@ -27,7 +27,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 
 public class chat_useer extends AppCompatActivity {
 
@@ -91,7 +94,6 @@ public class chat_useer extends AppCompatActivity {
                if (search.getText().toString().equals("")) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         progressBar.setVisibility(View.VISIBLE);
-
 
                         userHelper = dataSnapshot.getValue(UserHelper.class);
                         assert userHelper != null;
@@ -158,5 +160,32 @@ public class chat_useer extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void upgradestates(String state)
+    {
+        String savecurrentDate, savecurrentTime;
+
+        Calendar calForDate =Calendar.getInstance();
+        SimpleDateFormat currenrDate= new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentDate=currenrDate.format(calForDate.getTime());
+
+        Calendar calFortime =Calendar.getInstance();
+        SimpleDateFormat currenrtime= new SimpleDateFormat("hh:mm a");
+        savecurrentTime=currenrtime.format(calFortime.getTime());
+
+        HashMap<String ,Object> map = new HashMap<>();
+        map.put("currentTime",savecurrentTime);
+        map.put("currentdate",savecurrentDate);
+        map.put("type",state);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        databaseReference.updateChildren(map);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        upgradestates("Offline");
     }
 }

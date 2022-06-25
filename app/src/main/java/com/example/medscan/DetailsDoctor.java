@@ -24,7 +24,7 @@ public class DetailsDoctor extends AppCompatActivity {
 
     EditText  medical,phone,address,time,other;
     Button submit;
-     FirebaseDatabase firebaseDatabase;
+    FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     UserHelper userHelper;
     FirebaseAuth authProfile;

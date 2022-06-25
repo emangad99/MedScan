@@ -31,11 +31,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class chat_activity extends AppCompatActivity {
-    TextView username,lastseen;
+    TextView username,lastseen, lasttime;
     FirebaseUser fuser;
     DatabaseReference reference;
     ImageView btn , back , profile_image;
@@ -45,10 +47,19 @@ public class chat_activity extends AppCompatActivity {
     RecyclerView recyclerView;
     Intent intent;
 
+    DatabaseReference databaseReference;
+    FirebaseAuth authProfile;
+    FirebaseUser firebaseUser ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -58,6 +69,7 @@ public class chat_activity extends AppCompatActivity {
         }
 
         lastseen=findViewById(R.id.lastseen);
+        lasttime=findViewById(R.id.lasttime);
 
         recyclerView = findViewById(R.id.chatRecycle);
         recyclerView.setHasFixedSize(true);
@@ -78,6 +90,7 @@ public class chat_activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserHelper userHelper = snapshot.getValue(UserHelper.class);
+                upgradestates("Online");
                 username.setText(userHelper.getFull_Name());
                 if (userHelper.getimage().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
@@ -88,10 +101,12 @@ public class chat_activity extends AppCompatActivity {
                // lastseen.setText(userHelper.getType());
                 if(userHelper.getType().equals("Offline"))
                 {
-                    lastseen.setText("last seen "+ userHelper.getCurrentTime());
+                    lastseen.setText(" last seen "+ userHelper.getCurrentTime());
+                    lasttime.setText(userHelper.getCurrentdate());
+
                 }else
                 {
-                    lastseen.setText("Online");
+                    lasttime.setText(userHelper.getType());
                 }
 
                 readMessage(fuser.getUid(), userid , userHelper.getimage());
@@ -183,7 +198,44 @@ public class chat_activity extends AppCompatActivity {
         });
     }
 
+    public void upgradestates(String state)
+    {
+        String savecurrentDate, savecurrentTime;
 
+        Calendar calForDate =Calendar.getInstance();
+        SimpleDateFormat currenrDate= new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentDate=currenrDate.format(calForDate.getTime());
+
+        Calendar calFortime =Calendar.getInstance();
+        SimpleDateFormat currenrtime= new SimpleDateFormat("hh:mm a");
+        savecurrentTime=currenrtime.format(calFortime.getTime());
+
+        HashMap<String ,Object> map = new HashMap<>();
+        map.put("currentTime",savecurrentTime);
+        map.put("currentdate",savecurrentDate);
+        map.put("type",state);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        databaseReference.updateChildren(map);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        upgradestates("Offline");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        upgradestates("Offline");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        upgradestates("Online");
+    }
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_activity.this, chat_home.class);

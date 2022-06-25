@@ -33,6 +33,7 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 public class chat_home extends AppCompatActivity {
@@ -70,6 +71,7 @@ public class chat_home extends AppCompatActivity {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                progressBar.setVisibility(View.VISIBLE);
+               upgradestates("Online");
                userlist.clear();
                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                    chatlist chatlist = snapshot.getValue(chatlist.class);
@@ -77,6 +79,7 @@ public class chat_home extends AppCompatActivity {
                }
 
                Chatlist();
+
            }
 
            @Override
@@ -142,6 +145,7 @@ public class chat_home extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        upgradestates("Offline");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -168,10 +172,38 @@ public class chat_home extends AppCompatActivity {
         });
     }
 
+    public void upgradestates(String state)
+    {
+        String savecurrentDate, savecurrentTime;
 
+        Calendar calForDate =Calendar.getInstance();
+        SimpleDateFormat currenrDate= new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentDate=currenrDate.format(calForDate.getTime());
 
+        Calendar calFortime =Calendar.getInstance();
+        SimpleDateFormat currenrtime= new SimpleDateFormat("hh:mm a");
+        savecurrentTime=currenrtime.format(calFortime.getTime());
 
+        HashMap<String ,Object> map = new HashMap<>();
+        map.put("currentTime",savecurrentTime);
+        map.put("currentdate",savecurrentDate);
+        map.put("type",state);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        databaseReference.updateChildren(map);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        upgradestates("Offline");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        upgradestates("Offline");
+    }
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_home.this, HomeActivity.class);
