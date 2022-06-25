@@ -70,7 +70,8 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
 
         public TextView fullname,medical ;
         public RoundedImageView img;
-        public TextView last_msg;
+        public  TextView last_msg;
+
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -78,7 +79,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
             fullname = itemView.findViewById(R.id.doc_name);
             medical = itemView.findViewById(R.id.doc_medical);
             img=itemView.findViewById(R.id.imag_profile);
-            last_msg = itemView.findViewById(R.id.txt_message);
+            last_msg=itemView.findViewById(R.id.doc_lastmessage);
 
 
         }
@@ -86,18 +87,22 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
 
     private void lastMessage(String userid ,TextView last_msg){
 
+
         thelastMessage = "defult";
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("chats");
         reference.addValueEventListener(new ValueEventListener() {
+
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    chatm chat = dataSnapshot.getValue(chatm.class);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    //medical.setVisibility(View.GONE);
+                    chatm chat = snapshot.getValue(chatm.class);
                     if(chat.getReceiver().equals(firebaseUser.getUid()) && chat.getSender().equals(userid) ||
-                    chat.getReceiver().equals(userid) && chat.getSender().equals(firebaseUser.getUid()));
+                    chat.getReceiver().equals(userid) && chat.getSender().equals(firebaseUser.getUid()))
                     {
                         thelastMessage = chat.getMessage();
+
                     }
                 }
 
