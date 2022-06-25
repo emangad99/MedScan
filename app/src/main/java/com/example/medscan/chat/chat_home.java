@@ -33,9 +33,7 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class chat_home extends AppCompatActivity {
 
@@ -144,9 +142,6 @@ public class chat_home extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        upgradestatus("Online");
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -173,41 +168,10 @@ public class chat_home extends AppCompatActivity {
         });
     }
 
-    public void upgradestatus(String state)
-    {
-        String savecurrentdate, savecurrenttime;
-        Calendar calfordate= Calendar.getInstance();
-        SimpleDateFormat currentdate = new SimpleDateFormat("MMM dd, yyyy");
-        savecurrentdate=currentdate.format(calfordate.getTime());
 
-        Calendar calfortime= Calendar.getInstance();
-        SimpleDateFormat currenttime = new SimpleDateFormat("hh:mm a");
-        savecurrenttime=currenttime.format(calfortime.getTime());
 
-        Map currentstatemap =new HashMap();
-        currentstatemap.put("time",savecurrenttime);
-        currentstatemap.put("date",savecurrentdate);
-        currentstatemap.put("type",state);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        databaseReference.child(firebaseUser.getUid()).child("user state")
-                .updateChildren(currentstatemap);
 
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        upgradestatus("Offline");
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        upgradestatus("Offline");
-
-    }
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_home.this, HomeActivity.class);

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class chat_activity extends AppCompatActivity {
-    TextView username , lastseen;
+    TextView username;
     FirebaseUser fuser;
     DatabaseReference reference;
     ImageView btn , back , profile_image;
@@ -57,7 +57,6 @@ public class chat_activity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.color5));
         }
 
-        lastseen=findViewById(R.id.lastseen);
         recyclerView = findViewById(R.id.chatRecycle);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -78,20 +77,6 @@ public class chat_activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserHelper userHelper = snapshot.getValue(UserHelper.class);
                 username.setText(userHelper.getFull_Name());
-                final String type =snapshot.child("user state").child("type").getValue().toString();
-                final String date =snapshot.child("user state").child("date").getValue().toString();
-                final String time =snapshot.child("user state").child("time").getValue().toString();
-
-                if(type.equals("Online"))
-                {
-                    lastseen.setText("Online");
-                }
-                else
-                {
-                    lastseen.setText("last seen "+time+" "+date);
-                }
-
-
                 if (userHelper.getimage().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 }else{
@@ -185,7 +170,6 @@ public class chat_activity extends AppCompatActivity {
             }
         });
     }
-
 
     public void onBackPressed() {
         Intent donor=new Intent(chat_activity.this, chat_home.class);
