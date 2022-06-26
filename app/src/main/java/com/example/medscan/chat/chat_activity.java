@@ -90,7 +90,6 @@ public class chat_activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserHelper userHelper = snapshot.getValue(UserHelper.class);
-                upgradestates("Online");
                 username.setText(userHelper.getFull_Name());
                 if (userHelper.getimage().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
@@ -98,7 +97,6 @@ public class chat_activity extends AppCompatActivity {
                     Glide.with(chat_activity.this).load(userHelper.getimage()).into(profile_image);
                 }
 
-               // lastseen.setText(userHelper.getType());
                 if(userHelper.getType().equals("Offline"))
                 {
                     lastseen.setText(" last seen "+ userHelper.getCurrentTime());
@@ -108,6 +106,8 @@ public class chat_activity extends AppCompatActivity {
                 {
                     lastseen.setText(userHelper.getType());
                 }
+
+
 
                 readMessage(fuser.getUid(), userid , userHelper.getimage());
             }
@@ -198,8 +198,15 @@ public class chat_activity extends AppCompatActivity {
         });
     }
 
-    public void upgradestates(String state)
+    public void onBackPressed() {
+        Intent donor=new Intent(chat_activity.this, chat_home.class);
+        startActivity(donor);
+    }
+
+    private void status (String status)
     {
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
         String savecurrentDate, savecurrentTime;
 
         Calendar calForDate =Calendar.getInstance();
@@ -213,32 +220,22 @@ public class chat_activity extends AppCompatActivity {
         HashMap<String ,Object> map = new HashMap<>();
         map.put("currentTime",savecurrentTime);
         map.put("currentdate",savecurrentDate);
-        map.put("type",state);
+        map.put("type",status);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         databaseReference.updateChildren(map);
+
+
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        upgradestates("Offline");
+    protected void onResume() {
+        super.onResume();
+        status("Online");
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        upgradestates("Offline");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        upgradestates("Online");
-    }
-
-    public void onBackPressed() {
-        Intent donor=new Intent(chat_activity.this, chat_home.class);
-        startActivity(donor);
+    protected void onPause() {
+        super.onPause();
+        status("Offline");
     }
 }

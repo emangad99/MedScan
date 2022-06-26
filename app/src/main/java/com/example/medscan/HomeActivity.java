@@ -67,25 +67,12 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser firebaseUser ;
     DatabaseReference databaseReference;
     String profileUrl,username,useremail;
-    TextView or;
+    //TextView or;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        or=findViewById(R.id.txt_or);
-        /*
-        or.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent delete = new Intent(HomeActivity.this, delete_account.class);
-                startActivity(delete);
-            }
-        });
-
-         */
-
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -140,8 +127,8 @@ public class HomeActivity extends AppCompatActivity {
 
                         sessionManager.setLogin(false);
                         sessionManager.setUsername("");
-                        upgradestates("Offline");
-                        startActivity(new Intent(HomeActivity.this,MainActivity.class));
+                        status("Offline");
+                        startActivity(new Intent(HomeActivity.this,MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                         break;
 
                     case R.id.feedback:
@@ -207,8 +194,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        upgradestates("Online");
         String templang = Locale.getDefault().getLanguage();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
@@ -242,41 +227,6 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public void upgradestates(String state)
-    {
-        String savecurrentDate, savecurrentTime;
-
-        Calendar calForDate =Calendar.getInstance();
-        SimpleDateFormat currenrDate= new SimpleDateFormat("MMM dd, yyyy");
-        savecurrentDate=currenrDate.format(calForDate.getTime());
-
-        Calendar calFortime =Calendar.getInstance();
-        SimpleDateFormat currenrtime= new SimpleDateFormat("hh:mm a");
-        savecurrentTime=currenrtime.format(calFortime.getTime());
-
-        HashMap<String ,Object> map = new HashMap<>();
-        map.put("currentTime",savecurrentTime);
-        map.put("currentdate",savecurrentDate);
-        map.put("type",state);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        databaseReference.updateChildren(map);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        upgradestates("Offline");
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        upgradestates("Offline");
-
-    }
-
     @Override
     public void onBackPressed() {
         String templang = Locale.getDefault().getLanguage();
@@ -303,4 +253,39 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    private void status (String status)
+    {
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        String savecurrentDate, savecurrentTime;
+
+        Calendar calForDate =Calendar.getInstance();
+        SimpleDateFormat currenrDate= new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentDate=currenrDate.format(calForDate.getTime());
+
+        Calendar calFortime =Calendar.getInstance();
+        SimpleDateFormat currenrtime= new SimpleDateFormat("hh:mm a");
+        savecurrentTime=currenrtime.format(calFortime.getTime());
+
+        HashMap<String ,Object> map = new HashMap<>();
+        map.put("currentTime",savecurrentTime);
+        map.put("currentdate",savecurrentDate);
+        map.put("type",status);
+
+        databaseReference.updateChildren(map);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("Online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("Offline");
+    }
 }

@@ -162,7 +162,7 @@ public class chat_useer extends AppCompatActivity {
             }
         });
     }
-
+/*
     public void upgradestates(String state)
     {
         String savecurrentDate, savecurrentTime;
@@ -189,4 +189,6 @@ public class chat_useer extends AppCompatActivity {
         super.onStart();
         upgradestates("Offline");
     }
+
+ */
 }

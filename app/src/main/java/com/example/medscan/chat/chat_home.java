@@ -39,7 +39,6 @@ public class chat_home extends AppCompatActivity {
     TextView name;
     String _NAME , photo;
     ProgressBar progressBar;
-    //StorageReference mstorageReference;
     RoundedImageView img;
     RecyclerView recyclerView;
     chat_Adapter chat_adapter2;
@@ -69,7 +68,6 @@ public class chat_home extends AppCompatActivity {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                progressBar.setVisibility(View.VISIBLE);
-               upgradestates("Online");
                userlist.clear();
                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                    chatlist chatlist = snapshot.getValue(chatlist.class);
@@ -115,7 +113,6 @@ public class chat_home extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               // progressBar.setVisibility(View.VISIBLE);
                 list.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     UserHelper user = snapshot.getValue(UserHelper.class);
@@ -143,7 +140,6 @@ public class chat_home extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        upgradestates("Offline");
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -170,8 +166,15 @@ public class chat_home extends AppCompatActivity {
         });
     }
 
-    public void upgradestates(String state)
+    public void onBackPressed() {
+        Intent donor=new Intent(chat_home.this, HomeActivity.class);
+        startActivity(donor);
+    }
+
+    private void status (String status)
     {
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
         String savecurrentDate, savecurrentTime;
 
         Calendar calForDate =Calendar.getInstance();
@@ -185,26 +188,22 @@ public class chat_home extends AppCompatActivity {
         HashMap<String ,Object> map = new HashMap<>();
         map.put("currentTime",savecurrentTime);
         map.put("currentdate",savecurrentDate);
-        map.put("type",state);
+        map.put("type",status);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         databaseReference.updateChildren(map);
+
+
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        upgradestates("Offline");
+    protected void onResume() {
+        super.onResume();
+        status("Online");
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        upgradestates("Offline");
-    }
-
-    public void onBackPressed() {
-        Intent donor=new Intent(chat_home.this, HomeActivity.class);
-        startActivity(donor);
+    protected void onPause() {
+        super.onPause();
+        status("Offline");
     }
 }

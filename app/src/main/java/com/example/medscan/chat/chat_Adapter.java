@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -95,6 +96,7 @@ public class chat_Adapter extends RecyclerView.Adapter<chat_Adapter.viewholder> 
             medical = itemView.findViewById(R.id.doc_medical);
             img=itemView.findViewById(R.id.imag_profile);
             last_msg=itemView.findViewById(R.id.doc_lastmessage);
+
 
 
         }
