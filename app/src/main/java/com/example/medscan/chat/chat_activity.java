@@ -1,11 +1,13 @@
 package com.example.medscan.chat;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -40,17 +42,18 @@ public class chat_activity extends AppCompatActivity {
     TextView username,lastseen, lasttime;
     FirebaseUser fuser;
     DatabaseReference reference;
-    ImageView btn , back , profile_image;
+    ImageView btn , back , profile_image , img;
     EditText edit;
     MessageAdapter messageAdapter;
     ArrayList<chatm> list;
     RecyclerView recyclerView;
     Intent intent;
-
+    int SELECT_PHOTO=2;
+    private Uri imageuri;
     DatabaseReference databaseReference;
     FirebaseAuth authProfile;
     FirebaseUser firebaseUser ;
-
+    String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +83,10 @@ public class chat_activity extends AppCompatActivity {
         username = findViewById(R.id.username);
         profile_image = findViewById(R.id.img_prof2);
         btn = findViewById(R.id.btnsend);
+        img=findViewById(R.id.btnimg);
         edit = findViewById(R.id.edit_send);
         intent = getIntent();
-        String userid = intent.getStringExtra("userid");
+        userid = intent.getStringExtra("userid");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
 
@@ -137,6 +141,17 @@ public class chat_activity extends AppCompatActivity {
                     Toast.makeText(chat_activity.this,"you can't send empty message",Toast.LENGTH_SHORT).show();
                 }
                 edit.setText("");
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent();
+                gallery.setAction(Intent.ACTION_PICK);
+                gallery.setType("image/*");
+                startActivityForResult(gallery,SELECT_PHOTO);
+
             }
         });
 

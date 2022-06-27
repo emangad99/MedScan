@@ -145,6 +145,30 @@
             android:padding="8dp"
             android:src="@drawable/ic_send_24"
             app:tint="@color/white" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/layoutimg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="66dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_chat_input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnimg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:padding="8dp"
+            android:src="@drawable/camera"
+            app:tint="@color/white" />
+
     </FrameLayout>
 
     <EditText
@@ -152,21 +176,19 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="12dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/background_chat_input"
         android:hint="@string/type_a_message"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:inputType="text"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingEnd="18dp"
         android:textColor="@color/white"
         android:textColorHint="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/layoutsend"
+        app:layout_constraintEnd_toStartOf="@+id/layoutimg"
         app:layout_constraintStart_toStartOf="parent"
 
         />
