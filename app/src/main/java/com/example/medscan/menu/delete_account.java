@@ -103,27 +103,54 @@ public class delete_account extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
 
+                                if(templang == "ar")
+                                {
+                                    AlertDialog.Builder dialog = new AlertDialog.Builder(delete_account.this);
+                                    dialog.setTitle("هل انت متأكد ؟ ");
+                                    dialog.setMessage("سيؤدي حذف هذا الحساب إلى إزالة حسابك تمامًا ولن تتمكن من الوصول إلى التطبيق.");
+                                    dialog.setPositiveButton("حذف", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
 
-                                AlertDialog.Builder dialog = new AlertDialog.Builder(delete_account.this);
-                                dialog.setTitle("Are you sure ?");
-                                dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
-                                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
+                                            delete_current_user();
 
-                                           delete_current_user();
+                                        }
+                                    });
+                                    dialog.setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
 
-                                    }
-                                });
-                                dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                });
+                                    AlertDialog alertDialog = dialog.create();
+                                    alertDialog.show();
+                                }
+                                else
+                                {
+                                    AlertDialog.Builder dialog = new AlertDialog.Builder(delete_account.this);
+                                    dialog.setTitle("Are you sure ?");
+                                    dialog.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
+                                    dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
 
-                                AlertDialog alertDialog = dialog.create();
-                                alertDialog.show();
+                                            delete_current_user();
+
+                                        }
+                                    });
+                                    dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+
+                                    AlertDialog alertDialog = dialog.create();
+                                    alertDialog.show();
+                                }
+
+
 
 
 
