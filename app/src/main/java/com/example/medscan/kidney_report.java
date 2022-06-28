@@ -17,6 +17,9 @@ public class kidney_report extends AppCompatActivity {
     Button send;
     TextView text;
 
+    TextView blood_pressure,patient_Albumin,patient_blood,patient_serum,patient_white_blood,patient_pressure,sodium,
+            patient_urea,patient_potassium,haemoglobin,PacketCellVolum,redbloodcellcount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,21 @@ public class kidney_report extends AppCompatActivity {
 
         send=findViewById(R.id.btn_submit);
         text=findViewById(R.id.text_try);
+
+        blood_pressure=findViewById(R.id.blood_pressure);
+        patient_Albumin=findViewById(R.id.patient_Albumin);
+        patient_blood=findViewById(R.id.patient_blood);
+        patient_serum=findViewById(R.id.patient_serum);
+        patient_white_blood=findViewById(R.id.patient_white_blood);
+        patient_pressure=findViewById(R.id.patient_pressure);
+        sodium=findViewById(R.id.sodium);
+        patient_urea=findViewById(R.id.patient_urea);
+        patient_potassium=findViewById(R.id.patient_potassium);
+        haemoglobin=findViewById(R.id.haemoglobin);
+        PacketCellVolum=findViewById(R.id.PacketCellVolum);
+        redbloodcellcount=findViewById(R.id.redbloodcellcount);
+
+
 
         radioButton=findViewById(R.id.normal);
         radioButton2=findViewById(R.id.non_normal);
