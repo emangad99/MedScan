@@ -29,9 +29,17 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.medscan.eyes.bulging_eyes;
+import com.example.medscan.eyes.cataract;
+import com.example.medscan.eyes.crossed_eyes;
+import com.example.medscan.eyes.glaucoma;
+import com.example.medscan.eyes.successful_eyes;
+import com.example.medscan.eyes.uveitis;
+import com.example.medscan.kidneys.kidney_successful;
 import com.example.medscan.lungs.RealPathUtil;
 import com.example.medscan.ml.Eyes;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -59,6 +67,7 @@ public class eyes_image extends AppCompatActivity {
     ImageView btn_choose , img , btn_camera;
     TextView text;
     Button upload ;
+    ProgressBar prog;
     Bitmap image = null;
     int imageSize = 224;
 
@@ -72,12 +81,15 @@ public class eyes_image extends AppCompatActivity {
         img=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
         btn_camera=findViewById(R.id.camera);
+        prog = findViewById(R.id.eyes_prog);
+        prog.setVisibility(View.INVISIBLE);
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
                 classifyImage(image);
+                prog.setVisibility(View.VISIBLE);
             }
         });
 
@@ -177,26 +189,45 @@ public class eyes_image extends AppCompatActivity {
             }
             String[] classes = {"healthy", "cataract", "glaucoma", "crossed", "uveitis", "bulging"};
 
-            if (maxPos == 15) {
-                Toast.makeText(getApplicationContext(), "healthy", Toast.LENGTH_LONG).show();
+            if (maxPos == 76728) {
+                Intent cdk = new Intent(eyes_image.this, successful_eyes.class);
+                startActivity(cdk);
+                prog.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(), "healthy", Toast.LENGTH_LONG).show();
             }
-            else if (maxPos == 16){
-                Toast.makeText(getApplicationContext(), "cataract", Toast.LENGTH_LONG).show();
+            else if (maxPos == 78601){
+                Intent cdk = new Intent(eyes_image.this, cataract.class);
+                startActivity(cdk);
+                prog.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(), "cataract", Toast.LENGTH_LONG).show();
             }
-            else if (maxPos == 17){
-                Toast.makeText(getApplicationContext(), "glaucoma", Toast.LENGTH_LONG).show();
+            else if (maxPos == 79146){
+                Intent cdk = new Intent(eyes_image.this, glaucoma.class);
+                startActivity(cdk);
+                prog.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(), "glaucoma", Toast.LENGTH_LONG).show();
             }
-            else if (maxPos == 18){
-                Toast.makeText(getApplicationContext(), "crossed", Toast.LENGTH_LONG).show();
+            else if (maxPos == 77274){
+                Intent cdk = new Intent(eyes_image.this, crossed_eyes.class);
+                startActivity(cdk);
+                prog.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(), "crossed", Toast.LENGTH_LONG).show();
             }
-            else if (maxPos == 19){
-                Toast.makeText(getApplicationContext(), "uveitis", Toast.LENGTH_LONG).show();
+            else if (maxPos == 78444){
+                Intent cdk = new Intent(eyes_image.this, uveitis.class);
+                startActivity(cdk);
+                prog.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(), "uveitis", Toast.LENGTH_LONG).show();
             }
-            else if (maxPos == 20){
-                Toast.makeText(getApplicationContext(), "bulging", Toast.LENGTH_LONG).show();
+            else if (maxPos == 78133){
+                Intent cdk = new Intent(eyes_image.this, bulging_eyes.class);
+                startActivity(cdk);
+                prog.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(), "bulging", Toast.LENGTH_LONG).show();
             }
             else {
                 Toast.makeText(getApplicationContext(), "invalid", Toast.LENGTH_LONG).show();
+                prog.setVisibility(View.INVISIBLE);
             }
 
             // Releases model resources if no longer used.
