@@ -1,6 +1,7 @@
 package com.example.medscan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +12,13 @@ import androidx.core.content.FileProvider;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +32,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.medscan.lungs.RealPathUtil;
+import com.example.medscan.ml.Eyes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -35,27 +41,26 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.theartofdev.edmodo.cropper.CropImage;
+
+import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class eyes_image extends AppCompatActivity {
 
-    int SELECT_PHOTO=2;
-    private int STORAGE_PERMISSION_CODE = 1 ;
-    ImageView btn_choose , image , btn_camera;
-    Button upload ;
-    private Uri imageuri;
-    String currentPhotoPath;
-    private static final int MY_CAMERA_PERMISSION_CODE = 100;
-    private static final int CAMERA_REQUEST = 1888;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("image_eyes");
-    private StorageReference reference = FirebaseStorage.getInstance().getReference();
+
+    ImageView btn_choose , img , btn_camera;
     TextView text;
+    Button upload ;
+    Bitmap image = null;
+    int imageSize = 224;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,318 +69,149 @@ public class eyes_image extends AppCompatActivity {
 
         text=findViewById(R.id.text_eyes);
         btn_choose = findViewById(R.id.choose);
-        image=findViewById(R.id.image_ray);
+        img=findViewById(R.id.image_ray);
         upload=findViewById(R.id.btn_upload_rays);
         btn_camera=findViewById(R.id.camera);
-        String templang = Locale.getDefault().getLanguage();
-
-        btn_choose.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                if(ContextCompat.checkSelfPermission(eyes_image.this,
-                        Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
-                {
-                    Intent gallery = new Intent();
-                    gallery.setAction(Intent.ACTION_PICK);
-                    gallery.setType("image/*");
-                    startActivityForResult(gallery,SELECT_PHOTO);
-
-                }
-                else
-                {
-                    requesrtstoragepermission();
-
-                }
-
-            }
-
-        });
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( (imageuri != null)){
-                    uplaodToFirebase(imageuri);
-
-                }else{
-                    if(templang == "ar")
-                    {
-                        Toast.makeText(eyes_image.this, "قم بإختيار الصورة", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        Toast.makeText(eyes_image.this, "Please select image ", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
+                image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
+                classifyImage(image);
             }
         });
 
         btn_camera.setOnClickListener(new View.OnClickListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
+                    Intent cam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cam, 3);
+                }
+                else {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+                }
+            }
+        });
 
-                if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-                {
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
-                }
-                else
-                {
-                    dispatchTakePictureIntent();
-                }
+        btn_choose.setOnClickListener(new View.OnClickListener() {
+
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View view) {
+
+                Intent cam = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(cam, 1);
+
 
             }
         });
+
+
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == RESULT_OK){
+            if (requestCode == 3){
+                Bitmap image = (Bitmap) data.getExtras().get("data");
+                int dimension = Math.min(image.getWidth(), image.getHeight());
+                image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
+                img.setImageBitmap(image);
+
+
+            }
+            else {
+                Uri dat = data.getData();
+
+                try {
+                    image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), dat);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                img.setImageBitmap(image);
+
+            }
+        }
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 2 && resultCode == RESULT_OK && data != null )
-        {
-            imageuri = data.getData();
-            image.setImageURI(imageuri);
-            text.setVisibility(View.GONE);
-
-        }
-        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
-        {
-            File f = new File (currentPhotoPath);
-            image.setImageURI(Uri.fromFile(f));
-            Log.d("tag","ABsolute Url of Image is "+ Uri.fromFile(f));
-
-            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            imageuri = Uri.fromFile(f);
-            mediaScanIntent.setData(imageuri);
-            this.sendBroadcast(mediaScanIntent);
-
-            text.setVisibility(View.GONE);
-
-
-
-
-        }
 
     }
 
-    private void requesrtstoragepermission()
-    {
-        String templang = Locale.getDefault().getLanguage();
+    private void classifyImage(Bitmap image) {
+        try {
+            Eyes model = Eyes.newInstance(getApplicationContext());
 
-        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE))
-        {
-            if(templang == "ar")
-            {
-                new AlertDialog.Builder(this)
-                        .setTitle("مطلوب إذن ")
-                        .setMessage("يريد هذا الإذن الوصول إلي معرض الصور")
-                        .setPositiveButton("حسنا", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ActivityCompat.requestPermissions(eyes_image.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
+            // Creates inputs for reference.
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
+            byteBuffer.order(ByteOrder.nativeOrder());
 
-                            }
-                        })
-                        .setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-
-                            }
-                        })
-                        .create().show();
-
-            }
-            else
-            {
-                new AlertDialog.Builder(this)
-                        .setTitle("Permission needed")
-                        .setMessage("This permission is needed to upload images")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ActivityCompat.requestPermissions(eyes_image.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
-
-                            }
-                        })
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-
-                            }
-                        })
-                        .create().show();
-
-            }
-
-        }
-        else{
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_PERMISSION_CODE);
-        }
-
-
-    }
-
-
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        //File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File storageDir =Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, CAMERA_REQUEST);
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        String templang = Locale.getDefault().getLanguage();
-
-        if (requestCode == STORAGE_PERMISSION_CODE) {
-            if(templang == "ar")
-            {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "تم أخذ الإذن ", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Toast.makeText(this, "تم رفض الإذن ", Toast.LENGTH_SHORT).show();
-
-
-                }
-            }
-            else
-            {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
-
-
+            int[] intValues = new int[imageSize * imageSize];
+            image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
+            int pixel = 0;
+            for (int i = 0; i <imageSize; i++){
+                for (int j = 0; j < imageSize; j++){
+                    int val = intValues[pixel++]; //RGB
+                    byteBuffer.putFloat(((val >> 16 & 0xFF) * (1.f / 255.f)));
+                    byteBuffer.putFloat(((val >> 8 & 0xFF) * (1.f / 255.f)));
+                    byteBuffer.putFloat(((val & 0xFF) * (1.f / 255.f)));
                 }
             }
 
 
-        }
-        if (requestCode == MY_CAMERA_PERMISSION_CODE)
-        {
-            if(templang == "ar")
-            {
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    Toast.makeText(this, "تم منح إذن الكاميرا", Toast.LENGTH_LONG).show();
-                    dispatchTakePictureIntent();
+            inputFeature0.loadBuffer(byteBuffer);
 
-                }
-                else
-                {
-                    Toast.makeText(this, "تم رفض إذن الكاميرا", Toast.LENGTH_LONG).show();
+            // Runs model inference and gets result.
+            Eyes.Outputs outputs = model.process(inputFeature0);
+            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+            float[] confidences = outputFeature0.getFloatArray();
+            int maxPos = 0;
+            float maxConfidences = 0;
+            for (int i = 0; i < confidences.length; i++ ){
+                if (confidences[i] > maxConfidences){
+                    maxConfidences = confidences[i];
+                    maxPos = i;
                 }
             }
-            else
-            {
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
-                    dispatchTakePictureIntent();
+            String[] classes = {"healthy", "cataract", "glaucoma", "crossed", "uveitis", "bulging"};
 
-                }
-                else
-                {
-                    Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
-                }
+            if (maxPos == 15) {
+                Toast.makeText(getApplicationContext(), "healthy", Toast.LENGTH_LONG).show();
             }
+            else if (maxPos == 16){
+                Toast.makeText(getApplicationContext(), "cataract", Toast.LENGTH_LONG).show();
+            }
+            else if (maxPos == 17){
+                Toast.makeText(getApplicationContext(), "glaucoma", Toast.LENGTH_LONG).show();
+            }
+            else if (maxPos == 18){
+                Toast.makeText(getApplicationContext(), "crossed", Toast.LENGTH_LONG).show();
+            }
+            else if (maxPos == 19){
+                Toast.makeText(getApplicationContext(), "uveitis", Toast.LENGTH_LONG).show();
+            }
+            else if (maxPos == 20){
+                Toast.makeText(getApplicationContext(), "bulging", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "invalid", Toast.LENGTH_LONG).show();
+            }
+
+            // Releases model resources if no longer used.
+            model.close();
+        } catch (IOException e) {
+            // TODO Handle the exception
         }
 
     }
 
-    private  void  uplaodToFirebase(Uri uri){
-        StorageReference fileRef =  reference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
-        fileRef.putFile((uri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
 
-                        Model4 model = new Model4(uri.toString());
-                        String modelId = root.push().getKey();
-                        root.child(modelId).setValue(model);
-                        String templang = Locale.getDefault().getLanguage();
-                        if(templang == "ar")
-                        {
-                            Toast.makeText(eyes_image.this, "تم الرفع بنجاح", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            Toast.makeText(eyes_image.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                String templang = Locale.getDefault().getLanguage();
-
-                if(templang == "ar")
-                {
-                    Toast.makeText(eyes_image.this, "حدث خطأ", Toast.LENGTH_SHORT).show();
-
-                }
-                else
-                {
-                    Toast.makeText(eyes_image.this, "Uploading failed", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
-
-    }
-    private  String getFileExtention(Uri mUri){
-        ContentResolver cr = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return  mime.getExtensionFromMimeType(cr.getType(mUri));
-    }
 }
-class  Model3{
+
+//}
+/*class  Model3{
     private String imageUri;
     public Model3(){
 
@@ -392,6 +228,6 @@ class  Model3{
         this.imageUri = imageUri;
     }
 
-}
+}*/
 
 

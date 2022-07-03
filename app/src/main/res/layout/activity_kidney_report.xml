@@ -237,6 +237,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/yes"
                     android:layout_marginLeft="120dp" />
+
                 <RadioButton
                     android:id="@+id/non_normal4"
                     android:layout_width="wrap_content"
@@ -335,12 +336,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/yes"
                     android:layout_marginLeft="120dp" />
+
                 <RadioButton
                     android:id="@+id/non_normal6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/no"
-                    android:layout_marginLeft="120dp" />
+                    android:layout_marginLeft="120dp"
+                    android:text="@string/no" />
+
+                <ProgressBar
+                    android:id="@+id/k_prog"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content" />
+
             </RadioGroup>
         </LinearLayout>
 
@@ -457,21 +466,53 @@
             app:layout_constraintTop_toBottomOf="@+id/redbloodcellcount" />
 
         <TextView
-            android:id="@+id/text_try"
-            android:layout_width="335dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:id="@+id/pc_text"
+            android:layout_width="42dp"
+            android:layout_height="43dp"
             android:background="@drawable/custom_input"
             android:backgroundTintMode="add"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_submit" />
+            tools:layout_editor_absoluteY="1258dp" />
 
+        <TextView
+            android:id="@+id/pcc_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/pc_text"
+            tools:layout_editor_absoluteY="1270dp" />
 
+        <TextView
+            android:id="@+id/htn_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="1272dp" />
+
+        <TextView
+            android:id="@+id/dm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/pc_text"
+            tools:layout_editor_absoluteY="1245dp" />
+
+        <TextView
+            android:id="@+id/pe_text"
+            android:layout_width="9dp"
+            android:layout_height="67dp"
+            app:layout_constraintStart_toEndOf="@+id/dm_text"
+            tools:layout_editor_absoluteY="1245dp" />
+
+        <TextView
+            android:id="@+id/ane_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="1238dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

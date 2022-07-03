@@ -8,7 +8,7 @@
     tools:context=".kidneys.kidney_failed">
 
     <Button
-        android:id="@+id/btn_done"
+        android:id="@+id/btn_done_k"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="280dp"
         android:layout_height="48dp"

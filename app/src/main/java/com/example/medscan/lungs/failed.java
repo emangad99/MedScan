@@ -17,7 +17,7 @@ Button done;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_failed);
 
-        done=findViewById(R.id.btn_done);
+        done=findViewById(R.id.btn_done_k);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

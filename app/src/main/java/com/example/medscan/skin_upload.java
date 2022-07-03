@@ -132,8 +132,6 @@ public class skin_upload extends AppCompatActivity {
                 if ( (imageuri != null)){
 
                     prog_bar.setVisibility(View.VISIBLE);
-                    btn_choose.setVisibility(View.GONE);
-                    btn_camera.setVisibility(View.GONE);
 
                     result();
 

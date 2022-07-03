@@ -9,8 +9,6 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.medscan.R;
-import com.example.medscan.lungs.failed;
-import com.example.medscan.lungs.failed_advice;
 
 public class kidney_failed extends AppCompatActivity {
     Button done;
@@ -20,7 +18,7 @@ public class kidney_failed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kidney_failed);
 
-        done=findViewById(R.id.btn_done);
+        done=findViewById(R.id.btn_done_k);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

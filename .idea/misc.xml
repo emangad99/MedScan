@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ALMASRYA/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_patient_edit.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_eyes_image.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_failed.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_kidney_failed.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_kidney_report.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_kidney_successful.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/MedScan/app/src/main/res/layout/activity_ray_uploaded.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/back_icon.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/Eman/AndroidStudioProjects/MedScan/app/src/main/res/drawable/background_chat.xml" value="0.26615384615384613" />
