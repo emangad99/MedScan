@@ -128,7 +128,7 @@ public class eyes_image extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == RESULT_OK){
             if (requestCode == 3){
-                Bitmap image = (Bitmap) data.getExtras().get("data");
+                 image = (Bitmap) data.getExtras().get("data");
                 int dimension = Math.min(image.getWidth(), image.getHeight());
                 image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
                 img.setImageBitmap(image);
