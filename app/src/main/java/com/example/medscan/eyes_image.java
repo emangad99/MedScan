@@ -90,6 +90,10 @@ public class eyes_image extends AppCompatActivity {
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
                 classifyImage(image);
                 prog.setVisibility(View.VISIBLE);
+                btn_camera.setVisibility(View.GONE);
+                btn_choose.setVisibility(View.GONE);
+                text.setVisibility(View.GONE);
+
             }
         });
 

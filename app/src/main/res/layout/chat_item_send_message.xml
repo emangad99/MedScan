@@ -35,13 +35,4 @@
         app:layout_constraintTop_toBottomOf="@id/textmessage"
         tools:ignore="SmallSp" />
 
-    <ImageView
-        android:id="@+id/img_sender"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_margin="10dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textmessage"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
